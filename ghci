@@ -1,0 +1,25 @@
+:set prompt "λ> "
+-- :set -Wall
+:set -XUnicodeSyntax
+:set -isrc:test
+:set -package=QuickCheck
+:set -package=test-framework-quickcheck2
+:set -package=test-framework
+:set -package=random
+:set -package=test-framework-hunit
+:set -package=HUnit
+:set -package=criterion
+:set -Wwarn
+
+import Data.List
+import Data.Maybe
+import Test.QuickCheck
+import Test.Framework (defaultMain)
+
+let ghciEscapeShellArg arg = "'" ++ concatMap (\x -> if x == '\'' then "'\"'\"'" else [x]) arg ++ "'"                             
+:def! hoogle return . (":! hoogle --color --count=15 " ++) . ghciEscapeShellArg                                                   
+:def! doc return . (":! hoogle --info " ++) . ghciEscapeShellArg
+
+:def hlint const . return $ ":! hlint \"src\""
+
+:def pl \s -> return $ ":! pointfree \"" ++ s ++ "\""
