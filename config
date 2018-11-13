@@ -1,0 +1,7 @@
+.bashrc
+.emacs
+emacs.d
+.ghci
+.gitconfig
+.stylish-haskell.yaml
+.xinitrc

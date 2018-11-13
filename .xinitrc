@@ -1,0 +1,3 @@
+xscreensaver &
+amy-xmonad-exe
+
