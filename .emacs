@@ -71,6 +71,12 @@
 ;; ;; Haskell indentation
 ;; (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
 
+;; Use Hasktags
+(let ((my-stack-path (expand-file-name "~/.local/bin")))
+  (setenv "PATH" (concat my-stack-path path-separator (getenv "PATH")))
+  (add-to-list 'exec-path my-stack-path))
+(custom-set-variables '(haskell-tags-on-save t)
+
 ;; Stylish Haskell
 (custom-set-variables
  '(haskell-stylish-on-save t))
