@@ -5,3 +5,4 @@ emacs.d
 .gitconfig
 .stylish-haskell.yaml
 .xinitrc
+.stack/config.yaml
