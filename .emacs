@@ -1,5 +1,13 @@
+;; No startup screen
+(setq inhibit-startup-screen t)
+
 ;; No toolbar
 (tool-bar-mode -1)
+
+;; Open my emacs "cheat sheet"
+(defun wombat-emacs-help ()
+  (interactive)
+  (find-file "~/néal/eolas/emacs.txt"))
 
 ;; CUA
 (cua-mode t)
@@ -24,9 +32,10 @@
 ;; (global-set-key (kbd "<f12>") (quote browse-apropos-url-on-region))
 ;; (global-set-key (kbd "C-SPC") (quote hippie-expand))
 (global-set-key (kbd "C-?") (quote wombat-emacs-help))
-
-;; No startup screen
-(setq inhibit-startup-screen t)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-switchb)
 
 ;; open with single window
 (add-hook 'emacs-startup-hook 'delete-other-windows)
@@ -81,6 +90,20 @@
 (custom-set-variables
  '(haskell-stylish-on-save t))
 
+;; R
+;; (require 'org)
+;; (require 'org-install)
+(require 'ess-site)
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (R . t)
+   (dot . t)
+   (haskell . t)
+   (python . t)
+   (sh . t)
+   ))
+
 ;; Repos
 (require 'package) ;; This is built-in
 (add-to-list 'package-archives
@@ -91,11 +114,6 @@
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (package-initialize)
 ;; (package-refresh-contents)
-
-;; Open my emacs "cheat sheet"
-(defun wombat-emacs-help ()
-  (interactive)
-  (find-file "~/néal/eolas/emacs.txt"))
 
 ;; Find out the major mode associated with a buffer.
 (defun buffer-mode (&optional buffer-or-name)
