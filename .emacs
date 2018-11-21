@@ -65,6 +65,29 @@
 (add-hook 'shell-script-mode-hook 'fci-mode)
 (add-hook 'text-mode-hook 'fci-mode)
 
+;; org-mode
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '(
+   (R . t)
+   (awk . t)
+   ;; (browser . t)
+   (dot . t)
+   (haskell . t)
+   (latex . t)
+   (lisp . t)
+   (makefile . t)
+   (python . t)
+   (sh . t)
+   ;; (shell . t)
+   ))
+;; Don't ask before evaluating code blocks.
+(setq org-confirm-babel-evaluate nil)
+;; Use syntax highlighting in source blocks while editing.
+(setq org-src-fontify-natively t)
+;; Allow shift + movement to expand selection in org mode.
+(setq org-support-shift-select t)
+
 ;; (setq amys-launch-directory default-directory)
 ;; (autoload 'whe "whe" "Wombat haskell stuff" t nil)
 
@@ -89,20 +112,6 @@
 ;; Stylish Haskell
 (custom-set-variables
  '(haskell-stylish-on-save t))
-
-;; R
-;; (require 'org)
-;; (require 'org-install)
-(require 'ess-site)
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(
-   (R . t)
-   (dot . t)
-   (haskell . t)
-   (python . t)
-   (sh . t)
-   ))
 
 ;; Repos
 (require 'package) ;; This is built-in
@@ -146,3 +155,7 @@ If buffer-or-name is nil return current buffer's mode."
 (add-hook 'python-mode-hook 'add-remove-trailing-whitespace-hook)
 (add-hook 'shell-script-mode-hook 'add-remove-trailing-whitespace-hook)
 (add-hook 'text-mode-hook 'add-remove-trailing-whitespace-hook)
+
+
+;; Spell-checking.
+(add-hook 'org-mode-hook 'flyspell-mode)
