@@ -141,6 +141,7 @@ alias sclean='rm -rf .stack-work && stack clean'
 alias sbuild='stack build --pedantic'
 alias stest='stack test --pedantic'
 alias stnr='stack test --pedantic --no-rerun-tests'
+alias gs='~/src/git-summary/git-summary ~; ~/src/git-summary/git-summary ~/src'
 
 function idea() { jot -d=${HOME}/néal/ideas -t="$*" ;}
 function ideas() { jot -d=${HOME}/néal/ideas -p ;}
