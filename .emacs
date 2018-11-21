@@ -107,7 +107,7 @@
 (let ((my-stack-path (expand-file-name "~/.local/bin")))
   (setenv "PATH" (concat my-stack-path path-separator (getenv "PATH")))
   (add-to-list 'exec-path my-stack-path))
-(custom-set-variables '(haskell-tags-on-save t)
+(custom-set-variables '(haskell-tags-on-save t))
 
 ;; Stylish Haskell
 (custom-set-variables
