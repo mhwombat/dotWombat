@@ -6,3 +6,4 @@ emacs.d
 .stylish-haskell.yaml
 .xinitrc
 .stack/config.yaml
+.unison/default.prf
