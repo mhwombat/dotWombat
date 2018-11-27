@@ -78,8 +78,8 @@
    (lisp . t)
    (makefile . t)
    (python . t)
-   (sh . t)
-   ;; (shell . t)
+   ;; (sh . t)
+   (shell . t)
    ))
 ;; Don't ask before evaluating code blocks.
 (setq org-confirm-babel-evaluate nil)

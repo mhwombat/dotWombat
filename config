@@ -7,3 +7,4 @@ emacs.d
 .xinitrc
 .stack/config.yaml
 .unison/default.prf
+/etc/nixos/configuration.nix
