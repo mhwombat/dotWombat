@@ -1,0 +1,10 @@
+.bashrc
+.emacs
+emacs.d
+.ghci
+.gitconfig
+.stylish-haskell.yaml
+.xinitrc
+.stack/config.yaml
+.unison/default.prf
+/etc/nixos/configuration.nix

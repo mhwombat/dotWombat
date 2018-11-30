@@ -1,0 +1,72 @@
+# Roots of the synchronization
+root = /home/amy
+root = ssh://amy@82.221.128.172//home/amy
+addversionno=true
+
+# Paths to synchronize 
+path = néal
+
+# Ignore differences in file permissions
+perms = 0
+
+# Some regexps specifying names and paths to ignore
+ignore = Name temp.*
+ignore = Name *~
+ignore = Name .*~
+ignore = Name *.o
+ignore = Name *.hi
+ignore = Name *.tmp
+ignore = Name *.aux
+ignore = Name *.out
+ignore = Name *.toc
+ignore = Name .~lock.*#
+ignore = Name dist
+ignore = Name dist-newstyle
+ignore = Name .dist-buildwrapper
+ignore = Name .cabal-sandbox
+ignore = Name .stack-work
+ignore = Path {néal/.csync_journal.db}
+ignore = Path {néal/.owncloudsync.log}
+ignore = Path {néal/.owncloudsync.log.1}
+ignore = Name {,.}*{.hi}
+ignore = Path {néal/créatúr/.csync_journal.db}
+ignore = Path {néal/créatúr/.csync_journal.db-journal}
+ignore = Path {néal/eolas/maths/.directory}
+ignore = Path {néal/eolas/maths/html/.directory}
+ignore = Path {néal/foclóir/.directory}
+ignore = Path {néal/foclóir/.html}
+ignore = Path {néal/grid/userguide/images/.directory}
+ignore = Name {.directory}
+ignore = Name {,.}*{.swp}
+ignore = Name {.git}
+ignore = Name {.gitignore}
+ignore = Name {,.}*{.kate-swp}
+ignore = Name {.RData}
+ignore = Name {.Rhistory}
+ignore = Name {cabal.sandbox.config}
+ignore = Path {néal/réaltra/.csv}
+ignore = Name {singleWain-*.log}
+ignore = Name {audio-*.log}
+ignore = Name {som-*.log}
+ignore = Name {sgm-*.log}
+
+# Latex auxiliary files
+ignore = Name *.acn
+ignore = Name *.acr
+ignore = Name *.acn
+ignore = Name *.alg
+ignore = Name *.bbl
+ignore = Name *.blg
+ignore = Name *.glg
+ignore = Name *.glo
+ignore = Name *.gls
+ignore = Name *.ist
+ignore = Name *.lof
+ignore = Name *.lot
+ignore = Name *.acn
+
+
+
+
+
+
