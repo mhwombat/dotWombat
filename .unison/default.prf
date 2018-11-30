@@ -20,6 +20,7 @@ ignore = Name *.aux
 ignore = Name *.out
 ignore = Name *.toc
 ignore = Name .~lock.*#
+ignore = Name #.*#
 ignore = Name dist
 ignore = Name dist-newstyle
 ignore = Name .dist-buildwrapper
