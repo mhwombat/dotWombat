@@ -51,20 +51,42 @@ ignore = Name {som-*.log}
 ignore = Name {sgm-*.log}
 
 # Latex auxiliary files
-ignore = Name *.acn
-ignore = Name *.acr
-ignore = Name *.acn
-ignore = Name *.alg
-ignore = Name *.bbl
-ignore = Name *.blg
-ignore = Name *.glg
-ignore = Name *.glo
-ignore = Name *.gls
-ignore = Name *.ist
-ignore = Name *.lof
-ignore = Name *.lot
-ignore = Name *.acn
-
+ignore = Path {néal/páipéir/*/*.acn}
+ignore = Path {néal/páipéir/*/*.acr}
+ignore = Path {néal/páipéir/*/*.alg}
+ignore = Path {néal/páipéir/*/*.aux}
+ignore = Path {néal/páipéir/*/*.bbl}
+ignore = Path {néal/páipéir/*/*.bcf}
+ignore = Path {néal/páipéir/*/*.blg}
+ignore = Path {néal/páipéir/*/*.dvi}
+ignore = Path {néal/páipéir/*/*.glg}
+ignore = Path {néal/páipéir/*/*.glo}
+ignore = Path {néal/páipéir/*/*.gls}
+ignore = Path {néal/páipéir/*/*.ist}
+ignore = Path {néal/páipéir/*/*.lof}
+ignore = Path {néal/páipéir/*/*.lot}
+ignore = Path {néal/páipéir/*/*.log}
+ignore = Path {néal/páipéir/*/*.out}
+ignore = Path {néal/páipéir/*/*.toc}
+ignore = Path {néal/páipéir/*/*.synctex.gz}
+ignore = Path {néal/léirithe/*/*.acn}
+ignore = Path {néal/léirithe/*/*.acr}
+ignore = Path {néal/léirithe/*/*.alg}
+ignore = Path {néal/léirithe/*/*.aux}
+ignore = Path {néal/léirithe/*/*.bbl}
+ignore = Path {néal/léirithe/*/*.bcf}
+ignore = Path {néal/léirithe/*/*.blg}
+ignore = Path {néal/léirithe/*/*.dvi}
+ignore = Path {néal/léirithe/*/*.glg}
+ignore = Path {néal/léirithe/*/*.glo}
+ignore = Path {néal/léirithe/*/*.gls}
+ignore = Path {néal/léirithe/*/*.ist}
+ignore = Path {néal/léirithe/*/*.lof}
+ignore = Path {néal/léirithe/*/*.lot}
+ignore = Path {néal/léirithe/*/*.log}
+ignore = Path {néal/léirithe/*/*.out}
+ignore = Path {néal/léirithe/*/*.toc}
+ignore = Path {néal/léirithe/*/*.synctex.gz}
 
 
 
