@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
+      /etc/nixos/R.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -72,13 +73,13 @@
     python
     python3
     python36Packages.csvkit
-#    rEnv
-    rPackages.ggplot2
-    rPackages.lubridate
-    rPackages.reshape2
-    rPackages.tidyverse
+    rEnv
+    # rPackages.ggplot2
+    # rPackages.lubridate
+    # rPackages.reshape2
+    # rPackages.tidyverse
     rsync
-    rWrapper
+#    rWrapper
     stack
     sxiv
     tectonic
