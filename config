@@ -8,3 +8,4 @@ emacs.d
 .stack/config.yaml
 .unison/default.prf
 /etc/nixos/configuration.nix
+/etc/nixos/R.nix

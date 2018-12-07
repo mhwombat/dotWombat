@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
+      /etc/nixos/R.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -37,23 +38,9 @@
   # Set your time zone.
   time.timeZone = "Europe/Dublin";
 
-#  rEnv = rWrapper.override {
-#    packages = with rPackages; [
-#                ggplot2
-#                lubridate
-#                reshape2
-#                tidyverse
-#                ];
-#        };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-#    alsaOss
-#    alsaLib
-#    alsaPlugins
-#    alsaTools
-#    alsaUtils
     auctex
     bash
     binutils-unwrapped
@@ -66,32 +53,37 @@
     firefox
     gcc
     ghc
+    ghostscript # for pdf2dsc
     gitAndTools.gitFull
     gnome3.meld
+    gnumake
     haskellPackages.cabal-install
     haskellPackages.stylish-haskell
     haskellPackages.X11-xft
-    haskellPackages.xmonad
-    haskellPackages.xmonad-contrib
-    haskellPackages.xmonad-extras
+    # haskellPackages.xmonad
+    # haskellPackages.xmonad-contrib
+    # haskellPackages.xmonad-extras
     kdeApplications.okular
     libreoffice
     lxqt.qterminal
+    gnome3.gnome-disk-utility
     pandoc
     pdfmod
     pkgconfig
     python
     python3
     python36Packages.csvkit
-#    rEnv
-    rPackages.ggplot2
-    rPackages.lubridate
-    rPackages.reshape2
-    rPackages.tidyverse
+    rEnv
+    # rPackages.ggplot2
+    # rPackages.lubridate
+    # rPackages.reshape2
+    # rPackages.tidyverse
     rsync
-    rWrapper
+#    rWrapper
     stack
     sxiv
+    tectonic
+    texstudio
     texlive.combined.scheme-basic
     tree
     unison
@@ -143,7 +135,6 @@
       ];
     };
   };
-#  windowManager.default = "xmonad";
 
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
@@ -157,7 +148,7 @@
     isNormalUser = true;
     home = "/home/amy";
     description = "Amy de Buitleir";
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "vboxsf" ];
     uid = 1000;
   };
 
