@@ -19,6 +19,18 @@
 ;; Set location for custom scripts.
 (add-to-list 'load-path "~/emacs.d")
 
+;; open with single window
+(add-hook 'emacs-startup-hook 'delete-other-windows)
+
+;; Show column-number in the mode line
+(column-number-mode 1)
+
+;; Highlight current line
+(global-hl-line-mode)
+
+;; Sentences don't need two spaces after the full stop.
+(setq sentence-end-double-space nil)
+
 ;; My custom key bindings
 (global-set-key (kbd "C-s") (quote save-buffer))
 (global-set-key (kbd "C-r") (quote query-replace))
@@ -37,14 +49,27 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 
-;; open with single window
-(add-hook 'emacs-startup-hook 'delete-other-windows)
+;; Hydra key bindings
+(require 'hydra)
 
-;; Show column-number in the mode line
-(column-number-mode 1)
-
-;; Highlight current line
-(global-hl-line-mode)
+(defhydra hydra-word-mode (global-map "C-w")
+  "word mode"
+  ("<left>" left-word "previous word")
+  ("<right>" right-word "next word")
+  ("<backspace>" backward-kill-word "delete previous word")
+  ("<delete>" kill-word "delete next word"))
+(defhydra hydra-sentence-mode (global-map "C-.")
+  "sentence mode"
+  ("<left>" backward-sentence "previous sentence")
+  ("<right>" forward-sentence "next sentence")
+  ("<backspace>" backward-kill-sentence "delete previous sentence")
+  ("<delete>" kill-sentence "delete next sentence"))
+(defhydra hydra-paragraph-mode (global-map "C-p")
+  "paragraph mode"
+  ("<left>" backward-paragraph "previous paragraph")
+  ("<right>" forward-paragraph "next paragraph")
+  ("<backspace>" backward-kill-paragraph "delete previous paragraph")
+  ("<delete>" kill-paragraph "delete next paragraph"))
 
 ;; Margin (fill column)
 (setq-default fill-column 72)
@@ -88,6 +113,10 @@
 ;; Allow shift + movement to expand selection in org mode.
 (setq org-support-shift-select t)
 
+;; AUCTeX
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+
 ;; (setq amys-launch-directory default-directory)
 ;; (autoload 'whe "whe" "Wombat haskell stuff" t nil)
 
@@ -107,11 +136,17 @@
 (let ((my-stack-path (expand-file-name "~/.local/bin")))
   (setenv "PATH" (concat my-stack-path path-separator (getenv "PATH")))
   (add-to-list 'exec-path my-stack-path))
-(custom-set-variables '(haskell-tags-on-save t))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(haskell-stylish-on-save t)
+ '(haskell-tags-on-save t)
+ '(package-selected-packages (quote (auctex haskell-mode))))
 
 ;; Stylish Haskell
-(custom-set-variables
- '(haskell-stylish-on-save t))
+
 
 ;; Repos
 (require 'package) ;; This is built-in
@@ -159,3 +194,9 @@ If buffer-or-name is nil return current buffer's mode."
 
 ;; Spell-checking.
 (add-hook 'org-mode-hook 'flyspell-mode)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
