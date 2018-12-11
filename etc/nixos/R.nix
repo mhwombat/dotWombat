@@ -13,7 +13,7 @@ The first column from that output is the name that has to be passed to
 rWrapper.
 */
 {
-    packageOverrides = super: let self = super.pkgs; in
+    nixpkgs.config.packageOverrides = super: let self = super.pkgs; in
     {
 
         rEnv = super.rWrapper.override {
