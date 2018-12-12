@@ -145,8 +145,6 @@
  '(haskell-tags-on-save t)
  '(package-selected-packages (quote (auctex haskell-mode))))
 
-;; Stylish Haskell
-
 
 ;; Repos
 (require 'package) ;; This is built-in

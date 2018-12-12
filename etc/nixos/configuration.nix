@@ -46,12 +46,15 @@
       dmenu2
       docker
       dzen2
-      emacs
+      # emacs
+      (import /home/amy/dotWombat/etc/nixos/emacs.nix { inherit pkgs; })
       firefox
       gcc
       ghc
       ghostscript # for pdf2dsc
       gitAndTools.gitFull
+      gnome3.dconf
+      gnome3.dconf-editor
       gnome3.meld
       gnumake
       haskellPackages.cabal-install

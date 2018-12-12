@@ -9,3 +9,4 @@ emacs.d
 .unison/default.prf
 /etc/nixos/configuration.nix
 /etc/nixos/R.nix
+/etc/nixos/emacs.nix
