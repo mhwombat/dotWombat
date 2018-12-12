@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
@@ -38,62 +34,55 @@
   # Set your time zone.
   time.timeZone = "Europe/Dublin";
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    auctex
-    bash
-    binutils-unwrapped
-    cabal2nix
-    curl
-    dmenu2
-    docker
-    dzen2
-    emacs
-    firefox
-    gcc
-    ghc
-    ghostscript # for pdf2dsc
-    gitAndTools.gitFull
-    gnome3.meld
-    gnumake
-    haskellPackages.cabal-install
-    haskellPackages.stylish-haskell
-    haskellPackages.X11-xft
-    # haskellPackages.xmonad
-    # haskellPackages.xmonad-contrib
-    # haskellPackages.xmonad-extras
-    kdeApplications.okular
-    libreoffice
-    lxqt.qterminal
-    gnome3.gnome-disk-utility
-    pandoc
-    pdfmod
-    pkgconfig
-    python
-    python3
-    python36Packages.csvkit
-    rEnv
-    # rPackages.ggplot2
-    # rPackages.lubridate
-    # rPackages.reshape2
-    # rPackages.tidyverse
-    rsync
-#    rWrapper
-    stack
-    sxiv
-    tectonic
-    texstudio
-    texlive.combined.scheme-basic
-    tree
-    unison
-    vlc
-    x11
-    xmonad-with-packages
-    xorg.libX11
-    xsel
-    wget
-  ];
+  environment.systemPackages = let
+    jot = pkgs.haskellPackages.callPackage /home/amy/jot/jot.nix {};
+  in
+    [ jot ] ++ (with pkgs; [
+      auctex
+      bash
+      binutils-unwrapped
+      cabal2nix
+      curl
+      dmenu2
+      docker
+      dzen2
+      emacs
+      firefox
+      gcc
+      ghc
+      ghostscript # for pdf2dsc
+      gitAndTools.gitFull
+      gnome3.meld
+      gnumake
+      haskellPackages.cabal-install
+      haskellPackages.stylish-haskell
+      haskellPackages.X11-xft
+      kdeApplications.okular
+      libreoffice
+      lxqt.qterminal
+      gnome3.gnome-disk-utility
+      pandoc
+      pdfmod
+      pkgconfig
+      python
+      python3
+      python36Packages.csvkit
+      rEnv
+      rsync
+      stack
+      sxiv
+      tectonic
+      texstudio
+      texlive.combined.scheme-basic
+      tree
+      unison
+      vlc
+      x11
+      xmonad-with-packages
+      xorg.libX11
+      xsel
+      wget
+    ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
