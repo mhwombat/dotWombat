@@ -57,6 +57,7 @@
       gnome3.dconf-editor
       gnome3.meld
       gnumake
+      gnupg
       haskellPackages.cabal-install
       haskellPackages.stylish-haskell
       haskellPackages.X11-xft

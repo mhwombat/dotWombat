@@ -116,6 +116,10 @@ fi
 # Amy's customisations
 #
 
+# Needed by gpg-agent, which is used by stack upload
+GPG_TTY=$(tty)
+export GPG_TTY
+
 #setxkbmap ie CloGaelach
 #xinput set-button-map "Logitech USB Trackball" 1 8 3 4 5 6 7 2 9
 
