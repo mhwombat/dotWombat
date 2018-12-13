@@ -2,6 +2,7 @@
 root = /home/amy
 root = ssh://amy@82.221.128.172//home/amy
 addversionno=true
+follow = Path {néal}
 
 # Paths to synchronize 
 path = néal
