@@ -55,6 +55,7 @@
       gitAndTools.gitFull
       gnome3.dconf
       gnome3.dconf-editor
+      gnome3.gnome-disk-utility
       gnome3.meld
       gnumake
       gnupg
@@ -64,7 +65,7 @@
       kdeApplications.okular
       libreoffice
       lxqt.qterminal
-      gnome3.gnome-disk-utility
+      nix-prefetch-git
       pandoc
       pdfmod
       pkgconfig
