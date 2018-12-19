@@ -51,6 +51,7 @@
       (import /home/amy/dotWombat/etc/nixos/emacs.nix { inherit pkgs; })
       firefox
       gcc
+      getmail
       ghc
       ghostscript # for pdf2dsc
       gitAndTools.gitFull
