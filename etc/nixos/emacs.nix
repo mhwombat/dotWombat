@@ -29,7 +29,7 @@ in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
     haskell-mode
   ]) ++ (with epkgs.melpaPackages; [
-    # nothing
+    markdown-mode
   ]) ++ (with epkgs.elpaPackages; [
     auctex         # ; LaTeX mode
   ]) ++ [
