@@ -163,3 +163,6 @@ xset b off
 PRINTER=Pull_Print_Unix
 LPDEST=Pull_Print_Unix
 
+if [ `hostname` == "lemur" ]; then
+    source ~/.nix-profile/etc/profile.d/nix.sh
+fi
