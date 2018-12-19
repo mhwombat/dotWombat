@@ -43,6 +43,7 @@
       binutils-unwrapped
       cabal2nix
       curl
+      cvc4
       dmenu2
       docker
       dzen2
@@ -61,6 +62,7 @@
       gnupg
       haskellPackages.cabal-install
       haskellPackages.stylish-haskell
+#      haskellPackages.liquidhaskell
       haskellPackages.X11-xft
       kdeApplications.okular
       libreoffice
@@ -85,6 +87,7 @@
       x11
       xmonad-with-packages
       xorg.libX11
+      xscreensaver
       xsel
       wget
     ]);
