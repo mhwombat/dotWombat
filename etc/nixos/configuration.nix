@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, options, ... }:
 
 {
   imports =
@@ -34,64 +34,76 @@
   # Set your time zone.
   time.timeZone = "Europe/Dublin";
 
-  environment.systemPackages = let
-    jot = pkgs.haskellPackages.callPackage /home/amy/jot/jot.nix {};
-  in
-    [ jot ] ++ (with pkgs; [
-      auctex
-      bash
-      binutils-unwrapped
-      cabal2nix
-      curl
-      cvc4
-      dmenu2
-      docker
-      dzen2
-      # emacs
-      (import /home/amy/dotWombat/etc/nixos/emacs.nix { inherit pkgs; })
-      firefox
-      gcc
-      getmail
-      ghc
-      ghostscript # for pdf2dsc
-      gitAndTools.gitFull
-      gnome3.dconf
-      gnome3.dconf-editor
-      gnome3.gnome-disk-utility
-      gnome3.meld
-      gnumake
-      gnupg
-      haskellPackages.cabal-install
-      haskellPackages.stylish-haskell
-#      haskellPackages.liquidhaskell
-      haskellPackages.X11-xft
-      kdeApplications.okular
-      libreoffice
-      lxqt.qterminal
-      nix-prefetch-git
-      pandoc
-      pdfmod
-      pkgconfig
-      python
-      python3
-      python36Packages.csvkit
-      rEnv
-      rsync
-      stack
-      sxiv
-      tectonic
-      texstudio
-      texlive.combined.scheme-basic
-      tree
-      unison
-      vlc
-      x11
-      xmonad-with-packages
-      xorg.libX11
-      xscreensaver
-      xsel
-      wget
-    ]);
+  # nix.nixPath =
+  #   # Prepend default nixPath values.
+  #   options.nix.nixPath.default ++ 
+  #   # Append our nixpkgs-overlays.
+  #   [ "nixpkgs-overlays=/home/amy/nix-overlays/" ]
+  # ;
+
+  nixpkgs.overlays = [
+    (import /home/amy/nix-overlays/default.nix)
+  ];
+  
+  environment.systemPackages = with pkgs; [
+    auctex
+    bash
+    binutils-unwrapped
+    cabal2nix
+    curl
+    cvc4
+    dmenu2
+    docker
+    dzen2
+    # emacs
+    (import /home/amy/dotWombat/etc/nixos/emacs.nix { inherit pkgs; })
+    firefox
+    gcc
+    getmail
+    ghc
+    ghostscript # for pdf2dsc
+    gitAndTools.gitFull
+    gnome3.dconf
+    gnome3.dconf-editor
+    gnome3.gnome-disk-utility
+    gnome3.meld
+    gnumake
+    gnupg
+    haskellPackages.cabal-install
+    haskellPackages.stylish-haskell
+#     haskellPackages.liquidhaskell
+    haskellPackages.X11-xft
+    hello-amy
+    jot
+    kdeApplications.okular
+    libreoffice
+    lxqt.qterminal
+    nix-prefetch-git
+    pandoc
+    pdfmod
+    pkgconfig
+    python
+    python3
+    python36Packages.csvkit
+    rEnv
+    rsync
+    stack
+    stack2nix
+    sxiv
+    tectonic
+    texstudio
+    texlive.combined.scheme-basic
+    tree
+    unison
+    vlc
+    x11
+    xmonad-with-packages
+    xorg.libX11
+    xscreensaver
+    xsel
+    wget
+    z3
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
