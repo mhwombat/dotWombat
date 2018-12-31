@@ -10,12 +10,3 @@ let
   ;
 in
 foldl' (flip extends) (_: super) paths self
-# self: super:
-
-# let
-#   callPackage = self.callPackage;
-#   mkIf = self.lib.mkIf;
-# in
-# {
-#   # hello-amy = ???
-# }
