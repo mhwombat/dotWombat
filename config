@@ -3,9 +3,10 @@
 emacs.d
 .ghci
 .gitconfig
+nix-overlays
+.stack/config.yaml
 .stylish-haskell.yaml
 .xinitrc
-.stack/config.yaml
 .unison/default.prf
 /etc/nixos/configuration.nix
 /etc/nixos/R.nix
