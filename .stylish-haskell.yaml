@@ -62,7 +62,7 @@ steps:
       #   >     (concat, foldl, foldr, head, init, last, length)
       #
       # Default: after_alias
-      list_align: new_line
+      list_align: after_alias
 
       # Right-pad the module names to align imports in a group:
       #
@@ -104,7 +104,7 @@ steps:
       #   >     )
       #
       # Default: inline
-      long_list_align: new_line_multiline
+      long_list_align: new_line
 
       # Align empty list (importing instances)
       #
