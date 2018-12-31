@@ -134,6 +134,7 @@ alias longestLine='awk '\''{ if (length($0) > max) {max = length($0); maxline = 
 alias psgrep='ps -ef | grep'
 alias hgrep='history | grep'
 alias ngrep='notes | grep -i'
+alias cbt='cabal build --ghc-options=-Werror && cabal test'
 #alias cbti='cabal build --ghc-options=-Werror && cabal test && cabal install'
 #alias cidt='cabal install --dependencies-only --enable-tests'
 #alias ghcis='ghcs --interactive'
@@ -146,6 +147,7 @@ alias sbuild='stack build --pedantic'
 alias stest='stack test --pedantic'
 alias stnr='stack test --pedantic --no-rerun-tests'
 alias gs='~/src/git-summary/git-summary ~; ~/src/git-summary/git-summary ~/src'
+alias c2n='(cabal2nix . > default.nix) && (cabal2nix . --shell > shell.nix)'
 
 function idea() { jot -d=${HOME}/néal/ideas -t="$*" ;}
 function ideas() { jot -d=${HOME}/néal/ideas -p ;}
