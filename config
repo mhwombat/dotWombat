@@ -1,4 +1,5 @@
 .bashrc
+.config/nixpkgs/config.nix
 .emacs
 emacs.d
 .ghci
