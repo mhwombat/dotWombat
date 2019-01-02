@@ -65,6 +65,7 @@
     gitAndTools.gitFull
     gnome3.dconf
     gnome3.dconf-editor
+    gnome3.eog
     gnome3.gnome-disk-utility
     gnome3.meld
     gnumake
@@ -74,6 +75,7 @@
 #     haskellPackages.liquidhaskell
     haskellPackages.X11-xft
     hello-amy
+    imagemagick
     jot
     kdeApplications.okular
     libreoffice
