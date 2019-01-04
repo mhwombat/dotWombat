@@ -27,11 +27,21 @@ let
   emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
-    haskell-mode
+    haskell-mode             # Haskell editing mode
+    # flycheck                 # On-the-fly syntax checking
+    # pos-tip                  # tooltips
+    # popup                    # popup tooltips and menus
+    # button-lock              # clickable text
+    # flycheck-color-mode-line # Change mode line colour with flycheck status
+    hydra                    # key binding families
+    lv                       # hints for hydra
+    fill-column-indicator    # show fill column
   ]) ++ (with epkgs.melpaPackages; [
     markdown-mode
+    # flycheck-liquidhs        # liquidhaskell flycheck
+    # liquid-types             # show inferred liquid-types
   ]) ++ (with epkgs.elpaPackages; [
     auctex         # ; LaTeX mode
   ]) ++ [
-    # nothing
+    # nothing from main packages set
   ])

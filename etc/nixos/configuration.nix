@@ -72,7 +72,7 @@
     gnupg
     haskellPackages.cabal-install
     haskellPackages.stylish-haskell
-#     haskellPackages.liquidhaskell
+    # haskellPackages.liquidhaskell
     haskellPackages.X11-xft
     hello-amy
     imagemagick
@@ -90,7 +90,7 @@
     rEnv
     rsync
     stack
-    stack2nix
+    # stack2nix
     sxiv
     tectonic
     texstudio
@@ -154,6 +154,9 @@
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+
+  nix.gc.automatic = true;
+  nix.gc.dates = "06:15";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.amy = {
