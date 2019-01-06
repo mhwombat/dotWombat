@@ -73,6 +73,7 @@
     haskellPackages.cabal-install
     haskellPackages.stylish-haskell
     # haskellPackages.liquidhaskell
+    # my-liquidhaskell
     haskellPackages.X11-xft
     hello-amy
     imagemagick
@@ -89,7 +90,7 @@
     python36Packages.csvkit
     rEnv
     rsync
-    stack
+    # stack
     # stack2nix
     sxiv
     tectonic

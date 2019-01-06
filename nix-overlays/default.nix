@@ -1,6 +1,13 @@
 self: super: {
-  hello-amy = super.callPackage ./hello-amy {};
-  jot = super.haskellPackages.callPackage ./jot {};
-  liquid-fixpoint = super.haskellPackages.callPackage ./liquid-fixpoint {};
-  liquidhaskell = super.haskellPackages.callPackage ./liquidhaskell {};
+  hello-amy = self.callPackage ./hello-amy {};
+  jot = self.haskellPackages.callPackage ./jot {};
+  
+  # haskellPackages.liquid-fixpoint = self.haskell.packages.ghc843.callPackage ./liquid-fixpoint {};
+  # haskellPackages.liquidhaskell = self.haskell.packages.ghc843.callPackage ./liquidhaskell {};
+
+  # lh-packages = self.haskell.packages.ghc843.extend(h-sel: h-sup: { liquid-fixpoint = h-sel.callPackage ./liquid-fixpoint {}; });
+  # my-liquidhaskell = self.lh-packages.callPackage ./liquidhaskell {};
+
+  # lh-packages = self.haskellPackages.extend(h-sel: h-sup: { liquid-fixpoint = h-sel.callPackage /home/amy/liquid-fixpoint {}; });
+  # my-liquidhaskell = self.lh-packages.callPackage /home/amy/liquidhaskell {};
 }
