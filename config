@@ -9,6 +9,3 @@ nix-overlays
 .stylish-haskell.yaml
 .xinitrc
 .unison/default.prf
-/etc/nixos/configuration.nix
-/etc/nixos/R.nix
-/etc/nixos/emacs.nix

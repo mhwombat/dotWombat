@@ -1,12 +1,6 @@
 { config, pkgs, options, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      /etc/nixos/R.nix
-    ];
-
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -14,10 +8,9 @@
   # boot.loader.grub.efiInstallAsRemovable = true;
   # boot.loader.efi.efiSysMountPoint = "/boot/efi";
   # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
-  boot.initrd.checkJournalingFS = false;
+  # boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  # boot.initrd.checkJournalingFS = false;
 
-  # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -34,79 +27,11 @@
   # Set your time zone.
   time.timeZone = "Europe/Dublin";
 
-  # nix.nixPath =
-  #   # Prepend default nixPath values.
-  #   options.nix.nixPath.default ++ 
-  #   # Append our nixpkgs-overlays.
-  #   [ "nixpkgs-overlays=/home/amy/nix-overlays/" ]
-  # ;
-
   nixpkgs.overlays = [
     (import /home/amy/nix-overlays/default.nix)
   ];
   
-  environment.systemPackages = with pkgs; [
-    auctex
-    bash
-    binutils-unwrapped
-    cabal2nix
-    curl
-    cvc4
-    dmenu2
-    docker
-    dzen2
-    # emacs
-    (import /home/amy/dotWombat/etc/nixos/emacs.nix { inherit pkgs; })
-    firefox
-    gcc
-    getmail
-    ghc
-    ghostscript # for pdf2dsc
-    gitAndTools.gitFull
-    gnome3.dconf
-    gnome3.dconf-editor
-    gnome3.eog
-    gnome3.gnome-disk-utility
-    gnome3.meld
-    gnumake
-    gnupg
-    haskellPackages.cabal-install
-    haskellPackages.stylish-haskell
-    # haskellPackages.liquidhaskell
-    # my-liquidhaskell
-    haskellPackages.X11-xft
-    hello-amy
-    imagemagick
-    jot
-    kdeApplications.okular
-    libreoffice
-    lxqt.qterminal
-    nix-prefetch-git
-    pandoc
-    pdfmod
-    pkgconfig
-    python
-    python3
-    python36Packages.csvkit
-    rEnv
-    rsync
-    # stack
-    # stack2nix
-    sxiv
-    tectonic
-    texstudio
-    texlive.combined.scheme-basic
-    tree
-    unison
-    vlc
-    x11
-    xmonad-with-packages
-    xorg.libX11
-    xscreensaver
-    xsel
-    wget
-    z3
-  ];
+  environment.systemPackages = import /home/amy/dotWombat/nixos/packages.nix pkgs;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -132,8 +57,8 @@
   hardware.pulseaudio.enable = true;
 
   # Enable the X11 windowing system.
-#  services.xserver.enable = true;
-#  services.xserver.layout = "uk";
+  # services.xserver.enable = true;
+  # services.xserver.layout = "uk";
   # services.xserver.xkbOptions = "eurosign:e";
   services.xserver = {
     enable = true;
@@ -173,5 +98,4 @@
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "18.09"; # Did you read the comment?
-
 }
