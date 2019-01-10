@@ -126,6 +126,7 @@ export GPG_TTY
 PATH=~/.cabal/bin:${PATH}
 PATH=~/.local/bin:${PATH}
 PATH=~/bin:${PATH}
+PATH=~/wain-tools:${PATH}
 
 source amy-prompt.sh
 
