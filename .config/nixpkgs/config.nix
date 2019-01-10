@@ -12,6 +12,9 @@
         creatur-wains = self.callPackage ~/x/creatur-wains {};
         creatur-wains-test-utils = self.callPackage ~/x/creatur-wains-test-utils {};
         creatur-dvector-wains = self.callPackage ~/x/creatur-dvector-wains {};
+
+        liquid-fixpoint = self.callPackage ~/liquid-fixpoint {};
+        liquid-haskell = self.callPackage ~/liquidhaskell {};
       };
     };
   };
