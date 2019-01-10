@@ -35,6 +35,7 @@ with pkgs; [
   jot
   kdeApplications.okular
   libreoffice
+  lsof
   lxqt.qterminal
   nix-prefetch-git
   pandoc
