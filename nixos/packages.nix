@@ -26,6 +26,8 @@ with pkgs; [
   gnumake
   gnupg
   haskellPackages.cabal-install
+  haskellPackages.pandoc-citeproc
+  haskellPackages.template
   haskellPackages.stylish-haskell
   # haskellPackages.liquidhaskell
   # my-liquidhaskell
