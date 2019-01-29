@@ -135,6 +135,7 @@ alias longestLine='awk '\''{ if (length($0) > max) {max = length($0); maxline = 
 alias psgrep='ps -ef | grep'
 alias hgrep='history | grep'
 alias ngrep='notes | grep -i'
+alias cc='cabal configure --enable-tests'
 alias cb='cabal build --ghc-options=-Werror'
 alias cbt='cabal build --ghc-options=-Werror && cabal test'
 alias cbti='cabal build --ghc-options=-Werror && cabal test && cabal install'
