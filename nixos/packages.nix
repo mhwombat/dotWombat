@@ -26,6 +26,7 @@ with pkgs; [
   gnumake
   gnupg
   haskellPackages.cabal-install
+  # haskellPackages.packunused
   haskellPackages.pandoc-citeproc
   haskellPackages.template
   haskellPackages.stylish-haskell
