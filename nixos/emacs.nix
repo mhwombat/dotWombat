@@ -38,6 +38,7 @@ in
     fill-column-indicator    # show fill column
   ]) ++ (with epkgs.melpaPackages; [
     markdown-mode
+    ess
     # flycheck-liquidhs        # liquidhaskell flycheck
     # liquid-types             # show inferred liquid-types
   ]) ++ (with epkgs.elpaPackages; [
