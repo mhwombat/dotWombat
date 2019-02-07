@@ -55,7 +55,7 @@ with pkgs; [
   sxiv
   tectonic
   texstudio
-  texlive.combined.scheme-basic
+  texlive.combined.scheme-full
   tree
   unison
   vlc
