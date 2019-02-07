@@ -18,6 +18,7 @@ rWrapper.
 
         rEnv = super.rWrapper.override {
             packages = with self.rPackages; [
+	        caret
                 ggplot2
 		lubridate
                 reshape2
