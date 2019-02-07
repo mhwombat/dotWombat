@@ -47,6 +47,7 @@ with pkgs; [
   python
   python3
   python36Packages.csvkit
+  qpdf
   rEnv
   rsync
   # stack
