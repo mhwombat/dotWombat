@@ -37,6 +37,7 @@ with pkgs; [
   imagemagick
   jot
   kdeApplications.okular
+  libertine
   libreoffice
   lsof
   lxqt.qterminal
@@ -58,6 +59,7 @@ with pkgs; [
   texlive.combined.scheme-full
   tree
   unison
+  unzip
   vlc
   x11
   xmonad-with-packages
