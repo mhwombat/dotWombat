@@ -19,8 +19,13 @@ rWrapper.
         rEnv = super.rWrapper.override {
             packages = with self.rPackages; [
 	        caret
+		FactoMineR
+		ggcorrplot
                 ggplot2
 		lubridate
+		missMDA
+		mlbench
+		pcaMethods
                 reshape2
                 tidyverse
 		xts
