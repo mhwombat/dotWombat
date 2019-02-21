@@ -46,8 +46,12 @@ with pkgs; [
   pdfmod
   pkgconfig
   python
-  python3
-  python36Packages.csvkit
+  python3Env
+  # python3
+  # python36Packages.csvkit
+  # python36Packages.ipython
+  # python36Packages.numpy
+  # python36Packages.pandas
   qpdf
   rEnv
   rsync
