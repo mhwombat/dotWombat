@@ -27,6 +27,7 @@ ignore = Name dist-newstyle
 ignore = Name .dist-buildwrapper
 ignore = Name .cabal-sandbox
 ignore = Name .stack-work
+ignore = Name .liquid
 ignore = Path {néal/.csync_journal.db}
 ignore = Path {néal/.owncloudsync.log}
 ignore = Path {néal/.owncloudsync.log.1}
