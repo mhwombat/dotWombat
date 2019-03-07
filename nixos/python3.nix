@@ -6,6 +6,7 @@
       matplotlib
       numpy
       pandas
+      scikitlearn
     ]);
   };
 }
