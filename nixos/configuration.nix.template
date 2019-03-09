@@ -7,6 +7,7 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
       /home/amy/dotWombat/nixos/wombat9000.nix
+      /home/amy/dotWombat/nixos/python3.nix
       /home/amy/dotWombat/nixos/R.nix
       /home/amy/dotWombat/nixos/python3.nix
       /home/amy/dotWombat/nixos/base.nix

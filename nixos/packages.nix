@@ -7,6 +7,7 @@ with pkgs; [
   cabal2nix
   curl
   cvc4
+  dbeaver
   dmenu2
   docker
   dzen2
