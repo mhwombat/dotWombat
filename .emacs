@@ -112,6 +112,10 @@
 (setq org-src-fontify-natively t)
 ;; Allow shift + movement to expand selection in org mode.
 (setq org-support-shift-select t)
+;; Make equations bigger
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
+;; Start with preview of equations, images
+(setq org-startup-latex-with-latex-preview t)
 
 ;; AUCTeX
 (setq TeX-auto-save t)
