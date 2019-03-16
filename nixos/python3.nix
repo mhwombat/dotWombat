@@ -7,6 +7,7 @@
       numpy
       pandas
       scikitlearn
+      seaborn
     ]);
   };
 }

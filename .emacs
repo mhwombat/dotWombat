@@ -7,7 +7,7 @@
 ;; Open my emacs "cheat sheet"
 (defun wombat-emacs-help ()
   (interactive)
-  (find-file "~/néal/eolas/emacs.txt"))
+  (find-file "~/néal/eolas/emacs.org"))
 
 ;; CUA
 (cua-mode t)
