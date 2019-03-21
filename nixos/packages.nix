@@ -34,6 +34,8 @@ with pkgs; [
   # haskellPackages.liquidhaskell
   # my-liquidhaskell
   haskellPackages.X11-xft
+  hdf5
+  hdfview
   hello-amy
   imagemagick
   jot
