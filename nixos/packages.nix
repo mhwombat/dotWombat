@@ -55,6 +55,7 @@ with pkgs; [
   # python36Packages.ipython
   # python36Packages.numpy
   # python36Packages.pandas
+  pypi2nix
   qpdf
   rEnv
   rsync
