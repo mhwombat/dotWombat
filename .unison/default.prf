@@ -94,6 +94,10 @@ ignore = Path {néal/léirithe/*/*.synctex.gz}
 # Emacs org-mode auxiliary files
 ignore = Name {ltximg}
 
+# Python auxiliary files
+ignore = Name {__pycache__}
+
+
 # Liquidhaskell auxiliary files
 ignore = Path {néal/liquidhaskell-tutorial/*/.liquid}
 ignore = Path {néal/liquidhaskell-tutorial-solutions/*/.liquid}
