@@ -45,6 +45,7 @@ with pkgs; [
   lsof
   lxqt.qterminal
   nix-prefetch-git
+  openjdk
   pandoc
   pdfmod
   pkgconfig
@@ -74,6 +75,7 @@ with pkgs; [
   xorg.libX11
   xscreensaver
   xsel
+  weka
   wget
   z3
 ]
