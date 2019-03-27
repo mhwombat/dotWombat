@@ -7,6 +7,7 @@
       matplotlib
       numpy
       pandas
+      pydotplus
       scikitlearn
       seaborn
     ]);
