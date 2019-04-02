@@ -3,6 +3,7 @@ pkgs:
 with pkgs; [
   auctex
   bash
+  bind # for dig
   binutils-unwrapped
   cabal2nix
   curl
@@ -11,7 +12,6 @@ with pkgs; [
   dmenu2
   docker
   dzen2
-  # emacs
   (import ./emacs.nix { inherit pkgs; })
   firefox
   gcc
@@ -26,6 +26,7 @@ with pkgs; [
   gnome3.meld
   gnumake
   gnupg
+  graphviz
   haskellPackages.cabal-install
   # haskellPackages.packunused
   haskellPackages.pandoc-citeproc
@@ -38,6 +39,7 @@ with pkgs; [
   hdfview
   hello-amy
   imagemagick
+  inkscape
   jot
   kdeApplications.okular
   libertine
@@ -51,11 +53,6 @@ with pkgs; [
   pkgconfig
   python
   python3Env
-  # python3
-  # python36Packages.csvkit
-  # python36Packages.ipython
-  # python36Packages.numpy
-  # python36Packages.pandas
   pypi2nix
   qpdf
   rEnv
