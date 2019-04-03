@@ -46,6 +46,7 @@ with pkgs; [
   libreoffice
   lsof
   lxqt.qterminal
+  mkpasswd
   nix-prefetch-git
   openjdk
   pandoc
