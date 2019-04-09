@@ -40,6 +40,7 @@ with pkgs; [
   hello-amy
   imagemagick
   inkscape
+  jdk
   jot
   kdeApplications.okular
   libertine

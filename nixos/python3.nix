@@ -4,6 +4,7 @@
       csvkit
       h5py
       ipython
+      JayDeBeApi
       matplotlib
       numpy
       pandas
