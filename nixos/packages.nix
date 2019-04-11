@@ -29,7 +29,7 @@ with pkgs; [
   graphviz
   haskellPackages.cabal-install
   # haskellPackages.packunused
-  haskellPackages.hat
+  # haskellPackages.hat
   haskellPackages.pandoc-citeproc
   haskellPackages.template
   haskellPackages.stylish-haskell

@@ -34,6 +34,7 @@ in
     # button-lock              # clickable text
     # flycheck-color-mode-line # Change mode line colour with flycheck status
     hydra                    # key binding families
+    idris-mode               # Idris editing mode
     lv                       # hints for hydra
     fill-column-indicator    # show fill column
   ]) ++ (with epkgs.melpaPackages; [
