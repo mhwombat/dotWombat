@@ -29,6 +29,7 @@ with pkgs; [
   graphviz
   haskellPackages.cabal-install
   # haskellPackages.packunused
+  haskellPackages.hat
   haskellPackages.pandoc-citeproc
   haskellPackages.template
   haskellPackages.stylish-haskell
@@ -38,6 +39,7 @@ with pkgs; [
   hdf5
   hdfview
   hello-amy
+  idris
   imagemagick
   inkscape
   jdk
