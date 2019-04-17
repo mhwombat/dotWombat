@@ -91,7 +91,7 @@
     ("2" idris-add-missing "missing PM")
     ("d" idris-docs-at-point "doc")
     ("s" idris-proof-search "proof")
-    ("e" idris-make-lemma "extract")
+    ("<up>" idris-make-lemma "lift")
     ("c" idris-case-dwim "case")
     ("w" idris-make-with-block "with")
     ("." prop-menu-by-completing-read "context")
