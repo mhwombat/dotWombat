@@ -70,6 +70,33 @@
   ("<right>" forward-paragraph "next paragraph")
   ("<backspace>" backward-kill-paragraph "delete previous paragraph")
   ("<delete>" kill-paragraph "delete next paragraph"))
+(defhydra hydra-rectangle-mode (global-map "<f2>")
+  "rectangle mode"
+  ("<right>" open-rectangle "indent")
+  ("x" kill-rectangle "cut")
+  ("c" copy-rectangle-as-kill "copy")
+  ("v" yank-rectangle "paste"))
+(defhydra hydra-zoom (global-map "<f3>")
+  "zoom"
+  ("g" text-scale-increase "in")
+  ("l" text-scale-decrease "out"))
+
+(defun add-idris-key-bindings-hook ()
+  (defhydra hydra-zoom (global-map "<f1>")
+    "idris"
+    ("SPC" dabbrev-expand "expand")
+    ("l" idris-load-file "load REPL")
+    ("t" idris-type-at-point "type")
+    ("1" idris-add-clause "initial PM")
+    ("2" idris-add-missing "missing PM")
+    ("d" idris-docs-at-point "doc")
+    ("s" idris-proof-search "proof")
+    ("e" idris-make-lemma "extract")
+    ("c" idris-case-dwim "case")
+    ("w" idris-make-with-block "with")
+    ("." prop-menu-by-completing-read "context")
+    ("a" idris-apropos "apropos")))
+(add-hook 'idris-mode-hook 'add-idris-key-bindings-hook)
 
 ;; Margin (fill column)
 (setq-default fill-column 72)
