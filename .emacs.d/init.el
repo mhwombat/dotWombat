@@ -1,3 +1,7 @@
+;;
+;; Global settings
+;;
+
 ;; No startup screen
 (setq inhibit-startup-screen t)
 
@@ -30,6 +34,46 @@
 
 ;; Sentences don't need two spaces after the full stop.
 (setq sentence-end-double-space nil)
+
+;; Longer "Buffers" menu
+(setq buffers-menu-max-size 50)
+
+;; Highlight matching parentheses
+(show-paren-mode)
+
+;; AUCTeX
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+
+;; (setq amys-launch-directory default-directory)
+;; (autoload 'whe "whe" "Wombat haskell stuff" t nil)
+
+;; Repos
+(require 'package) ;; This is built-in
+(add-to-list 'package-archives
+             '("gnu" . "http://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(package-initialize)
+;; (package-refresh-contents)
+
+;; Find out the major mode associated with a buffer.
+(defun buffer-mode (&optional buffer-or-name)
+  "Returns the major mode associated with a buffer.
+If buffer-or-name is nil return current buffer's mode."
+  (buffer-local-value 'major-mode
+   (if buffer-or-name (get-buffer buffer-or-name) (current-buffer))))
+
+;; Spell-checking.
+(add-hook 'org-mode-hook 'flyspell-mode)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
 
 ;; My custom key bindings
 (global-set-key (kbd "C-s") (quote save-buffer))
@@ -81,6 +125,60 @@
   ("g" text-scale-increase "in")
   ("l" text-scale-decrease "out"))
 
+;;
+;; Fill column indicator
+;;
+
+;; Margin (fill column)
+(setq-default fill-column 72)
+
+;; Margin indicator
+(require 'fill-column-indicator)
+(setq fci-rule-width 1)
+(setq fci-rule-color "lightblue")
+(add-hook 'awk-mode-hook 'fci-mode)
+(add-hook 'c++-mode-hook 'fci-mode)
+(add-hook 'c-mode-hook 'fci-mode)
+(add-hook 'emacs-lisp-mode-hook 'fci-mode)
+(add-hook 'erlang-mode-hook 'fci-mode)
+(add-hook 'haskell-mode-hook 'fci-mode)
+(add-hook 'idris-mode-hook 'fci-mode)
+(add-hook 'java-mode-hook 'fci-mode)
+(add-hook 'makefile-mode-hook 'fci-mode)
+(add-hook 'python-mode-hook 'fci-mode)
+(add-hook 'shell-script-mode-hook 'fci-mode)
+(add-hook 'text-mode-hook 'fci-mode)
+
+;;
+;; Remove trailing whitespace
+;;
+(defun remove-trailing-whitespace ()
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "[ \t]+$" nil t)
+      (replace-match "" nil nil)))
+  nil)
+(defun add-remove-trailing-whitespace-hook ()
+  (add-hook 'local-write-file-hooks 'remove-trailing-whitespace))
+
+(add-hook 'awk-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'c++-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'c-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'emacs-lisp-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'erlang-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'haskell-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'idris-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'java-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'makefile-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'python-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'shell-script-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'text-mode-hook 'add-remove-trailing-whitespace-hook)
+
+;;
+;; Idris
+;;
+
 (defun add-idris-key-bindings-hook ()
   (defhydra hydra-zoom (global-map "<f1>")
     "idris"
@@ -98,26 +196,9 @@
     ("a" idris-apropos "apropos")))
 (add-hook 'idris-mode-hook 'add-idris-key-bindings-hook)
 
-;; Margin (fill column)
-(setq-default fill-column 72)
-
-;; Margin indicator
-(require 'fill-column-indicator)
-(setq fci-rule-width 1)
-(setq fci-rule-color "lightblue")
-(add-hook 'awk-mode-hook 'fci-mode)
-(add-hook 'c++-mode-hook 'fci-mode)
-(add-hook 'c-mode-hook 'fci-mode)
-(add-hook 'emacs-lisp-mode-hook 'fci-mode)
-(add-hook 'erlang-mode-hook 'fci-mode)
-(add-hook 'haskell-mode-hook 'fci-mode)
-(add-hook 'java-mode-hook 'fci-mode)
-(add-hook 'makefile-mode-hook 'fci-mode)
-(add-hook 'python-mode-hook 'fci-mode)
-(add-hook 'shell-script-mode-hook 'fci-mode)
-(add-hook 'text-mode-hook 'fci-mode)
-
-;; org-mode
+;;
+;; Org mode
+;;
 (org-babel-do-load-languages
  'org-babel-load-languages
  '(
@@ -144,18 +225,9 @@
 ;; Start with preview of equations, images
 (setq org-startup-latex-with-latex-preview t)
 
-;; AUCTeX
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-
-;; (setq amys-launch-directory default-directory)
-;; (autoload 'whe "whe" "Wombat haskell stuff" t nil)
-
-;; Longer "Buffers" menu
-(setq buffers-menu-max-size 50)
-
-;; Highlight matching parentheses
-(show-paren-mode)
+;;
+;; Haskell
+;;
 
 ;; Haskell unicode source candy
 (setq haskell-font-lock-symbols t)
@@ -175,57 +247,3 @@
  '(haskell-stylish-on-save t)
  '(haskell-tags-on-save t)
  '(package-selected-packages (quote (auctex haskell-mode))))
-
-
-;; Repos
-(require 'package) ;; This is built-in
-(add-to-list 'package-archives
-             '("gnu" . "http://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-(package-initialize)
-;; (package-refresh-contents)
-
-;; Find out the major mode associated with a buffer.
-(defun buffer-mode (&optional buffer-or-name)
-  "Returns the major mode associated with a buffer.
-If buffer-or-name is nil return current buffer's mode."
-  (buffer-local-value 'major-mode
-   (if buffer-or-name (get-buffer buffer-or-name) (current-buffer))))
-
-;;
-;; Remove trailing whitespace
-;;
-(defun remove-trailing-whitespace ()
-  (interactive)
-  (save-excursion
-    (goto-char (point-min))
-    (while (re-search-forward "[ \t]+$" nil t)
-      (replace-match "" nil nil)))
-  nil)
-(defun add-remove-trailing-whitespace-hook ()
-  (add-hook 'local-write-file-hooks 'remove-trailing-whitespace))
-
-(add-hook 'awk-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'c++-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'c-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'emacs-lisp-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'erlang-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'haskell-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'java-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'makefile-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'python-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'shell-script-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'text-mode-hook 'add-remove-trailing-whitespace-hook)
-
-
-;; Spell-checking.
-(add-hook 'org-mode-hook 'flyspell-mode)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

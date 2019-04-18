@@ -1,7 +1,6 @@
 .bashrc
 .config/nixpkgs/config.nix
-.emacs
-emacs.d
+.emacs.d
 .ghci
 .gitconfig
 nix-overlays

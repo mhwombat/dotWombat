@@ -48,6 +48,7 @@ with pkgs; [
   libertine
   libreoffice
   lsof
+  lxqt.lximage-qt
   lxqt.qterminal
   mkpasswd
   nix-prefetch-git
