@@ -35,10 +35,11 @@ in
     # button-lock              # clickable text
     # flycheck-color-mode-line # Change mode line colour with flycheck status
     hydra                    # key binding families
-    idris-mode               # Idris editing mode
     fill-column-indicator    # show fill column
     nix-mode               # Idris editing mode
   ]) ++ (with epkgs.melpaPackages; [
+    idris-mode               # Idris editing mode
+    # intero                   # Haskell development mode
     markdown-mode
     ess
     # flycheck-liquidhs        # liquidhaskell flycheck

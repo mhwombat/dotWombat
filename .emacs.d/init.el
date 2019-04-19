@@ -161,6 +161,7 @@ If buffer-or-name is nil return current buffer's mode."
 (load "~/.emacs.d/emacs-lisp.el")
 (load "~/.emacs.d/haskell.el")
 (load "~/.emacs.d/idris.el")
+(load "~/.emacs.d/idris-repl.el")
 (load "~/.emacs.d/makefile.el")
 (load "~/.emacs.d/nix.el")
 (load "~/.emacs.d/org.el")
