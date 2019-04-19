@@ -42,6 +42,7 @@ with pkgs; [
   idris
   imagemagick
   inkscape
+  ispell
   jdk
   jot
   kdeApplications.okular

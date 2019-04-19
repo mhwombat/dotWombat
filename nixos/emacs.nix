@@ -27,6 +27,7 @@ let
   emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
+    lv                       # hints for hydra
     haskell-mode             # Haskell editing mode
     # flycheck                 # On-the-fly syntax checking
     # pos-tip                  # tooltips
@@ -35,8 +36,8 @@ in
     # flycheck-color-mode-line # Change mode line colour with flycheck status
     hydra                    # key binding families
     idris-mode               # Idris editing mode
-    lv                       # hints for hydra
     fill-column-indicator    # show fill column
+    nix-mode               # Idris editing mode
   ]) ++ (with epkgs.melpaPackages; [
     markdown-mode
     ess

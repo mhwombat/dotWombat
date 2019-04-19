@@ -2,6 +2,14 @@
 ;; Global settings
 ;;
 
+(require 'package)  ;; This is built-in
+
+;; optional. makes unpure packages archives unavailable
+(setq package-archives nil)
+
+(setq package-enable-at-startup nil)
+(package-initialize)
+
 ;; No startup screen
 (setq inhibit-startup-screen t)
 
@@ -20,8 +28,8 @@
 (set-default 'cursor-type 'box)
 ;; box, hollow, bar, or hbar
 
-;; Set location for custom scripts.
-(add-to-list 'load-path "~/emacs.d")
+;; ;; Set location for custom scripts.
+;; (add-to-list 'load-path "~/.emacs.d")
 
 ;; open with single window
 (add-hook 'emacs-startup-hook 'delete-other-windows)
@@ -41,23 +49,27 @@
 ;; Highlight matching parentheses
 (show-paren-mode)
 
+;; Margin (fill column)
+(setq-default fill-column 72)
+
+;; Margin indicator
+(require 'fill-column-indicator)
+(setq fci-rule-width 1)
+(setq fci-rule-color "lightblue")
+
 ;; AUCTeX
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 
 ;; (setq amys-launch-directory default-directory)
-;; (autoload 'whe "whe" "Wombat haskell stuff" t nil)
 
-;; Repos
-(require 'package) ;; This is built-in
-(add-to-list 'package-archives
-             '("gnu" . "http://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives
-             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-(package-initialize)
-;; (package-refresh-contents)
+;; ;; Repos
+;; (add-to-list 'package-archives
+;;              '("gnu" . "http://elpa.gnu.org/packages/") t)
+;; (add-to-list 'package-archives
+;;              '("melpa" . "http://melpa.org/packages/") t)
+;; (add-to-list 'package-archives
+;;              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 ;; Find out the major mode associated with a buffer.
 (defun buffer-mode (&optional buffer-or-name)
@@ -66,14 +78,12 @@ If buffer-or-name is nil return current buffer's mode."
   (buffer-local-value 'major-mode
    (if buffer-or-name (get-buffer buffer-or-name) (current-buffer))))
 
-;; Spell-checking.
-(add-hook 'org-mode-hook 'flyspell-mode)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  )
 
 ;; My custom key bindings
 (global-set-key (kbd "C-s") (quote save-buffer))
@@ -113,7 +123,11 @@ If buffer-or-name is nil return current buffer's mode."
   ("<left>" backward-paragraph "previous paragraph")
   ("<right>" forward-paragraph "next paragraph")
   ("<backspace>" backward-kill-paragraph "delete previous paragraph")
-  ("<delete>" kill-paragraph "delete next paragraph"))
+  ("<delete>" kill-paragraph "delete next paragraph")
+  ("s" sort-paragraphs "sort"))
+(defhydra hydra-line-mode (global-map "C-l")
+  "line mode"
+  ("s" sort-lines "sort"))
 (defhydra hydra-rectangle-mode (global-map "<f2>")
   "rectangle mode"
   ("<right>" open-rectangle "indent")
@@ -124,30 +138,6 @@ If buffer-or-name is nil return current buffer's mode."
   "zoom"
   ("g" text-scale-increase "in")
   ("l" text-scale-decrease "out"))
-
-;;
-;; Fill column indicator
-;;
-
-;; Margin (fill column)
-(setq-default fill-column 72)
-
-;; Margin indicator
-(require 'fill-column-indicator)
-(setq fci-rule-width 1)
-(setq fci-rule-color "lightblue")
-(add-hook 'awk-mode-hook 'fci-mode)
-(add-hook 'c++-mode-hook 'fci-mode)
-(add-hook 'c-mode-hook 'fci-mode)
-(add-hook 'emacs-lisp-mode-hook 'fci-mode)
-(add-hook 'erlang-mode-hook 'fci-mode)
-(add-hook 'haskell-mode-hook 'fci-mode)
-(add-hook 'idris-mode-hook 'fci-mode)
-(add-hook 'java-mode-hook 'fci-mode)
-(add-hook 'makefile-mode-hook 'fci-mode)
-(add-hook 'python-mode-hook 'fci-mode)
-(add-hook 'shell-script-mode-hook 'fci-mode)
-(add-hook 'text-mode-hook 'fci-mode)
 
 ;;
 ;; Remove trailing whitespace
@@ -162,88 +152,18 @@ If buffer-or-name is nil return current buffer's mode."
 (defun add-remove-trailing-whitespace-hook ()
   (add-hook 'local-write-file-hooks 'remove-trailing-whitespace))
 
-(add-hook 'awk-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'c++-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'c-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'emacs-lisp-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'erlang-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'haskell-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'idris-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'java-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'makefile-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'python-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'shell-script-mode-hook 'add-remove-trailing-whitespace-hook)
-(add-hook 'text-mode-hook 'add-remove-trailing-whitespace-hook)
-
 ;;
-;; Idris
+;; Language-specific
 ;;
 
-(defun add-idris-key-bindings-hook ()
-  (defhydra hydra-zoom (global-map "<f1>")
-    "idris"
-    ("SPC" dabbrev-expand "expand")
-    ("l" idris-load-file "load REPL")
-    ("t" idris-type-at-point "type")
-    ("1" idris-add-clause "initial PM")
-    ("2" idris-add-missing "missing PM")
-    ("d" idris-docs-at-point "doc")
-    ("s" idris-proof-search "proof")
-    ("<up>" idris-make-lemma "lift")
-    ("c" idris-case-dwim "case")
-    ("w" idris-make-with-block "with")
-    ("." prop-menu-by-completing-read "context")
-    ("a" idris-apropos "apropos")))
-(add-hook 'idris-mode-hook 'add-idris-key-bindings-hook)
-
-;;
-;; Org mode
-;;
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '(
-   (R . t)
-   (awk . t)
-   ;; (browser . t)
-   (dot . t)
-   (haskell . t)
-   (latex . t)
-   (lisp . t)
-   (makefile . t)
-   (python . t)
-   ;; (sh . t)
-   (shell . t)
-   ))
-;; Don't ask before evaluating code blocks.
-(setq org-confirm-babel-evaluate nil)
-;; Use syntax highlighting in source blocks while editing.
-(setq org-src-fontify-natively t)
-;; Allow shift + movement to expand selection in org mode.
-(setq org-support-shift-select t)
-;; Make equations bigger
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
-;; Start with preview of equations, images
-(setq org-startup-latex-with-latex-preview t)
-
-;;
-;; Haskell
-;;
-
-;; Haskell unicode source candy
-(setq haskell-font-lock-symbols t)
-
-;; ;; Haskell indentation
-;; (add-hook 'haskell-mode-hook 'haskell-indentation-mode)
-
-;; Use Hasktags
-(let ((my-stack-path (expand-file-name "~/.local/bin")))
-  (setenv "PATH" (concat my-stack-path path-separator (getenv "PATH")))
-  (add-to-list 'exec-path my-stack-path))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(haskell-stylish-on-save t)
- '(haskell-tags-on-save t)
- '(package-selected-packages (quote (auctex haskell-mode))))
+(load "~/.emacs.d/c++.el")
+(load "~/.emacs.d/c.el")
+(load "~/.emacs.d/emacs-lisp.el")
+(load "~/.emacs.d/haskell.el")
+(load "~/.emacs.d/idris.el")
+(load "~/.emacs.d/makefile.el")
+(load "~/.emacs.d/nix.el")
+(load "~/.emacs.d/org.el")
+(load "~/.emacs.d/python.el")
+(load "~/.emacs.d/shell-script.el")
+(load "~/.emacs.d/text.el")
