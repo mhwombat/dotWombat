@@ -30,7 +30,7 @@
   nixpkgs.overlays = [
     (import /home/amy/nix-overlays/default.nix)
   ];
-  
+
   environment.systemPackages = import /home/amy/dotWombat/nixos/packages.nix pkgs;
 
   # Some programs need SUID wrappers, can be configured further or are
