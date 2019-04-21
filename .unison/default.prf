@@ -15,43 +15,37 @@ ignore = Name temp.*
 ignore = Name *~
 ignore = Name .*~
 ignore = Name *.o
-ignore = Name *.hi
 ignore = Name *.tmp
 ignore = Name *.aux
 ignore = Name *.out
 ignore = Name *.toc
 ignore = Name .~lock.*#
 ignore = Name #.*#
-ignore = Name dist
-ignore = Name dist-newstyle
-ignore = Name .dist-buildwrapper
-ignore = Name .cabal-sandbox
-ignore = Name .stack-work
-ignore = Name .liquid
-ignore = Path {néal/.csync_journal.db}
-ignore = Path {néal/.owncloudsync.log}
-ignore = Path {néal/.owncloudsync.log.1}
-ignore = Name {,.}*{.hi}
-ignore = Path {néal/créatúr/.csync_journal.db}
-ignore = Path {néal/créatúr/.csync_journal.db-journal}
 ignore = Path {néal/eolas/maths/.directory}
 ignore = Path {néal/eolas/maths/html/.directory}
 ignore = Path {néal/foclóir/.directory}
 ignore = Path {néal/foclóir/.html}
 ignore = Path {néal/grid/userguide/images/.directory}
-ignore = Name {.directory}
 ignore = Name {,.}*{.swp}
 ignore = Name {.git}
 ignore = Name {.gitignore}
 ignore = Name {,.}*{.kate-swp}
-ignore = Name {.RData}
-ignore = Name {.Rhistory}
+
+# Emacs org-mode auxiliary files
+ignore = Name {ltximg}
+
+# Idris auxiliary files
+ignore = Name *.ibc
+
+# Haskell auxiliary files
+ignore = Name *.hi
+ignore = Name dist
+ignore = Name dist-newstyle
+ignore = Name .dist-buildwrapper
+ignore = Name .cabal-sandbox
+ignore = Name .stack-work
 ignore = Name {cabal.sandbox.config}
-ignore = Path {néal/réaltra/.csv}
-ignore = Name {singleWain-*.log}
-ignore = Name {audio-*.log}
-ignore = Name {som-*.log}
-ignore = Name {sgm-*.log}
+# ignore = Name {,.}*{.hi}
 
 # Latex auxiliary files
 ignore = Path {néal/páipéir/*/*.acn}
@@ -91,13 +85,20 @@ ignore = Path {néal/léirithe/*/*.out}
 ignore = Path {néal/léirithe/*/*.toc}
 ignore = Path {néal/léirithe/*/*.synctex.gz}
 
-# Emacs org-mode auxiliary files
-ignore = Name {ltximg}
+# Liquidhaskell auxiliary files
+ignore = Path {néal/liquidhaskell-tutorial/*/.liquid}
+ignore = Path {néal/liquidhaskell-tutorial-solutions/*/.liquid}
+ignore = Name .liquid
 
 # Python auxiliary files
 ignore = Name {__pycache__}
 
+# R auxiliary files
+ignore = Name {.RData}
+ignore = Name {.Rhistory}
 
-# Liquidhaskell auxiliary files
-ignore = Path {néal/liquidhaskell-tutorial/*/.liquid}
-ignore = Path {néal/liquidhaskell-tutorial-solutions/*/.liquid}
+# Wains
+ignore = Name {singleWain-*.log}
+ignore = Name {audio-*.log}
+ignore = Name {som-*.log}
+ignore = Name {sgm-*.log}
