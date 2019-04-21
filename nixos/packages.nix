@@ -19,6 +19,7 @@ with pkgs; [
   ghc
   ghostscript # for pdf2dsc
   gitAndTools.gitFull
+  gmp
   gnome3.dconf
   gnome3.dconf-editor
   gnome3.eog
