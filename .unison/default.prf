@@ -44,7 +44,9 @@ ignore = Name dist-newstyle
 ignore = Name .dist-buildwrapper
 ignore = Name .cabal-sandbox
 ignore = Name .stack-work
-ignore = Name {cabal.sandbox.config}
+ignore = Name cabal.sandbox.config
+ignore = Name .ghc.environment.*
+ignore = Name cabal.project.local
 # ignore = Name {,.}*{.hi}
 
 # Latex auxiliary files
