@@ -22,6 +22,8 @@
     ("c" idris-case-dwim "case")
     ("w" idris-make-with-block "with")
     ("." prop-menu-by-completing-read "context")
+    ("<left>" idris-previous-error "prev err")
+    ("<right>" idris-next-error "next err")
     ("a" idris-apropos "apropos")))
 (add-hook 'idris-mode-hook 'add-idris-key-bindings-hook)
 
