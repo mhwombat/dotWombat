@@ -41,6 +41,7 @@ with pkgs; [
   hdfview
   hello-amy
   idris
+  idrisPackages.contrib
   imagemagick
   inkscape
   ispell
