@@ -10,6 +10,7 @@ with pkgs; [
   cvc4
   dbeaver
   dmenu2
+  dmidecode
   docker
   dzen2
   (import ./emacs.nix { inherit pkgs; })
