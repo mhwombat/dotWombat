@@ -9,8 +9,10 @@
 (add-hook 'idris-mode-hook 'add-remove-trailing-whitespace-hook)
 
 (defun add-idris-key-bindings-hook ()
-  (defhydra hydra-zoom (global-map "<f1>")
+  (defhydra hydra-idris (global-map "<f1>" :exit t)
     "idris"
+    ("<f1>" ignore "help" :exit nil)
+    ("?" ignore "help" :exit nil)
     ("SPC" dabbrev-expand "expand")
     ("l" idris-load-file "load REPL")
     ("t" idris-type-at-point "type")
@@ -22,8 +24,8 @@
     ("c" idris-case-dwim "case")
     ("w" idris-make-with-block "with")
     ("." prop-menu-by-completing-read "context")
-    ("<left>" idris-previous-error "prev err")
-    ("<right>" idris-next-error "next err")
+    ("<left>" idris-previous-error "prev err" :exit nil)
+    ("<right>" idris-next-error "next err" :exit nil)
     ("a" idris-apropos "apropos")))
 (add-hook 'idris-mode-hook 'add-idris-key-bindings-hook)
 
