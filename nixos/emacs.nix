@@ -27,8 +27,10 @@ let
   emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
+    async                    # needed by helm
     lv                       # hints for hydra
     haskell-mode             # Haskell editing mode
+    helm                     # incremental completion
     # flycheck                 # On-the-fly syntax checking
     # pos-tip                  # tooltips
     # popup                    # popup tooltips and menus
@@ -36,8 +38,10 @@ in
     # flycheck-color-mode-line # Change mode line colour with flycheck status
     hydra                    # key binding families
     fill-column-indicator    # show fill column
-    nix-mode               # Idris editing mode
+    nix-mode                 # Nix editing mode
+    popup                    # needed by helm
   ]) ++ (with epkgs.melpaPackages; [
+    helm-idris               # Idris doc search using Helm
     idris-mode               # Idris editing mode
     # intero                   # Haskell development mode
     markdown-mode
