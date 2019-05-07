@@ -63,14 +63,6 @@
 
 ;; (setq amys-launch-directory default-directory)
 
-;; ;; Repos
-;; (add-to-list 'package-archives
-;;              '("gnu" . "http://elpa.gnu.org/packages/") t)
-;; (add-to-list 'package-archives
-;;              '("melpa" . "http://melpa.org/packages/") t)
-;; (add-to-list 'package-archives
-;;              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-
 ;; Find out the major mode associated with a buffer.
 (defun buffer-mode (&optional buffer-or-name)
   "Returns the major mode associated with a buffer.
@@ -78,66 +70,10 @@ If buffer-or-name is nil return current buffer's mode."
   (buffer-local-value 'major-mode
    (if buffer-or-name (get-buffer buffer-or-name) (current-buffer))))
 
-;; (custom-set-faces
-;;  ;; custom-set-faces was added by Custom.
-;;  ;; If you edit it by hand, you could mess it up, so be careful.
-;;  ;; Your init file should contain only one such instance.
-;;  ;; If there is more than one, they won't work right.
-;;  )
-
-;; My custom key bindings
-(global-set-key (kbd "C-s") (quote save-buffer))
-(global-set-key (kbd "C-r") (quote query-replace))
-(global-set-key (kbd "C-f") (quote isearch-forward))
-(global-set-key (kbd "C-f") 'isearch-forward)
-(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
-(global-set-key (kbd "C-S-f") (quote isearch-backward))
-(define-key isearch-mode-map (kbd "C-S-f") 'isearch-repeat-backward)
-(global-set-key (kbd "C-#") (quote comment-dwim))
-(global-set-key (kbd "C-a") (quote mark-whole-buffer))
-;; (global-set-key (kbd "<f12>") (quote browse-apropos-url-on-region))
-;; (global-set-key (kbd "C-SPC") (quote hippie-expand))
-(global-set-key (kbd "C-?") (quote wombat-emacs-help))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cc" 'org-capture)
-(global-set-key "\C-cb" 'org-switchb)
-
-;; Hydra key bindings
-(require 'hydra)
-
-(defhydra hydra-word-mode (global-map "C-w")
-  "word mode"
-  ("<left>" left-word "previous word")
-  ("<right>" right-word "next word")
-  ("<backspace>" backward-kill-word "delete previous word")
-  ("<delete>" kill-word "delete next word"))
-(defhydra hydra-sentence-mode (global-map "C-.")
-  "sentence mode"
-  ("<left>" backward-sentence "previous sentence")
-  ("<right>" forward-sentence "next sentence")
-  ("<backspace>" backward-kill-sentence "delete previous sentence")
-  ("<delete>" kill-sentence "delete next sentence"))
-(defhydra hydra-paragraph-mode (global-map "C-p")
-  "paragraph mode"
-  ("<left>" backward-paragraph "previous paragraph")
-  ("<right>" forward-paragraph "next paragraph")
-  ("<backspace>" backward-kill-paragraph "delete previous paragraph")
-  ("<delete>" kill-paragraph "delete next paragraph")
-  ("s" sort-paragraphs "sort"))
-(defhydra hydra-line-mode (global-map "C-l")
-  "line mode"
-  ("s" sort-lines "sort"))
-(defhydra hydra-rectangle-mode (global-map "<f2>")
-  "rectangle mode"
-  ("<right>" open-rectangle "indent")
-  ("x" kill-rectangle "cut")
-  ("c" copy-rectangle-as-kill "copy")
-  ("v" yank-rectangle "paste"))
-(defhydra hydra-zoom (global-map "<f3>")
-  "zoom"
-  ("g" text-scale-increase "in")
-  ("l" text-scale-decrease "out"))
+;;
+;; Key bindings
+;;
+(load "~/.emacs.d/keys.el")
 
 ;;
 ;; Remove trailing whitespace
@@ -155,7 +91,6 @@ If buffer-or-name is nil return current buffer's mode."
 ;;
 ;; Language-specific
 ;;
-
 (load "~/.emacs.d/c++.el")
 (load "~/.emacs.d/c.el")
 (load "~/.emacs.d/emacs-lisp.el")
