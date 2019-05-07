@@ -15,6 +15,7 @@ with pkgs; [
   dzen2
   (import ./emacs.nix { inherit pkgs; })
   firefox
+  fzy
   gcc
   getmail
   ghc
