@@ -28,6 +28,7 @@ let
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
     async                    # needed by helm
+    # counsel                  # includes ivy and swiper
     lv                       # hints for hydra
     haskell-mode             # Haskell editing mode
     helm                     # incremental completion
