@@ -34,13 +34,12 @@ in
     helm                     # incremental completion
     # flycheck                 # On-the-fly syntax checking
     # pos-tip                  # tooltips
-    # popup                    # popup tooltips and menus
     # button-lock              # clickable text
     # flycheck-color-mode-line # Change mode line colour with flycheck status
     hydra                    # key binding families
     fill-column-indicator    # show fill column
     nix-mode                 # Nix editing mode
-    popup                    # needed by helm
+    popup                    # popup tooltips and menus; needed by helm
   ]) ++ (with epkgs.melpaPackages; [
     helm-idris               # Idris doc search using Helm
     idris-mode               # Idris editing mode
