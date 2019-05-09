@@ -28,8 +28,9 @@
   ("k" hydra-keys/body "keys...")
 )
 
-(defhydra hydra-file-mode (global-map "<f2>")
+(defhydra hydra-file-mode (global-map "<f2>" :exit t)
   "files and buffers"
+  ("<f2>" ignore "help" :exit nil)
   ("." helm-find "find in .")
   ("~" (lambda () (interactive) (helm-find-1 "~/")) "find in ~")
   ("p" helm-browse-project "project")
@@ -38,15 +39,16 @@
 
 (defhydra hydra-rectangle-mode (global-map "<f3>")
   "rectangle mode"
+  ("<f3>" ignore "help")
   ("<right>" open-rectangle "indent")
   ("x" kill-rectangle "cut")
   ("c" copy-rectangle-as-kill "copy")
   ("v" yank-rectangle "paste")
 )
 
-(defhydra hydra-zoom (global-map "<f4>" :exit t)
+(defhydra hydra-zoom (global-map "<f4>")
   "zoom"
-  ("<f3>" ignore "help" :exit nil)
+  ("<f4>" ignore "help")
   ("<up>" text-scale-increase "in")
   ("<down>" text-scale-decrease "out")
 )
