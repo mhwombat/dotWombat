@@ -2,7 +2,6 @@
 (global-set-key (kbd "C-s") (quote save-buffer))
 (global-set-key (kbd "C-r") (quote query-replace))
 (global-set-key (kbd "C-f") (quote isearch-forward))
-(global-set-key (kbd "C-f") 'isearch-forward)
 (define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
 (global-set-key (kbd "C-S-f") (quote isearch-backward))
 (define-key isearch-mode-map (kbd "C-S-f") 'isearch-repeat-backward)
@@ -25,28 +24,41 @@
   ("a" apropos-command "apropos")
   ("f" describe-function "describe function")
   ("i" info "info browser")
-  ("?" wombat-emacs-help "my emacs notes")
-  ("k" hydra-keys/body "keys..."))
+  ("n" wombat-emacs-help "my emacs notes")
+  ("k" hydra-keys/body "keys...")
+)
 
-(defhydra hydra-rectangle-mode (global-map "<f2>")
+(defhydra hydra-file-mode (global-map "<f2>")
+  "files and buffers"
+  ("." helm-find "find in .")
+  ("~" (lambda () (interactive) (helm-find-1 "~/")) "find in ~")
+  ("p" helm-browse-project "project")
+  ("b" helm-buffers-list "buffer")
+)
+
+(defhydra hydra-rectangle-mode (global-map "<f3>")
   "rectangle mode"
   ("<right>" open-rectangle "indent")
   ("x" kill-rectangle "cut")
   ("c" copy-rectangle-as-kill "copy")
-  ("v" yank-rectangle "paste"))
+  ("v" yank-rectangle "paste")
+)
 
-(defhydra hydra-zoom (global-map "<f3>" :exit t)
+(defhydra hydra-zoom (global-map "<f4>" :exit t)
   "zoom"
   ("<f3>" ignore "help" :exit nil)
   ("<up>" text-scale-increase "in")
-  ("<down>" text-scale-decrease "out"))
+  ("<down>" text-scale-decrease "out")
+)
 
 (defhydra hydra-keys (:exit t)
   "keys"
   ("<f1>" ignore "help" :exit nil)
   ("f" describe-key-briefly "What function is bound to this key?")
+  ("F" describe-key "Doc for function bound to key")
   ("k" where-is "What key is bound to this function?")
-  ("b" describe-bindings "all key bindings"))
+  ("b" describe-bindings "all key bindings")
+)
 
 (defhydra hydra-word-mode (global-map "C-w")
   "word mode"
@@ -54,7 +66,8 @@
   ("<left>" left-word "previous word")
   ("<right>" right-word "next word")
   ("<backspace>" backward-kill-word "delete previous word")
-  ("<delete>" kill-word "delete next word"))
+  ("<delete>" kill-word "delete next word")
+)
 
 (defhydra hydra-sentence-mode (global-map "C-.")
   "sentence mode"
@@ -62,7 +75,8 @@
   ("<left>" backward-sentence "previous sentence")
   ("<right>" forward-sentence "next sentence")
   ("<backspace>" backward-kill-sentence "delete previous sentence")
-  ("<delete>" kill-sentence "delete next sentence"))
+  ("<delete>" kill-sentence "delete next sentence")
+)
 
 (defhydra hydra-paragraph-mode (global-map "C-p")
   "paragraph mode"
@@ -71,10 +85,12 @@
   ("<right>" forward-paragraph "next paragraph")
   ("<backspace>" backward-kill-paragraph "delete previous paragraph")
   ("<delete>" kill-paragraph "delete next paragraph")
-  ("s" sort-paragraphs "sort"))
+  ("s" sort-paragraphs "sort")
+)
 
 (defhydra hydra-line-mode (global-map "C-l")
   "line mode"
   ("C-l" ignore "help")
-  ("s" sort-lines "sort"))
+  ("s" sort-lines "sort")
+)
 
