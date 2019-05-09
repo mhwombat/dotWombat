@@ -148,9 +148,8 @@ alias meldit='meld ~/néal/${PWD##*/} .'
 alias sclean='rm -rf .stack-work && stack clean'
 alias sbuild='stack build --pedantic'
 alias stest='stack test --pedantic'
-alias stnr='stack test --pedantic --no-rerun-tests'
 alias gs='~/src/git-summary/git-summary ~; ~/src/git-summary/git-summary ~/src'
-alias c2n='(cabal2nix . > default.nix) && (cabal2nix . --shell > shell.nix)'
+alias ffzy='find ~ -type f | fzy'
 
 function idea() { jot -d=${HOME}/néal/ideas -t="$*" ;}
 function ideas() { jot -d=${HOME}/néal/ideas -p ;}
