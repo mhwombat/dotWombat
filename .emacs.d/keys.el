@@ -17,6 +17,7 @@
 
 ;; Hydra key bindings
 (require 'hydra)
+(require 'helm)
 
 (defhydra hydra-help-mode (global-map "<f1>" :exit t)
   "help"
