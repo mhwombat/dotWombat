@@ -24,7 +24,7 @@
   ("a" apropos-command "apropos")
   ("f" describe-function "describe function")
   ("i" info "info browser")
-  ("n" wombat-emacs-help "my emacs notes")
+  ("n" (find-file "~/néal/eolas/emacs.org") "my emacs notes")
   ("k" hydra-keys/body "keys...")
 )
 

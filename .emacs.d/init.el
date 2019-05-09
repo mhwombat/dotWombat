@@ -16,20 +16,12 @@
 ;; No toolbar
 (tool-bar-mode -1)
 
-;; Open my emacs "cheat sheet"
-(defun wombat-emacs-help ()
-  (interactive)
-  (find-file "~/néal/eolas/emacs.org"))
-
 ;; CUA
 (cua-mode t)
 
 ;; Use a bar for the cursor
 (set-default 'cursor-type 'box)
 ;; box, hollow, bar, or hbar
-
-;; ;; Set location for custom scripts.
-;; (add-to-list 'load-path "~/.emacs.d")
 
 ;; open with single window
 (add-hook 'emacs-startup-hook 'delete-other-windows)

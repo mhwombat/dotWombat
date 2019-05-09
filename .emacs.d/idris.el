@@ -15,6 +15,7 @@
     ("?" ignore "help" :exit nil)
     ("SPC" dabbrev-expand "expand")
     ("l" idris-load-file "load REPL")
+    ("q" idris-quit "close REPL")
     ("t" idris-type-at-point "type")
     ("1" idris-add-clause "initial PM")
     ("2" idris-add-missing "missing PM")
