@@ -21,43 +21,12 @@
 
 (defhydra hydra-help-mode (global-map "<f1>" :exit t)
   "help"
+  ("<f1>" ignore "help" :exit nil)
   ("a" apropos-command "apropos")
   ("f" describe-function "describe function")
   ("i" info "info browser")
   ("?" wombat-emacs-help "my emacs notes")
   ("k" hydra-keys/body "keys..."))
-
-(defhydra hydra-keys (:exit t)
-  "keys"
-  ("f" describe-key-briefly "What function is bound to this key?")
-  ("k" where-is "What key is bound to this function?")
-  ("b" describe-bindings "all key bindings"))
-
-(defhydra hydra-word-mode (global-map "C-w")
-  "word mode"
-  ("<left>" left-word "previous word")
-  ("<right>" right-word "next word")
-  ("<backspace>" backward-kill-word "delete previous word")
-  ("<delete>" kill-word "delete next word"))
-
-(defhydra hydra-sentence-mode (global-map "C-.")
-  "sentence mode"
-  ("<left>" backward-sentence "previous sentence")
-  ("<right>" forward-sentence "next sentence")
-  ("<backspace>" backward-kill-sentence "delete previous sentence")
-  ("<delete>" kill-sentence "delete next sentence"))
-
-(defhydra hydra-paragraph-mode (global-map "C-p")
-  "paragraph mode"
-  ("<left>" backward-paragraph "previous paragraph")
-  ("<right>" forward-paragraph "next paragraph")
-  ("<backspace>" backward-kill-paragraph "delete previous paragraph")
-  ("<delete>" kill-paragraph "delete next paragraph")
-  ("s" sort-paragraphs "sort"))
-
-(defhydra hydra-line-mode (global-map "C-l")
-  "line mode"
-  ("s" sort-lines "sort"))
 
 (defhydra hydra-rectangle-mode (global-map "<f2>")
   "rectangle mode"
@@ -66,7 +35,46 @@
   ("c" copy-rectangle-as-kill "copy")
   ("v" yank-rectangle "paste"))
 
-(defhydra hydra-zoom (global-map "<f3>")
+(defhydra hydra-zoom (global-map "<f3>" :exit t)
   "zoom"
-  ("g" text-scale-increase "in")
-  ("l" text-scale-decrease "out"))
+  ("<f3>" ignore "help" :exit nil)
+  ("<up>" text-scale-increase "in")
+  ("<down>" text-scale-decrease "out"))
+
+(defhydra hydra-keys (:exit t)
+  "keys"
+  ("<f1>" ignore "help" :exit nil)
+  ("f" describe-key-briefly "What function is bound to this key?")
+  ("k" where-is "What key is bound to this function?")
+  ("b" describe-bindings "all key bindings"))
+
+(defhydra hydra-word-mode (global-map "C-w")
+  "word mode"
+  ("C-w" ignore "help")
+  ("<left>" left-word "previous word")
+  ("<right>" right-word "next word")
+  ("<backspace>" backward-kill-word "delete previous word")
+  ("<delete>" kill-word "delete next word"))
+
+(defhydra hydra-sentence-mode (global-map "C-.")
+  "sentence mode"
+  ("C-." ignore "help")
+  ("<left>" backward-sentence "previous sentence")
+  ("<right>" forward-sentence "next sentence")
+  ("<backspace>" backward-kill-sentence "delete previous sentence")
+  ("<delete>" kill-sentence "delete next sentence"))
+
+(defhydra hydra-paragraph-mode (global-map "C-p")
+  "paragraph mode"
+  ("C-p" ignore "help")
+  ("<left>" backward-paragraph "previous paragraph")
+  ("<right>" forward-paragraph "next paragraph")
+  ("<backspace>" backward-kill-paragraph "delete previous paragraph")
+  ("<delete>" kill-paragraph "delete next paragraph")
+  ("s" sort-paragraphs "sort"))
+
+(defhydra hydra-line-mode (global-map "C-l")
+  "line mode"
+  ("C-l" ignore "help")
+  ("s" sort-lines "sort"))
+
