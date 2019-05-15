@@ -21,6 +21,11 @@
 (require 'hydra)
 (require 'helm)
 
+;; NOTE: The style of hydra binding I use shows the hint as soon as the
+;; hydra is invoked; but no other commands can be bound to this prefix.
+;; See https://github.com/abo-abo/hydra/wiki/Binding-Styles for more
+;; info.
+
 (defhydra hydra-help (:exit t)
   "help"
   ("a" hydra-apropos/body "apropos")
@@ -30,7 +35,6 @@
   ("k" hydra-keys/body "keys...")
 )
 (global-set-key (kbd "<f1>") 'hydra-help/body)
-
 
 (defhydra hydra-file (:exit t)
   "files and buffers"
@@ -72,37 +76,41 @@
   ("v" apropos-variable "variable")
 )
 
-(defhydra hydra-word (global-map "C-w")
+(defhydra hydra-word ()
   "word mode"
-  ("C-w" ignore "help")
   ("<left>" left-word "previous word")
   ("<right>" right-word "next word")
   ("<backspace>" backward-kill-word "delete previous word")
   ("<delete>" kill-word "delete next word")
 )
+(global-set-key (kbd "C-w") 'hydra-word/body)
 
-(defhydra hydra-sentence (global-map "C-.")
+(defhydra hydra-sentence ()
   "sentence mode"
-  ("C-." ignore "help")
   ("<left>" backward-sentence "previous sentence")
   ("<right>" forward-sentence "next sentence")
   ("<backspace>" backward-kill-sentence "delete previous sentence")
   ("<delete>" kill-sentence "delete next sentence")
 )
+(global-set-key (kbd "C-.") 'hydra-sentence/body)
 
-(defhydra hydra-paragraph (global-map "C-p")
+(defhydra hydra-paragraph ()
   "paragraph mode"
-  ("C-p" ignore "help")
   ("<left>" backward-paragraph "previous paragraph")
   ("<right>" forward-paragraph "next paragraph")
   ("<backspace>" backward-kill-paragraph "delete previous paragraph")
   ("<delete>" kill-paragraph "delete next paragraph")
   ("s" sort-paragraphs "sort")
 )
+(global-set-key (kbd "C-p") 'hydra-paragraph/body)
 
-(defhydra hydra-line (global-map "C-l")
+(defhydra hydra-line ()
   "line mode"
-  ("C-l" ignore "help")
+  ("<left>" previous-line "previous line")
+  ("<right>" forward-line "next line")
+  ("<backspace>" backward-kill-line "delete previous line")
+  ("<delete>" kill-line "delete next line")
   ("s" sort-lines "sort")
 )
+(global-set-key (kbd "C-l") 'hydra-line/body)
 
