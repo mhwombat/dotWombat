@@ -15,37 +15,40 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 
+(global-unset-key (kbd "<menu>"))
+
 ;; Hydra key bindings
 (require 'hydra)
 (require 'helm)
 
-(defhydra hydra-help-mode (global-map "<f1>" :exit t)
+(defhydra hydra-help (:exit t)
   "help"
-  ("<f1>" ignore "help" :exit nil)
-  ("a" apropos-command "apropos")
+  ("a" hydra-apropos/body "apropos")
   ("f" describe-function "describe function")
   ("i" info "info browser")
   ("n" (find-file "~/néal/eolas/emacs.org") "my emacs notes")
   ("k" hydra-keys/body "keys...")
 )
+(global-set-key (kbd "<f1>") 'hydra-help/body)
 
-(defhydra hydra-file-mode (global-map "<f2>" :exit t)
+
+(defhydra hydra-file (:exit t)
   "files and buffers"
-  ("<f2>" ignore "help" :exit nil)
   ("." helm-find "find in .")
   ("~" (lambda () (interactive) (helm-find-1 "~/")) "find in ~")
   ("p" helm-browse-project "project")
   ("b" helm-buffers-list "buffer")
 )
+(global-set-key (kbd "<f2>") 'hydra-file/body)
 
-(defhydra hydra-rectangle-mode (global-map "<f3>")
+(defhydra hydra-rectangle (global-map "<f3>")
   "rectangle mode"
-  ("<f3>" ignore "help")
   ("<right>" open-rectangle "indent")
   ("x" kill-rectangle "cut")
   ("c" copy-rectangle-as-kill "copy")
   ("v" yank-rectangle "paste")
 )
+(global-set-key (kbd "<f3>") 'hydra-rectangle/body)
 
 (defhydra hydra-zoom (global-map "<f4>")
   "zoom"
@@ -53,17 +56,23 @@
   ("<up>" text-scale-increase "in")
   ("<down>" text-scale-decrease "out")
 )
+(global-set-key (kbd "<f4>") 'hydra-zoom/body)
 
 (defhydra hydra-keys (:exit t)
   "keys"
-  ("<f1>" ignore "help" :exit nil)
   ("f" describe-key-briefly "What function is bound to this key?")
   ("F" describe-key "Doc for function bound to key")
   ("k" where-is "What key is bound to this function?")
   ("b" describe-bindings "all key bindings")
 )
 
-(defhydra hydra-word-mode (global-map "C-w")
+(defhydra hydra-apropos (:exit t)
+  "apropos"
+  ("c" apropos-command "command")
+  ("v" apropos-variable "variable")
+)
+
+(defhydra hydra-word (global-map "C-w")
   "word mode"
   ("C-w" ignore "help")
   ("<left>" left-word "previous word")
@@ -72,7 +81,7 @@
   ("<delete>" kill-word "delete next word")
 )
 
-(defhydra hydra-sentence-mode (global-map "C-.")
+(defhydra hydra-sentence (global-map "C-.")
   "sentence mode"
   ("C-." ignore "help")
   ("<left>" backward-sentence "previous sentence")
@@ -81,7 +90,7 @@
   ("<delete>" kill-sentence "delete next sentence")
 )
 
-(defhydra hydra-paragraph-mode (global-map "C-p")
+(defhydra hydra-paragraph (global-map "C-p")
   "paragraph mode"
   ("C-p" ignore "help")
   ("<left>" backward-paragraph "previous paragraph")
@@ -91,7 +100,7 @@
   ("s" sort-paragraphs "sort")
 )
 
-(defhydra hydra-line-mode (global-map "C-l")
+(defhydra hydra-line (global-map "C-l")
   "line mode"
   ("C-l" ignore "help")
   ("s" sort-lines "sort")

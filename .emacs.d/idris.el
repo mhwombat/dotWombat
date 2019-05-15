@@ -9,10 +9,8 @@
 (add-hook 'idris-mode-hook 'add-remove-trailing-whitespace-hook)
 
 (defun add-idris-key-bindings-hook ()
-  (defhydra hydra-idris (global-map "<menu>" :exit t)
+  (defhydra hydra-idris (:exit t)
     "idris"
-    ("<menu>" ignore "help" :exit nil)
-    ("?" ignore "help" :exit nil)
     ("SPC" dabbrev-expand "expand")
     ("r" idris-repl "start REPL")
     ("l" idris-load-file "load in REPL")
@@ -31,6 +29,7 @@
     ("a" idris-apropos "apropos")
     ("h" helm-idris "search Idris docs")
   )
+  (local-set-key (kbd "<menu>") 'hydra-idris/body)
 )
 (add-hook 'idris-mode-hook 'add-idris-key-bindings-hook)
 
