@@ -45,7 +45,7 @@
 )
 (global-set-key (kbd "<f2>") 'hydra-file/body)
 
-(defhydra hydra-rectangle (global-map "<f3>")
+(defhydra hydra-rectangle (:exit t)
   "rectangle mode"
   ("<right>" open-rectangle "indent")
   ("x" kill-rectangle "cut")
@@ -54,7 +54,7 @@
 )
 (global-set-key (kbd "<f3>") 'hydra-rectangle/body)
 
-(defhydra hydra-zoom (global-map "<f4>")
+(defhydra hydra-zoom ()
   "zoom"
   ("<f4>" ignore "help")
   ("<up>" text-scale-increase "in")
