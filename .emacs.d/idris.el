@@ -20,6 +20,7 @@
     ("2" idris-add-missing "missing PM")
     ("d" idris-docs-at-point "doc")
     ("s" idris-proof-search "proof")
+    ("S" idris-type-search "type search")
     ("<up>" idris-make-lemma "lift")
     ("c" idris-case-dwim "case")
     ("w" idris-make-with-block "with")
