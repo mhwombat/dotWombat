@@ -1,2 +1,5 @@
 # Backup files
 *~
+
+# Generated emacs stuff
+.emacs.d/elpa/

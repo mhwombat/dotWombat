@@ -9,6 +9,7 @@
       numpy
       pandas
       pydotplus
+      pygments
       scikitlearn
       seaborn
     ]);

@@ -30,10 +30,13 @@ with pkgs; [
   gnumake
   gnupg
   graphviz
+  haskellPackages.Agda
   haskellPackages.cabal-install
   # haskellPackages.packunused
   # haskellPackages.hat
+  haskellPackages.pandoc
   haskellPackages.pandoc-citeproc
+  haskellPackages.pandoc-types
   haskellPackages.template
   haskellPackages.stylish-haskell
   # haskellPackages.liquidhaskell
@@ -46,6 +49,7 @@ with pkgs; [
   idrisPackages.contrib
   imagemagick
   inkscape
+  iosevka # font
   ispell
   jdk
   jot

@@ -83,6 +83,7 @@ If buffer-or-name is nil return current buffer's mode."
 ;;
 ;; Language-specific
 ;;
+(load "~/.emacs.d/agda.el")
 (load "~/.emacs.d/c++.el")
 (load "~/.emacs.d/c.el")
 (load "~/.emacs.d/emacs-lisp.el")
