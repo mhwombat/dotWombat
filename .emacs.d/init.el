@@ -86,6 +86,7 @@ If buffer-or-name is nil return current buffer's mode."
 (load "~/.emacs.d/agda.el")
 (load "~/.emacs.d/c++.el")
 (load "~/.emacs.d/c.el")
+(load "~/.emacs.d/coq.el")
 (load "~/.emacs.d/emacs-lisp.el")
 (load "~/.emacs.d/haskell.el")
 (load "~/.emacs.d/idris.el")

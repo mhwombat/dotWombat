@@ -1,11 +1,13 @@
 pkgs:
 
 with pkgs; [
+  AgdaStdlib
   auctex
   bash
   bind # for dig
   binutils-unwrapped
   cabal2nix
+  coq
   curl
   cvc4
   dbeaver

@@ -48,6 +48,7 @@ in
     # intero                   # Haskell development mode
     markdown-mode
     popup                    # popup tooltips and menus; needed by helm
+    proof-general            # for use with Coq
   ]) ++ (with epkgs.elpaPackages; [
     auctex         # ; LaTeX mode
   ]) ++ [
