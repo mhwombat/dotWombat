@@ -12,7 +12,7 @@
   (defhydra hydra-coq (:exit t)
     "coq"
     ("SPC" dabbrev-expand "expand")
-    ("ENTER" proof-goto-point "proof state")
+    ("RET" proof-goto-point "proof state")
     ;; ("l" agda2-load "load")
     ;; ("q" agda2-quit "quit Agda")
     ;; ("r" agda2-restart "restart Agda")
