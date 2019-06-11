@@ -86,6 +86,7 @@ with pkgs; [
   x11
   xmonad-with-packages
   xorg.libX11
+  xorg.xev
   xscreensaver
   xsel
   weka
