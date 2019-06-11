@@ -61,7 +61,7 @@
 )
 (global-set-key (kbd "<f4>") 'hydra-zoom/body)
 
-(defhydra hydra-window ()
+(defhydra hydra-window (:exit t)
   "window"
   ("h" split-window-right "split horiz")
   ("v" split-window-below "split vert")
