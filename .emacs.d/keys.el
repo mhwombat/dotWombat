@@ -56,11 +56,22 @@
 
 (defhydra hydra-zoom ()
   "zoom"
-  ("<f4>" ignore "help")
   ("<up>" text-scale-increase "in")
   ("<down>" text-scale-decrease "out")
 )
 (global-set-key (kbd "<f4>") 'hydra-zoom/body)
+
+(defhydra hydra-window ()
+  "window"
+  ("h" split-window-right "split horiz")
+  ("v" split-window-below "split vert")
+  ("t" enlarge-window-right "taller")
+  ("w" enlarge-window-horizontally "wider")
+  ("W" shrink-window-horizontally "wider")
+  ("<right>" other-window "next")
+  ("0" delete-window "delete")
+)
+(global-set-key (kbd "<f5>") 'hydra-window/body)
 
 (defhydra hydra-keys (:exit t)
   "keys"
