@@ -72,6 +72,7 @@
   ("0" delete-window "delete")
 )
 (global-set-key (kbd "<f5>") 'hydra-window/body)
+(global-set-key (kbd "<rwindow>") 'hydra-window/body)
 
 (defhydra hydra-keys (:exit t)
   "keys"
