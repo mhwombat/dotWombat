@@ -8,6 +8,20 @@
 ;; Remove trailing whitespace
 (add-hook 'coq-mode-hook 'add-remove-trailing-whitespace-hook)
 
+;; ;;
+;; ;; Use pretty Unicode symbols
+;; ;;
+;; (setq coq-symbols
+;;   '(("forall" ?∀)
+;;     ("->" ?→)
+;;     ("exists" ?∃)
+;;     ("=>" ?⇒)
+;;     ("False" ?⊥)
+;;     ("True" ?⊤)))
+;; (add-hook 'coq-mode-hook
+;;           (lambda ()
+;;             (setq prettify-symbols-alist coq-symbols)))
+
 (defun add-coq-key-bindings-hook ()
   (defhydra hydra-coq (:exit t)
     "coq"
