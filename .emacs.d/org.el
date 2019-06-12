@@ -5,11 +5,11 @@
 (defun add-org-key-bindings-hook ()
   (defhydra hydra-org (:exit t)
     "org mode"
-    ("<menu>" ignore "help" :exit nil)
-    ("?" ignore "help" :exit nil)
     ("s" (insert "#+BEGIN_SRC\n#+END_SRC") "source")
     ("l" (insert "#+BEGIN_EXPORT latex\n#+END_EXPORT") "latex")
-    ("p" org-preview-latex-fragment "help")
+    ("p" org-preview-latex-fragment "preview")
+    ("P" org-export-dispatch "publish")
+    ("x" org-babel-execute-src-block "execute block")
   )
   (local-set-key (kbd "<menu>") 'hydra-org/body)
 )
@@ -30,6 +30,7 @@
    (R . t)
    (awk . t)
    ;; (browser . t)
+   (coq . t)
    (dot . t)
    (haskell . t)
    (latex . t)
@@ -54,3 +55,19 @@
 
 ;; Start with preview of equations, images
 (setq org-startup-latex-with-latex-preview t)
+
+;; ;; Settings to allow Coq code in org mode
+;; (load "~/.emacs.d/org-coq.el")
+
+;; Allow certain org file mode variable changes
+(setq safe-local-variable-values
+   (quote
+    ((org-emphasis-alist
+      ("*" bold)
+      ("/" italic)
+      ("_"
+       (:underline nil))
+      ("=" org-verbatim verbatim)
+      ("~" org-code verbatim)
+      ("+"
+       (:strike-through nil))))))
