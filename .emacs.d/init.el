@@ -49,6 +49,11 @@
 (setq fci-rule-width 1)
 (setq fci-rule-color "lightblue")
 
+;;
+;; Use pretty Unicode symbols
+;;
+(setq global-prettify-symbols-mode 1)
+
 ;; AUCTeX
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
@@ -97,25 +102,3 @@ If buffer-or-name is nil return current buffer's mode."
 (load "~/.emacs.d/python.el")
 (load "~/.emacs.d/shell-script.el")
 (load "~/.emacs.d/text.el")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   (quote
-    ((org-emphasis-alist
-      ("*" bold)
-      ("/" italic)
-      ("_"
-       (:underline nil))
-      ("=" org-verbatim verbatim)
-      ("~" org-code verbatim)
-      ("+"
-       (:strike-through nil)))))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
