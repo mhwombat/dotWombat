@@ -31,6 +31,10 @@
     (import /home/amy/nix-overlays/default.nix)
   ];
 
+  # Allow software with an unfree license
+  # nixpkgs.config.allowUnfree = true;
+
+  # Packages I want to use
   environment.systemPackages = import /home/amy/dotWombat/nixos/packages.nix pkgs;
 
   # Some programs need SUID wrappers, can be configured further or are

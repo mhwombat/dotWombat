@@ -11,12 +11,14 @@ with pkgs; [
   curl
   cvc4
   dbeaver
+  # dbvisualizer
   dmenu2
   dmidecode
   docker
   dzen2
   (import ./emacs.nix { inherit pkgs; })
   firefox
+  flameshot
   fzy
   gcc
   getmail
@@ -73,6 +75,7 @@ with pkgs; [
   qpdf
   rEnv
   rsync
+  squirrel-sql
   # stack
   # stack2nix
   sxiv
