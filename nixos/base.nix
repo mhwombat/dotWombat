@@ -37,6 +37,9 @@
   # Packages I want to use
   environment.systemPackages = import /home/amy/dotWombat/nixos/packages.nix pkgs;
 
+  # Set the JAVA_HOME environment variable
+  programs.java.enable = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
