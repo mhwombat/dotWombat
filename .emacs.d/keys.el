@@ -113,6 +113,7 @@
   ("<backspace>" backward-kill-paragraph "delete previous paragraph")
   ("<delete>" kill-paragraph "delete next paragraph")
   ("s" sort-paragraphs "sort")
+  ("f" fill-paragraph "fill" :exit t)
 )
 (global-set-key (kbd "C-p") 'hydra-paragraph/body)
 
