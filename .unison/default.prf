@@ -87,6 +87,24 @@ ignore = Path {néal/léirithe/*/*.log}
 ignore = Path {néal/léirithe/*/*.out}
 ignore = Path {néal/léirithe/*/*.toc}
 ignore = Path {néal/léirithe/*/*.synctex.gz}
+ignore = Path {néal/eolas/*/*/*.acn}
+ignore = Path {néal/eolas/*/*/*.acr}
+ignore = Path {néal/eolas/*/*/*.alg}
+ignore = Path {néal/eolas/*/*/*.aux}
+ignore = Path {néal/eolas/*/*/*.bbl}
+ignore = Path {néal/eolas/*/*/*.bcf}
+ignore = Path {néal/eolas/*/*/*.blg}
+ignore = Path {néal/eolas/*/*/*.dvi}
+ignore = Path {néal/eolas/*/*/*.glg}
+ignore = Path {néal/eolas/*/*/*.glo}
+ignore = Path {néal/eolas/*/*/*.gls}
+ignore = Path {néal/eolas/*/*/*.ist}
+ignore = Path {néal/eolas/*/*/*.lof}
+ignore = Path {néal/eolas/*/*/*.lot}
+ignore = Path {néal/eolas/*/*/*.log}
+ignore = Path {néal/eolas/*/*/*.out}
+ignore = Path {néal/eolas/*/*/*.toc}
+ignore = Path {néal/eolas/*/*/*.synctex.gz}
 
 # Liquidhaskell auxiliary files
 ignore = Path {néal/liquidhaskell-tutorial/*/.liquid}
