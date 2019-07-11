@@ -30,6 +30,7 @@ with pkgs; [
   gnome3.dconf-editor
   gnome3.eog
   gnome3.gnome-disk-utility
+  gnome3.gucharmap
   gnome3.meld
   gnumake
   gnupg
