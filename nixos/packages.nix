@@ -1,7 +1,7 @@
 pkgs:
 
 with pkgs; [
-  AgdaStdlib
+  # AgdaStdlib
   auctex
   bash
   bind # for dig
@@ -35,7 +35,7 @@ with pkgs; [
   gnumake
   gnupg
   graphviz
-  haskellPackages.Agda
+  # haskellPackages.Agda
   haskellPackages.cabal-install
   # haskellPackages.packunused
   # haskellPackages.hat
