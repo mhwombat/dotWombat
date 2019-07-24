@@ -18,7 +18,6 @@ with pkgs; [
   dzen2
   (import ./emacs.nix { inherit pkgs; })
   firefox
-  flameshot
   fzy
   gcc
   getmail
@@ -30,6 +29,7 @@ with pkgs; [
   gnome3.dconf-editor
   gnome3.eog
   gnome3.gnome-disk-utility
+  gnome3.gnome-screenshot
   gnome3.gucharmap
   gnome3.meld
   gnumake
