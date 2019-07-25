@@ -32,7 +32,7 @@
   ];
 
   # Allow software with an unfree license
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   # Packages I want to use
   environment.systemPackages = import /home/amy/dotWombat/nixos/packages.nix pkgs;

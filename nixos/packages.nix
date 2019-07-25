@@ -29,7 +29,7 @@ with pkgs; [
   gnome3.dconf-editor
   gnome3.eog
   gnome3.gnome-disk-utility
-  gnome3.gnome-screenshot
+  # gnome3.gnome-screenshot
   gnome3.gucharmap
   gnome3.meld
   gnumake
@@ -59,6 +59,7 @@ with pkgs; [
   jdk
   jot
   kdeApplications.okular
+  kdeApplications.spectacle # replaced ksnapshot
   libertine
   libreoffice
   lsof
@@ -86,6 +87,7 @@ with pkgs; [
   tree
   unison
   unzip
+  vistafonts # True-type fonts from MS Windows
   vlc
   x11
   xmonad-with-packages
