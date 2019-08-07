@@ -77,11 +77,13 @@ with pkgs; [
   qpdf
   rEnv
   rsync
+  saxon # xslt
   squirrel-sql
   # stack
   # stack2nix
   sxiv
   tectonic
+  telnet
   texstudio
   texlive.combined.scheme-full
   tree
