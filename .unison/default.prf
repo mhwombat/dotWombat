@@ -49,8 +49,10 @@ ignore = Name cabal.sandbox.config
 ignore = Name .ghc.environment.*
 ignore = Name cabal.project.local
 # ignore = Name {,.}*{.hi}
+ignore = Name *-eps-converted-to.pdf
 
 # Latex auxiliary files
+ignore = Name *.synctex.gz
 ignore = Path {néal/páipéir/*/*.acn}
 ignore = Path {néal/páipéir/*/*.acr}
 ignore = Path {néal/páipéir/*/*.alg}
@@ -68,7 +70,6 @@ ignore = Path {néal/páipéir/*/*.lot}
 ignore = Path {néal/páipéir/*/*.log}
 ignore = Path {néal/páipéir/*/*.out}
 ignore = Path {néal/páipéir/*/*.toc}
-ignore = Path {néal/páipéir/*/*.synctex.gz}
 ignore = Path {néal/léirithe/*/*.acn}
 ignore = Path {néal/léirithe/*/*.acr}
 ignore = Path {néal/léirithe/*/*.alg}
