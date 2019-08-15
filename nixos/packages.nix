@@ -8,6 +8,7 @@ with pkgs; [
   binutils-unwrapped
   cabal2nix
   coq
+  csvkit
   curl
   cvc4
   dbeaver
