@@ -51,8 +51,8 @@ with pkgs; [
   hdf5
   hdfview
   hello-amy
-  idris
-  idrisPackages.contrib
+  # idris
+  # idrisPackages.contrib
   imagemagick
   inkscape
   iosevka # font
@@ -74,7 +74,7 @@ with pkgs; [
   pkgconfig
   python
   python3Env
-  pypi2nix
+  # pypi2nix
   qpdf
   rEnv
   rsync
