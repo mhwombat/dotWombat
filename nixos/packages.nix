@@ -67,6 +67,7 @@ with pkgs; [
   lxqt.lximage-qt
   lxqt.qterminal
   mkpasswd
+  ncompress
   nix-prefetch-git
   openjdk
   pandoc
