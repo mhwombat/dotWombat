@@ -29,7 +29,7 @@ ignore = Path {néal/foclóir/.html}
 ignore = Path {néal/grid/userguide/images/.directory}
 ignore = Name {,.}*{.swp}
 ignore = Name {.git}
-ignore = Name {.gitignore}
+#ignore = Name {.gitignore}
 ignore = Name {,.}*{.kate-swp}
 
 # Emacs org-mode auxiliary files
