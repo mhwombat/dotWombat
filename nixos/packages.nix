@@ -68,6 +68,7 @@ with pkgs; [
   lxqt.qterminal
   mkpasswd
   ncompress
+  nix-index # provides nix-locate
   nix-prefetch-git
   openjdk
   pandoc
