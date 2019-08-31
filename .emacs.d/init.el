@@ -54,10 +54,6 @@
 ;;
 (setq global-prettify-symbols-mode 1)
 
-;; AUCTeX
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-
 ;; (setq amys-launch-directory default-directory)
 
 ;; Find out the major mode associated with a buffer.
@@ -88,7 +84,7 @@ If buffer-or-name is nil return current buffer's mode."
 ;;
 ;; Language-specific
 ;;
-(load "~/.emacs.d/agda.el")
+;(load "~/.emacs.d/agda.el")
 (load "~/.emacs.d/c++.el")
 (load "~/.emacs.d/c.el")
 (load "~/.emacs.d/coq.el")
@@ -102,3 +98,4 @@ If buffer-or-name is nil return current buffer's mode."
 (load "~/.emacs.d/python.el")
 (load "~/.emacs.d/shell-script.el")
 (load "~/.emacs.d/text.el")
+(load "~/.emacs.d/tex.el")
