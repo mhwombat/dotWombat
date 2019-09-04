@@ -3,6 +3,7 @@
 ;;
 
 (defun add-org-key-bindings-hook ()
+  ;; (message "org-mode-hook invoked")
   (defhydra hydra-org (:exit t)
     "org mode"
     ("s" (insert "#+BEGIN_SRC\n#+END_SRC") "source")
@@ -10,7 +11,7 @@
     ("p" org-preview-latex-fragment "preview")
     ("P" org-export-dispatch "publish")
     ("x" org-babel-execute-src-block "execute block")
-  )
+    )
   (local-set-key (kbd "<menu>") 'hydra-org/body)
 )
 (add-hook 'org-mode-hook 'add-org-key-bindings-hook)
