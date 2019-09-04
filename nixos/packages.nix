@@ -18,6 +18,7 @@ with pkgs; [
   docker
   dzen2
   (import ./emacs.nix { inherit pkgs; })
+  file
   firefox
   fzy
   gcc
