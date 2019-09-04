@@ -6,10 +6,17 @@
   ;; (message "latex-mode-hook invoked")
   (defhydra hydra-tex (:exit t)
     "tex mode"
+    ("t" hydra-templates/body "template")
     ("s" LaTeX-section "section/chapter")
     ("e" LaTeX-environment "environment")
+    ("x" TeX-command-run-all "run all")
   )
   (local-set-key (kbd "<menu>") 'hydra-tex/body)
+
+  (defhydra hydra-templates (:exit t)
+    "template"
+    ("a" (insert-file-contents "~/néal/templates/tex/article.tex") "article")
+  )
 )
 (add-hook 'LaTeX-mode-hook 'add-tex-key-bindings-hook)
 ;; LaTeX-mode-hook is used by AUCTeX's LaTeX mode.
