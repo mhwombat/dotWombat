@@ -10,6 +10,7 @@
     ("s" LaTeX-section "section/chapter")
     ("e" LaTeX-environment "environment")
     ("x" TeX-command-run-all "run all")
+    ("v" TeX-view "view")
   )
   (local-set-key (kbd "<menu>") 'hydra-tex/body)
 
@@ -28,6 +29,7 @@
 (setq-default TeX-master nil)
 ;(setq TeX-save-query nil)
 ;(setq TeX-PDF-mode t)
+(setq TeX-view-program-selection '((output-pdf "Okular")))
 
 ;; Spell-checking.
 (add-hook 'latex-mode-hook 'flyspell-mode)
