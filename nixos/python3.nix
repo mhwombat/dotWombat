@@ -1,6 +1,6 @@
 {
   nixpkgs.config.packageOverrides = pkgs: with pkgs; {
-    python3Env = python36.withPackages (ps: with ps; [
+    python3Env = python3.withPackages (ps: with ps; [
       csvkit
       gensim
       h5py
