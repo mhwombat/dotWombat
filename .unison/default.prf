@@ -27,6 +27,7 @@ ignore = Path {néal/eolas/maths/html/.directory}
 ignore = Path {néal/foclóir/.directory}
 ignore = Path {néal/foclóir/.html}
 ignore = Path {néal/grid/userguide/images/.directory}
+ignore = Path {néal/work/logAnomalyDetection/gensim/HongBin*}
 ignore = Name {,.}*{.swp}
 ignore = Name {.git}
 #ignore = Name {.gitignore}
@@ -112,6 +113,7 @@ ignore = Name .liquid
 
 # Python auxiliary files
 ignore = Name {__pycache__}
+ignore = Name {*.npy}
 
 # R auxiliary files
 ignore = Name {.RData}
