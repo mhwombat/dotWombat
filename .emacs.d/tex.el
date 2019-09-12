@@ -6,13 +6,20 @@
   ;; (message "latex-mode-hook invoked")
   (defhydra hydra-tex (:exit t)
     "tex mode"
-    ("t" hydra-templates/body "template")
-    ("s" LaTeX-section "section/chapter")
     ("e" LaTeX-environment "environment")
+    ("f" hydra-font/body "font")
+    ("s" LaTeX-section "section/chapter")
+    ("t" hydra-templates/body "template")
     ("x" TeX-command-run-all "run all")
     ("v" TeX-view "view")
   )
   (local-set-key (kbd "<menu>") 'hydra-tex/body)
+
+  (defhydra hydra-font (:exit t)
+    "font"
+    ("e" (TeX-font nil ?\C-e) "emphasis")
+    ("t" (TeX-font nil ?\C-t) "typewriter")
+  )
 
   (defhydra hydra-templates (:exit t)
     "template"
