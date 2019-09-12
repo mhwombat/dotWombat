@@ -2,6 +2,10 @@ pkgs:
 
 with pkgs; [
   # AgdaStdlib
+  aspell
+  aspellDicts.en
+  aspellDicts.en-computers
+  aspellDicts.en-science
   auctex
   bash
   bind # for dig
