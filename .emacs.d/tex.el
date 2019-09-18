@@ -31,8 +31,8 @@
 ;; latex-mode-hook is used by Emacs' built-in latex mode.
 
 ;; AUCTeX
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
+(setq TeX-parse-self t) ; Enable parse on load.
+;(setq TeX-auto-save t) ; Enable parse on save.
 (setq-default TeX-master nil)
 ;(setq TeX-save-query nil)
 ;(setq TeX-PDF-mode t)
