@@ -105,6 +105,8 @@ ignore = Path {néal/eolas/*/*/*.lot}
 ignore = Path {néal/eolas/*/*/*.log}
 ignore = Path {néal/eolas/*/*/*.out}
 ignore = Path {néal/eolas/*/*/*.toc}
+ignore = Path {néal/work/logAnomalyDetection/*.log}
+ignore = Path {néal/work/logAnomalyDetection/*/*.log}
 
 # Liquidhaskell auxiliary files
 ignore = Path {néal/liquidhaskell-tutorial/*/.liquid}
