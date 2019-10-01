@@ -78,6 +78,7 @@ with pkgs; [
   openjdk
   pandoc
   pdfmod
+  pdftk
   pkgconfig
   python
   python3Env
