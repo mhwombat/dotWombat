@@ -4,13 +4,18 @@
       csvkit
       gensim
       h5py
+      hmmlearn
       ipython
       JayDeBeApi
       matplotlib
+      networkx
       numpy
       pandas
+      pycairo
+      pydot
       pydotplus
       pygments
+      pyqt5
       scikitlearn
       seaborn
     ]);
