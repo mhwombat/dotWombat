@@ -11,6 +11,7 @@ with pkgs; [
   bind # for dig
   binutils-unwrapped
   cabal2nix
+  cairo
   coq
   csvkit
   curl
