@@ -18,7 +18,8 @@ with pkgs; [
   cvc4
   dbeaver
   # dbvisualizer
-  dmenu2
+  # dmenu2
+  dmenu
   dmidecode
   docker
   dzen2

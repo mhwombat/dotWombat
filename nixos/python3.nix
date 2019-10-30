@@ -11,13 +11,14 @@
       networkx
       numpy
       pandas
+      pomegranate
       pycairo
       pydot
       pydotplus
-#      pymc3
+      pymc3
       pygments
       pyqt5
-      pyro-ppl
+#      pyro-ppl
       pytorch
       scikitlearn
       seaborn
