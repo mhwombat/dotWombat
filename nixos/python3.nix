@@ -14,8 +14,11 @@
       pycairo
       pydot
       pydotplus
+#      pymc3
       pygments
       pyqt5
+      pyro-ppl
+      pytorch
       scikitlearn
       seaborn
     ]);
