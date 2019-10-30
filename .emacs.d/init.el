@@ -10,6 +10,9 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+;; Set default font size
+(set-face-attribute 'default nil :height 110)
+
 ;; No startup screen
 (setq inhibit-startup-screen t)
 
