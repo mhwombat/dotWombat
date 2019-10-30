@@ -7,6 +7,7 @@
       hmmlearn
       ipython
       JayDeBeApi
+      jupyter_core
       matplotlib
       networkx
       numpy
