@@ -44,7 +44,7 @@ in
     helm                     # incremental completion
     helm-idris               # Idris doc search using Helm
     idris-mode               # Idris editing mode
-    latex-pretty-symbols     # show math symbols, greek chars as unicode
+    # latex-pretty-symbols     # show math symbols, greek chars as unicode
     # liquid-types             # show inferred liquid-types
     # intero                   # Haskell development mode
     markdown-mode
