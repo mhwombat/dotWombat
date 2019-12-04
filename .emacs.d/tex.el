@@ -48,4 +48,4 @@
 (add-hook 'latex-mode-hook 'add-remove-trailing-whitespace-hook)
 
 ;; Show math symbols, Greek letters, etc. as Unicode
-(require 'latex-pretty-symbols)
+;;(require 'latex-pretty-symbols)
