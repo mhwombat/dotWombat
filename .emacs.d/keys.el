@@ -31,6 +31,7 @@
   ("a" hydra-apropos/body "apropos")
   ("f" describe-function "describe function")
   ("i" info "info browser")
+  ("m" describe-mode "mode info")
   ("n" (find-file "~/néal/eolas/emacs.org") "my emacs notes")
   ("k" hydra-keys/body "keys...")
 )
