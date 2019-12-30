@@ -49,6 +49,7 @@ with pkgs; [
   # haskellPackages.hat
   haskellPackages.pandoc
   haskellPackages.pandoc-citeproc
+  haskellPackages.pandoc-crossref
   haskellPackages.pandoc-types
   haskellPackages.template
   haskellPackages.stylish-haskell
