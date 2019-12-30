@@ -39,13 +39,13 @@
 (setq TeX-view-program-selection '((output-pdf "Okular")))
 
 ;; Spell-checking.
-(add-hook 'latex-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
 ;; Fill column indicator
-(add-hook 'latex-mode-hook 'fci-mode)
+(add-hook 'LaTeX-mode-hook 'fci-mode)
 
 ;; Remove trailing whitespace
-(add-hook 'latex-mode-hook 'add-remove-trailing-whitespace-hook)
+(add-hook 'LaTeX-mode-hook 'add-remove-trailing-whitespace-hook)
 
 ;; Show math symbols, Greek letters, etc. as Unicode
 ;;(require 'latex-pretty-symbols)
