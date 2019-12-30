@@ -150,6 +150,7 @@ alias sbuild='stack build --pedantic'
 alias stest='stack test --pedantic'
 alias gs='~/src/git-summary/git-summary ~; ~/src/git-summary/git-summary ~/src'
 alias ffzy='find ~ -type f | fzy'
+alias maths='python3 -m http.server --directory ~/néal/eolas/maths'
 
 function idea() { jot -d=${HOME}/néal/ideas -t="$*" ;}
 function ideas() { jot -d=${HOME}/néal/ideas -p ;}
