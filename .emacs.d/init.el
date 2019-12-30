@@ -52,6 +52,9 @@
 (setq fci-rule-width 1)
 (setq fci-rule-color "lightblue")
 
+;; Use the built-in browser
+(setq browse-url-browser-function 'eww-browse-url)
+
 ;;
 ;; Use pretty Unicode symbols
 ;;
@@ -96,9 +99,34 @@ If buffer-or-name is nil return current buffer's mode."
 (load "~/.emacs.d/idris.el")
 (load "~/.emacs.d/idris-repl.el")
 (load "~/.emacs.d/makefile.el")
+(load "~/.emacs.d/markdown.el")
 (load "~/.emacs.d/nix.el")
 (load "~/.emacs.d/org.el")
 (load "~/.emacs.d/python.el")
 (load "~/.emacs.d/shell-script.el")
 (load "~/.emacs.d/text.el")
 (load "~/.emacs.d/tex.el")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values
+   (quote
+    ((pandoc/write . "html5")
+     (pandoc/write . "html")
+     (org-emphasis-alist
+      ("*" bold)
+      ("/" italic)
+      ("_"
+       (:underline nil))
+      ("=" org-verbatim verbatim)
+      ("~" org-code verbatim)
+      ("+"
+       (:strike-through nil)))))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
