@@ -48,6 +48,7 @@ in
     # liquid-types             # show inferred liquid-types
     # intero                   # Haskell development mode
     markdown-mode
+    pandoc-mode
     popup                    # popup tooltips and menus; needed by helm
     proof-general            # for use with Coq
   ]) ++ (with epkgs.elpaPackages; [
