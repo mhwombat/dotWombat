@@ -24,6 +24,8 @@ with pkgs; [
   docker
   dzen2
   (import ./emacs.nix { inherit pkgs; })
+  # epdfview
+  # evince
   file
   firefox
   fzy
@@ -59,6 +61,7 @@ with pkgs; [
   hdf5
   hdfview
   hello-amy
+  # hevea
   # idris
   # idrisPackages.contrib
   imagemagick
@@ -69,8 +72,11 @@ with pkgs; [
   jot
   kdeApplications.okular
   kdeApplications.spectacle # replaced ksnapshot
+  # latex2html
   libertine
   libreoffice
+  # libxml2 # for LaTeXML
+  # libxslt # for LaTeXML
   lsof
   lxqt.lximage-qt
   lxqt.qterminal
@@ -82,6 +88,8 @@ with pkgs; [
   pandoc
   pdfmod
   pdftk
+  # perl530Packages.Appcpanminus # for LaTeXML
+  # perl530Packages.ParseRecDescent # for LaTeXML
   pkgconfig
   python
   python3Env
@@ -112,4 +120,5 @@ with pkgs; [
   weka
   wget
   z3
+  zip
 ]
