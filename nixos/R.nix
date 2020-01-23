@@ -18,21 +18,25 @@ rWrapper.
 
         rEnv = super.rWrapper.override {
             packages = with self.rPackages; [
- 	        ade4
-		caret
-		factoextra
-		FactoMineR
-		ggcorrplot
+                ade4
+                caret
+                factoextra
+                FactoMineR
+                ggcorrplot
                 ggplot2
-		lubridate
-		missMDA
-		mlbench
-		paran
-		pcaMethods
+                igraph
+                lubridate
+                missMDA
+                mlbench
+                nortest
+                paran
+                pcaMethods
+                plotrix
                 reshape2
+                rowr
                 tidyverse
-		xts
-               ];
+                xts
+            ];
         };
     };
 }
