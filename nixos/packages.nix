@@ -92,6 +92,7 @@ with pkgs; [
   # perl530Packages.ParseRecDescent # for LaTeXML
   pkgconfig
   python
+  pythonEnv
   python3Env
   # pypi2nix
   qpdf

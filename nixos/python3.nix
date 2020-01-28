@@ -12,10 +12,12 @@
       networkx
       numpy
       pandas
+      pandocfilters
       pomegranate
       pycairo
       pydot
       pydotplus
+      pygraphviz
       pymc3
       pygments
       pyqt5
