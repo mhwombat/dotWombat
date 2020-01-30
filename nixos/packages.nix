@@ -12,6 +12,7 @@ with pkgs; [
   binutils-unwrapped
   cabal2nix
   cairo
+  conda # python package manager
   coq
   csvkit
   curl
@@ -92,7 +93,7 @@ with pkgs; [
   # perl530Packages.ParseRecDescent # for LaTeXML
   pkgconfig
   python
-  pythonEnv
+  python2Env
   python3Env
   # pypi2nix
   qpdf
@@ -116,6 +117,7 @@ with pkgs; [
   xmonad-with-packages
   xorg.libX11
   xorg.xev
+  xpdf # for pdftotext
   xscreensaver
   xsel
   weka
