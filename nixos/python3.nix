@@ -13,6 +13,7 @@
       numpy
       pandas
       pandocfilters
+      pip
       pomegranate
       pycairo
       pydot
@@ -25,6 +26,7 @@
       pytorch
       scikitlearn
       seaborn
+      virtualenvwrapper # for pip
     ]);
   };
 }
