@@ -28,6 +28,7 @@ rWrapper.
                 lubridate
                 missMDA
                 mlbench
+                mongolite
                 nortest
                 paran
                 pcaMethods
