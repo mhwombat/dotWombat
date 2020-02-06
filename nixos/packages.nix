@@ -82,6 +82,8 @@ with pkgs; [
   lxqt.lximage-qt
   lxqt.qterminal
   mkpasswd
+  mongodb
+  mongodb-tools
   ncompress
   nix-index # provides nix-locate
   nix-prefetch-git
