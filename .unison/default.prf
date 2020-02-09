@@ -126,3 +126,8 @@ ignore = Name {singleWain-*.log}
 ignore = Name {audio-*.log}
 ignore = Name {som-*.log}
 ignore = Name {sgm-*.log}
+
+# Maths notes generated files
+ignore = Regex néal/eolas/maths/.*\.html
+ignore = Name {tex2png-images}
+ignore = Name {graphviz-images}
