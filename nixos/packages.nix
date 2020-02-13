@@ -71,6 +71,7 @@ with pkgs; [
   ispell
   jdk
   jot
+  jupyter
   kdeApplications.okular
   kdeApplications.spectacle # replaced ksnapshot
   # latex2html
