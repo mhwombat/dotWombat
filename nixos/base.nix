@@ -31,12 +31,15 @@
   nix.gc.automatic = true;
   nix.gc.dates = "06:15";
 
+  # Start the docker daemon (also creates docker group)
+  virtualisation.docker.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.amy = {
     isNormalUser = true;
     home = "/home/amy";
     description = "Amy de Buitleir";
-    extraGroups = [ "wheel" "networkmanager" "vboxsf" ];
+    extraGroups = [ "wheel" "networkmanager" "vboxsf" "docker" ];
     uid = 1000;
   };
 
