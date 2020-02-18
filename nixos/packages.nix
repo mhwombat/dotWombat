@@ -1,6 +1,15 @@
-pkgs:
+{ config, pkgs, options, ... }:
 
-with pkgs; [
+with pkgs;
+{
+
+  nixpkgs.overlays = [
+    (import /home/amy/nix-overlays/default.nix)
+  ];
+
+
+  # Packages I want to use
+  environment.systemPackages = [
   # AgdaStdlib
   aspell
   aspellDicts.en
@@ -127,4 +136,5 @@ with pkgs; [
   wget
   z3
   zip
-]
+];
+}
