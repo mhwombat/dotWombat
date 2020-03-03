@@ -29,6 +29,7 @@ rWrapper.
                 missMDA
                 mlbench
                 mongolite
+                mvtnorm
                 nortest
                 paran
                 pcaMethods
