@@ -80,6 +80,7 @@ with pkgs;
   ispell
   jdk
   jot
+  jq
   jupyter
   kdeApplications.okular
   kdeApplications.spectacle # replaced ksnapshot
