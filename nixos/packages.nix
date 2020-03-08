@@ -85,6 +85,7 @@ with pkgs;
   kdeApplications.okular
   kdeApplications.spectacle # replaced ksnapshot
   # latex2html
+  lftp
   libertine
   libreoffice
   # libxml2 # for LaTeXML
