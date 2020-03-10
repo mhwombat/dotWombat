@@ -128,6 +128,7 @@ with pkgs;
   vistafonts # True-type fonts from MS Windows
   vlc
   x11
+  xmlstarlet
   xmonad-with-packages
   xorg.libX11
   xorg.xev
