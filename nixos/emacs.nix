@@ -39,6 +39,7 @@ in
     nix-mode                 # Nix editing mode
   ]) ++ (with epkgs.melpaPackages; [
     async                    # needed by helm
+    blacken                  # Python code formatter
     ess
     # flycheck-liquidhs        # liquidhaskell flycheck
     helm                     # incremental completion
