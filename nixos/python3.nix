@@ -1,6 +1,7 @@
 {
   nixpkgs.config.packageOverrides = pkgs: with pkgs; {
     python3Env = python3.withPackages (ps: with ps; [
+      # black
       csvkit
       gensim
       h5py
@@ -19,6 +20,7 @@
       pydot
       pydotplus
       pygraphviz
+      pylint
       pymc3
       pygments
       pyqt5
@@ -26,6 +28,7 @@
       pytorch
       scikitlearn
       seaborn
+      setuptools
       virtualenvwrapper # for pip
     ]);
   };
