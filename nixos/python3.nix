@@ -21,7 +21,7 @@
       pydotplus
       pygraphviz
       pylint
-      pymc3
+      # pymc3 - broken in 20.03
       pygments
       pyqt5
 #      pyro-ppl
