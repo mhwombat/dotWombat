@@ -3,7 +3,7 @@
 ;;
 
 (setq markdown-command "pandoc --webtex")
-(setq markdown-live-preview-mode t)
+;; (setq markdown-live-preview-mode t)
 
 (defun add-markdown-key-bindings-hook ()
   (defhydra hydra-markdown (:exit t)
