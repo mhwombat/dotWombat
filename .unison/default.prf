@@ -1,7 +1,8 @@
 # Roots of the synchronization
 root = /home/amy
 root = ssh://amy@82.221.128.172//home/amy
-addversionno=true
+# servercmd = /usr/bin/unison-2.51.3
+# addversionno=true
 follow = Path {néal}
 
 # Paths to synchronize 
