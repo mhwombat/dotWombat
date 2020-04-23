@@ -24,6 +24,9 @@
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
 
+  # Enable the OpenSSH server.
+  services.sshd.enable = true;
+
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
