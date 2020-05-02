@@ -68,7 +68,7 @@ with pkgs;
     haskellPackages.pandoc-crossref
     haskellPackages.pandoc-types
     haskellPackages.template
-    haskellPackages.stylish-haskell
+    # haskellPackages.stylish-haskell # broken in 20.03
     # haskellPackages.liquidhaskell
     # my-liquidhaskell
     haskellPackages.X11-xft
@@ -104,6 +104,7 @@ with pkgs;
     nix-index # provides nix-locate
     nix-prefetch-git
     openjdk
+    p7zip
     pandoc
     pdfmod
     pdftk
@@ -136,7 +137,7 @@ with pkgs;
     xmonad-with-packages
     xorg.libX11
     xorg.xev
-    xpdf
+    # xpdf # broken in 20.03
     xscreensaver
     xsel
     weka
