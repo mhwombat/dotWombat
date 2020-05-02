@@ -3,11 +3,11 @@
 }:
 mkDerivation {
   pname = "jot";
-  version = "1.3";
+  version = "1.4";
   src = fetchgit {
     url = "https://github.com/mhwombat/jot.git";
-    sha256 = "0k6fjcasns7pa20iq2mqck3gn777vx42mnv11rnnzrbhkm8r3838";
-    rev = "5f080b04df8b797035df326f1176047098556b08";
+    sha256 = "1slnsh2jmqbhrsll6xlwa7nks35agmx2hrwxiy26shvnnfcv6m0d";
+    rev = "006ac6d2d97e2cfdf42baa0e6d18dd9eb06c0c05";
     fetchSubmodules = true;
   };
   isLibrary = false;
