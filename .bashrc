@@ -146,23 +146,23 @@ alias cbti='cabal v2-build --ghc-options=-Werror && cabal v2-test && cabal v2-in
 #alias ghcis='ghcs --interactive'
 #alias mirror='xrandr --output DP2 --primary --same-as eDP1 --output eDP1 --auto'
 #alias dual='xrandr --output DP2 --primary --right-of eDP1 --output eDP1 --auto'
-alias meldit='meld ~/néal/${PWD##*/} .'
+#alias meldit='meld ~/néal/${PWD##*/} .'
 #alias sbuild='stack build --ghc-options=-Werror'
 alias sclean='rm -rf .stack-work && stack clean'
 alias sbuild='stack build --pedantic'
 alias stest='stack test --pedantic'
 alias gs='~/src/git-summary/git-summary ~; ~/src/git-summary/git-summary ~/src'
 alias ffzy='find ~ -type f | fzy'
-alias maths='python3 -m http.server --directory ~/néal/eolas/maths'
+alias maths='python3 -m http.server --directory ~/github/eolas/maths'
 alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
 
-function idea() { jot -d=${HOME}/néal/ideas -t="$*" ;}
-function ideas() { jot -d=${HOME}/néal/ideas -p ;}
-function note() { jot -d=${HOME}/néal/notes -t="$*" ;}
-function notes() { jot -d=${HOME}/néal/notes -p ;}
+function idea() { jot -d=${HOME}/github/ideas -t="$*" ;}
+function ideas() { jot -d=${HOME}/github/ideas -p ;}
+function note() { jot -d=${HOME}/github/notes -t="$*" ;}
+function notes() { jot -d=${HOME}/github/notes -p ;}
 function qc() { grep prop_ $* | grep '∷' | sed 's/ ∷.*//; s/\(.*\)/    testProperty "\1"\n      \1,/' ;}
 #function ducks { du -cks "$1"/* |sort -rn |head -11 ;}
-function snew() { stack new "$1" /home/eamybut/néal/stack/templates/amy.hsfiles ;}
+#function snew() { stack new "$1" /home/eamybut/néal/stack/templates/amy.hsfiles ;}
 
 # Turn off the #@£*! bell
 set bell-style none
