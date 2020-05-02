@@ -1,6 +1,5 @@
 .bashrc
 .cabal/config
-.config/nixpkgs/config.nix
 .emacs.d
 .ghci
 .gitconfig
