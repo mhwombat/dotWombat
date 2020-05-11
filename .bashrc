@@ -155,6 +155,7 @@ alias gs='~/src/git-summary/git-summary ~; ~/src/git-summary/git-summary ~/src'
 alias ffzy='find ~ -type f | fzy'
 alias maths='python3 -m http.server --directory ~/github/eolas/maths'
 alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
+alias cookiecutter="nix-shell -p cookiecutter git --run 'cookiecutter gh:utdemir/hs-nix-template'"
 
 function idea() { jot -d=${HOME}/github/ideas -t="$*" ;}
 function ideas() { jot -d=${HOME}/github/ideas -p ;}
