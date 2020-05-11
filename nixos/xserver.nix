@@ -17,5 +17,9 @@
         haskellPackages.xmonad-extras
       ];
     };
+    displayManager.sessionCommands =
+      "
+          xsetroot -solid '#FFE0FF'
+      ";
   };
 }
