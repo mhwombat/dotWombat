@@ -8,7 +8,7 @@
       hmmlearn
       ipython
       JayDeBeApi
-      jupyter
+      jupyterlab
       matplotlib
       networkx
       numpy
