@@ -9,7 +9,6 @@ with pkgs;
 
   # Packages I want to use
   environment.systemPackages = [
-    # AgdaStdlib
     aspell
     aspellDicts.en
     aspellDicts.en-computers
@@ -26,21 +25,16 @@ with pkgs;
     curl
     cvc4
     dbeaver
-    # dbvisualizer
-    # dmenu2
     dmenu
     dmidecode
     docker
     dzen2
-    elfutils # provides libdw
+    # elfutils # provides libdw
     (import ./emacs.nix { inherit pkgs; })
-    # epdfview
-    # evince
     file
     firefox
     fzy
     gcc
-    getmail
     gdb
     ghc
     ghostscript # for pdf2dsc
@@ -52,32 +46,26 @@ with pkgs;
     gnome3.dconf-editor
     gnome3.eog
     gnome3.gnome-disk-utility
-    # gnome3.gnome-screenshot
     gnome3.gucharmap
     gnome3.meld
     gnumake
     gnupg
+    gnutls
     graphviz
     grsync
-    # haskellPackages.Agda
     haskellPackages.cabal-install
-    # haskellPackages.packunused
-    # haskellPackages.hat
+    haskellPackages.niv
+    # haskellPackages.packunused # broken
     haskellPackages.pandoc
     haskellPackages.pandoc-citeproc
     haskellPackages.pandoc-crossref
     haskellPackages.pandoc-types
     haskellPackages.template
-    # haskellPackages.stylish-haskell # broken in 20.03
-    # haskellPackages.liquidhaskell
-    # my-liquidhaskell
+    haskellPackages.stylish-haskell
     haskellPackages.X11-xft
     hdf5
     hdfview
     hello-amy
-    # hevea
-    # idris
-    # idrisPackages.contrib
     imagemagick
     inkscape
     iosevka # font
@@ -88,12 +76,9 @@ with pkgs;
     jupyter
     kdeApplications.okular
     kdeApplications.spectacle # replaced ksnapshot
-    # latex2html
     lftp
     libertine
     libreoffice
-    # libxml2 # for LaTeXML
-    # libxslt # for LaTeXML
     lsof
     lxqt.lximage-qt
     lxqt.qterminal
@@ -103,6 +88,7 @@ with pkgs;
     ncompress
     nix-index # provides nix-locate
     nix-prefetch-git
+    offlineimap
     openjdk
     p7zip
     pandoc
@@ -127,7 +113,6 @@ with pkgs;
     texstudio
     texlive.combined.scheme-full
     tree
-    # unison
     unrar
     unzip
     vistafonts # True-type fonts from MS Windows
