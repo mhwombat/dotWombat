@@ -39,7 +39,6 @@ with pkgs;
     ghc
     ghostscript # for pdf2dsc
     git-lfs
-    gitAndTools.git-annex
     gitAndTools.gitFull
     gmp
     gnome3.dconf
