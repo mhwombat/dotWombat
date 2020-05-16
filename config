@@ -4,6 +4,7 @@
 .ghci
 .gitconfig
 nix-overlays
+.offlineimaprc
 .stack/config.yaml
 .stylish-haskell.yaml
 .xinitrc
