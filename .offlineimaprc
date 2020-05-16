@@ -1,0 +1,20 @@
+[general]
+accounts = kolab
+
+[Account kolab]
+localrepository = kolabLocal
+remoterepository = kolabRemote
+
+[Repository kolabLocal]
+type = Maildir
+localfolders = ~/kolab
+
+[Repository kolabRemote]
+type = IMAP
+remotehost = imap.kolabnow.com
+remoteuser = amy@nualeargais.ie
+remoteport = 993
+ssl = yes
+# Tip: To get the fingerprint, put a dummy value here.
+# The error message will tell you the correct fingerprint.
+cert_fingerprint = fe6b477b1748b49765ff83072a7df688732764358400dffcb9a59a3e577d8af158d86006c15b2907c6161e9d682d99d59f583973a9465b22b6fccdcd5c6b1a27
