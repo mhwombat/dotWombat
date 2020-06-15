@@ -6,9 +6,9 @@
 
   networking.wireless.enable = true;
 
-  networking.wireless.networks = {
-    "eircom-40689925 5G" = {
-      psk = "xxxxxxxxx";
-    };
-  };
+#  networking.wireless.networks = {
+#    "eircom-40689925 5G" = {
+#      psk = "xxxxxxxxx";
+#    };
+#  };
 }
