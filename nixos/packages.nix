@@ -20,7 +20,7 @@ with pkgs;
     cabal2nix
     cairo
     conda # python package manager
-    coq
+    # coq
     csvkit
     curl
     cvc4
@@ -51,7 +51,7 @@ with pkgs;
     gnupg
     gnutls
     graphviz
-    grsync
+    # grsync
     haskellPackages.cabal-install
     haskellPackages.niv
     # haskellPackages.packunused # broken
@@ -81,9 +81,10 @@ with pkgs;
     lsof
     lxqt.lximage-qt
     lxqt.qterminal
+    memtester
     mkpasswd
-    mongodb
-    mongodb-tools
+    # mongodb
+    # mongodb-tools
     ncompress
     nix-index # provides nix-locate
     nix-prefetch-git
@@ -99,13 +100,13 @@ with pkgs;
     python3Env
     # pypi2nix
     qpdf
-    rEnv
+    # rEnv
     rsync
     saxon # xslt
     squirrel-sql
     stack
     # stack2nix
-    syncthing
+    # syncthing
     sxiv
     tectonic
     telnet
