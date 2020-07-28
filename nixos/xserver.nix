@@ -1,13 +1,11 @@
 { config, ... }:
 
 {
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.xserver.layout = "uk";
-  # services.xserver.xkbOptions = "eurosign:e";
   services.xserver = {
     enable = true;
     layout = "ie";
+
+    # XMonad
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
@@ -17,9 +15,14 @@
         haskellPackages.xmonad-extras
       ];
     };
-    displayManager.sessionCommands =
-      "
-          xsetroot -solid '#FFE0FF'
-      ";
+
+    # Enable the KDE Desktop Environment.
+    displayManager.sddm.enable = true;
+    desktopManager.plasma5.enable = true;
+
+   displayManager.sessionCommands =
+     "
+         xsetroot -solid '#FFE0FF'
+     ";
   };
 }

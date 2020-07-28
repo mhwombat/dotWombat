@@ -38,6 +38,7 @@ with pkgs;
     gdb
     ghc
     ghostscript # for pdf2dsc
+    gimp
     git-lfs
     gitAndTools.gitFull
     gmp
@@ -50,6 +51,7 @@ with pkgs;
     gnumake
     gnupg
     gnutls
+    gparted
     graphviz
     # grsync
     haskellPackages.cabal-install
@@ -75,6 +77,7 @@ with pkgs;
     jupyter
     kdeApplications.okular
     kdeApplications.spectacle # replaced ksnapshot
+    kdeconnect
     lftp
     libertine
     libreoffice
@@ -85,6 +88,7 @@ with pkgs;
     mkpasswd
     # mongodb
     # mongodb-tools
+    mtpfs
     ncompress
     nix-index # provides nix-locate
     nix-prefetch-git
@@ -127,6 +131,7 @@ with pkgs;
     xsel
     weka
     wget
+    wpa_supplicant
     z3
     zip
   ];
