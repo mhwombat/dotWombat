@@ -28,6 +28,7 @@ with pkgs;
     dmenu
     dmidecode
     docker
+    dos2unix
     dzen2
     # elfutils # provides libdw
     (import ./emacs.nix { inherit pkgs; })
@@ -107,11 +108,13 @@ with pkgs;
     # rEnv
     rsync
     saxon # xslt
+    signal-desktop
     squirrel-sql
     stack
     # stack2nix
     # syncthing
     sxiv
+    tabula
     tectonic
     telnet
     texstudio
