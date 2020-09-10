@@ -17,6 +17,7 @@ with pkgs;
     bash
     bind # for dig
     binutils-unwrapped
+    bookworm
     cabal2nix
     cairo
     conda # python package manager
@@ -32,6 +33,7 @@ with pkgs;
     dzen2
     # elfutils # provides libdw
     (import ./emacs.nix { inherit pkgs; })
+    fbreader
     file
     firefox
     fzy
@@ -42,6 +44,7 @@ with pkgs;
     gimp
     git-lfs
     gitAndTools.gitFull
+    glabels
     gmp
     gnome3.dconf
     gnome3.dconf-editor
@@ -68,6 +71,8 @@ with pkgs;
     hdf5
     hdfview
     hello-amy
+    hplip
+    hplipWithPlugin
     imagemagick
     inkscape
     iosevka # font
@@ -107,8 +112,10 @@ with pkgs;
     qpdf
     # rEnv
     rsync
+    # sane-airscan
     saxon # xslt
     signal-desktop
+    # simple-scan
     squirrel-sql
     stack
     # stack2nix
@@ -130,6 +137,7 @@ with pkgs;
     xorg.libX11
     xorg.xev
     # xpdf # broken in 20.03
+    # xsane
     xscreensaver
     xsel
     weka
