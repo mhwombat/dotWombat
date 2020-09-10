@@ -27,4 +27,9 @@
     };
   };
 
+  # Printer
+  services.printing.drivers = [ pkgs.hplipWithPlugin ];
+
+  # Scanner
+  hardware.sane.netConf = "192.168.178.29";
 }
