@@ -31,7 +31,7 @@
     isNormalUser = true;
     home = "/home/amy";
     description = "Amy de Buitleir";
-    extraGroups = [ "wheel" "networkmanager" "vboxsf" "docker" ];
+    extraGroups = [ "wheel" "networkmanager" "vboxsf" "docker" "audio" ];
     uid = 1000;
   };
 
