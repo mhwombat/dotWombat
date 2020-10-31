@@ -13,6 +13,8 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.package = pkgs.pulseaudioFull;
+  nixpkgs.config.pulseaudio = true;
 
   # Enable touchpad support.
   # services.xserver.libinput.enable = true;
