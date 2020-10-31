@@ -20,6 +20,7 @@ with pkgs;
     bookworm
     cabal2nix
     cairo
+    calibre
     conda # python package manager
     # coq
     csvkit
@@ -58,6 +59,7 @@ with pkgs;
     gparted
     graphviz
     # grsync
+    gvfs
     haskellPackages.cabal-install
     haskellPackages.niv
     # haskellPackages.packunused # broken
@@ -86,6 +88,7 @@ with pkgs;
     kdeconnect
     lftp
     libertine
+    libmtp
     libreoffice
     lsof
     lxqt.lximage-qt
@@ -102,6 +105,8 @@ with pkgs;
     openjdk
     p7zip
     pandoc
+    pasystray # audio
+    pavucontrol # audio
     pdfmod
     pdftk
     pkgconfig
