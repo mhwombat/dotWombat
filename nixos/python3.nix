@@ -14,6 +14,7 @@
       numpy
       pandas
       pandocfilters
+      pdfx
       pip
       pomegranate
       pycairo
