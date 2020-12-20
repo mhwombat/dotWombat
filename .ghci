@@ -2,16 +2,16 @@
 -- :set -Wall
 :set -XUnicodeSyntax
 :set -isrc:test
-:set -package=QuickCheck
-:set -package=test-framework-quickcheck2
-:set -package=test-framework
-:set -package=random
-:set -package=test-framework-hunit
-:set -package=HUnit
-:set -package=criterion
+-- :set -package=QuickCheck
+-- :set -package=test-framework-quickcheck2
+-- :set -package=test-framework
+-- :set -package=random
+-- :set -package=test-framework-hunit
+-- :set -package=HUnit
+-- :set -package=criterion
 :set -Wwarn
 
 :m + Data.List
 :m + Data.Maybe
-:m + Test.QuickCheck
-import Test.Framework (defaultMain)
+-- :m + Test.QuickCheck
+-- import Test.Framework (defaultMain)
