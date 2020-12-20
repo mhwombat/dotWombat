@@ -18,6 +18,7 @@ with pkgs;
     bind # for dig
     binutils-unwrapped
     bookworm
+#    busybox
     cabal2nix
     cairo
     calibre
@@ -26,9 +27,10 @@ with pkgs;
     csvkit
     curl
     cvc4
-    dbeaver
+    # dbeaver
+    diff-pdf
     dmenu
-    dmidecode
+    dmidecode # system hardware info
     docker
     dos2unix
     dzen2
@@ -38,15 +40,16 @@ with pkgs;
     file
     firefox
     fzy
-    gcc
-    gdb
-    ghc
+    # gcc
+    # gdb
+    # ghc
     ghostscript # for pdf2dsc
-    gimp
-    git-lfs
     gitAndTools.gitFull
-    glabels
-    gmp
+#    gitit
+    git-lfs
+    gimp
+    gmp # GNU multiple precision arithmetic library
+    gnome3.adwaita-icon-theme # to help meld?
     gnome3.dconf
     gnome3.dconf-editor
     gnome3.eog
@@ -59,16 +62,17 @@ with pkgs;
     gparted
     graphviz
     # grsync
-    gvfs
-    haskellPackages.cabal-install
-    haskellPackages.niv
+    # gvfs
+    # haskellPackages.cabal-install
+    # haskellPackages.niv
     # haskellPackages.packunused # broken
+    # haskellPackages.citeproc
     haskellPackages.pandoc
-    haskellPackages.pandoc-citeproc
+    haskellPackages.pandoc-citeproc # replaced by haskellPackages.citeproc?
     haskellPackages.pandoc-crossref
     haskellPackages.pandoc-types
-    haskellPackages.template
     haskellPackages.stylish-haskell
+    haskellPackages.template
     haskellPackages.X11-xft
     hdf5
     hdfview
@@ -86,9 +90,10 @@ with pkgs;
     kdeApplications.okular
     kdeApplications.spectacle # replaced ksnapshot
     kdeconnect
+    kdiff3 # until meld works properly
     lftp
     libertine
-    libmtp
+    # libmtp
     libreoffice
     lsof
     lxqt.lximage-qt
@@ -97,7 +102,7 @@ with pkgs;
     mkpasswd
     # mongodb
     # mongodb-tools
-    mtpfs
+    # mtpfs
     ncompress
     nix-index # provides nix-locate
     nix-prefetch-git
@@ -107,6 +112,8 @@ with pkgs;
     pandoc
     pasystray # audio
     pavucontrol # audio
+    pciutils # audio (lspci)
+    pdfgrep
     pdfmod
     pdftk
     pkgconfig
@@ -118,26 +125,28 @@ with pkgs;
     # rEnv
     rsync
     # sane-airscan
-    saxon # xslt
+    # saxon # xslt
+    shake
     signal-desktop
     # simple-scan
-    squirrel-sql
-    stack
+    # squirrel-sql
+    # stack
     # stack2nix
     # syncthing
     sxiv
-    tabula
-    tectonic
+    tabula # extract tables from PDF files
+    # tectonic
     telnet
     texstudio
     texlive.combined.scheme-full
     tree
     unrar
     unzip
+    usbutils
     vistafonts # True-type fonts from MS Windows
     vlc
     x11
-    xmlstarlet
+    xmlstarlet # A command line tool for manipulating and querying XML data
     xmonad-with-packages
     xorg.libX11
     xorg.xev
@@ -145,10 +154,10 @@ with pkgs;
     # xsane
     xscreensaver
     xsel
-    weka
+    # weka
     wget
     wpa_supplicant
-    z3
+    z3 # theorem proover
     zip
   ];
 }
