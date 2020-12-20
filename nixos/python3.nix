@@ -3,30 +3,30 @@
     python3Env = python3.withPackages (ps: with ps; [
       # black
       csvkit
-      gensim
-      h5py
-      hmmlearn
-      ipython
-      JayDeBeApi
+#      gensim
+#      h5py
+#      hmmlearn
+#      ipython
+#      JayDeBeApi
       jupyterlab
-      matplotlib
-      networkx
+#      matplotlib
+#      networkx
       numpy
       pandas
       pandocfilters
       pdfx
       pip
-      pomegranate
-      pycairo
-      pydot
-      pydotplus
+#      pomegranate
+#      pycairo
+#      pydot
+#      pydotplus
       pygraphviz
       pylint
       # pymc3 - broken in 20.03
-      pygments
-      pyqt5
+#      pygments
+#      pyqt5
 #      pyro-ppl
-      pytorch
+#      pytorch
       scikitlearn
       seaborn
       setuptools
