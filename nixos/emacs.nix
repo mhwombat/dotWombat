@@ -44,7 +44,7 @@ in
     popup                    # popup tooltips and menus; needed by helm
     proof-general            # for use with Coq
   ]) ++ (with epkgs.elpaPackages; [
-    auctex                   # LaTeX mode
+#    auctex                   # LaTeX mode
   ]) ++ [
     # nothing from main packages set
   ])
