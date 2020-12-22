@@ -17,12 +17,13 @@ with pkgs;
     bash
     bind # for dig
     binutils-unwrapped
-    bookworm
-#    busybox
+    # bookworm
+    # busybox overwrites realpath!
     cabal2nix
     cairo
     calibre
     conda # python package manager
+    coolreader
     # coq
     csvkit
     curl
@@ -103,6 +104,7 @@ with pkgs;
     # mongodb
     # mongodb-tools
     # mtpfs
+    mupdf
     ncompress
     nix-index # provides nix-locate
     nix-prefetch-git
@@ -122,6 +124,7 @@ with pkgs;
     python3Env
     # pypi2nix
     qpdf
+    qpdfview
     # rEnv
     rsync
     # sane-airscan
