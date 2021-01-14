@@ -15,11 +15,14 @@ with pkgs;
     aspellDicts.en-science
     auctex
     bash
+    bibclean
+    bibutils
     bind # for dig
     binutils-unwrapped
     # bookworm
     # busybox overwrites realpath!
-    cabal2nix
+    # cabal2nix
+    cabal-install
     cairo
     calibre
     conda # python package manager
@@ -40,13 +43,14 @@ with pkgs;
     fbreader
     file
     firefox
+    font-awesome
     fzy
     # gcc
     # gdb
-    # ghc
+    ghc
     ghostscript # for pdf2dsc
     gitAndTools.gitFull
-#    gitit
+    gitit
     git-lfs
     gimp
     gmp # GNU multiple precision arithmetic library
@@ -72,6 +76,7 @@ with pkgs;
     haskellPackages.pandoc-citeproc # replaced by haskellPackages.citeproc?
     haskellPackages.pandoc-crossref
     haskellPackages.pandoc-types
+    # haskellPackages.pandoc-include # broken
     haskellPackages.stylish-haskell
     haskellPackages.template
     haskellPackages.X11-xft
@@ -108,6 +113,7 @@ with pkgs;
     ncompress
     nix-index # provides nix-locate
     nix-prefetch-git
+    # nodePackages.mathjax # for gitit
     offlineimap
     openjdk
     p7zip
