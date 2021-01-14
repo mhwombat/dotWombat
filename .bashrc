@@ -158,6 +158,10 @@ alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
 alias cookiecutter="nix-shell -p cookiecutter git --run 'cookiecutter gh:utdemir/hs-nix-template'"
 alias eod="git-summary ~ ; git-summary ~/github ; git-summary ~/vps"
 
+function fmd() { find ${1:-.} -name '*.md' ;}
+function searchmd { fmd $2 | xargs grep "$1" ;}
+function fhs() { find ${1:-.} -name .stack-work -prune -o -name '*.hs' -print ;}
+function searchhs { fhs $2 | xargs grep "$1" ;}
 function idea() { jot -d=${HOME}/github/ideas -t="$*" ;}
 function ideas() { jot -d=${HOME}/github/ideas -p ;}
 function note() { jot -d=${HOME}/github/notes -t="$*" ;}
