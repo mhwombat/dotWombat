@@ -55,6 +55,9 @@
 ;; Use the built-in browser
 (setq browse-url-browser-function 'eww-browse-url)
 
+;; Tabs cause more trouble than they're worth
+(setq-default indent-tabs-mode nil)
+
 ;;
 ;; Use pretty Unicode symbols
 ;;
