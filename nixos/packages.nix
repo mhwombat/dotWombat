@@ -25,6 +25,7 @@ with pkgs;
     cabal-install
     cairo
     calibre
+    chromium
     conda # python package manager
     coolreader
     # coq
@@ -40,6 +41,7 @@ with pkgs;
     dzen2
     # elfutils # provides libdw
     (import ./emacs.nix { inherit pkgs; })
+    evince
     fbreader
     file
     firefox
@@ -101,6 +103,7 @@ with pkgs;
     libertine
     # libmtp
     libreoffice
+    gnome3.librsvg # for rsvg-convert
     lsof
     lxqt.lximage-qt
     lxqt.qterminal
@@ -149,11 +152,15 @@ with pkgs;
     texstudio
     texlive.combined.scheme-full
     tree
+    ugrep
     unrar
     unzip
     usbutils
     vistafonts # True-type fonts from MS Windows
     vlc
+    # weka
+    wget
+    wpa_supplicant
     x11
     xmlstarlet # A command line tool for manipulating and querying XML data
     xmonad-with-packages
@@ -163,9 +170,6 @@ with pkgs;
     # xsane
     xscreensaver
     xsel
-    # weka
-    wget
-    wpa_supplicant
     z3 # theorem proover
     zip
   ];
