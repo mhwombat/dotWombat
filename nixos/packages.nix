@@ -33,6 +33,7 @@ with pkgs;
     curl
     cvc4
     # dbeaver
+    dia
     diff-pdf
     dmenu
     dmidecode # system hardware info
@@ -62,6 +63,7 @@ with pkgs;
     gnome3.eog
     gnome3.gnome-disk-utility
     gnome3.gucharmap
+    gnome3.librsvg # for rsvg-convert
     gnome3.meld
     gnumake
     gnupg
@@ -95,6 +97,7 @@ with pkgs;
     jot
     jq # json processor
     jupyter
+    kazam # screencast
     kdeApplications.okular
     kdeApplications.spectacle # replaced ksnapshot
     kdeconnect
@@ -103,11 +106,12 @@ with pkgs;
     libertine
     # libmtp
     libreoffice
-    gnome3.librsvg # for rsvg-convert
+    libxml2 # for xmllint
     lsof
     lxqt.lximage-qt
     lxqt.qterminal
     memtester
+    midori # browser
     mkpasswd
     # mongodb
     # mongodb-tools
@@ -119,6 +123,7 @@ with pkgs;
     # nodePackages.mathjax # for gitit
     offlineimap
     openjdk
+    opera
     p7zip
     pandoc
     pasystray # audio
@@ -138,8 +143,10 @@ with pkgs;
     rsync
     # sane-airscan
     # saxon # xslt
+    # sage - broken
     shake
     signal-desktop
+    simplescreenrecorder
     # simple-scan
     # squirrel-sql
     # stack
@@ -157,6 +164,7 @@ with pkgs;
     unzip
     usbutils
     vistafonts # True-type fonts from MS Windows
+    vivaldi # browser
     vlc
     # weka
     wget
@@ -170,6 +178,7 @@ with pkgs;
     # xsane
     xscreensaver
     xsel
+    yq # for working with yaml files
     z3 # theorem proover
     zip
   ];
