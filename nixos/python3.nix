@@ -6,6 +6,7 @@
 #      gensim
 #      h5py
 #      hmmlearn
+      hiyapyco
 #      ipython
 #      JayDeBeApi
       jupyterlab
@@ -31,6 +32,7 @@
       seaborn
       setuptools
       virtualenvwrapper # for pip
+      yamllint
     ]);
   };
 }
