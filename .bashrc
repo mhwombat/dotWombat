@@ -160,6 +160,8 @@ alias eod="git-summary ~ ; git-summary ~/github ; git-summary ~/vps"
 
 function fmd() { find ${1:-.} -name '*.md' ;}
 function searchmd { fmd $2 | xargs grep "$1" ;}
+function fipynb() { find ${1:-.} -name '*.ipynb' | grep -v ipynb_checkpoints ;}
+function searchipynb { fipynb $2 | xargs grep "$1" ;}
 function fhs() { find ${1:-.} -name .stack-work -prune -o -name '*.hs' -print ;}
 function searchhs { fhs $2 | xargs grep "$1" ;}
 function idea() { jot -d=${HOME}/github/ideas -t="$*" ;}
