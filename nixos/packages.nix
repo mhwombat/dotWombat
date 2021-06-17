@@ -35,6 +35,7 @@ with pkgs;
     # dbeaver
     dia
     diff-pdf
+    diffpdf
     dmenu
     dmidecode # system hardware info
     docker
@@ -72,12 +73,14 @@ with pkgs;
     graphviz
     # grsync
     # gvfs
+    hardinfo
     # haskellPackages.cabal-install
     # haskellPackages.niv
     # haskellPackages.packunused # broken
     # haskellPackages.citeproc
     haskellPackages.pandoc
-    haskellPackages.pandoc-citeproc # replaced by haskellPackages.citeproc?
+    # haskellPackages.citeproc
+    haskellPackages.pandoc-citeproc # replaced by haskellPackages.citeproc in 21.05
     haskellPackages.pandoc-crossref
     haskellPackages.pandoc-types
     # haskellPackages.pandoc-include # broken
@@ -98,16 +101,18 @@ with pkgs;
     jq # json processor
     jupyter
     kazam # screencast
-    kdeApplications.okular
-    kdeApplications.spectacle # replaced ksnapshot
     kdeconnect
     kdiff3 # until meld works properly
     lftp
     libertine
     # libmtp
     libreoffice
+    libsForQt5.okular
+    libsForQt5.spectacle # replaced ksnapshot
+    libwacom
     libxml2 # for xmllint
     lsof
+    lshw
     lxqt.lximage-qt
     lxqt.qterminal
     memtester
@@ -166,13 +171,16 @@ with pkgs;
     vistafonts # True-type fonts from MS Windows
     vivaldi # browser
     vlc
+    wacomtablet
     # weka
     wget
     wpa_supplicant
     x11
+    xf86_input_wacom
     xmlstarlet # A command line tool for manipulating and querying XML data
     xmonad-with-packages
     xorg.libX11
+    xorg.libXft
     xorg.xev
     # xpdf # broken in 20.03
     # xsane
