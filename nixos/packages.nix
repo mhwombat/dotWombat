@@ -79,8 +79,8 @@ with pkgs;
     # haskellPackages.packunused # broken
     # haskellPackages.citeproc
     haskellPackages.pandoc
-    # haskellPackages.citeproc
-    haskellPackages.pandoc-citeproc # replaced by haskellPackages.citeproc in 21.05
+    haskellPackages.citeproc
+    # haskellPackages.pandoc-citeproc # replaced by haskellPackages.citeproc in 21.05
     haskellPackages.pandoc-crossref
     haskellPackages.pandoc-types
     # haskellPackages.pandoc-include # broken
@@ -149,7 +149,8 @@ with pkgs;
     # sane-airscan
     # saxon # xslt
     # sage - broken
-    shake
+    # semantik
+    shake # like make
     signal-desktop
     simplescreenrecorder
     # simple-scan

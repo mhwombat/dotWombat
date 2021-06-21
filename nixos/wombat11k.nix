@@ -19,9 +19,11 @@
 #   "*" "except:type:wwan" "except:type:gsm"
 #  ];
 
+  networking.wireless.interfaces = [ "wlo2" ];
+
   networking.wireless.networks = {
     "FRITZ!Box 7530 NU" = {
-      #psk="06595740189834774079";
+      #psk="06595740189834774079"; # WLAN Network Key (WPA2)
       # Find this using the command wpa_passphrase 'FRITZ!Box 7530 NU' 06595740189834774079
       pskRaw = "6d89c405b8cbf2899d7254011f1ac901a1e9287d6566ca48f607fe03a5a71452";
     };
