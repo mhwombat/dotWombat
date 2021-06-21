@@ -149,7 +149,7 @@ with pkgs;
     # sane-airscan
     # saxon # xslt
     # sage - broken
-    # semantik
+    semantik # mind mapping
     shake # like make
     signal-desktop
     simplescreenrecorder
