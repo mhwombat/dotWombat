@@ -156,7 +156,7 @@ alias ffzy='find ~ -type f | fzy'
 alias maths='python3 -m http.server --directory ~/github/eolas/maths'
 alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
 alias cookiecutter="nix-shell -p cookiecutter git --run 'cookiecutter gh:utdemir/hs-nix-template'"
-alias eod="git-summary ~ ; git-summary ~/github ; git-summary ~/vps"
+alias eod="git-summary ~ ; git-summary ~/github"
 
 function fmd() { find ${1:-.} -name '*.md' ;}
 function searchmd { fmd $2 | xargs grep "$1" ;}
@@ -183,19 +183,4 @@ LPDEST=Pull_Print_Unix
 if [ `hostname` == "lemur" ]; then
     source ~/.nix-profile/etc/profile.d/nix.sh
 fi
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/amy/.conda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/amy/.conda/etc/profile.d/conda.sh" ]; then
-        . "/home/amy/.conda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/amy/.conda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
