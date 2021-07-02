@@ -54,6 +54,7 @@ with pkgs;
     ghc
     ghostscript # for pdf2dsc
     gitAndTools.gitFull
+    git-crypt
     gitit
     git-lfs
     gimp
