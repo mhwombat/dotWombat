@@ -135,27 +135,11 @@ alias longestLine='awk '\''{ if (length($0) > max) {max = length($0); maxline = 
 alias psgrep='ps -ef | grep'
 alias hgrep='history | grep'
 alias ngrep='notes | grep -i'
-alias cb='cabal v2-build --ghc-options=-Werror'
-alias cbt='cabal v2-build --ghc-options=-Werror && cabal v2-test'
-alias cbti='cabal v2-build --ghc-options=-Werror && cabal v2-test && cabal v2-install --installdir=.'
-# alias cc='cabal --enable-nix v2-configure --enable-tests'
-# alias cb='cabal --enable-nix v2-build --ghc-options=-Werror'
-# alias cbt='cabal --enable-nix v2-build --ghc-options=-Werror && cabal --enable-nix v2-test'
-# alias cbti='cabal --enable-nix v2-build --ghc-options=-Werror && cabal --enable-nix v2-test && cabal --enable-nix v2-install'
-#alias cidt='cabal --enable-nix install --dependencies-only --enable-tests'
-#alias ghcis='ghcs --interactive'
-#alias mirror='xrandr --output DP2 --primary --same-as eDP1 --output eDP1 --auto'
-#alias dual='xrandr --output DP2 --primary --right-of eDP1 --output eDP1 --auto'
-#alias meldit='meld ~/néal/${PWD##*/} .'
-#alias sbuild='stack build --ghc-options=-Werror'
-alias sclean='rm -rf .stack-work && stack clean'
-alias sbuild='stack build --pedantic'
-alias stest='stack test --pedantic'
-alias gs='~/src/git-summary/git-summary ~; ~/src/git-summary/git-summary ~/src'
+alias cb='cabal build --ghc-options=-Werror'
+alias cbt='cabal build --ghc-options=-Werror && cabal test'
+alias cbti='cabal build --ghc-options=-Werror && cabal test && cabal install --installdir=.'
 alias ffzy='find ~ -type f | fzy'
-alias maths='python3 -m http.server --directory ~/github/eolas/maths'
 alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
-alias cookiecutter="nix-shell -p cookiecutter git --run 'cookiecutter gh:utdemir/hs-nix-template'"
 alias eod="git-summary ~ ; git-summary ~/github"
 
 function fmd() { find ${1:-.} -name '*.md' ;}
