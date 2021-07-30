@@ -138,6 +138,7 @@ alias ngrep='notes | grep -i'
 alias cb='cabal build --ghc-options=-Werror'
 alias cbt='cabal build --ghc-options=-Werror && cabal test'
 alias cbti='cabal build --ghc-options=-Werror && cabal test && cabal install --installdir=.'
+alias cfresh='cabal check && cabal outdated --exit-code && cabal --disable-nix gen-bounds'
 alias ffzy='find ~ -type f | fzy'
 alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
 alias eod="git-summary ~ ; git-summary ~/github"
