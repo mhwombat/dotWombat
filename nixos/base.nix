@@ -22,8 +22,13 @@
   # Enable the OpenSSH server.
   services.sshd.enable = true;
 
+  # Enable garbage collection
   nix.gc.automatic = true;
   nix.gc.dates = "06:15";
+
+  # Enable Nix flakes
+  nix.package = pkgs.nixUnstable;
+  nix.extraOptions = "experimental-features = nix-command flakes";
 
   # Start the docker daemon (also creates docker group)
   virtualisation.docker.enable = true;
