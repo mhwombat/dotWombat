@@ -49,6 +49,7 @@ with pkgs;
     gitit
     git-lfs
     gimp
+    glabels
     gmp # GNU multiple precision arithmetic library
     gnome3.adwaita-icon-theme # to help meld?
     gnome3.dconf
