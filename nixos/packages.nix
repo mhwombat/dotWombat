@@ -124,6 +124,7 @@ with pkgs;
     telnet
     texstudio
     texlive.combined.scheme-full
+    thunderbird
     tree
     ugrep
     unrar
