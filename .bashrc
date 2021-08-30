@@ -126,7 +126,7 @@ export GPG_TTY
 PATH=~/.cabal/bin:${PATH}
 PATH=~/.local/bin:${PATH}
 PATH=~/bin:${PATH}
-PATH=~/wain-tools:${PATH}
+PATH=~/github/wain-tools:${PATH}
 
 source amy-prompt.sh
 
@@ -138,16 +138,16 @@ alias ngrep='notes | grep -i'
 alias cb='cabal build --ghc-options=-Werror'
 alias cbt='cabal build --ghc-options=-Werror && cabal test'
 alias cbti='cabal build --ghc-options=-Werror && cabal test && cabal install --installdir=.'
-alias cfresh='cabal check && cabal outdated --exit-code && cabal --disable-nix gen-bounds'
+alias cfresh='cabal check ; cabal outdated ; cabal --disable-nix gen-bounds'
 alias ffzy='find ~ -type f | fzy'
 alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
 alias eod="git-summary ~ ; git-summary ~/github"
 
-function fmd() { find ${1:-.} -name '*.md' ;}
+function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function searchmd { fmd $2 | xargs grep "$1" ;}
-function fipynb() { find ${1:-.} -name '*.ipynb' | grep -v ipynb_checkpoints ;}
+function fipynb() { find ${1:-.} -name '*.ipynb' | grep -v ipynb_checkpoints | sort ;}
 function searchipynb { fipynb $2 | xargs grep "$1" ;}
-function fhs() { find ${1:-.} -name .stack-work -prune -o -name '*.hs' -print ;}
+function fhs() { find ${1:-.} -name dist-newstyle -prune -o -name '*.hs' -print | sort ;}
 function searchhs { fhs $2 | xargs grep "$1" ;}
 function idea() { jot -d=${HOME}/github/ideas -t="$*" ;}
 function ideas() { jot -d=${HOME}/github/ideas -p ;}
