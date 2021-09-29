@@ -142,6 +142,7 @@ alias cfresh='cabal check ; cabal outdated ; cabal --disable-nix gen-bounds'
 alias ffzy='find ~ -type f | fzy'
 alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
 alias eod="git-summary ~ ; git-summary ~/github"
+alias roll="format-zpl | lpr -P Zebra -o raw"
 
 function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function searchmd { fmd $2 | xargs grep "$1" ;}
@@ -156,6 +157,7 @@ function notes() { jot -d=${HOME}/github/notes -p ;}
 function qc() { grep prop_ $* | grep '∷' | sed 's/ ∷.*//; s/\(.*\)/    testProperty "\1"\n      \1,/' ;}
 #function ducks { du -cks "$1"/* |sort -rn |head -11 ;}
 #function snew() { stack new "$1" /home/eamybut/néal/stack/templates/amy.hsfiles ;}
+function nghci() { nix-shell -p "haskellPackages.ghcWithPackages (p: [$*])" --run ghci ;}
 
 # Turn off the #@£*! bell
 set bell-style none
