@@ -7,6 +7,10 @@
 (define-key isearch-mode-map (kbd "C-S-f") 'isearch-repeat-backward)
 (global-set-key (kbd "C-#") (quote comment-dwim))
 (global-set-key (kbd "C-a") (quote mark-whole-buffer))
+
+(global-set-key (kbd "C-+") (quote text-scale-increase))
+(global-set-key (kbd "C-_") (quote text-scale-decrease))
+
 ;; (global-set-key (kbd "<f12>") (quote browse-apropos-url-on-region))
 ;; (global-set-key (kbd "C-SPC") (quote hippie-expand))
 (global-set-key (kbd "C-?") (quote wombat-emacs-help))
@@ -46,6 +50,19 @@
 )
 (global-set-key (kbd "<f2>") 'hydra-file/body)
 
+(defhydra hydra-window (:exit t)
+  "window"
+  ("h" split-window-right "split horiz")
+  ("v" split-window-below "split vert")
+  ("<up>" enlarge-window-right "taller")
+  ("<down>" shrink-window-right "taller")
+  ("<right>" enlarge-window-horizontally "wider")
+  ("<left>" shrink-window-horizontally "narrower")
+  ("n" other-window "next")
+  ("0" delete-window "delete")
+)
+(global-set-key (kbd "<f3>") 'hydra-window/body)
+
 (defhydra hydra-rectangle (:exit t)
   "rectangle mode"
   ("<right>" open-rectangle "indent")
@@ -53,27 +70,7 @@
   ("c" copy-rectangle-as-kill "copy")
   ("v" yank-rectangle "paste")
 )
-(global-set-key (kbd "<f3>") 'hydra-rectangle/body)
-
-(defhydra hydra-zoom ()
-  "zoom"
-  ("<up>" text-scale-increase "in")
-  ("<down>" text-scale-decrease "out")
-)
-(global-set-key (kbd "<f4>") 'hydra-zoom/body)
-
-(defhydra hydra-window (:exit t)
-  "window"
-  ("h" split-window-right "split horiz")
-  ("v" split-window-below "split vert")
-  ("t" enlarge-window-right "taller")
-  ("w" enlarge-window-horizontally "wider")
-  ("W" shrink-window-horizontally "wider")
-  ("<right>" other-window "next")
-  ("0" delete-window "delete")
-)
-(global-set-key (kbd "<f5>") 'hydra-window/body)
-(global-set-key (kbd "<rwindow>") 'hydra-window/body)
+(global-set-key (kbd "<f4>") 'hydra-rectangle/body)
 
 (defhydra hydra-keys (:exit t)
   "keys"
