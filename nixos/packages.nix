@@ -67,6 +67,8 @@ with pkgs;
     hardinfo
     haskellPackages.cabal-fmt
     haskellPackages.citeproc
+    haskellPackages.hasktags
+    haskellPackages.hlint
     haskellPackages.pandoc
     haskellPackages.pandoc-crossref
     haskellPackages.pandoc-types
@@ -109,6 +111,7 @@ with pkgs;
     pdfgrep
     pdfmod
     pdftk
+    pup
     python
     # python2Env
     python3Env
