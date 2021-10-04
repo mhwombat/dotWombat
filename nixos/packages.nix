@@ -111,6 +111,7 @@ with pkgs;
     pdfgrep
     pdfmod
     pdftk
+    podman
     pup
     python
     # python2Env
@@ -135,6 +136,7 @@ with pkgs;
     usbutils
     vistafonts # True-type fonts from MS Windows
     vlc
+    # vmware-horizon-client
     wacomtablet
     wget
     wpa_supplicant
