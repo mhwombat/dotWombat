@@ -27,12 +27,12 @@ with pkgs;
     # conda # python package manager
     csvkit
     curl
-    dia
+    # dia
     diff-pdf
     diffpdf
     dmenu
     dmidecode # system hardware info
-    docker
+    # docker
     dos2unix
     dzen2
     (import ./emacs.nix { inherit pkgs; })
@@ -73,10 +73,12 @@ with pkgs;
     haskellPackages.pandoc-crossref
     haskellPackages.pandoc-types
     # haskellPackages.pandoc-include # broken as of 21.05
+    # haskellPackages.rasa # broken as of 21.05
     # haskellPackages.stylish-cabal # broken as of 21.05
     haskellPackages.stylish-haskell
     haskellPackages.template
-    haskellPackages.X11-xft
+    # haskellPackages.X11-xft
+    haskellPackages.template
     hello-amy
     hplip
     hplipWithPlugin
@@ -93,6 +95,7 @@ with pkgs;
     libsForQt5.okular
     libsForQt5.spectacle # replaced ksnapshot
     libwacom
+    lm_sensors
     lsof
     lshw
     lxqt.qterminal
@@ -111,8 +114,8 @@ with pkgs;
     pdfgrep
     pdfmod
     pdftk
-    podman
-    pup
+    # podman
+    pup # for parsing HTML
     python
     # python2Env
     python3Env
@@ -122,6 +125,7 @@ with pkgs;
     rsync
     semantik # mind mapping
     signal-desktop
+    stack
     sxiv
     tabula # extract tables from PDF files
     # tectonic
@@ -141,6 +145,7 @@ with pkgs;
     wget
     wpa_supplicant
     x11
+    xed-editor
     xf86_input_wacom
     xmonad-with-packages
     xorg.libX11
@@ -148,6 +153,8 @@ with pkgs;
     xorg.xev
     xscreensaver
     xsel
+    # zile
     zip
+    zsh
   ];
 }
