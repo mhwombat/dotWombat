@@ -1,19 +1,17 @@
 { config, pkgs, options, ... }:
 
-let hostname="wombat9000";
+let hostname="wombat11k";
 in
 {
-  networking.hostName = hostname;
-
   imports =
     [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
+      ./hardware-configuration.nix
       (/home/amy/dotWombat/nixos + "/${hostname}.nix")
       /home/amy/dotWombat/nixos/base.nix
       /home/amy/dotWombat/nixos/locale.nix
       /home/amy/dotWombat/nixos/xserver.nix
-      /home/amy/dotWombat/nixos/python2.nix
       /home/amy/dotWombat/nixos/python3.nix
+      /home/amy/dotWombat/nixos/containers.nix
       /home/amy/dotWombat/nixos/R.nix
       /home/amy/dotWombat/nixos/packages.nix
     ];
