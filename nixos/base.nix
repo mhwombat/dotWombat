@@ -33,6 +33,10 @@
   # Start the docker daemon (also creates docker group)
   virtualisation.docker.enable = true;
 
+  # programs.zsh.enable = true;
+
+  # users.defaultUserShell = pkgs.zsh;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.amy = {
     isNormalUser = true;
