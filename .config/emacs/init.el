@@ -4,6 +4,8 @@
 
 (require 'package)  ;; This is built-in
 
+(setq default-directory "~/.config/emacs")
+
 ;; optional. makes unpure packages archives unavailable
 (setq package-archives nil)
 
@@ -75,7 +77,7 @@ If buffer-or-name is nil return current buffer's mode."
 ;;
 ;; Key bindings
 ;;
-(load "~/.emacs.d/keys.el")
+(load-file "keys.el")
 
 ;;
 ;; Remove trailing whitespace
@@ -93,22 +95,22 @@ If buffer-or-name is nil return current buffer's mode."
 ;;
 ;; Language-specific
 ;;
-;(load "~/.emacs.d/agda.el")
-(load "~/.emacs.d/c++.el")
-(load "~/.emacs.d/c.el")
-(load "~/.emacs.d/coq.el")
-(load "~/.emacs.d/emacs-lisp.el")
-(load "~/.emacs.d/haskell.el")
-(load "~/.emacs.d/idris.el")
-(load "~/.emacs.d/idris-repl.el")
-(load "~/.emacs.d/makefile.el")
-(load "~/.emacs.d/markdown.el")
-(load "~/.emacs.d/nix.el")
-(load "~/.emacs.d/org.el")
-(load "~/.emacs.d/python.el")
-(load "~/.emacs.d/shell-script.el")
-(load "~/.emacs.d/text.el")
-(load "~/.emacs.d/tex.el")
+;(load-file "agda.el")
+(load-file "c++.el")
+(load-file "c.el")
+(load-file "coq.el")
+(load-file "emacs-lisp.el")
+(load-file "haskell.el")
+(load-file "idris.el")
+(load-file "idris-repl.el")
+(load-file "makefile.el")
+(load-file "markdown.el")
+(load-file "nix.el")
+(load-file "org.el")
+(load-file "python.el")
+(load-file "shell-script.el")
+(load-file "text.el")
+(load-file "tex.el")
 
 
 (custom-set-variables

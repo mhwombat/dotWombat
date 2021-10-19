@@ -2,10 +2,9 @@
 .zshrc
 .cabal/config
 .config/alacritty/alacritty.yml
+.config/emacs
 .config/git/config
-.emacs.d
+.config/offlineimap/config
 .ghci
 nix-overlays
-.offlineimaprc
 .stack/config.yaml
-.xinitrc

@@ -2,5 +2,5 @@
 *~
 
 # Generated emacs stuff
-.emacs.d/elpa/
-.emacs.d/url/
+.config/emacs/elpa/
+.config/emacs/url/
