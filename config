@@ -1,11 +1,11 @@
 .bashrc
+.zshrc
 .cabal/config
+.config/alacritty/alacritty.yml
+.config/git/config
 .emacs.d
 .ghci
-.gitconfig
 nix-overlays
 .offlineimaprc
 .stack/config.yaml
-.stylish-haskell.yaml
 .xinitrc
-.unison/default.prf
