@@ -5,6 +5,6 @@
 .config/emacs
 .config/git/config
 .config/offlineimap/config
+.config/stack/config.yaml
 .ghci
 nix-overlays
-.stack/config.yaml

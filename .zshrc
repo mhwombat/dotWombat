@@ -119,3 +119,9 @@ function qc() { grep prop_ $* | grep '∷' | sed 's/ ∷.*//; s/\(.*\)/    testP
 #function ducks { du -cks "$1"/* |sort -rn |head -11 ;}
 #function snew() { stack new "$1" /home/eamybut/néal/stack/templates/amy.hsfiles ;}
 function nghci() { nix-shell -p "haskellPackages.ghcWithPackages (p: [$*])" --run ghci ;}
+
+# Keep home directory clean
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+export STACK_ROOT="$XDG_DATA_HOME"/stack
