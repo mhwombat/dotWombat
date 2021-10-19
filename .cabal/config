@@ -9,8 +9,8 @@
 --
 -- This config file was generated using the following versions
 -- of Cabal and cabal-install:
--- Cabal library version: 3.0.0.0
--- cabal-install version: 3.0.0.0
+-- Cabal library version: 3.4.0.0
+-- cabal-install version: 3.4.0.0
 
 
 repository hackage.haskell.org
@@ -20,16 +20,15 @@ repository hackage.haskell.org
   -- key-threshold: 3
 
 -- default-user-config:
--- require-sandbox: False
--- ignore-sandbox: False
 -- ignore-expiry: False
 -- http-transport:
 nix: True
+-- local-no-index-repo:
 remote-repo-cache: /home/amy/.cabal/packages
--- local-repo:
 -- logs-dir: /home/amy/.cabal/logs
 world-file: /home/amy/.cabal/world
 -- store-dir:
+-- active-repositories:
 -- verbose: 1
 -- compiler: ghc
 -- cabal-file:
@@ -86,6 +85,7 @@ extra-prog-path: /home/amy/.cabal/bin
 -- max-backjumps: 4000
 -- reorder-goals: False
 -- count-conflicts: True
+-- fine-grained-conflicts: True
 -- minimize-conflict-set: False
 -- independent-goals: False
 -- shadow-installed-packages: False
@@ -109,13 +109,12 @@ remote-build-reporting: anonymous
 jobs: $ncpus
 -- keep-going: False
 -- offline: False
--- project-file:
 -- lib: False
 -- package-env:
 -- overwrite-policy:
 -- install-method:
 installdir: /home/amy/.cabal/bin
--- username:
+username: AmyDeBuitleir
 -- password:
 -- password-command:
 -- builddir:
@@ -139,13 +138,13 @@ haddock
 
 init
   -- interactive: False
-  -- cabal-version: 1.10
-  -- license: BSD3
+  -- cabal-version: 2.4
+  -- license:
   -- tests:
   -- test-dir:
   -- language: Haskell2010
-  -- application-dir:
-  -- source-dir:
+  -- application-dir: app
+  -- source-dir: src
 
 install-dirs user
   -- prefix: /home/amy/.cabal
