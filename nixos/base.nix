@@ -33,7 +33,7 @@
   # Start the docker daemon (also creates docker group)
   virtualisation.docker.enable = true;
 
-  # programs.zsh.enable = true;
+  programs.zsh.enable = true;
 
   # users.defaultUserShell = pkgs.zsh;
 
@@ -44,6 +44,7 @@
     description = "Amy de Buitleir";
     extraGroups = [ "wheel" "networkmanager" "vboxsf" "docker" "audio" ];
     uid = 1000;
+    shell = pkgs.zsh;
   };
 
   # This value determines the NixOS release from which the default
