@@ -9,6 +9,7 @@ with pkgs;
 
   # Packages I want to use
   environment.systemPackages = [
+    alacritty
     aspell
     aspellDicts.en
     aspellDicts.en-computers
@@ -59,6 +60,7 @@ with pkgs;
     gnome3.gucharmap
     gnome3.librsvg # for rsvg-convert
     gnome3.meld
+    gnome3.gnome-themes-extra # to fix "adwaita" bug
     gnumake
     gnupg
     gnutls
@@ -125,6 +127,7 @@ with pkgs;
     rsync
     semantik # mind mapping
     signal-desktop
+    spaceship-prompt
     stack
     sxiv
     tabula # extract tables from PDF files
