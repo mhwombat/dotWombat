@@ -1,3 +1,0 @@
-xscreensaver &
-xmonad
-
