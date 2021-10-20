@@ -24,7 +24,8 @@ precmd () {
 ###
 
 # Where to store command history
-HISTFILE=~/.cache/zsh/.history
+mkdir -p ${XDG_CACHE_HOME}/zsh
+HISTFILE=${XDG_CACHE_HOME}/zsh/history
 
 # Number of lines of history to keep in one session
 HISTSIZE=1000
@@ -119,12 +120,3 @@ function qc() { grep prop_ $* | grep '∷' | sed 's/ ∷.*//; s/\(.*\)/    testP
 #function ducks { du -cks "$1"/* |sort -rn |head -11 ;}
 #function snew() { stack new "$1" /home/eamybut/néal/stack/templates/amy.hsfiles ;}
 function nghci() { nix-shell -p "haskellPackages.ghcWithPackages (p: [$*])" --run ghci ;}
-
-# Keep home directory clean
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-export STACK_ROOT="$XDG_DATA_HOME"/stack # Stack
-export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/xcompose # libX11
-export XCOMPOSECACHE="$XDG_CACHE_HOME"/X11/xcompose # libX11
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority # xorg-auth

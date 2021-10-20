@@ -38,8 +38,17 @@
   # users.defaultUserShell = pkgs.zsh;
 
   environment.variables = {
+    # Keep home directories clean by using XDG locations
     XDG_CONFIG_HOME = "$HOME/.config";
-    ZDOTDIR="$XDG_CONFIG_HOME/zsh";
+    XDG_CACHE_HOME = "$HOME/.cache";
+    XDG_DATA_HOME = "$HOME/.local/share";
+    XDG_STATE_HOME = "$HOME/.local/state";
+    BASH_HOME = "$XDG_CONFIG_HOME/bash/bashrc"; # Bash
+    STACK_ROOT = "$XDG_DATA_HOME/stack"; # Stack
+#    XCOMPOSEFILE = "$XDG_CONFIG_HOME/X11/xcompose"; # libX11
+#    XCOMPOSECACHE = "$XDG_CACHE_HOME/X11/xcompose"; # libX11
+#    XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority"; # xorg-auth
+    ZDOTDIR = "$XDG_CONFIG_HOME/zsh"; # zsh
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
