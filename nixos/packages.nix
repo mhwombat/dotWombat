@@ -91,6 +91,7 @@ with pkgs;
     jdk
     jot
     jupyter
+    kitty
     lftp
     libertine
     libreoffice
