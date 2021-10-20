@@ -124,4 +124,7 @@ function nghci() { nix-shell -p "haskellPackages.ghcWithPackages (p: [$*])" --ru
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-export STACK_ROOT="$XDG_DATA_HOME"/stack
+export STACK_ROOT="$XDG_DATA_HOME"/stack # Stack
+export XCOMPOSEFILE="$XDG_CONFIG_HOME"/X11/xcompose # libX11
+export XCOMPOSECACHE="$XDG_CACHE_HOME"/X11/xcompose # libX11
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority # xorg-auth
