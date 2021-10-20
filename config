@@ -1,10 +1,10 @@
 .bashrc
-.zshrc
 .cabal/config
 .config/alacritty/alacritty.yml
 .config/emacs
 .config/git/config
 .config/offlineimap/config
 .config/stack/config.yaml
+.config/zsh/.zshrc
 .ghci
 nix-overlays

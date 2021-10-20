@@ -12,7 +12,6 @@ in
       /home/amy/dotWombat/nixos/xserver.nix
       /home/amy/dotWombat/nixos/python3.nix
       /home/amy/dotWombat/nixos/containers.nix
-      /home/amy/dotWombat/nixos/R.nix
       /home/amy/dotWombat/nixos/packages.nix
     ];
 }

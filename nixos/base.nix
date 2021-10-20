@@ -37,6 +37,11 @@
 
   # users.defaultUserShell = pkgs.zsh;
 
+  environment.variables = {
+    XDG_CONFIG_HOME = "$HOME/.config";
+    ZDOTDIR="$XDG_CONFIG_HOME/zsh";
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.amy = {
     isNormalUser = true;
