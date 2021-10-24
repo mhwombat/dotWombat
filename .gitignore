@@ -4,3 +4,6 @@
 # Generated emacs stuff
 .config/emacs/elpa/
 .config/emacs/url/
+
+# Generated Python stuff
+__pycache__
