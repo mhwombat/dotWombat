@@ -37,4 +37,7 @@
 
   # Scanner
   hardware.sane.netConf = "192.168.178.29";
+
+  # OneDrive
+  services.onedrive.enable=true;
 }
