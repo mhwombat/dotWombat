@@ -80,7 +80,6 @@ with pkgs;
     haskellPackages.stylish-haskell
     haskellPackages.template
     # haskellPackages.X11-xft
-    haskellPackages.template
     hello-amy
     hplip
     hplipWithPlugin
@@ -157,7 +156,6 @@ with pkgs;
     xorg.xev
     xscreensaver
     xsel
-    # zile
     zip
     zsh
   ];
