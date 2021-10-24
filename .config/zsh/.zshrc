@@ -16,7 +16,8 @@ prompt spaceship
 # Before each prompt...
 precmd () {
     # Set window title to current directory and last command
-    print -Pn "\e]0;${PWD/#$HOME/~} [$(history | tail -n1 | awk '{for (i=2;i<=NF-1;i++) printf $i " "; print $NF}')]\a"
+    lastcmd=$(history | tail -n 1 | cut -c7-999)
+    print -Pn "\e]0;${PWD/#$HOME/~} : ${lastcmd}\a"
 }
 
 ###
@@ -28,7 +29,7 @@ mkdir -p ${XDG_CACHE_HOME}/zsh
 HISTFILE=${XDG_CACHE_HOME}/zsh/history
 
 # Number of lines of history to keep in one session
-HISTSIZE=1000
+HISTSIZE=10000
 
 # Number of lines of history to save
 SAVEHIST=1000
