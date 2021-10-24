@@ -37,14 +37,16 @@
 
   # users.defaultUserShell = pkgs.zsh;
 
+  # These variables end up in /etc/set-environment.
+  # They may not take effect until you log out and back in again.
   environment.variables = {
     # Keep home directories clean by using XDG locations
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
-    BASH_HOME = "$XDG_CONFIG_HOME/bash/bashrc"; # Bash
     STACK_ROOT = "$XDG_DATA_HOME/stack"; # Stack
+    LESSHISTFILE = "$XDG_CACHE_HOME/history"; # less
 #    XCOMPOSEFILE = "$XDG_CONFIG_HOME/X11/xcompose"; # libX11
 #    XCOMPOSECACHE = "$XDG_CACHE_HOME/X11/xcompose"; # libX11
 #    XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority"; # xorg-auth
@@ -59,6 +61,7 @@
     extraGroups = [ "wheel" "networkmanager" "vboxsf" "docker" "audio" ];
     uid = 1000;
     shell = pkgs.zsh;
+#    shell = pkgs.bashInteractive;
   };
 
   # This value determines the NixOS release from which the default
