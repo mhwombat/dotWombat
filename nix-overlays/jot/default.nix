@@ -1,5 +1,5 @@
 { mkDerivation, base, cmdargs, directory, fetchgit, filepath
-, process, stdenv, time
+, process, lib, time
 }:
 mkDerivation {
   pname = "jot";
@@ -15,5 +15,5 @@ mkDerivation {
   executableHaskellDepends = [
     base cmdargs directory filepath process time
   ];
-  license = stdenv.lib.licenses.publicDomain;
+  license = lib.licenses.publicDomain;
 }
