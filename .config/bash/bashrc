@@ -16,6 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+export HISTFILE=${XDG_STATE_HOME}/bash/history
+HISTFILE=${XDG_STATE_HOME}/bash/history
 HISTSIZE=1000
 HISTFILESIZE=2000
 
@@ -171,3 +173,4 @@ if [ `hostname` == "lemur" ]; then
     source ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
+export SPECIES="wombat"
