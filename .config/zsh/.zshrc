@@ -17,7 +17,15 @@ prompt spaceship
 precmd () {
     # Set window title to current directory and last command
     lastcmd=$(history | tail -n 1 | cut -c7-999)
-    print -Pn "\e]0;${PWD/#$HOME/~} : ${lastcmd}\a"
+    windowtitle="${PWD/#$HOME/~} : ${lastcmd}"
+    # if [[ ${TERM} = "xterm-kitty" ]]; then
+    #     kitty @ set-window-title "${windowtitle}"
+    # else
+    #     print -Pn "\e]0;${windowtitle}\a"
+    # fi
+    print -Pn "\e]0;${windowtitle}\a"
+    # dircolour=$(amy-prompt.hs)
+    # printf "\x1b]11;${dircolour}\x1b\\"
 }
 
 ###
