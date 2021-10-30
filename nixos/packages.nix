@@ -69,6 +69,7 @@ with pkgs;
     hardinfo
     haskellPackages.cabal-fmt
     haskellPackages.citeproc
+    # haskellPackages.doi # broken as of 21.05
     haskellPackages.hasktags
     haskellPackages.hlint
     haskellPackages.pandoc
