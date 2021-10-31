@@ -4,7 +4,8 @@
 
 (require 'package)  ;; This is built-in
 
-(setq default-directory "~/.config/emacs")
+(add-to-list 'load-path "~/.config/emacs")
+;; (setq default-directory "~/.config/emacs")
 
 ;; optional. makes unpure packages archives unavailable
 (setq package-archives nil)
@@ -77,7 +78,7 @@ If buffer-or-name is nil return current buffer's mode."
 ;;
 ;; Key bindings
 ;;
-(load-file "keys.el")
+(load "keys")
 
 ;;
 ;; Remove trailing whitespace
@@ -95,22 +96,22 @@ If buffer-or-name is nil return current buffer's mode."
 ;;
 ;; Language-specific
 ;;
-;(load-file "agda.el")
-(load-file "c++.el")
-(load-file "c.el")
-(load-file "coq.el")
-(load-file "emacs-lisp.el")
-(load-file "haskell.el")
-(load-file "idris.el")
-(load-file "idris-repl.el")
-(load-file "makefile.el")
-(load-file "markdown.el")
-(load-file "nix.el")
-(load-file "org.el")
-(load-file "python.el")
-(load-file "shell-script.el")
-(load-file "text.el")
-(load-file "tex.el")
+;(load "agda")
+(load "c++")
+(load "c")
+;; (load "coq")
+(load "emacs-lisp")
+(load "haskell")
+(load "idris")
+(load "idris-repl")
+(load "makefile")
+(load "markdown")
+(load "nix")
+;; (load "org")
+(load "python")
+(load "shell-script")
+(load "text")
+(load "tex")
 
 
 (custom-set-variables
