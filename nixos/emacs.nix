@@ -31,20 +31,20 @@ in
     haskell-mode             # Haskell editing mode
     hydra                    # key binding families
     fill-column-indicator    # show fill column
-    nix-mode                 # Nix editing mode
   ]) ++ (with epkgs.melpaPackages; [
-    async                    # needed by helm
-    blacken                  # Python code formatter
-    ess
-    helm                     # incremental completion
-    helm-idris               # Idris doc search using Helm
-    idris-mode               # Idris editing mode
-    markdown-mode
-    pandoc-mode
-    popup                    # popup tooltips and menus; needed by helm
-    proof-general            # for use with Coq
+    # async                    # needed by helm
+    blacken                  # Python editing mode
+    # ess
+    # helm                     # incremental completion
+    # helm-idris               # Idris doc search using Helm
+    # idris-mode               # Idris editing mode
+    markdown-mode            # Markdown editing mode
+    nix-mode                 # Nix editing mode
+    # pandoc-mode              # Pandoc editing mode
+    # popup                    # popup tooltips and menus; needed by helm
+    # proof-general            # for use with Coq
   ]) ++ (with epkgs.elpaPackages; [
-#    auctex                   # LaTeX mode
+    # auctex                   # LaTeX mode
   ]) ++ [
     # nothing from main packages set
   ])
