@@ -23,7 +23,7 @@
 
 ;; Hydra key bindings
 (require 'hydra)
-(require 'helm)
+;; (require 'helm)
 
 ;; NOTE: The style of hydra binding I use shows the hint as soon as the
 ;; hydra is invoked; but no other commands can be bound to this prefix.
@@ -41,14 +41,14 @@
 )
 (global-set-key (kbd "<f1>") 'hydra-help/body)
 
-(defhydra hydra-file (:exit t)
-  "files and buffers"
-  ("." helm-find "find in .")
-  ("~" (lambda () (interactive) (helm-find-1 "~/")) "find in ~")
-  ("p" helm-browse-project "project")
-  ("b" helm-buffers-list "buffer")
-)
-(global-set-key (kbd "<f2>") 'hydra-file/body)
+;; (defhydra hydra-file (:exit t)
+;;   "files and buffers"
+;;   ("." helm-find "find in .")
+;;   ("~" (lambda () (interactive) (helm-find-1 "~/")) "find in ~")
+;;   ("p" helm-browse-project "project")
+;;   ("b" helm-buffers-list "buffer")
+;; )
+;; (global-set-key (kbd "<f2>") 'hydra-file/body)
 
 (defhydra hydra-window (:exit t)
   "window"

@@ -96,45 +96,13 @@ If buffer-or-name is nil return current buffer's mode."
 ;;
 ;; Language-specific
 ;;
-;(load "agda")
 (load "c++")
 (load "c")
-;; (load "coq")
 (load "emacs-lisp")
 (load "haskell")
-(load "idris")
-(load "idris-repl")
 (load "makefile")
 (load "markdown")
-(load "nix")
-;; (load "org")
 (load "python")
 (load "shell-script")
 (load "text")
 (load "tex")
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(safe-local-variable-values
-   (quote
-    ((pandoc/write . "html5")
-     (pandoc/write . "html")
-     (org-emphasis-alist
-      ("*" bold)
-      ("/" italic)
-      ("_"
-       (:underline nil))
-      ("=" org-verbatim verbatim)
-      ("~" org-code verbatim)
-      ("+"
-       (:strike-through nil)))))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
