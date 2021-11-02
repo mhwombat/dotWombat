@@ -90,6 +90,13 @@ autoload -Uz compinit
 compinit
 
 ###
+### Misc
+###
+
+# Use zsh instead of bash for nix shells
+# any-nix-shell zsh --info-right | source /dev/stdin
+
+###
 ### Non-shell-specific stuff
 ###
 

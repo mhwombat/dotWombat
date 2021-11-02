@@ -7,3 +7,6 @@
 
 # Generated Python stuff
 __pycache__
+
+# Files with secrets
+wombat11k.nix
