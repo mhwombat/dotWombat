@@ -82,6 +82,7 @@ with pkgs;
     haskellPackages.template
     # haskellPackages.X11-xft
     hello-amy
+    howl
     hplip
     hplipWithPlugin
     imagemagick
@@ -117,6 +118,7 @@ with pkgs;
     pdfgrep
     pdfmod
     pdftk
+    plan9port
     # podman
     pup # for parsing HTML
     python
