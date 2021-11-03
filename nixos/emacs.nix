@@ -32,17 +32,23 @@ in
     hydra                    # key binding families
     fill-column-indicator    # show fill column
   ]) ++ (with epkgs.melpaPackages; [
+    # ample-theme               # Dark-ish theme
     # async                    # needed by helm
+    # atom-one-dark-theme      # Dark-ish theme
     blacken                  # Python editing mode
     # ess
     # helm                     # incremental completion
     # helm-idris               # Idris doc search using Helm
     # idris-mode               # Idris editing mode
+    jazz-theme               # Dark-ish theme
+    # material-theme           # Dark-ish theme
+    monokai-theme            # Dark-ish theme
     markdown-mode            # Markdown editing mode
     nix-mode                 # Nix editing mode
     # pandoc-mode              # Pandoc editing mode
     # popup                    # popup tooltips and menus; needed by helm
     # proof-general            # for use with Coq
+    # zenburn-theme            # Dark-ish theme
   ]) ++ (with epkgs.elpaPackages; [
     # auctex                   # LaTeX mode
   ]) ++ [
