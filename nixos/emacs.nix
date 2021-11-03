@@ -32,10 +32,11 @@ in
     hydra                    # key binding families
     fill-column-indicator    # show fill column
   ]) ++ (with epkgs.melpaPackages; [
-    # ample-theme               # Dark-ish theme
+    # ample-theme              # Dark-ish theme
     # async                    # needed by helm
     # atom-one-dark-theme      # Dark-ish theme
     blacken                  # Python editing mode
+    cyberpunk-theme          # Dark-ish theme
     # ess
     # helm                     # incremental completion
     # helm-idris               # Idris doc search using Helm

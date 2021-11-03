@@ -51,8 +51,9 @@ If buffer-or-name is nil return current buffer's mode."
 ;;
 
 ;; Theme
+(load-theme 'cyberpunk t)
 ;; (load-theme 'jazz t)
-(load-theme 'monokai t)
+;; (load-theme 'monokai t)
 
 ;; Set default font size
 (set-face-attribute 'default nil :height 110)
