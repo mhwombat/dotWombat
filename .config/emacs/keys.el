@@ -29,12 +29,12 @@
 (global-unset-key (kbd "C-x"))
 (global-unset-key (kbd "C-y"))
 (global-unset-key (kbd "C-z"))
+(global-unset-key (kbd "C--"))
+(global-unset-key (kbd "C-/"))
+(global-unset-key (kbd "C-/"))
 (global-unset-key (kbd "C-\\"))
 (global-unset-key (kbd "C-]"))
-(global-unset-key (kbd "C-/"))
-(global-unset-key (kbd "C--"))
 (global-unset-key (kbd "C-SPC"))
-(global-unset-key (kbd "C-/"))
 
 (global-unset-key (kbd "M-a"))
 (global-unset-key (kbd "M-b"))
@@ -170,14 +170,16 @@
 (global-set-key (kbd "C-h") 'hydra-help/body)
 (global-set-key (kbd "M-h") 'hydra-help/body)
 
-;; (defhydra hydra-file (:exit t)
-;;   "files and buffers"
-;;   ("." helm-find "find in .")
-;;   ("~" (lambda () (interactive) (helm-find-1 "~/")) "find in ~")
-;;   ("p" helm-browse-project "project")
-;;   ("b" helm-buffers-list "buffer")
-;; )
-;; (global-set-key (kbd "<f2>") 'hydra-file/body)
+(defhydra hydra-buffer (:exit t)
+  "files and buffers"
+  ("m" buffer-menu-open "buffer menu")
+  ("<left>" previous-buffer "previous buffer")
+  ("<right>" next-buffer "next buffer")
+  ("c" buffer-menu-open "close buffer")
+  ("g" goto-line "goto line")
+)
+(global-set-key (kbd "<f2>") 'hydra-buffer/body)
+(global-set-key (kbd "M-b") 'hydra-buffer/body)
 
 (defhydra hydra-window (:exit t)
   "window"
@@ -204,6 +206,15 @@
 (global-set-key (kbd "<f4>") 'hydra-rectangle/body)
 (global-set-key (kbd "M-r") 'hydra-rectangle/body)
 
+(defhydra hydra-shell (:exit t)
+  "shell"
+  ("RET" shell-command "command")
+  ("a" async-shell-command "async command")
+  ("r" shell-command-on-region "command on region")
+)
+(global-set-key (kbd "M-$") 'hydra-shell/body)
+(global-set-key (kbd "M-RET") 'hydra-shell/body)
+
 (defhydra hydra-keys (:exit t)
   "keys"
   ("f" describe-key-briefly "What function is bound to this key?")
@@ -219,7 +230,7 @@
 )
 
 (defhydra hydra-word ()
-  "word mode"
+  "words"
   ("<left>" left-word "previous word")
   ("<right>" right-word "next word")
   ("<backspace>" backward-kill-word "delete previous word")
@@ -228,7 +239,7 @@
 (global-set-key (kbd "C-w") 'hydra-word/body)
 
 (defhydra hydra-sentence ()
-  "sentence mode"
+  "sentences"
   ("<left>" backward-sentence "previous sentence")
   ("<right>" forward-sentence "next sentence")
   ("<backspace>" backward-kill-sentence "delete previous sentence")
@@ -237,7 +248,7 @@
 (global-set-key (kbd "C-.") 'hydra-sentence/body)
 
 (defhydra hydra-paragraph ()
-  "paragraph mode"
+  "paragraphs"
   ("<left>" backward-paragraph "previous paragraph")
   ("<right>" forward-paragraph "next paragraph")
   ("<backspace>" backward-kill-paragraph "delete previous paragraph")
@@ -248,7 +259,7 @@
 (global-set-key (kbd "C-p") 'hydra-paragraph/body)
 
 (defhydra hydra-line ()
-  "line mode"
+  "lines"
   ("<left>" previous-line "previous line")
   ("<right>" forward-line "next line")
   ("<backspace>" backward-kill-line "delete previous line")
@@ -256,4 +267,5 @@
   ("s" sort-lines "sort")
 )
 (global-set-key (kbd "C-l") 'hydra-line/body)
+
 
