@@ -16,6 +16,7 @@ with pkgs;
     aspellDicts.en-science
     auctex
     bash
+    bemenu
     bibclean
     bibutils
     bind # for dig
@@ -42,6 +43,7 @@ with pkgs;
     file
     firefox
     font-awesome
+    fzf
     fzy
     ghc
     ghostscript # for pdf2dsc
@@ -87,6 +89,7 @@ with pkgs;
     hplipWithPlugin
     imagemagick
     inkscape
+    interception-tools
     iosevka # font
     ispell
     jdk
@@ -148,7 +151,10 @@ with pkgs;
     vlc
     # vmware-horizon-client
     wacomtablet
+    wayvnc
+    wev
     wget
+    wl-clipboard
     wpa_supplicant
     x11
     xed-editor
@@ -157,6 +163,8 @@ with pkgs;
     xorg.libX11
     xorg.libXft
     xorg.xev
+    xorg.xkbcomp
+    xorg.xmodmap
     xscreensaver
     xsel
     zip
