@@ -2,7 +2,7 @@
 ;; Set-up
 ;;
 
-(require 'package)  ;; This is built-in
+;; (require 'package)  ;; This is built-in
 
 (add-to-list 'load-path "~/.config/emacs")
 
@@ -11,6 +11,11 @@
 ;; General appearance
 ;;
 
+;; Theme
+(load-theme 'cyberpunk t)
+;; (load-theme 'jazz t)
+;; (load-theme 'monokai t)
+
 ;; No startup screen
 (setq inhibit-startup-screen t)
 
@@ -18,7 +23,7 @@
 (tool-bar-mode -1)
 
 ;; No menu bar
-;; (menu-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; Use a bar for the cursor
 (set-default 'cursor-type 'box)
@@ -49,11 +54,6 @@ If buffer-or-name is nil return current buffer's mode."
 ;;
 ;; Buffer appearance
 ;;
-
-;; Theme
-(load-theme 'cyberpunk t)
-;; (load-theme 'jazz t)
-;; (load-theme 'monokai t)
 
 ;; Set default font size
 (set-face-attribute 'default nil :height 110)
@@ -90,6 +90,8 @@ If buffer-or-name is nil return current buffer's mode."
 ;; Tabs cause more trouble than they're worth
 (setq-default indent-tabs-mode nil)
 
+;; More conventional undo/redo behaviour
+(global-undo-tree-mode)
 
 ;;
 ;; Remove trailing whitespace
