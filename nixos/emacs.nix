@@ -38,6 +38,7 @@ in
     blacken                  # Python editing mode
     cyberpunk-theme          # Dark-ish theme
     # ess
+    fuzzy-finder             # Interface to fzy
     # helm                     # incremental completion
     # helm-idris               # Idris doc search using Helm
     # idris-mode               # Idris editing mode
@@ -52,6 +53,7 @@ in
     # zenburn-theme            # Dark-ish theme
   ]) ++ (with epkgs.elpaPackages; [
     # auctex                   # LaTeX mode
+    undo-tree                # Undo/redo that behaves like other apps
   ]) ++ [
     # nothing from main packages set
   ])
