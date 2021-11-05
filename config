@@ -4,11 +4,10 @@
 .config/emacs
 .config/git/config
 .config/kitty/kitty.conf
-.config/kitty/prompt.py
-.config/kitty/prompt.sh
 .config/offlineimap/config
 .config/onedrive/config
 .config/stack/config.yaml
+.config/sway
 .config/xonsh
 .config/zsh/.zshrc
 .ghci
