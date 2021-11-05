@@ -127,22 +127,22 @@
 ;;
 ;; Ordinary key bindings
 ;;
-(global-set-key (kbd "C-s") (quote save-buffer))
-(global-set-key (kbd "C-r") (quote query-replace))
-(global-set-key (kbd "C-f") (quote isearch-forward))
-(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
-(global-set-key (kbd "C-S-f") (quote isearch-backward))
 (define-key isearch-mode-map (kbd "C-S-f") 'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "C-f") 'isearch-repeat-forward)
 (global-set-key (kbd "C-#") (quote comment-dwim))
-(global-set-key (kbd "C-a") (quote mark-whole-buffer))
-(global-set-key (kbd "C-q") (quote save-buffers-kill-terminal))
 (global-set-key (kbd "C-+") (quote text-scale-increase))
-(global-set-key (kbd "C-_") (quote text-scale-decrease))
 (global-set-key (kbd "C-?") (quote wombat-emacs-help))
-(global-set-key (kbd "C-#") (quote comment-dwim))
-(global-set-key (kbd "C-s") (quote save-buffer))
+(global-set-key (kbd "C-S-f") (quote isearch-backward))
+(global-set-key (kbd "C-_") (quote text-scale-decrease))
+(global-set-key (kbd "C-a") (quote mark-whole-buffer))
+(global-set-key (kbd "C-f") (quote isearch-forward))
 (global-set-key (kbd "C-g") (quote keyboard-quit))
 (global-set-key (kbd "C-m") (quote newline)) ;; same as <enter> key
+(global-set-key (kbd "C-q") (quote save-buffers-kill-terminal))
+(global-set-key (kbd "C-r") (quote query-replace))
+(global-set-key (kbd "C-s") (quote save-buffer))
+(global-set-key (kbd "C-y") (quote undo-tree-redo))
+(global-set-key (kbd "C-z") (quote undo-tree-undo))
 
 ;;
 ;; Hydra key bindings
@@ -162,23 +162,31 @@
   ("f" describe-function "describe function")
   ("i" info "info browser")
   ("m" describe-mode "mode info")
-  ("n" (find-file "~/néal/eolas/emacs.org") "my emacs notes")
-  ("k" hydra-keys/body "keys...")
+  ("k" hydra-keys/body "keys... (Alt+k)")
   ("v" describe-variable "describe variable")
 )
 (global-set-key (kbd "<f1>") 'hydra-help/body)
 (global-set-key (kbd "C-h") 'hydra-help/body)
 (global-set-key (kbd "M-h") 'hydra-help/body)
 
+(defhydra hydra-file (:exit t)
+  "file"
+  ("o" find-file "open")
+  ("d" dired "dired")
+  ("f" fuzzy-finder "fuzzy")
+  ("~" (fuzzy-finder :directory "~") "fuzzy")
+  ("i" insert-file "insert")
+)
+(global-set-key (kbd "M-f") 'hydra-file/body)
+
 (defhydra hydra-buffer (:exit t)
-  "files and buffers"
+  "buffer"
   ("m" buffer-menu-open "buffer menu")
   ("<left>" previous-buffer "previous buffer")
   ("<right>" next-buffer "next buffer")
-  ("c" buffer-menu-open "close buffer")
+  ("c" kill-buffer "close buffer")
   ("g" goto-line "goto line")
 )
-(global-set-key (kbd "<f2>") 'hydra-buffer/body)
 (global-set-key (kbd "M-b") 'hydra-buffer/body)
 
 (defhydra hydra-window (:exit t)
@@ -193,7 +201,6 @@
   ("0" delete-window "delete")
   ("1" delete-other-windows "just this window")
 )
-(global-set-key (kbd "<f3>") 'hydra-window/body)
 (global-set-key (kbd "M-w") 'hydra-window/body)
 
 (defhydra hydra-rectangle (:exit t)
@@ -203,8 +210,16 @@
   ("c" copy-rectangle-as-kill "copy")
   ("v" yank-rectangle "paste")
 )
-(global-set-key (kbd "<f4>") 'hydra-rectangle/body)
 (global-set-key (kbd "M-r") 'hydra-rectangle/body)
+
+(defhydra hydra-lisp (:exit t)
+  "lisp"
+  ("f" execute-extended-command "call function")
+  ("e" eval-expression "eval")
+  ("a" universal-argument "argument")
+  ("s" eval-last-sexp "eval sexp")
+)
+(global-set-key (kbd "M-l") 'hydra-lisp/body)
 
 (defhydra hydra-shell (:exit t)
   "shell"
@@ -212,7 +227,6 @@
   ("a" async-shell-command "async command")
   ("r" shell-command-on-region "command on region")
 )
-(global-set-key (kbd "M-$") 'hydra-shell/body)
 (global-set-key (kbd "M-RET") 'hydra-shell/body)
 
 (defhydra hydra-keys (:exit t)
@@ -222,6 +236,7 @@
   ("k" where-is "What key is bound to this function?")
   ("b" describe-bindings "all key bindings")
 )
+(global-set-key (kbd "M-k") 'hydra-keys/body)
 
 (defhydra hydra-apropos (:exit t)
   "apropos"
