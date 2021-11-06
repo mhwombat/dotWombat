@@ -14,7 +14,7 @@ with pkgs;
     aspellDicts.en
     aspellDicts.en-computers
     aspellDicts.en-science
-    auctex
+    autotiling
     bash
     bemenu
     bibclean
@@ -23,18 +23,15 @@ with pkgs;
     binutils-unwrapped
     # busybox overwrites realpath!
     cabal-install
-    cairo
     calibre
     chromium
-    # conda # python package manager
+    clipman
     csvkit
     curl
-    # dia
     diff-pdf
     diffpdf
     dmenu
     dmidecode # system hardware info
-    # docker
     dos2unix
     dzen2
     (import ./emacs.nix { inherit pkgs; })
@@ -122,7 +119,7 @@ with pkgs;
     pdfmod
     pdftk
     plan9port
-    # podman
+    # podman enabled in containers.nix
     pup # for parsing HTML
     python
     # python2Env
@@ -135,6 +132,8 @@ with pkgs;
     signal-desktop
     spaceship-prompt
     stack
+    swappy
+    # sway enabled in wayland.nix
     sxiv
     tabula # extract tables from PDF files
     # tectonic
