@@ -51,6 +51,7 @@
 #    XCOMPOSECACHE = "$XDG_CACHE_HOME/X11/xcompose"; # libX11
 #    XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority"; # xorg-auth
     ZDOTDIR = "$XDG_CONFIG_HOME/zsh"; # zsh
+    MOZ_ENABLE_WAYLAND = "1"; # enable wayland support in Firfox
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
