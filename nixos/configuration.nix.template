@@ -10,6 +10,7 @@ in
       /home/amy/dotWombat/nixos/base.nix
       /home/amy/dotWombat/nixos/locale.nix
       /home/amy/dotWombat/nixos/xserver.nix
+      /home/amy/dotWombat/nixos/wayland.nix
       /home/amy/dotWombat/nixos/python3.nix
       /home/amy/dotWombat/nixos/containers.nix
       /home/amy/dotWombat/nixos/packages.nix
