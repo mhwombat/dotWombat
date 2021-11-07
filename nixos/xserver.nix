@@ -16,13 +16,20 @@
       ];
     };
 
+    windowManager.qtile = {
+      enable = true;
+    };
+    
     # Enable the KDE Desktop Environment.
     displayManager.sddm.enable = true;
     desktopManager.plasma5.enable = true;
 
-   displayManager.sessionCommands =
-     "
-         xsetroot -solid '#FFE0FF'
-     ";
+    displayManager.sessionCommands =
+      "
+          xsetroot -solid '#FFE0FF'
+      ";
   };
+
+  
+
 }

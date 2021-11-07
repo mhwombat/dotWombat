@@ -6,6 +6,7 @@
 .config/kitty/kitty.conf
 .config/offlineimap/config
 .config/onedrive/config
+.config/qtile/config.py
 .config/stack/config.yaml
 .config/sway
 .config/xonsh

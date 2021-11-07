@@ -9,7 +9,7 @@ with pkgs;
 
   # Packages I want to use
   environment.systemPackages = [
-    alacritty
+    alacritty # X and wayland
     aspell
     aspellDicts.en
     aspellDicts.en-computers
@@ -23,22 +23,22 @@ with pkgs;
     binutils-unwrapped
     # busybox overwrites realpath!
     cabal-install
-    calibre
-    chromium
+    calibre # X and wayland
+    chromium # X-only? See ozone?
     clipman
     csvkit
     curl
     diff-pdf
     diffpdf
-    dmenu
+    dmenu # X-only
     dmidecode # system hardware info
     dos2unix
     dzen2
-    (import ./emacs.nix { inherit pkgs; })
-    evince
-    fbreader
+    (import ./emacs.nix { inherit pkgs; }) # X-only
+    evince # X and wayland
+    fbreader # X only. Binary is called "FBReader"
     file
-    firefox
+    firefox # X and wayland
     font-awesome
     fzf
     fzy
@@ -48,23 +48,23 @@ with pkgs;
     git-crypt
     gitit
     git-lfs
-    gimp
-    glabels
+    gimp # Current version is X-only. Newer versions support wayland
+    # glabels
     gmp # GNU multiple precision arithmetic library
     gnome3.adwaita-icon-theme # to help meld?
-    gnome3.dconf
-    gnome3.dconf-editor
-    gnome3.eog
-    gnome3.gnome-disk-utility
-    gnome3.gucharmap
+    gnome3.dconf-editor # X and wayland
+    gnome3.eog # X and wayland
+    gnome3.gnome-disk-utility # X and wayland
+    gnome3.gucharmap # X and wayland
     gnome3.librsvg # for rsvg-convert
-    gnome3.meld
+    gnome3.meld # X and wayland
     gnome3.gnome-themes-extra # to fix "adwaita" bug
     gnumake
     gnupg
     gnutls
-    gparted
+    gparted # X and wayland?
     graphviz
+    grim
     hardinfo
     haskellPackages.cabal-fmt
     haskellPackages.citeproc
@@ -85,34 +85,32 @@ with pkgs;
     hplip
     hplipWithPlugin
     imagemagick
-    inkscape
-    interception-tools
+    inkscape # X and wayland
     iosevka # font
     ispell
-    jdk
     jot
     jupyter
-    kitty
+    kitty # X and wayland
     lftp
     libertine
-    libreoffice
+    libreoffice # X and wayland
     libsForQt5.okular
-    libsForQt5.spectacle # replaced ksnapshot
+    libsForQt5.spectacle # Buggy on wayland # replaced ksnapshot
     libwacom
     lm_sensors
     lsof
     lshw
-    lxqt.qterminal
+    lxqt.qterminal # X and wayland
     memtester
     mkpasswd
-    mupdf
+    most # alternative to "less"
+    mupdf # X-only
     ncompress
     nix-index # provides nix-locate
     nix-prefetch-git
     offlineimap
     onedrive
-    openjdk
-    opera
+    opera # X and wayland, invoke with opera --enable-features=UseOzonePlatform --ozone-platform=wayland %U
     p7zip
     pandoc
     pdfgrep
@@ -124,48 +122,43 @@ with pkgs;
     python
     # python2Env
     python3Env
-    qpdf
-    qpdfview
+    qpdfview # X and wayland
+    qtile # X and wayland
     # rEnv
     rsync
-    semantik # mind mapping
-    signal-desktop
+    signal-desktop # X-only
+    slurp
     spaceship-prompt
     stack
     swappy
     # sway enabled in wayland.nix
-    sxiv
+    sxiv # X-only
     tabula # extract tables from PDF files
     # tectonic
     telnet
-    texstudio
     texlive.combined.scheme-full
-    thunderbird
+    thunderbird # X and wayland
     tree
     ugrep
     unrar
     unzip
     usbutils
     vistafonts # True-type fonts from MS Windows
-    vlc
+    vlc # X-only until I set QT environment
     # vmware-horizon-client
     wacomtablet
-    wayvnc
-    wev
+    wev # X and wayland, installed with sway by default
     wget
     wl-clipboard
     wpa_supplicant
-    x11
-    xed-editor
+    # x11
     xf86_input_wacom
     xmonad-with-packages
-    xorg.libX11
-    xorg.libXft
-    xorg.xev
-    xorg.xkbcomp
-    xorg.xmodmap
-    xscreensaver
-    xsel
+    # xorg.libX11
+    # xorg.libXft
+    xorg.xev # X-only, use wev instead
+    xscreensaver # X-only
+    xsel # X-only, use wl-clipboard's wl-copy and wl-paste instead
     zip
     zsh
   ];

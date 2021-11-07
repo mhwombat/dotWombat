@@ -138,6 +138,7 @@
 (global-set-key (kbd "C-f") (quote isearch-forward))
 (global-set-key (kbd "C-g") (quote keyboard-quit))
 (global-set-key (kbd "C-m") (quote newline)) ;; same as <enter> key
+(global-set-key (kbd "C-o") (quote find-file))
 (global-set-key (kbd "C-q") (quote save-buffers-kill-terminal))
 (global-set-key (kbd "C-r") (quote query-replace))
 (global-set-key (kbd "C-s") (quote save-buffer))

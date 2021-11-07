@@ -122,6 +122,7 @@ alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
 alias eod="git-summary ~ ; git-summary ~/github"
 alias roll="format-zpl | lpr -P Zebra -o raw"
 
+function doi() { curl -LH "Accept: application/x-bibtex" "https://doi.org/${1}" ;}
 function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function searchmd { fmd $2 | xargs grep "$1" ;}
 function fipynb() { find ${1:-.} -name '*.ipynb' | grep -v ipynb_checkpoints | sort ;}
