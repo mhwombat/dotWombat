@@ -1,0 +1,9 @@
+#command
+\kU     forw-screen
+\kD     back-screen
+
+#line-edit
+
+
+#env
+LESS=-R
