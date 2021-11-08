@@ -2,6 +2,7 @@
 .cabal/config
 .config/alacritty/alacritty.yml
 .config/emacs
+.config/foot/foot.ini
 .config/git/config
 .config/kitty/kitty.conf
 .config/offlineimap/config
