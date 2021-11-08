@@ -28,9 +28,11 @@ with pkgs;
     clipman
     csvkit
     curl
+    dialog
     diff-pdf
     diffpdf
     dmenu # X-only
+    dmenu-wayland
     dmidecode # system hardware info
     dos2unix
     dzen2
@@ -40,6 +42,7 @@ with pkgs;
     file
     firefox # X and wayland
     font-awesome
+    foot
     fzf
     fzy
     ghc
@@ -80,6 +83,7 @@ with pkgs;
     haskellPackages.stylish-haskell
     haskellPackages.template
     # haskellPackages.X11-xft
+    havoc
     hello-amy
     howl
     hplip
@@ -150,6 +154,7 @@ with pkgs;
     wev # X and wayland, installed with sway by default
     wget
     wl-clipboard
+    wofi
     wpa_supplicant
     # x11
     xf86_input_wacom
@@ -159,6 +164,7 @@ with pkgs;
     xorg.xev # X-only, use wev instead
     xscreensaver # X-only
     xsel # X-only, use wl-clipboard's wl-copy and wl-paste instead
+    yad
     zip
     zsh
   ];
