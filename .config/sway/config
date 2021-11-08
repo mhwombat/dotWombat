@@ -6,13 +6,15 @@
 set $mod Mod4
 
 # Your preferred terminal emulator
-set $term kitty
+set $term foot
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu bemenu-run -p "Hi wombat!" | xargs swaymsg exec --
+# set $menu dmenu_path | bemenu -p "Hi wombat!" | xargs swaymsg exec --
+# set $menu dmenu-wl_path | wofi --dmenu | xargs swaymsg exec --
+set $menu dmenu_path | dmenu-wl | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -49,7 +51,7 @@ output "Dell Inc. DELL U2717D J0XYN6B5602S" {
 # To see all keyboard options: localectl list-x11-keymap-options
 input type:keyboard {
     xkb_layout ie,gr
-    xkb_variant CloGaelach
+    xkb_variant CloGaelach,
     xkb_options compose:rctrl-altgr,grp:alt_caps_toggle
 }
 
@@ -61,11 +63,13 @@ input type:keyboard {
     bindsym $mod+Shift+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+Return exec $menu
 
+    bindsym $mod+Shift+Slash exec /home/amy/bin/keyhelp
+    
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -74,13 +78,13 @@ input type:keyboard {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    # bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+r reload
 
     # Lock the screen
     bindsym Pause exec swaylock
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
