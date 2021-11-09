@@ -122,6 +122,7 @@ with pkgs;
     pdftk
     plan9port
     # podman enabled in containers.nix
+    poppler_utils # for pdfinfo
     pup # for parsing HTML
     python
     # python2Env
@@ -158,6 +159,8 @@ with pkgs;
     wpa_supplicant
     # x11
     xf86_input_wacom
+    xqilla
+    xmlstarlet
     xmonad-with-packages
     # xorg.libX11
     # xorg.libXft
