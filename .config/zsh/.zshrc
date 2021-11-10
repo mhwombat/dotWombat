@@ -9,6 +9,7 @@
 #source ~/bin/amy-prompt.sh
 
 SPACESHIP_PROMPT_SEPARATE_LINE=false
+SPACESHIP_CHAR_SYMBOL='$ '
 
 autoload -U promptinit; promptinit
 prompt spaceship
