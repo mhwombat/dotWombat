@@ -105,6 +105,7 @@ with pkgs;
     libsForQt5.okular
     libsForQt5.spectacle # Buggy on wayland # replaced ksnapshot
     libwacom
+    libxml2 # for xmllint
     lm_sensors
     lsof
     lshw
@@ -113,6 +114,7 @@ with pkgs;
     mkpasswd
     most # alternative to "less"
     mupdf # X-only
+    mustache-go
     ncompress
     nix-index # provides nix-locate
     nix-prefetch-git
