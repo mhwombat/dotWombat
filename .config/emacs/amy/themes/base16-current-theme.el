@@ -22,12 +22,12 @@
     :base07 "#efecf4"
     :base08 "#be4678"
     :base09 "#aa573c"
-    :base0A "#a06e3b"
-    :base0B "#2a9292"
-    :base0C "#398bc6"
-    :base0D "#576ddb"
-    :base0E "#955ae7"
-    :base0F "#bf40bf")
+    :base0A "#deaa87"
+    :base0B "#c6e9af"
+    :base0C "#6ea04e"
+    :base0D "#79c0ff"
+    :base0E "#b9a8d7"
+    :base0F "#d276d2")
   "All colors for my custom theme are defined here.")
 
 ;; Define the theme
