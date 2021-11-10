@@ -13,7 +13,7 @@
 ;;
 
 ;; Theme
-(load-theme 'base16-amy t)
+(load-theme 'base16-current t)
 
 ;; No startup screen
 (setq inhibit-startup-screen t)
