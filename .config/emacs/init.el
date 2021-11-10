@@ -12,7 +12,8 @@
 ;;
 
 ;; Theme
-(load-theme 'cyberpunk t)
+(load-theme 'base16-default-dark t)
+;; (load-theme 'cyberpunk t)
 ;; (load-theme 'jazz t)
 ;; (load-theme 'monokai t)
 
