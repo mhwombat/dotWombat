@@ -1,6 +1,7 @@
 .bashrc
 .cabal/config
 .config/alacritty/alacritty.yml
+.config/base16-universal-manager/config.yaml
 .config/emacs
 .config/foot/foot.ini
 .config/git/config
