@@ -5,6 +5,7 @@
 ;; (require 'package)  ;; This is built-in
 
 (add-to-list 'load-path (expand-file-name "~/.config/emacs/amy"))
+(add-to-list 'custom-theme-load-path (expand-file-name "~/.config/emacs/amy/themes"))
 
 
 ;;
@@ -12,10 +13,7 @@
 ;;
 
 ;; Theme
-(load-theme 'base16-default-dark t)
-;; (load-theme 'cyberpunk t)
-;; (load-theme 'jazz t)
-;; (load-theme 'monokai t)
+(load-theme 'base16-amy t)
 
 ;; No startup screen
 (setq inhibit-startup-screen t)
