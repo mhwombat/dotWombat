@@ -15,6 +15,9 @@ with pkgs;
     aspellDicts.en-computers
     aspellDicts.en-science
     autotiling
+    base16-builder
+    base16-shell-preview
+    base16-universal-manager
     bash
     bemenu
     bibclean
@@ -41,6 +44,7 @@ with pkgs;
     fbreader # X only. Binary is called "FBReader"
     file
     firefox # X and wayland
+    flameshot
     font-awesome
     foot
     fzf
