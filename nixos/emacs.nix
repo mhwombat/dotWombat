@@ -35,6 +35,7 @@ in
     # ample-theme              # Dark-ish theme
     # async                    # needed by helm
     # atom-one-dark-theme      # Dark-ish theme
+    base16-theme             # base16 theme schema
     blacken                  # Python editing mode
     cyberpunk-theme          # Dark-ish theme
     # ess
