@@ -104,6 +104,7 @@ with pkgs;
     libreoffice # X and wayland
     libsForQt5.okular
     libsForQt5.spectacle # Buggy on wayland # replaced ksnapshot
+    libsForQt512.kcolorpicker
     libwacom
     libxml2 # for xmllint
     lm_sensors
@@ -164,6 +165,7 @@ with pkgs;
     wofi
     wpa_supplicant
     # x11
+    xcolor
     xf86_input_wacom
     xqilla
     xmlstarlet

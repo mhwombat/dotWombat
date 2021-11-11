@@ -5,13 +5,141 @@
 
 <table>
 
-{{#colours}}
 <tr>
-  <td>{{name}}</td>
-  <td style="background-color:{{colour}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-  <td>{{colour}}</td>
-  <td>{{comment}}</td>
+  <th>name</th>
+  <th>colour</th>
+  <th>RGB</th>
+  <th>Emacs</th>
+  <th>Terminal</th>
+  <th>general use</th>
 </tr>
-{{/colours}}
+<tr>
+  <td>base00</td>
+  <td style="background-color:#{{base00}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base00}}</td>
+  <td>background</td>
+  <td>background, selected text (CHANGE?)</td>
+  <td>Default Background</td>
+</tr>
+<tr>
+  <td>base01</td>
+  <td style="background-color:#{{base01}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base01}}</td>
+  <td>Emacs border, current line</td>
+  <td>Not used?</td>
+  <td>Lighter Background (Used for status bars, line number and folding marks)</td>
+</tr>
+<tr>
+  <td>base02</td>
+  <td style="background-color:#{{base02}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base02}}</td>
+  <td>selection background, status bar</td>
+  <td>Not used? Should be selection background?</td>
+  <td>Selection Background</td>
+</tr>
+<tr>
+  <td>base03</td>
+  <td style="background-color:#{{base03}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base03}}</td>
+  <td>Not used?</td>
+  <td>Not used?</td>
+  <td>Comments, Invisibles, Line Highlighting</td>
+</tr>
+<tr>
+  <td>base04</td>
+  <td style="background-color:#{{base04}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base04}}</td>
+  <td>text in status bar, Haskell comments</td>
+  <td>Not used?</td>
+  <td>Dark Foreground (Used for status bars)</td>
+</tr>
+<tr>
+  <td>base05</td>
+  <td style="background-color:#{{base05}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base05}}</td>
+  <td>Haskell variables</td>
+  <td>ordinary text, ordinary files in ls</td>
+  <td>Default Foreground, Caret, Delimiters, Operators</td>
+</tr>
+<tr>
+  <td>base06</td>
+  <td style="background-color:#{{base06}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base06}}</td>
+  <td>Not used?</td>
+  <td>Not used?</td>
+  <td>Light Foreground (Not often used)</td>
+</tr>
+<tr>
+  <td>base07</td>
+  <td style="background-color:#{{base07}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base07}}</td>
+  <td>Not used?</td>
+  <td>Not used?</td>
+  <td>Light Background (Not often used)</td>
+</tr>
+<tr>
+  <td>base08</td>
+  <td style="background-color:#{{base08}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base08}}</td>
+  <td>Haskell operators</td>
+  <td>Not used?</td>
+  <td>Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted</td>
+</tr>
+<tr>
+  <td>base09</td>
+  <td style="background-color:#{{base09}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base09}}</td>
+  <td>Not used?</td>
+  <td>Not used?</td>
+  <td>Integers, Boolean, Constants, XML Attributes, Markup Link Url</td>
+</tr>
+<tr>
+  <td>base0A</td>
+  <td style="background-color:#{{base0A}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base0A}}</td>
+  <td>Haskell module names (and qualifiers)</td>
+  <td>directory names in ls</td>
+  <td>Classes, Markup Bold, Search Text Background</td>
+</tr>
+<tr>
+  <td>base0B</td>
+  <td style="background-color:#{{base0B}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base0B}}</td>
+  <td>filename in status bar, Haskell strings</td>
+  <td>directory name in prompt, links in ls</td>
+  <td>Strings, Inherited Class, Markup Code, Diff Inserted</td>
+</tr>
+<tr>
+  <td>base0C</td>
+  <td style="background-color:#{{base0C}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base0C}}</td>
+  <td>Not used?</td>
+  <td>fifo/pipe in ls</td>
+  <td>Support, Regular Expressions, Escape Characters, Markup Quotes</td>
+</tr>
+<tr>
+  <td>base0D</td>
+  <td style="background-color:#{{base0D}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base0D}}</td>
+  <td>Haskell functions, Haskell pragmas</td>
+  <td>prompt character ($, #), executable files in ls</td>
+  <td>Functions, Methods, Attribute IDs, Headings</td>
+</tr>
+<tr>
+  <td>base0E</td>
+  <td style="background-color:#{{base0E}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base0E}}</td>
+  <td>Haskell keywords</td>
+  <td>git icon and branch in prompt</td>
+  <td>Keywords, Storage, Selector, Markup Italic, Diff Changed</td>
+</tr>
+<tr>
+  <td>base0F</td>
+  <td style="background-color:#{{base0F}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  <td>#{{base0F}}</td>
+  <td>Not used?</td>
+  <td>git status indicators in prompt</td>
+  <td>Deprecated, Opening/Closing Embedded Language Tags, e.g. &lt;?php ?&gt;</td>
+</tr>
 
 </table>
