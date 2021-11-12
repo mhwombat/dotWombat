@@ -5,6 +5,9 @@
 .config/emacs/elpa/
 .config/emacs/url/
 
+# Generated theme stuff
+themes/previews
+
 # Generated Python stuff
 __pycache__
 
