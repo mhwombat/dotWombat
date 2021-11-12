@@ -12,22 +12,22 @@
 (require 'base16-theme)
 
 (defvar base16-current-colors
-  '(:base00 "#0A090C"
-    :base01 "#231F28"
-    :base02 "#413A4B"
-    :base03 "#544B62"
-    :base04 "#ABA3B8"
-    :base05 "#F5F3F6"
-    :base06 "#FAF9FB"
-    :base07 "#FCFCFD"
-    :base08 "#ffffcc"
-    :base09 "#e5d8bd"
-    :base0A "#decbe4"
-    :base0B "#ccebc5"
-    :base0C "#fddaec"
-    :base0D "#b3cde3"
-    :base0E "#fed9a6"
-    :base0F "#fbb4ae")
+  '(:base00 "#080a0b"
+    :base01 "#1e2329"
+    :base02 "#38424c"
+    :base03 "#495663"
+    :base04 "#a1adb9"
+    :base05 "#f3f4f6"
+    :base06 "#f9f9fa"
+    :base07 "#fcfcfc"
+    :base08 "#ffcc99"
+    :base09 "#99ffe5"
+    :base0A "#99ccff"
+    :base0B "#ff99fe"
+    :base0C "#e5ff99"
+    :base0D "#b299ff"
+    :base0E "#ff99b2"
+    :base0F "#99ff99")
   "All colors for my custom theme are defined here.")
 
 ;; Define the theme
