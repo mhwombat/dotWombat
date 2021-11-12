@@ -4,7 +4,7 @@
 
 ;; (require 'package)  ;; This is built-in
 
-(add-to-list 'load-path (expand-file-name "~/.config/emacs/amy"))
+;; (add-to-list 'load-path (expand-file-name "~/.config/emacs/amy"))
 (add-to-list 'custom-theme-load-path (expand-file-name "~/.config/emacs/amy/themes"))
 
 
@@ -76,7 +76,7 @@ If buffer-or-name is nil return current buffer's mode."
 (cua-mode t)
 
 ;; My custom key bindings
-(load "keys")
+(load-file "~/.config/emacs/amy/keys.el")
 
 
 ;;
@@ -109,13 +109,13 @@ If buffer-or-name is nil return current buffer's mode."
 ;;
 ;; Language-specific
 ;;
-(load "c++")
-(load "c")
-(load "emacs-lisp")
-(load "haskell")
-(load "makefile")
-(load "markdown")
-(load "python")
-(load "shell-script")
-(load "text")
-(load "tex")
+(load-file "~/.config/emacs/amy/c++.el")
+(load-file "~/.config/emacs/amy/c.el")
+(load-file "~/.config/emacs/amy/emacs-lisp.el")
+(load-file "~/.config/emacs/amy/haskell.el")
+(load-file "~/.config/emacs/amy/makefile.el")
+(load-file "~/.config/emacs/amy/markdown.el")
+(load-file "~/.config/emacs/amy/python.el")
+(load-file "~/.config/emacs/amy/shell-script.el")
+(load-file "~/.config/emacs/amy/text.el")
+(load-file "~/.config/emacs/amy/tex.el")
