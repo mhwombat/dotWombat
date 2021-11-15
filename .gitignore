@@ -11,5 +11,8 @@ themes/previews
 # Generated Python stuff
 __pycache__
 
+# Generated sway stuff
+.config/sway/keys.txt
+
 # Files with secrets
 wombat11k.nix
