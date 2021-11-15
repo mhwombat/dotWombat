@@ -10,6 +10,10 @@
 
 SPACESHIP_PROMPT_SEPARATE_LINE=false
 SPACESHIP_CHAR_SYMBOL='$ '
+SPACESHIP_CHAR_COLOR_SUCCESS=#b299ff
+SPACESHIP_DIR_COLOR=#99ccff
+SPACESHIP_GIT_BRANCH_COLOR=#99ffe5
+SPACESHIP_GIT_STATUS_COLOR=#ff99b2
 
 autoload -U promptinit; promptinit
 prompt spaceship
@@ -109,7 +113,8 @@ PATH=~/.local/bin:${PATH}
 PATH=~/bin:${PATH}
 PATH=~/github/wain-tools:${PATH}
 
-#alias wls='wombat ls'
+# alias wls='wombat ls'
+# alias ls='colorls'
 alias longestLine='awk '\''{ if (length($0) > max) {max = length($0); maxline = $0} } END { print maxline }'\'''
 alias psgrep='ps -ef | grep'
 alias hgrep='history | grep'
