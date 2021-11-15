@@ -29,6 +29,7 @@ with pkgs;
     calibre # X and wayland
     chromium # X-only? See ozone?
     clipman
+    colorls
     csvkit
     curl
     dialog
@@ -41,6 +42,7 @@ with pkgs;
     dzen2
     (import ./emacs.nix { inherit pkgs; }) # X-only
     evince # X and wayland
+    exa
     fbreader # X only. Binary is called "FBReader"
     file
     firefox # X and wayland
@@ -93,6 +95,7 @@ with pkgs;
     hplip
     hplipWithPlugin
     imagemagick
+    imv
     inkscape # X and wayland
     iosevka # font
     ispell
@@ -119,6 +122,7 @@ with pkgs;
     ncompress
     nix-index # provides nix-locate
     nix-prefetch-git
+    nnn
     offlineimap
     onedrive
     opera # X and wayland, invoke with opera --enable-features=UseOzonePlatform --ozone-platform=wayland %U
@@ -128,6 +132,7 @@ with pkgs;
     pdfmod
     pdftk
     plan9port
+    plantuml
     # podman enabled in containers.nix
     poppler_utils # for pdfinfo
     pup # for parsing HTML
@@ -150,7 +155,7 @@ with pkgs;
     telnet
     texlive.combined.scheme-full
     thunderbird # X and wayland
-    tree
+    # tree # temporarily broken
     ugrep
     unrar
     unzip
