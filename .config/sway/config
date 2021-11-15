@@ -6,7 +6,8 @@
 set $mod Mod4
 
 # Your preferred terminal emulator
-set $term foot
+# set $term foot
+set $term alacritty
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
@@ -110,6 +111,7 @@ input type:keyboard {
     # Switch to workspace
     bindsym $mod+m workspace "maths"
     bindsym $mod+n workspace "nixos"
+    bindsym $mod+p workspace "play"
     bindsym $mod+s workspace "sway"
     bindsym $mod+v workspace "vmware"
     bindsym $mod+1 workspace number 1
@@ -125,6 +127,7 @@ input type:keyboard {
     # Move focused container to workspace
     bindsym $mod+Shift+m move container to workspace "maths"
     bindsym $mod+Shift+n move container to workspace "nixos"
+    bindsym $mod+Shift+p move container to workspace "play"
     bindsym $mod+Shift+s move container to workspace "sway"
     bindsym $mod+Shift+v move container to workspace "vmware"
     bindsym $mod+Shift+1 move container to workspace number 1
