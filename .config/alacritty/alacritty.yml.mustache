@@ -175,12 +175,12 @@ scrolling:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# Colors (Tomorrow Night)
-#colors:
+# Colors
+colors:
   # Default colors
-  #primary:
-  #  background: '#1d1f21'
-  #  foreground: '#c5c8c6'
+  primary:
+    background: '#{{base00}}'
+    foreground: '#{{base05}}'
 
     # Bright and dim foreground colors
     #
@@ -267,26 +267,28 @@ scrolling:
   #  background: CellForeground
 
   # Normal colors
-  #normal:
-  #  black:   '#1d1f21'
-  #  red:     '#cc6666'
-  #  green:   '#b5bd68'
-  #  yellow:  '#f0c674'
-  #  blue:    '#81a2be'
-  #  magenta: '#b294bb'
-  #  cyan:    '#8abeb7'
-  #  white:   '#c5c8c6'
+  # The colour names don't match the colours I'm using! This is what ls thinks they are.
+  normal:
+   black:   '#{{base00}}'
+   red:     '#{{base0F}}'
+   green:   '#{{base0D}}'
+   yellow:  '#{{base0C}}'
+   blue:    '#{{base0B}}'
+   magenta: '#{{base0E}}'
+   cyan:    '#{{base0A}}'
+   white:   '#{{base06}}'
 
   # Bright colors
-  #bright:
-  #  black:   '#666666'
-  #  red:     '#d54e53'
-  #  green:   '#b9ca4a'
-  #  yellow:  '#e7c547'
-  #  blue:    '#7aa6da'
-  #  magenta: '#c397d8'
-  #  cyan:    '#70c0b1'
-  #  white:   '#eaeaea'
+  # The colour names don't match the colours I'm using! This is what ls thinks they are.
+  bright:
+   black:   '#{{base07}}'
+   red:     '#{{base0F}}'
+   green:   '#{{base03}}'
+   yellow:  '#{{base04}}'
+   blue:    '#{{base02}}'
+   magenta: '#{{base01}}'
+   cyan:    '#{{base08}}'
+   white:   '#{{base09}}'
 
   # Dim colors
   #
