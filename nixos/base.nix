@@ -45,6 +45,9 @@
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
+    XKB_DEFAULT_LAYOUT = "ie,gr";
+    XKB_DEFAULT_VARIANT = "CloGaelach";
+    XKB_DEFAULT_OPTIONS = "compose:rctrl-altgr,grp:alt_caps_toggle";
     STACK_ROOT = "$XDG_DATA_HOME/stack"; # Stack
     LESSHISTFILE = "$XDG_CACHE_HOME/history"; # less
 #    XCOMPOSEFILE = "$XDG_CONFIG_HOME/X11/xcompose"; # libX11
