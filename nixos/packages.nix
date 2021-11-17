@@ -101,6 +101,7 @@ with pkgs;
     ispell
     jot
     jupyter
+    killall
     kitty # X and wayland
     lftp
     libertine
@@ -142,6 +143,7 @@ with pkgs;
     qpdfview # X and wayland
     qtile # X and wayland
     # rEnv
+    river
     rsync
     signal-desktop # X-only
     slurp
