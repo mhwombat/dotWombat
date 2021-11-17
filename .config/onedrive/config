@@ -6,9 +6,9 @@
 # For explanations of all config options below see docs/USAGE.md or the man page.
 #
 sync_dir = "~/vmware/OneDrive"
-# skip_file = "~*|.~*|*.tmp"
+skip_file = "*~|#*#|*.tmp|Outlook.pst"
 # monitor_interval = "300"
-# skip_dir = ""
+# skip_dir = "~/vmware/OneDrive/VMwareCorp"
 # log_dir = "/var/log/onedrive/"
 # drive_id = ""
 # upload_only = "false"
