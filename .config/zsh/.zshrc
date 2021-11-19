@@ -6,31 +6,15 @@
 ###
 
 #PS1='%~$ '
-#source ~/bin/amy-prompt.sh
+source configure-spaceship
 
-SPACESHIP_PROMPT_SEPARATE_LINE=false
-SPACESHIP_CHAR_SYMBOL='$ '
-SPACESHIP_CHAR_COLOR_SUCCESS=#b299ff
-SPACESHIP_DIR_COLOR=#99ccff
-SPACESHIP_GIT_BRANCH_COLOR=#99ffe5
-SPACESHIP_GIT_STATUS_COLOR=#ff99b2
-
-autoload -U promptinit; promptinit
-prompt spaceship
 
 # Before each prompt...
 precmd () {
     # Set window title to current directory and last command
     lastcmd=$(history | tail -n 1 | cut -c7-999)
     windowtitle="${PWD/#$HOME/~} : ${lastcmd}"
-    # if [[ ${TERM} = "xterm-kitty" ]]; then
-    #     kitty @ set-window-title "${windowtitle}"
-    # else
-    #     print -Pn "\e]0;${windowtitle}\a"
-    # fi
     print -Pn "\e]0;${windowtitle}\a"
-    # dircolour=$(amy-prompt.hs)
-    # printf "\x1b]11;${dircolour}\x1b\\"
 }
 
 ###
@@ -45,7 +29,7 @@ HISTFILE=${XDG_CACHE_HOME}/zsh/history
 HISTSIZE=10000
 
 # Number of lines of history to save
-SAVEHIST=1000
+SAVEHIST=10000
 
 # Share history among shells.
 setopt SHARE_HISTORY
@@ -127,6 +111,9 @@ alias ffzy='find ~ -type f | fzy'
 alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
 alias eod="git-summary ~ ; git-summary ~/github"
 alias roll="format-zpl | lpr -P Zebra -o raw"
+alias pick-colour='grim -g "$(slurp -p)" -t ppm - | convert - -format "%[pixel:p{0,0}]" txt:-'
+alias snrsu='sudo nixos-rebuild switch --upgrade'
+alias snrsui='sudo nixos-rebuild switch --upgrade -I nixpkgs=/home/amy/github/nixpkgs'
 
 function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function searchmd { fmd $2 | xargs grep "$1" ;}
