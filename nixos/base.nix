@@ -33,6 +33,11 @@
   # Start the docker daemon (also creates docker group)
   virtualisation.docker.enable = true;
 
+  xdg.mime.defaultApplications = {
+    "text/plain" = "emacs";
+    "application/pdf" = "okular.desktop";
+  };
+  
   programs.zsh.enable = true;
 
   # users.defaultUserShell = pkgs.zsh;
@@ -45,8 +50,11 @@
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_DATA_HOME = "$HOME/.local/share";
     XDG_STATE_HOME = "$HOME/.local/state";
+    # To see all keyboard layouts: localectl list-x11-keymap-layouts
     XKB_DEFAULT_LAYOUT = "ie,gr";
-    XKB_DEFAULT_VARIANT = "CloGaelach";
+    # To see all keyboard variants: localectl list-x11-keymap-variants
+    XKB_DEFAULT_VARIANT = "CloGaelach,";
+    # To see all keyboard options: localectl list-x11-keymap-options
     XKB_DEFAULT_OPTIONS = "compose:rctrl-altgr,grp:alt_caps_toggle";
     STACK_ROOT = "$XDG_DATA_HOME/stack"; # Stack
     LESSHISTFILE = "$XDG_CACHE_HOME/history"; # less
