@@ -11,7 +11,10 @@
 .config/river/init
 .config/stack/config.yaml
 .config/sway
+.config/waybar/config
+.config/waybar/style.css
 .config/xonsh
+.config/yambar/config.yml
 .config/zsh/.zshrc
 .ghci
 nix-overlays
