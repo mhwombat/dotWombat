@@ -163,7 +163,7 @@ with pkgs;
     telnet
     texlive.combined.scheme-full
     thunderbird # X and wayland
-    # tree # temporarily broken
+    tree
     ugrep
     unrar
     unzip
@@ -194,7 +194,7 @@ with pkgs;
     xscreensaver # X-only
     xsel # X-only, use wl-clipboard's wl-copy and wl-paste instead
     yad
-    yambar
+    (yambar.override { x11Support = true; waylandSupport = true; })
     zip
     zsh
   ];
