@@ -3,11 +3,13 @@
 # See the river(1), riverctl(1), and rivertile(1) man pages for complete
 # documentation.
 
+export XDG_CURRENT_DESKTOP=river
+
 # Use the "logo" key as the primary modifier
 mod="Mod4"
 
 # Mod+Return to start launcher
-riverctl map normal $mod Return spawn "dmenu_path | bemenu -p 'Hi wombat!'"
+riverctl map normal $mod Return spawn "dmenu_path | bemenu -p 'W11K'"
 
 # Mod+Shift+Return to launch a terminal
 riverctl map normal $mod+Shift Return spawn alacritty
@@ -153,7 +155,15 @@ riverctl float-filter-add title "popup title with spaces"
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
 
+riverctl spawn "amy-waybar"
+#riverctl spawn '/home/amy/Waybar/build/waybar >/home/amy/waybar.log 2>&1'
+# riverctl spawn 'waybar >/home/amy/waybar.log 2>&1'
+# riverctl spawn 'yambar >/home/amy/yambar.log 2>&1'
+
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivertile
 exec rivertile -view-padding 2 -outer-padding 2
+
+
+
