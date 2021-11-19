@@ -45,12 +45,14 @@ with pkgs;
     exa
     fbreader # X only. Binary is called "FBReader"
     file
-    firefox # X and wayland
+    #    firefox # X and wayland
+    firefox-wayland
     flameshot
     font-awesome
     foot
     fzf
     fzy
+    gcolor3
     ghc
     ghostscript # for pdf2dsc
     gitAndTools.gitFull
@@ -71,6 +73,7 @@ with pkgs;
     gnumake
     gnupg
     gnutls
+    go
     gparted # X and wayland?
     graphviz
     grim
@@ -94,6 +97,7 @@ with pkgs;
     howl
     hplip
     hplipWithPlugin
+    i3status-rust
     imagemagick
     imv
     inkscape # X and wayland
@@ -143,7 +147,9 @@ with pkgs;
     qpdfview # X and wayland
     qtile # X and wayland
     # rEnv
+    ristate
     river
+    rootbar
     rsync
     signal-desktop # X-only
     slurp
@@ -166,6 +172,8 @@ with pkgs;
     vlc # X-only until I set QT environment
     # vmware-horizon-client
     wacomtablet
+    waybar
+    wayland-utils
     wev # X and wayland, installed with sway by default
     wget
     wl-clipboard
@@ -173,9 +181,12 @@ with pkgs;
     wpa_supplicant
     # x11
     xcolor
+    xdg-launch
+    xdg-utils
     xf86_input_wacom
     xqilla
     xmlstarlet
+    xmobar
     xmonad-with-packages
     # xorg.libX11
     # xorg.libXft
@@ -183,6 +194,7 @@ with pkgs;
     xscreensaver # X-only
     xsel # X-only, use wl-clipboard's wl-copy and wl-paste instead
     yad
+    yambar
     zip
     zsh
   ];
