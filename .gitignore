@@ -7,6 +7,8 @@
 
 # Generated theme stuff
 themes/previews
+.config/waybar/style.css
+.config/zsh/configure-spaceship
 
 # Generated Python stuff
 __pycache__
