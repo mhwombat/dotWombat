@@ -38,6 +38,11 @@
     "application/pdf" = "okular.desktop";
   };
   
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # xdg.portal.gtkUsePortal = true;
+  # xdg.portal.wlr.enable = true;
+  
   programs.zsh.enable = true;
 
   # users.defaultUserShell = pkgs.zsh;
