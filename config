@@ -16,5 +16,6 @@
 .config/xonsh
 .config/yambar/config.yml
 .config/zsh/.zshrc
+.config/zsh/configure-spaceship
 .ghci
 nix-overlays
