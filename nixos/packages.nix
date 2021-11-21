@@ -194,7 +194,7 @@ with pkgs;
     xscreensaver # X-only
     xsel # X-only, use wl-clipboard's wl-copy and wl-paste instead
     yad
-    (yambar.override { x11Support = true; waylandSupport = true; })
+    # (yambar.override { x11Support = true; waylandSupport = true; })
     zip
     zsh
   ];
