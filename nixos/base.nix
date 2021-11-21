@@ -37,11 +37,12 @@
     "text/plain" = "emacs";
     "application/pdf" = "okular.desktop";
   };
-  
+
+  # This stuff is to get gcolor3 eyedropper working!
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  # xdg.portal.gtkUsePortal = true;
-  # xdg.portal.wlr.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk  pkgs.xdg-desktop-portal-wlr ];
+  xdg.portal.gtkUsePortal = true;
+  xdg.portal.wlr.enable = true;
   
   programs.zsh.enable = true;
 
