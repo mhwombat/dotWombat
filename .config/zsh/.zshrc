@@ -6,7 +6,7 @@
 ###
 
 #PS1='%~$ '
-source configure-spaceship
+source ${XDG_CONFIG_HOME}/zsh/configure-spaceship
 
 
 # Before each prompt...
@@ -114,6 +114,7 @@ alias roll="format-zpl | lpr -P Zebra -o raw"
 alias pick-colour='grim -g "$(slurp -p)" -t ppm - | convert - -format "%[pixel:p{0,0}]" txt:-'
 alias snrsu='sudo nixos-rebuild switch --upgrade'
 alias snrsui='sudo nixos-rebuild switch --upgrade -I nixpkgs=/home/amy/github/nixpkgs'
+alias run-river='river > river.log 2>&1'
 
 function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function searchmd { fmd $2 | xargs grep "$1" ;}
