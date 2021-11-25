@@ -132,6 +132,7 @@ input type:keyboard {
     bindsym $mod+Shift+p move container to workspace "play"
     bindsym $mod+Shift+s move container to workspace "sway"
     bindsym $mod+Shift+v move container to workspace "vmware"
+
 #
 # Layout stuff:
 #
@@ -193,11 +194,17 @@ input type:keyboard {
 exec waybar
 
 #
-# Client colours
+# Client configuration
 #
-#include ${XDG_CONFIG_HOME}/sway/colours
-client.focused $base0D $base0D $base00
-client.unfocused $base04 $base04 $base05
+client.focused $base0D $base0D $base00 $base0D $base0D
+client.unfocused $base04 $base04 $base05 $base04 $base04
+
+for_window [shell=".*"] title_format "%title :: %shell"
+
+assign [title=".*INBOX.*"] workspace number 2
+assign [class="Signal"] workspace number 2
+assign [title=".*NixOS.*"] workspace "nixos"
+assign [title=".*VMware.*"] workspace "vmware"
 
 # Import some environment variables
 include /etc/sway/config.d/*
@@ -208,5 +215,4 @@ exec_always autotiling
 # clipboard manager
 exec_always wl-paste -t text --watch clipman store --no-persist
 
-# exec_always swaymsg title_format "%title %shell"
 
