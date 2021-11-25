@@ -45,13 +45,14 @@ with pkgs;
     exa
     fbreader # X only. Binary is called "FBReader"
     file
-    #    firefox # X and wayland
-    firefox-wayland
+    firefox # X and wayland
+    # firefox-wayland
     flameshot
     font-awesome
     foot
     fzf
     fzy
+    gcc
     gcolor3
     ghc
     ghostscript # for pdf2dsc
@@ -173,6 +174,7 @@ with pkgs;
     # vmware-horizon-client
     wacomtablet
     waybar
+    wayland-scanner
     wayland-utils
     wev # X and wayland, installed with sway by default
     wget
@@ -194,7 +196,7 @@ with pkgs;
     xscreensaver # X-only
     xsel # X-only, use wl-clipboard's wl-copy and wl-paste instead
     yad
-    # yambar-wayland
+    # yambar
     # (yambar.override { x11Support = false; waylandSupport = true; })
     zip
     zsh
