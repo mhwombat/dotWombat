@@ -57,8 +57,8 @@ keys = [
 
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(),
-        desc="Spawn a command using a prompt widget"),
+    # Key([mod], "r", lazy.spawncmd(),
+    #     desc="Spawn a command using a prompt widget"),
 
     Key(["mod1", "control"], "F1", lazy.change_vt(1), desc="Go to virtual console 1"),
     Key(["mod1", "control"], "F2", lazy.change_vt(2), desc="Go to virtual console 2"),
@@ -71,21 +71,20 @@ keys = [
     Key(["mod1", "control"], "F9", lazy.change_vt(9), desc="Go to virtual console 9"),
 ]
 
-groups = [Group(i) for i in "123456789nvmq"]
+groups = [Group(i) for i in ["1", "2", "3", "4", "5", "6", "7", "8", "9",
+                             "nixos", "vmware", "maths", "qtile"]]
 
-for i in groups:
+for g in groups:
+    shortcut_key=g.name[0];
+    # print(f"DEBUG g={g}, shortcut_key={shortcut_key}")
     keys.extend([
         # mod1 + letter of group = switch to group
-        Key([mod], i.name, lazy.group[i.name].toscreen(),
-            desc="Switch to group {}".format(i.name)),
+        Key([mod], shortcut_key, lazy.group[g.name].toscreen(),
+            desc="Switch to group {}".format(g.name)),
 
-        # # mod1 + shift + letter of group = switch to & move focused window to group
-        # Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-        #     desc="Switch to & move focused window to group {}".format(i.name)),
-        # Or, use below if you prefer not to switch to that group.
         # mod1 + shift + letter of group = move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            desc="move focused window to group {}".format(i.name)),
+        Key([mod, "shift"], shortcut_key, lazy.window.togroup(g.name),
+            desc="move focused window to group {}".format(g.name)),
     ])
 
 layouts = [
@@ -111,32 +110,32 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-screens = [
-    Screen(
-        bottom=bar.Bar(
-            [
-                widget.CurrentLayout(),
-                widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                    chords_colors={
-                        'launch': ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # widget.Systray(),
-                widget.Clock(format='%A, %d %B %Y %H:%M'),
-                widget.QuickExit(),
-            ],
-            24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-        ),
-    ),
-]
+# screens = [
+#     Screen(
+#         bottom=bar.Bar(
+#             [
+#                 widget.CurrentLayout(),
+#                 widget.GroupBox(),
+#                 widget.Prompt(),
+#                 widget.WindowName(),
+#                 widget.Chord(
+#                     chords_colors={
+#                         'launch': ("#ff0000", "#ffffff"),
+#                     },
+#                     name_transform=lambda name: name.upper(),
+#                 ),
+#                 widget.TextBox("default config", name="default"),
+#                 widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+#                 # widget.Systray(),
+#                 widget.Clock(format='%A, %d %B %Y %H:%M'),
+#                 widget.QuickExit(),
+#             ],
+#             24,
+#             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+#             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+#         ),
+#     ),
+# ]
 
 # Drag floating layouts.
 mouse = [
