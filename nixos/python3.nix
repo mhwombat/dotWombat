@@ -9,7 +9,7 @@
       pygraphviz
       pylint
       scikitlearn
-      seaborn
+      # seaborn
     ]);
   };
 }
