@@ -66,7 +66,7 @@ input type:keyboard {
     bindsym $mod+Shift+Return exec $term
 
     # Kill focused window
-    bindsym $mod+q kill
+    bindsym $mod+Delete kill
 
     # Start your launcher
     bindsym $mod+Return exec $menu
@@ -81,13 +81,13 @@ input type:keyboard {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+r reload
+    bindsym $mod+Ctrl+r reload
 
     # Lock the screen
     bindsym Pause exec swaylock
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Ctrl+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -148,10 +148,10 @@ input type:keyboard {
     # bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen toggle
+    bindsym $mod+Ctrl+f fullscreen toggle
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+Alt+f floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
@@ -178,9 +178,9 @@ input type:keyboard {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $mod+Ctrl+Left resize shrink width 10px
-    bindsym $mod+Ctrl+Down resize grow height 10px
-    bindsym $mod+Ctrl+Up resize shrink height 10px
+    bindsym $mod+Ctrl+Left  resize shrink width 10px
+    bindsym $mod+Ctrl+Down  resize shrink height 10px
+    bindsym $mod+Ctrl+Up    resize grow height 10px
     bindsym $mod+Ctrl+Right resize grow width 10px
 
     # Return to default mode
@@ -192,6 +192,9 @@ input type:keyboard {
 # Read `man 5 sway-bar` for more information about this section.
 # I'm using this instead of swaybar
 exec waybar
+
+# Should focus follow the mouse?
+focus_follows_mouse no
 
 #
 # Client configuration
