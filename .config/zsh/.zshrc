@@ -115,6 +115,7 @@ alias pick-colour='grim -g "$(slurp -p)" -t ppm - | convert - -format "%[pixel:p
 alias snrsu='sudo nixos-rebuild switch --upgrade'
 alias snrsui='sudo nixos-rebuild switch --upgrade -I nixpkgs=/home/amy/github/nixpkgs'
 alias run-river='river > river.log 2>&1'
+alias run-qtile='qtile start -b wayland > qtile.log 2>&1'
 
 function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function searchmd { fmd $2 | xargs grep "$1" ;}
