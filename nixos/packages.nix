@@ -39,6 +39,7 @@ with pkgs;
     dmenu-wayland
     dmidecode # system hardware info
     dos2unix
+    dwl
     dzen2
     (import ./emacs.nix { inherit pkgs; }) # X-only
     evince # X and wayland
