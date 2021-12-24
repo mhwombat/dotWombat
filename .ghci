@@ -1,6 +1,6 @@
 :set prompt "λ> "
--- :set -Wall
 :set -XUnicodeSyntax
+:set -XScopedTypeVariables
 :set -isrc:test
 -- :set -package=QuickCheck
 -- :set -package=test-framework-quickcheck2
@@ -10,6 +10,7 @@
 -- :set -package=HUnit
 -- :set -package=criterion
 :set -Wwarn
+:set -Wall
 
 :m + Data.List
 :m + Data.Maybe
