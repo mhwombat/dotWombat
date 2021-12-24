@@ -40,6 +40,7 @@ with pkgs;
     dmidecode # system hardware info
     dos2unix
     dwl
+    # (dwl.override { conf=/home/amy/.config/dwl/config.h; })
     dzen2
     (import ./emacs.nix { inherit pkgs; }) # X-only
     evince # X and wayland
@@ -96,6 +97,7 @@ with pkgs;
     # haskellPackages.X11-xft
     havoc
     hello-amy
+    hikari
     howl
     hplip
     hplipWithPlugin
