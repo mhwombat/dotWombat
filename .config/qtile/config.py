@@ -7,7 +7,8 @@ from libqtile.utils import guess_terminal
 
 mod = "mod4"
 terminal = guess_terminal()
-menu = "bemenu-run"
+launcher = "amys-launcher"
+status_bar = "waybar"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -48,7 +49,7 @@ keys = [
     # multiple stack panes
     # Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
     #     desc="Toggle between split and unsplit sides of stack"),
-    Key([mod], "Return", lazy.spawn(menu), desc="Show launch menu"),
+    Key([mod], "Return", lazy.spawn(launcher), desc="Show launch menu"),
     Key([mod, "shift"], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
     # Toggle between different layouts as defined below
@@ -110,6 +111,11 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+# Don't want qtile's status bar
+screens = [
+    Screen()
+]
+
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
@@ -151,3 +157,6 @@ auto_minimize = True
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+print("DEBUG launching waybar")
+lazy.spawn(status_bar)
