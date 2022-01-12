@@ -7,6 +7,10 @@ with pkgs;
     (import /home/amy/nix-overlays/default.nix)
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "nodejs-10.24.1"
+  ];
+
   # Packages I want to use
   environment.systemPackages = [
     alacritty # X and wayland
@@ -21,11 +25,13 @@ with pkgs;
     bash
     bemenu
     bibclean
+    bibtool
     bibutils
     bind # for dig
     binutils-unwrapped
     # busybox overwrites realpath!
     cabal-install
+    cage # wayland, provides Xwayland to qtile
     calibre # X and wayland
     chromium # X-only? See ozone?
     clipman
@@ -101,7 +107,7 @@ with pkgs;
     howl
     hplip
     hplipWithPlugin
-    i3status-rust
+    # i3status-rust
     imagemagick
     imv
     inkscape # X and wayland
