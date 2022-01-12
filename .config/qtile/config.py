@@ -61,15 +61,15 @@ keys = [
     # Key([mod], "r", lazy.spawncmd(),
     #     desc="Spawn a command using a prompt widget"),
 
-    Key(["mod1", "control"], "F1", lazy.change_vt(1), desc="Go to virtual console 1"),
-    Key(["mod1", "control"], "F2", lazy.change_vt(2), desc="Go to virtual console 2"),
-    Key(["mod1", "control"], "F3", lazy.change_vt(3), desc="Go to virtual console 3"),
-    Key(["mod1", "control"], "F4", lazy.change_vt(4), desc="Go to virtual console 4"),
-    Key(["mod1", "control"], "F5", lazy.change_vt(5), desc="Go to virtual console 5"),
-    Key(["mod1", "control"], "F6", lazy.change_vt(6), desc="Go to virtual console 6"),
-    Key(["mod1", "control"], "F7", lazy.change_vt(7), desc="Go to virtual console 7"),
-    Key(["mod1", "control"], "F8", lazy.change_vt(8), desc="Go to virtual console 8"),
-    Key(["mod1", "control"], "F9", lazy.change_vt(9), desc="Go to virtual console 9"),
+    Key(["mod1", "control"], "F1", lazy.core.change_vt(1), desc="Go to virtual console 1"),
+    Key(["mod1", "control"], "F2", lazy.core.change_vt(2), desc="Go to virtual console 2"),
+    Key(["mod1", "control"], "F3", lazy.core.change_vt(3), desc="Go to virtual console 3"),
+    Key(["mod1", "control"], "F4", lazy.core.change_vt(4), desc="Go to virtual console 4"),
+    Key(["mod1", "control"], "F5", lazy.core.change_vt(5), desc="Go to virtual console 5"),
+    Key(["mod1", "control"], "F6", lazy.core.change_vt(6), desc="Go to virtual console 6"),
+    Key(["mod1", "control"], "F7", lazy.core.change_vt(7), desc="Go to virtual console 7"),
+    Key(["mod1", "control"], "F8", lazy.core.change_vt(8), desc="Go to virtual console 8"),
+    Key(["mod1", "control"], "F9", lazy.core.change_vt(9), desc="Go to virtual console 9"),
 ]
 
 groups = [Group(i) for i in ["1", "2", "3", "4", "5", "6", "7", "8", "9",
@@ -160,3 +160,4 @@ wmname = "LG3D"
 
 print("DEBUG launching waybar")
 lazy.spawn(status_bar)
+print("DEBUG waybar launched?")
