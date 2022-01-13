@@ -1,6 +1,7 @@
 #command
-\kU     forw-screen
-\kD     back-screen
+\kU     back-screen
+\kD     forw-screen
+\t      invalid
 
 #line-edit
 

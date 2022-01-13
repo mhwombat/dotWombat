@@ -70,6 +70,7 @@ with pkgs;
     git-lfs
     gimp # Current version is X-only. Newer versions support wayland
     # glabels
+    globalprotect-openconnect
     gmp # GNU multiple precision arithmetic library
     gnome3.adwaita-icon-theme # to help meld?
     gnome3.dconf-editor # X and wayland
@@ -202,11 +203,13 @@ with pkgs;
     # xorg.libX11
     # xorg.libXft
     xorg.xev # X-only, use wev instead
+    xournal
     xscreensaver # X-only
     xsel # X-only, use wl-clipboard's wl-copy and wl-paste instead
     yad
     # yambar
     # (yambar.override { x11Support = false; waylandSupport = true; })
+    zbar # for reading QR codes
     zip
     zsh
   ];
