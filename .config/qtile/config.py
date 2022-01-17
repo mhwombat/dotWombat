@@ -4,6 +4,12 @@ from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+import sys
+import os
+
+config_dir = os.path.dirname(__file__)
+print("The config dir is : " + config_dir)
+from colour import Colour
 
 mod = "mod4"
 terminal = guess_terminal()
@@ -43,6 +49,15 @@ keys = [
     Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
+    # Swap??? windows between left/right columns or up/down in current stack.
+    Key([mod, "mod1"], "Left", lazy.layout.flip_left(),
+        desc="Move window to the left"),
+    Key([mod, "mod1"], "Right", lazy.layout.flip_right(),
+        desc="Move window to the right"),
+    Key([mod, "mod1"], "Down", lazy.layout.flip_down(),
+        desc="Move window down"),
+    Key([mod, "mod1"], "Up", lazy.layout.flip_up(), desc="Move window up"),
+
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -72,6 +87,7 @@ keys = [
     Key(["mod1", "control"], "F9", lazy.core.change_vt(9), desc="Go to virtual console 9"),
 ]
 
+# What other window managers often call "workspaces".
 groups = [Group(i) for i in ["1", "2", "3", "4", "5", "6", "7", "8", "9",
                              "nixos", "vmware", "maths", "qtile"]]
 
@@ -89,19 +105,25 @@ for g in groups:
     ])
 
 layouts = [
-    layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
+#    layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
+    layout.Bsp(
+        #Border colour(s) for the focused window.
+        border_focus=Colour.base0D,
+        # Border colour(s) for un-focused windows.
+        border_normal=Colour.base04,
+	# Border width.
+        #border_width=2,
+        # New clients are inserted in the shortest branch.
+	#fair=True,
+        # Amount by which to grow a window/column.
+	#grow_amount=10,
+        # New client occupies lower or right subspace.
+	#lower_right=True,
+	# Margin of the layout (int or list of ints [N E S W]).
+        #margin=0,
+        # Width/height ratio that defines the partition direction.
+        #ratio=1.6
+    ),
 ]
 
 widget_defaults = dict(
@@ -111,9 +133,57 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+status_bar = bar.Bar(
+    [
+        widget.CurrentLayout(),
+        widget.CurrentLayoutIcon(),
+        widget.CurrentScreen(active_color=Colour.base0A, inactive_colour=Colour.base0D),
+        widget.GroupBox(),
+        widget.Prompt(),
+        # widget.Wlan(
+        #         format='{essid} {quality}/70',
+        #         update_interval=5
+        #     ),
+        widget.WindowName(),
+        widget.Spacer(length=10),
+        widget.Net(
+                format='  {interface}: {down} ↓↑ {up}',
+                update_interval=10
+            ),
+        widget.Spacer(length=10),
+        widget.Chord(
+                chords_colors={
+                    'launch': ("#ff0000", "#ffffff"),
+                },
+                name_transform=lambda name: name.upper(),
+            ),
+        widget.Spacer(length=10),
+        widget.ThermalSensor(),
+        widget.Spacer(length=10),
+        widget.Memory(
+                format=' {MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
+                update_interval=10
+            ),
+        widget.Spacer(length=10),
+        widget.CPU(
+                format=' {freq_current}GHz {load_percent}%',
+                update_interval=10
+            ),
+        widget.Spacer(length=10),
+        widget.Clock(
+                foreground=Colour.base00,
+                background=Colour.base0D,
+                format='%A, %d %B %Y %H:%M'
+            ),
+    ],
+    24,
+    # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+    # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
+)
+
 # Don't want qtile's status bar
 screens = [
-    Screen()
+    Screen(bottom=status_bar)
 ]
 
 # Drag floating layouts.
