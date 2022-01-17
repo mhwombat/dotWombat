@@ -1,18 +1,51 @@
 bar:
   height: 26
   location: top
+  spacing: 5
   background: 000000ff
 
   left:
-    - script:
-        path: /home/amy/bin/amy-status
-        args: [1]
-        content: {string: {text: "{wombat}"}}
+    # See: man yambar-modules-river
+    - river:
+        title: {string: { text: "{title}" }}
+        all-monitors: true
+        content:
+          map:
+            tag: occupied
+            values:
+              false: {empty: {}}
+              true:
+                string:
+                  margin: 5
+                  text: "{id}: {state}"
 
   right:
-    - clock:
+    - network:
+        name: wlo2
         content:
-          - string: {text: , font: "Font Awesome 5 Free:style=solid:size=12"}
+          map:
+            tag: state
+            default: {string: {text: }}
+            values:
+              down: {string: {text: , foreground: ff0000ff}}
+              up:
+                map:
+                  tag: ipv4
+                  default:
+                    - string: {text: }
+                    - string: {text: "{ssid}"}
+                  values:
+                    "":
+                      - string: {text: }
+                      - string: {text: "{ssid}"}
+    - clock:
+        date-format: "%A, %d %B %Y"
+        time-format: "%H:%M"
+        content:
           - string: {text: "{date}", right-margin: 5}
-          - string: {text: , font: "Font Awesome 5 Free:style=solid:size=12"}
           - string: {text: "{time}"}
+    - label:
+        content:
+          string:
+            on-click: loginctl poweroff
+            text: 
