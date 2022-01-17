@@ -8,34 +8,25 @@ export XDG_CURRENT_DESKTOP=river
 # Use the "logo" key as the primary modifier
 mod="Mod4"
 
-# Mod+Return to start launcher
-riverctl map normal $mod Return spawn "dmenu_path | bemenu -p 'W11K'"
+riverctl map normal $mod Return spawn "dmenu_path | bemenu -p 'W11K'" # start launcher
 
-# Mod+Shift+Return to launch a terminal
-riverctl map normal $mod+Shift Return spawn alacritty
+riverctl map normal $mod+Shift Return spawn alacritty # launch terminal
 
-# Mod+Q to close the focused view
-riverctl map normal $mod Q close
+riverctl map normal $mod Delete close # close focused view
 
-# Mod+Shift+E to exit river
-riverctl map normal $mod+Shift Q exit
+riverctl map normal $mod+Control Q exit # exit river
 
-# Mod+J and Mod+K to focus the next/previous view in the layout stack
-riverctl map normal $mod Right focus-view next
-riverctl map normal $mod Left focus-view previous
+riverctl map normal $mod Right focus-view next # focus next view in layout stack
+riverctl map normal $mod Left focus-view previous # focus previous view in layout stack
 
-# Mod+Shift+J and Mod+Shift+K to swap the focused view with the next/previous
-# view in the layout stack
-riverctl map normal $mod+Shift Right swap next
-riverctl map normal $mod+Shift Left swap previous
+riverctl map normal $mod+Shift Right swap next # swap the focused view with the next view in the layout stack
+riverctl map normal $mod+Shift Left swap previous # swap the focused view with the previous view in the layout stack
 
-# Mod+Period and Mod+Comma to focus the next/previous output
-# riverctl map normal $mod Period focus-output next
-# riverctl map normal $mod Comma focus-output previous
+riverctl map normal $mod Period focus-output next # focus the next monitor
+riverctl map normal $mod Comma focus-output previous # focus the previous monitor
 
-# Mod+Shift+{Period,Comma} to send the focused view to the next/previous output
-riverctl map normal $mod+Shift Period send-to-output next
-riverctl map normal $mod+Shift Comma send-to-output previous
+riverctl map normal $mod+Shift Period send-to-output next # send focused view to next monitor
+riverctl map normal $mod+Shift Comma send-to-output previous # send focused view to previous monitor
 
 # Mod+Return to bump the focused view to the top of the layout stack
 # riverctl map normal $mod Return zoom
@@ -155,10 +146,11 @@ riverctl float-filter-add title "popup title with spaces"
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
 
-riverctl spawn "amy-waybar"
-#riverctl spawn '/home/amy/Waybar/build/waybar >/home/amy/waybar.log 2>&1'
 # riverctl spawn 'waybar >/home/amy/waybar.log 2>&1'
-# riverctl spawn 'yambar >/home/amy/yambar.log 2>&1'
+riverctl spawn 'yambar >/home/amy/yambar.log 2>&1'
+
+riverctl spawn 'wlr-randr --output DP-1 --pos 0,0'
+riverctl spawn 'wlr-randr --output DP-2 --pos 2560,0'
 
 # Set and exec into the default layout generator, rivertile.
 # River will send the process group of the init executable SIGTERM on exit.
