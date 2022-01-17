@@ -8,6 +8,7 @@ PATH=~/github/wain-tools:${PATH}
 
 # alias wls='wombat ls'
 # alias ls='colorls'
+alias edit='cage emacs'
 alias longestLine='awk '\''{ if (length($0) > max) {max = length($0); maxline = $0} } END { print maxline }'\'''
 alias psgrep='ps -ef | grep'
 alias hgrep='history | grep'
@@ -25,7 +26,7 @@ alias roll="format-zpl | lpr -P Zebra -o raw"
 alias pick-colour='grim -g "$(slurp -p)" -t ppm - | convert - -format "%[pixel:p{0,0}]" txt:-'
 alias snrsu='sudo nixos-rebuild switch --upgrade'
 alias snrsui='sudo nixos-rebuild switch --upgrade -I nixpkgs=/home/amy/github/nixpkgs'
-alias sncg='nix-collect-garbage --delete-older-than 20d'
+alias sncg='sudo nix-collect-garbage --delete-older-than 20d'
 alias run-river='river > river.log 2>&1'
 alias run-qtile='qtile start -b wayland > qtile.log 2>&1'
 alias run-dwl='dwl > dwl.log 2>&1'
