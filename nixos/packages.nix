@@ -45,10 +45,10 @@ with pkgs;
     dmenu-wayland
     dmidecode # system hardware info
     dos2unix
-    dwl
-    # (dwl.override { conf=/home/amy/.config/dwl/config.h; })
+    # (dwl.override { conf = /home/amy/.config/dwl/config.h; enable-xwayland = true; })
     dzen2
     (import ./emacs.nix { inherit pkgs; }) # X-only
+    (enlightenment.enlightenment.override { waylandSupport = true; })
     evince # X and wayland
     exa
     fbreader # X only. Binary is called "FBReader"
@@ -189,6 +189,7 @@ with pkgs;
     wev # X and wayland, installed with sway by default
     wget
     wl-clipboard
+    wlr-randr
     wofi
     wpa_supplicant
     # x11
@@ -199,15 +200,16 @@ with pkgs;
     xqilla
     xmlstarlet
     xmobar
-    xmonad-with-packages
+    # xmonad-with-packages
     # xorg.libX11
     # xorg.libXft
     xorg.xev # X-only, use wev instead
     xournal
     xscreensaver # X-only
     xsel # X-only, use wl-clipboard's wl-copy and wl-paste instead
+    xwayland
     yad
-    # yambar
+    yambar
     # (yambar.override { x11Support = false; waylandSupport = true; })
     zbar # for reading QR codes
     zip
