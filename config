@@ -9,6 +9,7 @@
 .config/offlineimap/config
 .config/onedrive/config
 .config/qtile/config.py
+.config/qtile/colour.py
 .config/river/init
 .config/stack/config.yaml
 .config/sway
