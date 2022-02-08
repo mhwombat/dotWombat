@@ -1,0 +1,25 @@
+| mode        | key                                                                                | action                                                           |
+| ----------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| normal      | $logo+Shift Slash spawn "/home/amy/bin/key-help /home/amy/dotWombat/.config/river" | show key map                                                     |
+| normal      | $logo Return spawn "$launcher"                                                     | start launcher                                                   |
+| normal      | $logo+Shift Return spawn alacritty                                                 | launch terminal                                                  |
+| normal      | $logo Delete close                                                                 | close focused view                                               |
+| normal      | $logo+Control Q exit                                                               | exit river                                                       |
+| normal      | $logo Up focus-view next                                                           | focus next view in layout stack                                  |
+| normal      | $logo Down focus-view previous                                                     | focus previous view in layout stack                              |
+| normal      | $logo+Shift Up swap next                                                           | swap the focused view with the next view in the layout stack     |
+| normal      | $logo+Shift Down swap previous                                                     | swap the focused view with the previous view in the layout stack |
+| normal      | $logo Right focus-output next                                                      | focus the next monitor                                           |
+| normal      | $logo Left focus-output previous                                                   | focus the previous monitor                                       |
+| normal      | $logo+Shift Right send-to-output next                                              | send focused view to next monitor                                |
+| normal      | $logo+Shift Left send-to-output previous                                           | send focused view to previous monitor                            |
+| normal      | $logo $i set-focused-tags $tags                                                    | focus tag i                                                      |
+| normal      | $logo+Shift $i set-view-tags $tags                                                 | tag focused view with tag i                                      |
+| normal      | $logo+Control $i toggle-focused-tags $tags                                         | toggle focus of tag i                                            |
+| normal      | $logo+Shift+Control $i toggle-view-tags $tags                                      | toggle tag i of focused view                                     |
+| normal      | $logo 0 set-focused-tags $all_tags                                                 | focus all tags                                                   |
+| normal      | $logo+Shift 0 set-view-tags $all_tags                                              | tag focused view with all tags                                   |
+| normal      | $logo f toggle-float                                                               | toggle float                                                     |
+| normal      | $logo+Shift F toggle-fullscreen                                                    | toggle fullscreen                                                |
+| normal      | $logo F11 enter-mode passthrough                                                   | enter passthrough mode                                           |
+| passthrough | $logo F11 enter-mode normal                                                        | leave passthrough mode                                           |
