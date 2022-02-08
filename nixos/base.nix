@@ -61,6 +61,7 @@
     # To see all keyboard variants: localectl list-x11-keymap-variants
     XKB_DEFAULT_VARIANT = "CloGaelach,";
     # To see all keyboard options: localectl list-x11-keymap-options
+    # Configure Alt+CapsLock to switch between keyboard layouts.
     XKB_DEFAULT_OPTIONS = "compose:rctrl-altgr,grp:alt_caps_toggle";
     STACK_ROOT = "$XDG_DATA_HOME/stack"; # Stack
     LESSHISTFILE = "$XDG_CACHE_HOME/history"; # less
