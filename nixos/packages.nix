@@ -77,8 +77,7 @@ with pkgs;
     gnome3.eog # X and wayland
     gnome3.gnome-disk-utility # X and wayland
     gnome3.gucharmap # X and wayland
-    gnome3.librsvg # for rsvg-convert
-    gnome3.meld # X and wayland
+    # gnome3.librsvg # for rsvg-convert Bug in unstable 21 jan 2022
     gnome3.gnome-themes-extra # to fix "adwaita" bug
     gnumake
     gnupg
@@ -93,6 +92,7 @@ with pkgs;
     # haskellPackages.doi # broken as of 21.05
     haskellPackages.hasktags
     haskellPackages.hlint
+    # haskellPackages.ihaskell
     haskellPackages.pandoc
     haskellPackages.pandoc-crossref
     haskellPackages.pandoc-types
@@ -109,6 +109,8 @@ with pkgs;
     hplip
     hplipWithPlugin
     # i3status-rust
+    idris
+    ihaskell
     imagemagick
     imv
     inkscape # X and wayland
@@ -130,6 +132,7 @@ with pkgs;
     lsof
     lshw
     lxqt.qterminal # X and wayland
+    meld # X and wayland
     memtester
     mkpasswd
     most # alternative to "less"
@@ -145,8 +148,8 @@ with pkgs;
     p7zip
     pandoc
     pdfgrep
-    pdfmod
     pdftk
+    pkg-config # temporary, trying to build some 3rd party code
     plan9port
     plantuml
     # podman enabled in containers.nix
@@ -186,6 +189,7 @@ with pkgs;
     waybar
     wayland-scanner
     wayland-utils
+    wayland-protocols
     wev # X and wayland, installed with sway by default
     wget
     wl-clipboard
