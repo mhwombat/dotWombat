@@ -1,0 +1,6 @@
+(ac-config-default)
+(global-auto-complete-mode t)
+(set-face-foreground 'ac-candidate-face "#a1adb9")
+(set-face-background 'ac-candidate-face "#38424c")
+(set-face-foreground 'ac-selection-face "#495663")
+(set-face-background 'ac-selection-face "#99ffe5")
