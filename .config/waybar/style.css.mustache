@@ -19,6 +19,28 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
+/* River stuff */
+#tags button {
+    padding: 0 5px;
+    color: #{{base05}};
+}
+
+#tags button.occupied {
+    color: #{{base00}};
+    background-color: #{{base09}};
+}
+
+#tags button.focused {
+    color: #{{base00}};
+    background-color: #{{base0D}};
+}
+
+#tags button.urgent {
+    background-color: #ff0000;
+}
+
+/* Sway stuff */
+
 #workspaces button {
     padding: 0 5px;
     color: #{{base05}};
@@ -36,7 +58,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: #ff0000;
 }
 
 #mode {

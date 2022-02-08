@@ -8,6 +8,10 @@
     "modules-left": ["sway/workspaces", "sway/mode", "river/tags"],
     // "modules-center": ["sway/window"],
     "modules-right": ["network", "cpu", "memory", "temperature", "clock", "tray"],
+    "river/tags": {
+        "num-tags": 9,
+        "tag-labels": ["1", "2", "3", "4", "5-maths", "6-NixOS", "7-vmware", "8-river", "9-news"]
+    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },

@@ -30,6 +30,9 @@ alias sncg='sudo nix-collect-garbage --delete-older-than 20d'
 alias run-river='river > river.log 2>&1'
 alias run-qtile='qtile start -b wayland > qtile.log 2>&1'
 alias run-dwl='dwl > dwl.log 2>&1'
+alias run-hikari='hikari > hikari.log 2>&1'
+alias ff='firefox --new-window'
+alias nfi='nix flake init -t github:serokell/templates#haskell-cabal2nix'
 
 function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function searchmd { fmd $2 | xargs grep "$1" ;}

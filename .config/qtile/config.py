@@ -1,6 +1,6 @@
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget
+from libqtile import bar, layout, widget, extension
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
@@ -11,80 +11,88 @@ config_dir = os.path.dirname(__file__)
 print("The config dir is : " + config_dir)
 from colour import Colour
 
-mod = "mod4"
+logo = "mod4"
+alt="mod1"
+
 terminal = guess_terminal()
 launcher = "amys-launcher"
-status_bar = "waybar"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
 
     # Switch between windows
-    Key([mod], "Left", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "Right", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "Down", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "Up", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(),
+    Key([logo], "Left", lazy.layout.left(), desc="Move focus to left"),
+    Key([logo], "Right", lazy.layout.right(), desc="Move focus to right"),
+    Key([logo], "Down", lazy.layout.down(), desc="Move focus down"),
+    Key([logo], "Up", lazy.layout.up(), desc="Move focus up"),
+    Key([logo], "space", lazy.layout.next(),
         desc="Move window focus to other window"),
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([mod, "shift"], "Left", lazy.layout.shuffle_left(),
+    Key([logo, "shift"], "Left", lazy.layout.shuffle_left(),
         desc="Move window to the left"),
-    Key([mod, "shift"], "Right", lazy.layout.shuffle_right(),
+    Key([logo, "shift"], "Right", lazy.layout.shuffle_right(),
         desc="Move window to the right"),
-    Key([mod, "shift"], "Down", lazy.layout.shuffle_down(),
+    Key([logo, "shift"], "Down", lazy.layout.shuffle_down(),
         desc="Move window down"),
-    Key([mod, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([logo, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "Left", lazy.layout.grow_left(),
+    Key([logo, "control"], "Left", lazy.layout.grow_left(),
         desc="Grow window to the left"),
-    Key([mod, "control"], "Right", lazy.layout.grow_right(),
+    Key([logo, "control"], "Right", lazy.layout.grow_right(),
         desc="Grow window to the right"),
-    Key([mod, "control"], "Down", lazy.layout.grow_down(),
+    Key([logo, "control"], "Down", lazy.layout.grow_down(),
         desc="Grow window down"),
-    Key([mod, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+    Key([logo, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([logo], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
     # Swap??? windows between left/right columns or up/down in current stack.
-    Key([mod, "mod1"], "Left", lazy.layout.flip_left(),
+    Key([logo, alt], "Left", lazy.layout.flip_left(),
         desc="Move window to the left"),
-    Key([mod, "mod1"], "Right", lazy.layout.flip_right(),
+    Key([logo, alt], "Right", lazy.layout.flip_right(),
         desc="Move window to the right"),
-    Key([mod, "mod1"], "Down", lazy.layout.flip_down(),
+    Key([logo, alt], "Down", lazy.layout.flip_down(),
         desc="Move window down"),
-    Key([mod, "mod1"], "Up", lazy.layout.flip_up(), desc="Move window up"),
+    Key([logo, alt], "Up", lazy.layout.flip_up(), desc="Move window up"),
+
+    # Key([logo, "control"], 'Return', lazy.run_extension(extension.WindowList(
+    #     dmenu_prompt=">"
+    # ))),
 
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    # Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
+    # Key([logo, "shift"], "Return", lazy.layout.toggle_split(),
     #     desc="Toggle between split and unsplit sides of stack"),
-    Key([mod], "Return", lazy.spawn(launcher), desc="Show launch menu"),
-    Key([mod, "shift"], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([logo], "Return", lazy.spawn(launcher), desc="Show launch menu"),
+    Key([logo, "shift"], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "Delete", lazy.window.kill(), desc="Kill focused window"),
+    Key([logo], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([logo], "Delete", lazy.window.kill(), desc="Kill focused window"),
 
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    # Key([mod], "r", lazy.spawncmd(),
+    Key([logo, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([logo, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    # Key([logo], "r", lazy.spawncmd(),
     #     desc="Spawn a command using a prompt widget"),
 
-    Key(["mod1", "control"], "F1", lazy.core.change_vt(1), desc="Go to virtual console 1"),
-    Key(["mod1", "control"], "F2", lazy.core.change_vt(2), desc="Go to virtual console 2"),
-    Key(["mod1", "control"], "F3", lazy.core.change_vt(3), desc="Go to virtual console 3"),
-    Key(["mod1", "control"], "F4", lazy.core.change_vt(4), desc="Go to virtual console 4"),
-    Key(["mod1", "control"], "F5", lazy.core.change_vt(5), desc="Go to virtual console 5"),
-    Key(["mod1", "control"], "F6", lazy.core.change_vt(6), desc="Go to virtual console 6"),
-    Key(["mod1", "control"], "F7", lazy.core.change_vt(7), desc="Go to virtual console 7"),
-    Key(["mod1", "control"], "F8", lazy.core.change_vt(8), desc="Go to virtual console 8"),
-    Key(["mod1", "control"], "F9", lazy.core.change_vt(9), desc="Go to virtual console 9"),
+    Key([logo, "control"], "f", lazy.window.toggle_floating()),
+    Key([logo, "control", "shift"], "f", lazy.window.toggle_fullscreen()),
+
+    Key([alt, "control"], "F1", lazy.core.change_vt(1), desc="Go to virtual console 1"),
+    Key([alt, "control"], "F2", lazy.core.change_vt(2), desc="Go to virtual console 2"),
+    Key([alt, "control"], "F3", lazy.core.change_vt(3), desc="Go to virtual console 3"),
+    Key([alt, "control"], "F4", lazy.core.change_vt(4), desc="Go to virtual console 4"),
+    Key([alt, "control"], "F5", lazy.core.change_vt(5), desc="Go to virtual console 5"),
+    Key([alt, "control"], "F6", lazy.core.change_vt(6), desc="Go to virtual console 6"),
+    Key([alt, "control"], "F7", lazy.core.change_vt(7), desc="Go to virtual console 7"),
+    Key([alt, "control"], "F8", lazy.core.change_vt(8), desc="Go to virtual console 8"),
+    Key([alt, "control"], "F9", lazy.core.change_vt(9), desc="Go to virtual console 9"),
 ]
 
 # What other window managers often call "workspaces".
@@ -96,23 +104,23 @@ for g in groups:
     # print(f"DEBUG g={g}, shortcut_key={shortcut_key}")
     keys.extend([
         # mod1 + letter of group = switch to group
-        Key([mod], shortcut_key, lazy.group[g.name].toscreen(),
+        Key([logo], shortcut_key, lazy.group[g.name].toscreen(),
             desc="Switch to group {}".format(g.name)),
 
         # mod1 + shift + letter of group = move focused window to group
-        Key([mod, "shift"], shortcut_key, lazy.window.togroup(g.name),
+        Key([logo, "shift"], shortcut_key, lazy.window.togroup(g.name),
             desc="move focused window to group {}".format(g.name)),
     ])
 
 layouts = [
 #    layout.Columns(border_focus_stack=['#d75f5f', '#8f3d3d'], border_width=4),
     layout.Bsp(
-        #Border colour(s) for the focused window.
+        # Border colour(s) for the focused window.
         border_focus=Colour.base0D,
         # Border colour(s) for un-focused windows.
         border_normal=Colour.base04,
 	# Border width.
-        #border_width=2,
+        border_width=6,
         # New clients are inserted in the shortest branch.
 	#fair=True,
         # Amount by which to grow a window/column.
@@ -124,6 +132,12 @@ layouts = [
         # Width/height ratio that defines the partition direction.
         #ratio=1.6
     ),
+    layout.Tile(
+        # Border colour(s) for the focused window.
+        border_focus=Colour.base0D,
+        # Border colour(s) for un-focused windows.
+        border_normal=Colour.base04,
+    )
 ]
 
 widget_defaults = dict(
@@ -133,66 +147,147 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-status_bar = bar.Bar(
-    [
-        widget.CurrentLayout(),
-        widget.CurrentLayoutIcon(),
-        widget.CurrentScreen(active_color=Colour.base0A, inactive_colour=Colour.base0D),
-        widget.GroupBox(),
-        widget.Prompt(),
-        # widget.Wlan(
-        #         format='{essid} {quality}/70',
-        #         update_interval=5
-        #     ),
-        widget.WindowName(),
-        widget.Spacer(length=10),
-        widget.Net(
+status_bar_widgets = [
+    widget.CurrentLayout(),
+    widget.CurrentLayoutIcon(),
+    widget.CurrentScreen(active_color=Colour.base0A, inactive_colour=Colour.base0D),
+    widget.GroupBox(),
+    widget.Prompt(),
+    # widget.Wlan(
+    #         format='{essid} {quality}/70',
+    #         update_interval=5
+    #     ),
+    widget.WindowName(),
+    widget.Spacer(length=10),
+    widget.Net(
+        format='  {interface}: {down} ↓↑ {up}',
+        update_interval=10
+    ),
+    widget.Spacer(length=10),
+    widget.Chord(
+        chords_colors={
+            'launch': ("#ff0000", "#ffffff"),
+        },
+        name_transform=lambda name: name.upper(),
+    ),
+    widget.Spacer(length=10),
+    widget.ThermalSensor(),
+    widget.Spacer(length=10),
+    widget.Memory(
+        format=' {MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
+        update_interval=10
+    ),
+    widget.Spacer(length=10),
+    widget.CPU(
+        format=' {freq_current}GHz {load_percent}%',
+        update_interval=10
+    ),
+    widget.Spacer(length=10),
+    widget.Clock(
+        foreground=Colour.base00,
+        background=Colour.base0D,
+        format='%A, %d %B %Y %H:%M'
+    ),
+]
+
+screens = [
+    Screen(
+        bottom=bar.Bar([
+            widget.CurrentLayout(),
+            widget.CurrentLayoutIcon(),
+            widget.CurrentScreen(active_color=Colour.base0A, inactive_colour=Colour.base0D),
+            widget.GroupBox(),
+            widget.Prompt(),
+            # widget.Wlan(
+            #         format='{essid} {quality}/70',
+            #         update_interval=5
+            #     ),
+            widget.WindowName(),
+            widget.Spacer(length=10),
+            widget.Net(
                 format='  {interface}: {down} ↓↑ {up}',
                 update_interval=10
             ),
-        widget.Spacer(length=10),
-        widget.Chord(
+            widget.Spacer(length=10),
+            widget.Chord(
                 chords_colors={
                     'launch': ("#ff0000", "#ffffff"),
                 },
                 name_transform=lambda name: name.upper(),
             ),
-        widget.Spacer(length=10),
-        widget.ThermalSensor(),
-        widget.Spacer(length=10),
-        widget.Memory(
+            widget.Spacer(length=10),
+            widget.ThermalSensor(),
+            widget.Spacer(length=10),
+            widget.Memory(
                 format=' {MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
                 update_interval=10
             ),
-        widget.Spacer(length=10),
-        widget.CPU(
+            widget.Spacer(length=10),
+            widget.CPU(
                 format=' {freq_current}GHz {load_percent}%',
                 update_interval=10
             ),
-        widget.Spacer(length=10),
-        widget.Clock(
+            widget.Spacer(length=10),
+            widget.Clock(
                 foreground=Colour.base00,
                 background=Colour.base0D,
                 format='%A, %d %B %Y %H:%M'
             ),
-    ],
-    24,
-    # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-    # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
-)
-
-# Don't want qtile's status bar
-screens = [
-    Screen(bottom=status_bar)
+        ],
+        24)),
+    Screen(
+        bottom=bar.Bar([
+            widget.CurrentLayout(),
+            widget.CurrentLayoutIcon(),
+            widget.CurrentScreen(active_color=Colour.base0A, inactive_colour=Colour.base0D),
+            widget.GroupBox(),
+            widget.Prompt(),
+            # widget.Wlan(
+            #         format='{essid} {quality}/70',
+            #         update_interval=5
+            #     ),
+            widget.WindowName(),
+            widget.Spacer(length=10),
+            widget.Net(
+                format='  {interface}: {down} ↓↑ {up}',
+                update_interval=10
+            ),
+            widget.Spacer(length=10),
+            widget.Chord(
+                chords_colors={
+                    'launch': ("#ff0000", "#ffffff"),
+                },
+                name_transform=lambda name: name.upper(),
+            ),
+            widget.Spacer(length=10),
+            widget.ThermalSensor(),
+            widget.Spacer(length=10),
+            widget.Memory(
+                format=' {MemUsed: .0f}{mm}/{MemTotal: .0f}{mm}',
+                update_interval=10
+            ),
+            widget.Spacer(length=10),
+            widget.CPU(
+                format=' {freq_current}GHz {load_percent}%',
+                update_interval=10
+            ),
+            widget.Spacer(length=10),
+            widget.Clock(
+                foreground=Colour.base00,
+                background=Colour.base0D,
+                format='%A, %d %B %Y %H:%M'
+            ),
+        ],
+        24))
 ]
 
 # Drag floating layouts.
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(),
+    Drag([logo], "Button1", lazy.window.set_position_floating(),
          start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(),
+    Drag([logo], "Button3", lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
+    Click([logo], "Button2", lazy.window.bring_to_front())
 ]
 
 dgroups_key_binder = None
@@ -227,7 +322,3 @@ auto_minimize = True
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
-
-print("DEBUG launching waybar")
-lazy.spawn(status_bar)
-print("DEBUG waybar launched?")

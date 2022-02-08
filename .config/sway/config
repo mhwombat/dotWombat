@@ -3,7 +3,7 @@
 ### Variables
 #
 # Mod4 is logo key. Use Mod1 for Alt.
-set $mod Mod4
+set $logo Mod4
 
 # Read colour scheme
 include colours
@@ -13,10 +13,6 @@ include colours
 set $term alacritty
 
 # Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# set $menu dmenu-wl_path | wofi --dmenu | xargs swaymsg exec --
-# set $menu dmenu_path | dmenu-wl | xargs swaymsg exec --
 set $menu bemenu-run --bottom --prompt "" --tb "$base00" --tf "$base05" --nb "$base00" --nf "$base05" --hb "$base0D" --hf "$base00" --ff "$base0A"
 
 ### Output configuration
@@ -32,18 +28,6 @@ output "Dell Inc. DELL U2717D J0XYN6B5602S" {
     position 2560 0
 }
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
 #
@@ -56,108 +40,106 @@ input type:keyboard {
     xkb_layout ie,gr
     xkb_variant CloGaelach,
     xkb_options compose:rctrl-altgr,grp:alt_caps_toggle
+    # Alt+CapsLock switches between keyboard layouts.
 }
 
 ### Key bindings
 #
 # Basics:
 #
-    # Start a terminal
-    bindsym $mod+Shift+Return exec $term
+    # Display key map
+    bindsym $logo+Shift+Slash exec /home/amy/bin/keyhelp
 
-    # Kill focused window
-    bindsym $mod+Delete kill
+    # Start a terminal
+    bindsym $logo+Shift+Return exec $term
 
     # Start your launcher
-    bindsym $mod+Return exec $menu
-
-    bindsym $mod+Shift+Slash exec /home/amy/bin/keyhelp
-    
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+    bindsym $logo+Return exec $menu
 
     # Reload the configuration file
-    bindsym $mod+Ctrl+r reload
+    bindsym $logo+Ctrl+r reload
 
     # Lock the screen
     bindsym Pause exec swaylock
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Ctrl+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $logo+Ctrl+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+    # Kill focused window
+    bindsym $logo+Delete kill
+
+    # Drag floating windows by holding down $logo and left mouse button.
+    # Resize them with right mouse button + $logo.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $logo normal
+
 #
 # Moving around:
 #
     # Move your focus around
-    # bindsym $mod+$left focus left
-    # bindsym $mod+$down focus down
-    # bindsym $mod+$up focus up
-    # bindsym $mod+$right focus right
-    # # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    # bindsym $logo+$left focus left
+    # bindsym $logo+$down focus down
+    # bindsym $logo+$up focus up
+    # bindsym $logo+$right focus right
+    # # Or use $logo+[up|down|left|right]
+    bindsym $logo+Left focus left
+    bindsym $logo+Down focus down
+    bindsym $logo+Up focus up
+    bindsym $logo+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+    bindsym $logo+Shift+Left move left
+    bindsym $logo+Shift+Down move down
+    bindsym $logo+Shift+Up move up
+    bindsym $logo+Shift+Right move right
+
 #
 # Workspaces:
 #
     # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+m workspace "maths"
-    bindsym $mod+n workspace "nixos"
-    bindsym $mod+p workspace "play"
-    bindsym $mod+s workspace "sway"
-    bindsym $mod+v workspace "vmware"
+    bindsym $logo+1 workspace number 1
+    bindsym $logo+2 workspace number 2
+    bindsym $logo+3 workspace number 3
+    bindsym $logo+4 workspace number 4
+    bindsym $logo+5 workspace number 5
+    bindsym $logo+h workspace "haskell"
+    bindsym $logo+m workspace "maths"
+    bindsym $logo+n workspace "nixos"
+    bindsym $logo+p workspace "play"
+    bindsym $logo+s workspace "sway"
+    bindsym $logo+v workspace "vmware"
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+m move container to workspace "maths"
-    bindsym $mod+Shift+n move container to workspace "nixos"
-    bindsym $mod+Shift+p move container to workspace "play"
-    bindsym $mod+Shift+s move container to workspace "sway"
-    bindsym $mod+Shift+v move container to workspace "vmware"
+    bindsym $logo+Shift+1 move container to workspace number 1
+    bindsym $logo+Shift+2 move container to workspace number 2
+    bindsym $logo+Shift+3 move container to workspace number 3
+    bindsym $logo+Shift+4 move container to workspace number 4
+    bindsym $logo+Shift+5 move container to workspace number 5
+    bindsym $logo+Shift+h move container to workspace "haskell"
+    bindsym $logo+Shift+m move container to workspace "maths"
+    bindsym $logo+Shift+n move container to workspace "nixos"
+    bindsym $logo+Shift+p move container to workspace "play"
+    bindsym $logo+Shift+s move container to workspace "sway"
+    bindsym $logo+Shift+v move container to workspace "vmware"
 
 #
 # Layout stuff:
 #
     # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
+    # $logo+b or $logo+v, for horizontal and vertical splits
     # respectively.
-    # bindsym $mod+b splith
-    # bindsym $mod+v splitv
+    # bindsym $logo+b splith
+    # bindsym $logo+v splitv
 
     # Switch the current container between different layout styles
-    # bindsym $mod+s layout stacking
-    # bindsym $mod+w layout tabbed
-    # bindsym $mod+e layout toggle split
+    # bindsym $logo+s layout stacking
+    # bindsym $logo+w layout tabbed
+    # bindsym $logo+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+Ctrl+f fullscreen toggle
+    bindsym $logo+Ctrl+Shift+f fullscreen toggle
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Alt+f floating toggle
-
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
-
-    # Move focus to the parent container
-    # bindsym $mod+a focus parent
     
 #
 # Scratchpad:
@@ -166,26 +148,23 @@ input type:keyboard {
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    bindsym $logo+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    bindsym $logo+minus scratchpad show
 #
 # Resizing containers:
 #
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $mod+Ctrl+Left  resize shrink width 10px
-    bindsym $mod+Ctrl+Down  resize shrink height 10px
-    bindsym $mod+Ctrl+Up    resize grow height 10px
-    bindsym $mod+Ctrl+Right resize grow width 10px
+    bindsym $logo+Ctrl+Right resize grow width 10px
+    bindsym $logo+Ctrl+Left  resize shrink width 10px
+    bindsym $logo+Ctrl+Up    resize grow height 10px
+    bindsym $logo+Ctrl+Down  resize shrink height 10px
 
-    # Return to default mode
-    bindsym $mod+Ctrl+Return mode "default"
-    bindsym $mod+Ctrl+Escape mode "default"
+    # # Return to default mode
+    # bindsym $logo+Ctrl+Return mode "default"
+    # bindsym $logo+Ctrl+Escape mode "default"
+
 #
 # Status Bar:
 #
