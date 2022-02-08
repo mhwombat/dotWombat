@@ -27,10 +27,12 @@ let
   emacsWithPackages = (pkgs.emacsPackagesNgGen myEmacs).emacsWithPackages;
 in
   emacsWithPackages (epkgs: (with epkgs.melpaStablePackages; [
-    lv                       # hints for hydra
+    auto-complete
+    fill-column-indicator    # show fill column
     haskell-mode             # Haskell editing mode
     hydra                    # key binding families
-    fill-column-indicator    # show fill column
+    lv                       # hints for hydra
+    # popup                    # popup tooltips and menus
   ]) ++ (with epkgs.melpaPackages; [
     # ample-theme              # Dark-ish theme
     # async                    # needed by helm
@@ -49,7 +51,6 @@ in
     markdown-mode            # Markdown editing mode
     nix-mode                 # Nix editing mode
     # pandoc-mode              # Pandoc editing mode
-    # popup                    # popup tooltips and menus; needed by helm
     # proof-general            # for use with Coq
     # zenburn-theme            # Dark-ish theme
   ]) ++ (with epkgs.elpaPackages; [
