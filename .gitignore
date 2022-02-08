@@ -4,6 +4,7 @@
 # Generated emacs stuff
 .config/emacs/elpa/
 .config/emacs/url/
+.config/emacs/ac-comphist.dat
 
 # Generated theme stuff
 themes/previews
