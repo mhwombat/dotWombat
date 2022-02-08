@@ -144,6 +144,7 @@
 (global-set-key (kbd "C-s") (quote save-buffer))
 (global-set-key (kbd "C-y") (quote undo-tree-redo))
 (global-set-key (kbd "C-z") (quote undo-tree-undo))
+(global-set-key (kbd "C-SPC") (quote completion-at-point))
 
 ;;
 ;; Hydra key bindings

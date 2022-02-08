@@ -17,6 +17,9 @@
 ;; Haskell unicode source candy
 (setq haskell-font-lock-symbols t)
 
+;; Generate tags when saving source files
+(setq haskell-tags-on-save t)
+
 ;; By default, Haskell formatting is provided by haskell-mode
 
 (defun add-haskell-key-bindings-hook ()
@@ -27,6 +30,7 @@
     ("d" haskell-doc-mode "doc-mode")
     ("f" haskell-mode-stylish-buffer "format")
     ("h" haskell-hoogle "hoogle")
+    ("i" haskell-navigate-imports "go to imports")
     ("#" haskell-mode-generate-tags "hoogle")
   )
   (local-set-key (kbd "<menu>") 'hydra-haskell/body)

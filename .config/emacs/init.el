@@ -36,6 +36,9 @@
 ;; Highlight current line
 (global-hl-line-mode)
 
+;; Enable autocompletion
+(load-file "~/.config/emacs/amy/completion.el")
+
 ;; Longer "Buffers" menu
 (setq buffers-menu-max-size 50)
 
