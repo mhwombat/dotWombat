@@ -2,7 +2,7 @@
   nixpkgs.config.packageOverrides = pkgs: with pkgs; {
     python3Env = python3.withPackages (ps: with ps; [
       csvkit
-      # jupyterlab
+      jupyterlab
       matplotlib
       numpy
       pandas
