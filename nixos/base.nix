@@ -30,9 +30,6 @@
   nix.package = pkgs.nixUnstable;
   nix.extraOptions = "experimental-features = nix-command flakes";
 
-  # Start the docker daemon (also creates docker group)
-  virtualisation.docker.enable = true;
-
   xdg.mime.defaultApplications = {
     "text/plain" = "emacs";
     "application/pdf" = "okular.desktop";
