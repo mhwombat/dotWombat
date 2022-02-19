@@ -48,7 +48,8 @@ with pkgs;
     # (dwl.override { conf = /home/amy/.config/dwl/config.h; enable-xwayland = true; })
     dzen2
     (import ./emacs.nix { inherit pkgs; }) # X-only
-    (enlightenment.enlightenment.override { waylandSupport = true; })
+    # (enlightenment.enlightenment.override { waylandSupport = true; })
+    emacs
     evince # X and wayland
     exa
     fbreader # X only. Binary is called "FBReader"
@@ -87,11 +88,13 @@ with pkgs;
     graphviz
     grim
     hardinfo
+    haskell-language-server
     haskellPackages.cabal-fmt
     haskellPackages.citeproc
     # haskellPackages.doi # broken as of 21.05
     haskellPackages.hasktags
     haskellPackages.hlint
+    haskellPackages.hls-tactics-plugin
     # haskellPackages.ihaskell
     haskellPackages.pandoc
     haskellPackages.pandoc-crossref
@@ -114,12 +117,12 @@ with pkgs;
     imagemagick
     imv
     inkscape # X and wayland
-    iosevka # font
+    # iosevka # font
     ispell
     jot
     jupyter
     killall
-    kitty # X and wayland
+    # kitty # X and wayland
     lftp
     libertine
     libreoffice # X and wayland
@@ -141,12 +144,15 @@ with pkgs;
     ncompress
     nix-index # provides nix-locate
     nix-prefetch-git
+    nixos-generators
     nnn
     offlineimap
     onedrive
+    openssl
     opera # X and wayland, invoke with opera --enable-features=UseOzonePlatform --ozone-platform=wayland %U
     p7zip
     pandoc
+    pandoc-select-code
     pdfgrep
     pdftk
     pkg-config # temporary, trying to build some 3rd party code
@@ -165,6 +171,7 @@ with pkgs;
     river
     rootbar
     rsync
+    samba
     signal-desktop # X-only
     slurp
     spaceship-prompt
@@ -185,6 +192,10 @@ with pkgs;
     vistafonts # True-type fonts from MS Windows
     vlc # X-only until I set QT environment
     # vmware-horizon-client
+    # vscode-with-extensions # X and Wayland, configured in vscode-amy.nix
+    vscode-with-extensions # X and Wayland
+    vscode-extensions.haskell.haskell
+    vscode-extensions.justusadam.language-haskell
     wacomtablet
     waybar
     wayland-scanner
@@ -213,8 +224,9 @@ with pkgs;
     xsel # X-only, use wl-clipboard's wl-copy and wl-paste instead
     xwayland
     yad
-    yambar
+    # yambar
     # (yambar.override { x11Support = false; waylandSupport = true; })
+    # yed
     zbar # for reading QR codes
     zip
     zsh
