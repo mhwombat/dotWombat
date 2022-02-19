@@ -4,7 +4,8 @@
 # Generated emacs stuff
 .config/emacs/elpa/
 .config/emacs/url/
-.config/emacs/ac-comphist.dat
+ac-comphist.dat
+.lsp-session-v1
 
 # Generated theme stuff
 themes/previews
