@@ -48,6 +48,7 @@
   ("S" hydra-shell/body "shell")
   ("L" hydra-lsp/body "LSP")
   ("=" er/expand-region "expand selection")
+)
 (global-unset-key (kbd "<menu>")) ;; reserve for hydra
 (global-set-key (kbd "<menu>") 'hydra-main/body)
 (global-set-key (kbd "C-RET") 'hydra-main/body)
