@@ -27,6 +27,7 @@ in
     pkgs.emacs27Packages.lv                       # hints for hydra
     pkgs.emacs27Packages.markdown-mode            # Markdown editing mode
     pkgs.emacs27Packages.undo-tree                # Undo/redo that behaves like other apps
+    # pkgs.emacs27Packages.vertico                  # Completions
     pkgs.emacs27Packages.yasnippet                # Used by company
     # pkgs.emacs27Packages.fuzzy-finder             # Interface to fzy
     # pkgs.emacs27Packages.haskell-mode             # Haskell editing mode

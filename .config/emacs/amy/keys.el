@@ -1,130 +1,4 @@
 ;;
-;; Remove unwanted key bindings
-;;
-(global-unset-key (kbd "<menu>")) ;; reserve for hydra
-
-;; (global-unset-key (kbd "C-a"))
-;; (global-unset-key (kbd "C-b"))
-;; (global-unset-key (kbd "C-c"))
-;; (global-unset-key (kbd "C-d"))
-;; (global-unset-key (kbd "C-e"))
-;; (global-unset-key (kbd "C-f"))
-;; (global-unset-key (kbd "C-g"))
-;; (global-unset-key (kbd "C-h"))
-;; (global-unset-key (kbd "C-i"))
-;; (global-unset-key (kbd "C-j"))
-;; (global-unset-key (kbd "C-k"))
-;; (global-unset-key (kbd "C-l"))
-;; (global-unset-key (kbd "C-m"))
-;; (global-unset-key (kbd "C-n"))
-;; (global-unset-key (kbd "C-o"))
-;; (global-unset-key (kbd "C-p"))
-;; (global-unset-key (kbd "C-q"))
-;; (global-unset-key (kbd "C-r"))
-;; (global-unset-key (kbd "C-s"))
-;; (global-unset-key (kbd "C-t"))
-;; (global-unset-key (kbd "C-u"))
-;; (global-unset-key (kbd "C-v"))
-;; (global-unset-key (kbd "C-w"))
-;; (global-unset-key (kbd "C-x"))
-;; (global-unset-key (kbd "C-y"))
-;; (global-unset-key (kbd "C-z"))
-;; (global-unset-key (kbd "C--"))
-;; (global-unset-key (kbd "C-/"))
-;; (global-unset-key (kbd "C-/"))
-;; (global-unset-key (kbd "C-\\"))
-;; (global-unset-key (kbd "C-]"))
-;; (global-unset-key (kbd "C-SPC"))
-
-;; (global-unset-key (kbd "M-a"))
-;; (global-unset-key (kbd "M-b"))
-;; (global-unset-key (kbd "M-c"))
-;; (global-unset-key (kbd "M-d"))
-;; (global-unset-key (kbd "M-e"))
-;; (global-unset-key (kbd "M-f"))
-;; (global-unset-key (kbd "M-g"))
-;; (global-unset-key (kbd "M-h"))
-;; (global-unset-key (kbd "M-i"))
-;; (global-unset-key (kbd "M-j"))
-;; (global-unset-key (kbd "M-k"))
-;; (global-unset-key (kbd "M-l"))
-;; (global-unset-key (kbd "M-m"))
-;; (global-unset-key (kbd "M-n"))
-;; (global-unset-key (kbd "M-o"))
-;; (global-unset-key (kbd "M-p"))
-;; (global-unset-key (kbd "M-q"))
-;; (global-unset-key (kbd "M-r"))
-;; (global-unset-key (kbd "M-s"))
-;; (global-unset-key (kbd "M-t"))
-;; (global-unset-key (kbd "M-u"))
-;; (global-unset-key (kbd "M-v"))
-;; (global-unset-key (kbd "M-w"))
-;; (global-unset-key (kbd "M-x"))
-;; (global-unset-key (kbd "M-y"))
-;; (global-unset-key (kbd "M-z"))
-;; (global-unset-key (kbd "M-!"))
-;; (global-unset-key (kbd "M-$"))
-;; (global-unset-key (kbd "M-%"))
-;; (global-unset-key (kbd "M-&"))
-;; (global-unset-key (kbd "M-'"))
-;; (global-unset-key (kbd "M-("))
-;; (global-unset-key (kbd "M-)"))
-;; (global-unset-key (kbd "M-,"))
-;; (global-unset-key (kbd "M--"))
-;; (global-unset-key (kbd "M-."))
-;; (global-unset-key (kbd "M-/"))
-;; (global-unset-key (kbd "M-:"))
-;; (global-unset-key (kbd "M-;"))
-;; (global-unset-key (kbd "M-<"))
-;; (global-unset-key (kbd "M-="))
-;; (global-unset-key (kbd "M->"))
-;; (global-unset-key (kbd "M-?"))
-;; (global-unset-key (kbd "M-@"))
-;; (global-unset-key (kbd "M-DEL"))
-;; (global-unset-key (kbd "M-SPC"))
-;; (global-unset-key (kbd "M-\\"))
-;; (global-unset-key (kbd "M-^"))
-;; (global-unset-key (kbd "M-`"))
-;; (global-unset-key (kbd "M-{"))
-;; (global-unset-key (kbd "M-|"))
-;; (global-unset-key (kbd "M-}"))
-;; (global-unset-key (kbd "M-~"))
-
-;; (global-unset-key (kbd "C-M-a"))
-;; (global-unset-key (kbd "C-M-b"))
-;; (global-unset-key (kbd "C-M-c"))
-;; (global-unset-key (kbd "C-M-d"))
-;; (global-unset-key (kbd "C-M-e"))
-;; (global-unset-key (kbd "C-M-f"))
-;; (global-unset-key (kbd "C-M-g"))
-;; (global-unset-key (kbd "C-M-h"))
-;; (global-unset-key (kbd "C-M-i"))
-;; (global-unset-key (kbd "C-M-j"))
-;; (global-unset-key (kbd "C-M-k"))
-;; (global-unset-key (kbd "C-M-l"))
-;; (global-unset-key (kbd "C-M-m"))
-;; (global-unset-key (kbd "C-M-n"))
-;; (global-unset-key (kbd "C-M-o"))
-;; (global-unset-key (kbd "C-M-p"))
-;; (global-unset-key (kbd "C-M-q"))
-;; (global-unset-key (kbd "C-M-r"))
-;; (global-unset-key (kbd "C-M-s"))
-;; (global-unset-key (kbd "C-M-t"))
-;; (global-unset-key (kbd "C-M-u"))
-;; (global-unset-key (kbd "C-M-v"))
-;; (global-unset-key (kbd "C-M-w"))
-;; (global-unset-key (kbd "C-M-x"))
-;; (global-unset-key (kbd "C-M-y"))
-;; (global-unset-key (kbd "C-M-z"))
-;; (global-unset-key (kbd "C-M-%"))
-;; (global-unset-key (kbd "C-M--"))
-;; (global-unset-key (kbd "C-M-."))
-;; (global-unset-key (kbd "C-M-/"))
-;; (global-unset-key (kbd "C-M-@"))
-;; (global-unset-key (kbd "C-M-SPC"))
-;; (global-unset-key (kbd "C-M-\\"))
-
-;;
 ;; Ordinary key bindings
 ;;
 (define-key isearch-mode-map (kbd "C-S-f") 'isearch-repeat-backward)
@@ -145,7 +19,10 @@
 (global-set-key (kbd "C-y") (quote undo-tree-redo))
 (global-set-key (kbd "C-z") (quote undo-tree-undo))
 (global-set-key (kbd "C-=") 'er/expand-region)
-;; TIP: If you expand too far, you can contract the region by pressing - (minus key)
+
+;; I don't like having to type ESC ESC ESC to get out of things.
+;; This maps ESC to what C-g did.
+(global-set-key (kbd "<escape>")      'keyboard-escape-quit)
 
 ;;
 ;; Hydra key bindings
@@ -156,6 +33,25 @@
 ;; hydra is invoked; but no other commands can be bound to this prefix.
 ;; See https://github.com/abo-abo/hydra/wiki/Binding-Styles for more
 ;; info.
+
+(defhydra hydra-main (:exit t)
+  "main"
+  ("h" hydra-help/body "help")
+  ("f" hydra-file/body "file")
+  ("b" hydra-buffer/body "buffer")
+  ("W" hydra-window/body "window")
+  ("w" hydra-word/body "word")
+  ("." hydra-sentence/body "sentence")
+  ("p" hydra-paragraph/body "paragraph")
+  ("l" hydra-line/body "line")
+  ("(" hydra-lisp/body "lisp")
+  ("S" hydra-shell/body "shell")
+  ("L" hydra-lsp/body "LSP")
+  ("=" er/expand-region "expand selection")
+)
+(global-unset-key (kbd "<menu>")) ;; reserve for hydra
+(global-set-key (kbd "<menu>") 'hydra-main/body)
+(global-set-key (kbd "C-RET") 'hydra-main/body)
 
 (defhydra hydra-help (:exit t)
   "help"
@@ -183,11 +79,11 @@
 
 (defhydra hydra-buffer (:exit t)
   "buffer"
-  ("m" buffer-menu-open "buffer menu")
   ("<left>" previous-buffer "previous buffer")
   ("<right>" next-buffer "next buffer")
   ("c" kill-buffer "close buffer")
-  ("g" goto-line "goto line")
+  ("g" switch-to-buffer "goto buffer")
+  ("l" goto-line "goto line")
   ("w" visual-line-mode "word wrap toggle")
 )
 (global-set-key (kbd "M-b") 'hydra-buffer/body)
@@ -298,7 +194,7 @@
   ("a" hydra-lsp-action/body "action")
   ("t" hydra-lsp-toggle/body "toggle")
 )
-(global-set-key (kbd "<menu>") 'hydra-lsp/body)
+(global-set-key (kbd "M-l") 'hydra-lsp/body)
 
 (defhydra hydra-lsp-server (:exit t)
   "server"
@@ -321,6 +217,11 @@
   ("d" lsp-describe-thing-at-point "describe")
   ("s" lsp-signature-activate "signature")
 )
+
+;; Original LSP keymap defined in https://github.com/emacs-lsp/lsp-mode/blob/master/lsp-mode.el
+
+;; Language server mode key binding
+;; (setq lsp-keymap-prefix "M-x")
 
 (defhydra hydra-lsp-find (:exit t)
   "find"
@@ -379,7 +280,3 @@
 
 ;; C-u RET 	When inserting C-u will change the behaviour from insert to replace or vice versa depending on lsp-completion-default-behaviour
 
-;; Original LSP keymap defined in https://github.com/emacs-lsp/lsp-mode/blob/master/lsp-mode.el
-
-;; Language server mode key binding
-;; (setq lsp-keymap-prefix "M-x")

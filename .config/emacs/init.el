@@ -2,11 +2,15 @@
 ;; Set-up
 ;;
 
-;; (require 'package)  ;; This is built-in
-
 ;; (add-to-list 'load-path (expand-file-name "~/.config/emacs/amy"))
 (add-to-list 'custom-theme-load-path (expand-file-name "~/.config/emacs/amy/themes"))
 
+;; Set backup directory.
+(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
+;; Enable vertico
+;; (vertico-mode)
 
 ;;
 ;; General appearance
@@ -35,9 +39,6 @@
 
 ;; Highlight current line
 (global-hl-line-mode)
-
-;; Enable autocompletion
-;; (load-file "~/.config/emacs/amy/completion.el")
 
 ;; Longer "Buffers" menu
 (setq buffers-menu-max-size 50)
@@ -122,3 +123,12 @@ If buffer-or-name is nil return current buffer's mode."
 (load-file "~/.config/emacs/amy/shell-script.el")
 (load-file "~/.config/emacs/amy/text.el")
 (load-file "~/.config/emacs/amy/tex.el")
+
+(defun display-startup-time ()
+  (message "Emacs loaded in %s with %d garbage collections."
+           (format "%2.f seconds"
+                   (float-time
+                    (time-subtract after-init-time before-init-time)))
+           gcs-done))
+
+(add-hook 'emacs-startup-hook #'display-startup-time)
