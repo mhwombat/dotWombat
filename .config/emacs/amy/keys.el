@@ -1,9 +1,4 @@
 ;;
-;; Remove unwanted key bindings
-;;
-(global-unset-key (kbd "<menu>")) ;; reserve for hydra
-
-;;
 ;; Ordinary key bindings
 ;;
 (define-key isearch-mode-map (kbd "C-S-f") 'isearch-repeat-backward)
@@ -53,7 +48,9 @@
   ("S" hydra-shell/body "shell")
   ("L" hydra-lsp/body "LSP")
   ("=" er/expand-region "expand selection")
+(global-unset-key (kbd "<menu>")) ;; reserve for hydra
 (global-set-key (kbd "<menu>") 'hydra-main/body)
+(global-set-key (kbd "C-RET") 'hydra-main/body)
 
 (defhydra hydra-help (:exit t)
   "help"

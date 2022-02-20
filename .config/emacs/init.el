@@ -10,7 +10,7 @@
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 ;; Enable vertico
-(vertico-mode)
+;; (vertico-mode)
 
 ;;
 ;; General appearance

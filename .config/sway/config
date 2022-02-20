@@ -53,8 +53,11 @@ input type:keyboard {
     # Start a terminal
     bindsym $logo+Shift+Return exec $term
 
-    # Start your launcher
+    # Start the launcher
     bindsym $logo+Return exec $menu
+
+    # Window menu
+    bindsym $logo+Ctrl+Return exec /home/amy/bin/sway-tree-switcher
 
     # Reload the configuration file
     bindsym $logo+Ctrl+r reload

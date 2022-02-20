@@ -120,6 +120,7 @@ with pkgs;
     # iosevka # font
     ispell
     jot
+    jq # json analyser
     jupyter
     killall
     # kitty # X and wayland
