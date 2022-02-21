@@ -47,27 +47,7 @@
 
   # These variables end up in /etc/set-environment.
   # They may not take effect until you log out and back in again.
-  environment.variables = {
-    # Keep home directories clean by using XDG locations
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_CACHE_HOME = "$HOME/.cache";
-    XDG_DATA_HOME = "$HOME/.local/share";
-    XDG_STATE_HOME = "$HOME/.local/state";
-    # To see all keyboard layouts: localectl list-x11-keymap-layouts
-    XKB_DEFAULT_LAYOUT = "ie,gr";
-    # To see all keyboard variants: localectl list-x11-keymap-variants
-    XKB_DEFAULT_VARIANT = "CloGaelach,";
-    # To see all keyboard options: localectl list-x11-keymap-options
-    # Configure Alt+CapsLock to switch between keyboard layouts.
-    XKB_DEFAULT_OPTIONS = "compose:rctrl-altgr,grp:alt_caps_toggle";
-    STACK_ROOT = "$XDG_DATA_HOME/stack"; # Stack
-    LESSHISTFILE = "$XDG_CACHE_HOME/history"; # less
-#    XCOMPOSEFILE = "$XDG_CONFIG_HOME/X11/xcompose"; # libX11
-#    XCOMPOSECACHE = "$XDG_CACHE_HOME/X11/xcompose"; # libX11
-#    XAUTHORITY = "$XDG_RUNTIME_DIR/Xauthority"; # xorg-auth
-    ZDOTDIR = "$XDG_CONFIG_HOME/zsh"; # zsh
-    # MOZ_ENABLE_WAYLAND = "1"; # enable wayland support in Firfox
-  };
+  environment.variables = import ./environment-variables.nix;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.amy = {
