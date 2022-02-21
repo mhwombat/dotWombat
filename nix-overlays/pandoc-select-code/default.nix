@@ -4,7 +4,7 @@ mkDerivation {
   version = "0.1.0.0";
   src = fetchgit {
     url = "https://github.com/mhwombat/pandoc-select-code.git";
-    sha256 = "sha256-DgvhxjLnH5HClTHIiqZz6GqnqpaL54jjIXvy2LzUzAU=";
+    sha256 = "sha256-gB4S2p0uzipul1BOnruzK9axT+xD/EdwBMsoaCY8MSg=";
   };
   isLibrary = false;
   isExecutable = true;
