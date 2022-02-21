@@ -48,6 +48,7 @@
   ("S" hydra-shell/body "shell")
   ("L" hydra-lsp/body "LSP")
   ("=" er/expand-region "expand selection")
+  ("u" undo-tree-visualize "undo tree")
 )
 (global-unset-key (kbd "<menu>")) ;; reserve for hydra
 (global-set-key (kbd "<menu>") 'hydra-main/body)
@@ -278,6 +279,20 @@
   ("l" lsp-lens-mode "lens")
   ("s" lsp-toggle-signature-auto-activate "signature")
 )
+
+;; (defhydra hydra-undo-tree ()
+;;   "undo-tree"
+;;   ("t" undo-tree-visualize "tree")
+;;   ("u" undo-tree-visualize-undo "undo")
+;;   ("r" undo-tree-visualize-redo "redo")
+;;   ("<left>" undo-tree-visualize-switch-branch-left "previous branch point")
+;;   ("<right>" undo-tree-visualize-switch-branch-right "next branch point")
+;;   ("U" undo-tree-visualize-undo-to-x "undo to last branch point")
+;;   ("R" undo-tree-visualize-redo-to-x "redo to next branch point")
+;;   ("d" undo-tree-visualizer-toggle-diff "toggle diffs")
+;;   ("T" undo-tree-visualizer-toggle-timestamps "toggle timestamps")
+;;   ("q" undo-tree-visualizer-quit "quit")
+;; )
 
 ;; C-u RET 	When inserting C-u will change the behaviour from insert to replace or vice versa depending on lsp-completion-default-behaviour
 

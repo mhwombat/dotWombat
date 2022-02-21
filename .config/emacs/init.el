@@ -40,9 +40,6 @@
 ;; Highlight current line
 (global-hl-line-mode)
 
-;; Longer "Buffers" menu
-(setq buffers-menu-max-size 50)
-
 ;; Sentences don't need two spaces after the full stop.
 (setq sentence-end-double-space nil)
 
