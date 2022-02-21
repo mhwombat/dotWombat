@@ -49,7 +49,6 @@ with pkgs;
     dzen2
     (import ./emacs.nix { inherit pkgs; }) # X-only
     # (enlightenment.enlightenment.override { waylandSupport = true; })
-    emacs
     evince # X and wayland
     exa
     fbreader # X only. Binary is called "FBReader"
