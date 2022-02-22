@@ -72,6 +72,7 @@
   "file"
   ("o" find-file "open")
   ("a" write-file "save as...")
+  ("r" revert-buffer "reload")
   ("d" dired "dired")
   ("f" fuzzy-finder "fuzzy")
   ("~" (fuzzy-finder :directory "~") "fuzzy")
