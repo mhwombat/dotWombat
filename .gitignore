@@ -4,6 +4,7 @@
 # Generated emacs stuff
 .config/emacs/elpa/
 .config/emacs/url/
+.config/emacs/recentf
 ac-comphist.dat
 .lsp-session-v1
 
