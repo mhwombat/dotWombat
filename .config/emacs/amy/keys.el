@@ -28,7 +28,6 @@
 ;; Hydra key bindings
 ;;
 
-
 ;; NOTE: The style of hydra binding I use shows the hint as soon as the
 ;; hydra is invoked; but no other commands can be bound to this prefix.
 ;; See https://github.com/abo-abo/hydra/wiki/Binding-Styles for more
@@ -46,7 +45,7 @@
   ("l" hydra-line/body "line")
   ("(" hydra-lisp/body "lisp")
   ("S" hydra-shell/body "shell")
-  ("L" hydra-lsp/body "LSP")
+  ("<menu>" hydra-lsp/body "LSP")
   ("=" er/expand-region "expand selection")
   ("u" undo-tree-visualize "undo tree")
 )
@@ -77,6 +76,7 @@
   ("f" fuzzy-finder "fuzzy")
   ("~" (fuzzy-finder :directory "~") "fuzzy")
   ("i" insert-file "insert")
+  ("R" recentf-open-files "recent")
 )
 (global-set-key (kbd "M-f") 'hydra-file/body)
 
