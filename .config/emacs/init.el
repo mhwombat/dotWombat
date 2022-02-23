@@ -12,6 +12,27 @@
 ;; Enable vertico
 (vertico-mode)
 
+;; Remeber recently edited files
+(recentf-mode t)
+
+;; Watch the files for all open buffers for changes on disk.
+;; Automatically refresh those buffers if they don't have unsaved changes.
+(global-auto-revert-mode t)
+
+;; LSP UI configuration
+(setq lsp-ui-doc-enable t)
+(setq lsp-ui-imenu-enable t)
+(setq lsp-ui-peek-enable t)
+(setq lsp-ui-sideline-enable t)
+(setq lsp-ui-sideline-show-symbol t)
+(setq lsp-ui-sideline-show-hover t)
+(setq lsp-ui-sideline-show-flycheck t)
+(setq lsp-ui-sideline-show-code-actions t)
+(setq lsp-ui-sideline-show-diagnostics t)
+(setq lsp-ui-doc-position 'bottom)
+(setq lsp-ui-doc-show-with-cursor t)
+(setq lsp-ui-doc-show-with-mouse t)
+
 ;;
 ;; General appearance
 ;;
