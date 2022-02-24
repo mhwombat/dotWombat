@@ -22,4 +22,3 @@
 .config/zsh/.zshrc
 .config/zsh/configure-spaceship
 .ghci
-nix-overlays

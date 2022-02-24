@@ -3,16 +3,16 @@
 with pkgs;
 {
 
-  nixpkgs.overlays = [
-    (import /home/amy/nix-overlays/default.nix)
-  ];
-
   nixpkgs.config.permittedInsecurePackages = [
     "nodejs-10.24.1"
   ];
 
   # Packages I want to use
   environment.systemPackages = [
+    # My custom packages
+    (builtins.getFlake "github:mhwombat/jot")
+    (builtins.getFlake "github:mhwombat/pandoc-select-code")
+    # Standard packages
     alacritty # X and wayland
     aspell
     aspellDicts.en
@@ -105,7 +105,6 @@ with pkgs;
     haskellPackages.template
     # haskellPackages.X11-xft
     havoc
-    hello-amy
     hikari
     howl
     hplip
@@ -118,7 +117,6 @@ with pkgs;
     inkscape # X and wayland
     # iosevka # font
     ispell
-    jot
     jq # json analyser
     jupyter
     killall
@@ -152,7 +150,6 @@ with pkgs;
     opera # X and wayland, invoke with opera --enable-features=UseOzonePlatform --ozone-platform=wayland %U
     p7zip
     pandoc
-    pandoc-select-code
     pdfgrep
     pdftk
     pkg-config # temporary, trying to build some 3rd party code
