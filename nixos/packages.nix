@@ -41,6 +41,7 @@ with pkgs;
     dialog
     diff-pdf
     diffpdf
+    direnv
     dmenu # X-only
     dmenu-wayland
     dmidecode # system hardware info
@@ -91,9 +92,16 @@ with pkgs;
     haskellPackages.cabal-fmt
     haskellPackages.citeproc
     # haskellPackages.doi # broken as of 21.05
+    haskellPackages.ghcide # for language server
     haskellPackages.hasktags
     haskellPackages.hlint
-    haskellPackages.hls-tactics-plugin
+    haskellPackages.hls-call-hierarchy-plugin # for language server
+    haskellPackages.hls-class-plugin # for language server
+    haskellPackages.hls-eval-plugin # for language server
+    haskellPackages.hls-haddock-comments-plugin # for language server
+    haskellPackages.hls-hlint-plugin # for language server
+    haskellPackages.hls-pragmas-plugin # for language server
+    haskellPackages.hls-tactics-plugin # for language server
     # haskellPackages.ihaskell
     haskellPackages.pandoc
     haskellPackages.pandoc-crossref
@@ -189,10 +197,6 @@ with pkgs;
     vistafonts # True-type fonts from MS Windows
     vlc # X-only until I set QT environment
     # vmware-horizon-client
-    # vscode-with-extensions # X and Wayland, configured in vscode-amy.nix
-    vscode-with-extensions # X and Wayland
-    vscode-extensions.haskell.haskell
-    vscode-extensions.justusadam.language-haskell
     wacomtablet
     waybar
     wayland-scanner
