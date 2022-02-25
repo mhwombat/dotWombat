@@ -29,9 +29,10 @@
 (setq lsp-ui-sideline-show-flycheck t)
 (setq lsp-ui-sideline-show-code-actions t)
 (setq lsp-ui-sideline-show-diagnostics t)
-(setq lsp-ui-doc-position 'bottom)
+(setq lsp-ui-doc-position 'top)
 (setq lsp-ui-doc-show-with-cursor t)
 (setq lsp-ui-doc-show-with-mouse t)
+(setq lsp-keymap-prefix "C-SPC")
 
 ;;
 ;; General appearance
