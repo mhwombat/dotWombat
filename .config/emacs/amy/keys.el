@@ -221,11 +221,6 @@
   ("s" lsp-signature-activate "signature")
 )
 
-;; Original LSP keymap defined in https://github.com/emacs-lsp/lsp-mode/blob/master/lsp-mode.el
-
-;; Language server mode key binding
-;; (setq lsp-keymap-prefix "M-x")
-
 (defhydra hydra-lsp-find (:exit t)
   "find"
   ("a" xref-find-apropos "apropos")
@@ -297,3 +292,4 @@
 
 ;; C-u RET 	When inserting C-u will change the behaviour from insert to replace or vice versa depending on lsp-completion-default-behaviour
 
+;; Original LSP keymap defined in https://github.com/emacs-lsp/lsp-mode/blob/master/lsp-mode.el
