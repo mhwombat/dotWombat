@@ -2,7 +2,8 @@
 .cabal/config
 .config/alacritty/alacritty.yml
 .config/shell-agnostic
-.config/emacs
+.config/emacs/init.el
+.config/emacs/amy
 .config/foot/foot.ini
 .config/git/config
 .config/hikari/hikari.conf
