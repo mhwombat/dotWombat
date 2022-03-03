@@ -43,6 +43,7 @@
   ("." hydra-sentence/body "sentence")
   ("p" hydra-paragraph/body "paragraph")
   ("l" hydra-line/body "line")
+  ("r" hydra-rectangle/body "rectangle")
   ("(" hydra-lisp/body "lisp")
   ("S" hydra-shell/body "shell")
   ("<menu>" hydra-lsp/body "LSP")
@@ -206,6 +207,7 @@
   ("Q" lsp-workspace-shutdown "shutdown")
   ("d" lsp-describe-session "describe session")
   ("B" lsp-disconnect "disconnect buffer from server")
+  ("c" lsp-describe-session "capabilities")
 )
 
 (defhydra hydra-lsp-format (:exit t)

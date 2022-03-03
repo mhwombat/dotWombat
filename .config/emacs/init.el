@@ -19,20 +19,19 @@
 ;; Automatically refresh those buffers if they don't have unsaved changes.
 (global-auto-revert-mode t)
 
-;; LSP UI configuration
-(setq lsp-ui-doc-enable t)
-(setq lsp-ui-imenu-enable t)
-(setq lsp-ui-peek-enable t)
+;; LSP configuration
+(setq lsp-keymap-prefix "C-SPC")
 (setq lsp-ui-sideline-enable t)
 (setq lsp-ui-sideline-show-symbol t)
 (setq lsp-ui-sideline-show-hover t)
 (setq lsp-ui-sideline-show-flycheck t)
 (setq lsp-ui-sideline-show-code-actions t)
 (setq lsp-ui-sideline-show-diagnostics t)
+(setq lsp-ui-peek-enable t)
+(setq lsp-ui-doc-enable t)
 (setq lsp-ui-doc-position 'top)
 (setq lsp-ui-doc-show-with-cursor t)
-(setq lsp-ui-doc-show-with-mouse t)
-(setq lsp-keymap-prefix "C-SPC")
+(setq lsp-ui-doc-show-with-mouse nil)
 
 ;;
 ;; General appearance
