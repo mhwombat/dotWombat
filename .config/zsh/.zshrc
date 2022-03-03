@@ -85,6 +85,9 @@ compinit
 # Use zsh instead of bash for nix shells
 # any-nix-shell zsh --info-right | source /dev/stdin
 
+# Set up direnv
+eval "$(direnv hook zsh)"
+
 ###
 ### Non-shell-specific stuff
 ###
