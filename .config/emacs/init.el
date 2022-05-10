@@ -7,6 +7,7 @@
 
 ;; Set backup directory.
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
+(setq undo-tree-history-directory-alist `(("." . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 ;; Enable vertico
@@ -32,6 +33,11 @@
 (setq lsp-ui-doc-position 'top)
 (setq lsp-ui-doc-show-with-cursor t)
 (setq lsp-ui-doc-show-with-mouse nil)
+;; (setq lsp-haskell-formatting-provider "stylish-haskell")
+(setq lsp-haskell-formatting-provider "floskell")
+
+;; TEMPORARY WORKAROUND
+(add-to-list 'auto-mode-alist '("\\.hs\\'" . haskell-mode))
 
 ;;
 ;; General appearance
