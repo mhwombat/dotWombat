@@ -19,5 +19,4 @@ ssl = yes
 folderfilter = lambda folder: folder not in ['Spam', 'Trash']
 # Tip: To get the fingerprint, put a dummy value here.
 # The error message will tell you the correct fingerprint.
-cert_fingerprint = b843287b9b6d9eb2ae17a62c410cd80af7007311d47827c33726398edc065c0519c06d43fab221a17a9b71c2a35c3398e046f81f0a387159ca57e17212252f45
-#cert_fingerprint = fe6b477b1748b49765ff83072a7df688732764358400dffcb9a59a3e577d8af158d86006c15b2907c6161e9d682d99d59f583973a9465b22b6fccdcd5c6b1a27
+cert_fingerprint = eaabcb0a6e17eebad73db3487087b02b2c2efb50b8e9752900db77711198c141f195c8efe3753c23219a0c2f9ea861efcbfec244000a25db1147ff46eb61c818
