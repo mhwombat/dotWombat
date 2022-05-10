@@ -24,6 +24,7 @@ alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
 alias eod="git-summary ~ ; git-summary ~/github"
 alias roll="format-zpl | lpr -P Zebra -o raw"
 alias pick-colour='grim -g "$(slurp -p)" -t ppm - | convert - -format "%[pixel:p{0,0}]" txt:-'
+# alias snrsu='cd ~/github/nixos-config && sudo nix flake update && sudo nixos-rebuild switch --upgrade'
 alias snrsu='sudo nixos-rebuild switch --upgrade'
 alias snrsui='sudo nixos-rebuild switch --upgrade -I nixpkgs=/home/amy/github/nixpkgs'
 alias sncg='sudo nix-collect-garbage --delete-older-than 20d'
@@ -33,6 +34,8 @@ alias run-dwl='dwl > dwl.log 2>&1'
 alias run-hikari='hikari > hikari.log 2>&1'
 alias ff='firefox --new-window'
 alias nfi='nix flake init -t github:serokell/templates#haskell-cabal2nix'
+alias ods='onedrive --synchronize'
+alias lsexe='find . -maxdepth 1 -type f -executable'
 
 function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function searchmd { fmd $2 | xargs grep "$1" ;}
