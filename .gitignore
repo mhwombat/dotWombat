@@ -12,7 +12,7 @@ ac-comphist.dat
 themes/previews
 .config/waybar/style.css
 .config/zsh/configure-spaceship
-.config/starshipt.toml
+.config/starship.toml
 
 # Generated Python stuff
 __pycache__
