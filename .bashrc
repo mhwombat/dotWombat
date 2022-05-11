@@ -1,4 +1,10 @@
 ###
+### direnv
+###
+
+eval "$(direnv hook bash)"
+
+###
 ### Non-shell-specific stuff
 ###
 
