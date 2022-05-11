@@ -5,17 +5,24 @@
 ### Prompt options
 ###
 
+eval "$(starship init zsh)"
+
 #PS1='%~$ '
-source ${XDG_CONFIG_HOME}/zsh/configure-spaceship
+# source ${XDG_CONFIG_HOME}/zsh/configure-spaceship
 
+# # Before each prompt...
+# precmd () {
+#     # Set window title to current directory and last command
+#     lastcmd=$(history | tail -n 1 | cut -c7-999)
+#     windowtitle="${PWD/#$HOME/~} : ${lastcmd}"
+#     print -Pn "\e]0;${windowtitle}\a"
+# }
 
-# Before each prompt...
-precmd () {
-    # Set window title to current directory and last command
-    lastcmd=$(history | tail -n 1 | cut -c7-999)
-    windowtitle="${PWD/#$HOME/~} : ${lastcmd}"
-    print -Pn "\e]0;${windowtitle}\a"
-}
+###
+### direnv
+###
+
+eval "$(direnv hook zsh)"
 
 ###
 ### History options
@@ -84,9 +91,6 @@ compinit
 
 # Use zsh instead of bash for nix shells
 # any-nix-shell zsh --info-right | source /dev/stdin
-
-# Set up direnv
-eval "$(direnv hook zsh)"
 
 ###
 ### Non-shell-specific stuff
