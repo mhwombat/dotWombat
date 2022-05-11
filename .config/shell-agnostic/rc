@@ -1,10 +1,30 @@
+#
+# input devices
+#
+
 #setxkbmap ie CloGaelach
 #xinput set-button-map "Logitech USB Trackball" 1 8 3 4 5 6 7 2 9
+
+#
+# Prompt
+#
+
+# source /run/current-system/sw/bin/liquidprompt
+# source /home/amy/.config/liquidprompt/themes/powerline.theme
+# lp_theme powerline
+
+#
+# path
+#
 
 PATH=~/.cabal/bin:${PATH}
 PATH=~/.local/bin:${PATH}
 PATH=~/bin:${PATH}
 PATH=~/github/wain-tools:${PATH}
+
+#
+# aliases
+#
 
 # alias wls='wombat ls'
 # alias ls='colorls'
@@ -36,6 +56,10 @@ alias ff='firefox --new-window'
 alias nfi='nix flake init -t github:serokell/templates#haskell-cabal2nix'
 alias ods='onedrive --synchronize'
 alias lsexe='find . -maxdepth 1 -type f -executable'
+
+#
+# functions
+#
 
 function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function searchmd { fmd $2 | xargs grep "$1" ;}
