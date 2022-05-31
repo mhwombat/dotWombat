@@ -16,47 +16,46 @@ alt="mod1"
 
 terminal = guess_terminal()
 launcher = "amys-launcher"
+keyHelp = "key-help ~/dotWombat/.config/qtile"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
+
+    Key([logo], "menu", lazy.spawn(keyHelp), desc="Show key help"),
 
     # Switch between windows
     Key([logo], "Left", lazy.layout.left(), desc="Move focus to left"),
     Key([logo], "Right", lazy.layout.right(), desc="Move focus to right"),
     Key([logo], "Down", lazy.layout.down(), desc="Move focus down"),
     Key([logo], "Up", lazy.layout.up(), desc="Move focus up"),
-    Key([logo], "space", lazy.layout.next(),
-        desc="Move window focus to other window"),
+    Key([alt], "Tab", lazy.group.next_window(), desc="Move focus to next window"),
+    Key([alt, "shift"], "Tab", lazy.group.next_window(), desc="Move focus to next window"),
+    # Key([alt], ".", lazy.next_screen(), desc='Next monitor')
+    Key([logo], "Tab", lazy.next_screen(), desc="Next monitor"),
+
 
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
-    Key([logo, "shift"], "Left", lazy.layout.shuffle_left(),
-        desc="Move window to the left"),
-    Key([logo, "shift"], "Right", lazy.layout.shuffle_right(),
-        desc="Move window to the right"),
-    Key([logo, "shift"], "Down", lazy.layout.shuffle_down(),
-        desc="Move window down"),
+    Key([logo, "shift"], "Left", lazy.layout.shuffle_left(), desc="Move window to the left"),
+    Key([logo, "shift"], "Right", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key([logo, "shift"], "Down", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([logo, "shift"], "Up", lazy.layout.shuffle_up(), desc="Move window up"),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([logo, "control"], "Left", lazy.layout.grow_left(),
-        desc="Grow window to the left"),
-    Key([logo, "control"], "Right", lazy.layout.grow_right(),
-        desc="Grow window to the right"),
-    Key([logo, "control"], "Down", lazy.layout.grow_down(),
-        desc="Grow window down"),
+    Key([logo, "control"], "Left", lazy.layout.grow_left(), desc="Grow window to the left"),
+    Key([logo, "control"], "Right", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key([logo, "control"], "Down", lazy.layout.grow_down(), desc="Grow window down"),
     Key([logo, "control"], "Up", lazy.layout.grow_up(), desc="Grow window up"),
     Key([logo], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
 
+    Key([logo, alt], "d", lazy.screen.next_group(), desc="Go to next screen"),
+
     # Swap??? windows between left/right columns or up/down in current stack.
-    Key([logo, alt], "Left", lazy.layout.flip_left(),
-        desc="Move window to the left"),
-    Key([logo, alt], "Right", lazy.layout.flip_right(),
-        desc="Move window to the right"),
-    Key([logo, alt], "Down", lazy.layout.flip_down(),
-        desc="Move window down"),
+    Key([logo, alt], "Left", lazy.layout.flip_left(), desc="Move window to the left"),
+    Key([logo, alt], "Right", lazy.layout.flip_right(), desc="Move window to the right"),
+    Key([logo, alt], "Down", lazy.layout.flip_down(), desc="Move window down"),
     Key([logo, alt], "Up", lazy.layout.flip_up(), desc="Move window up"),
 
     # Key([logo, "control"], 'Return', lazy.run_extension(extension.WindowList(
@@ -73,7 +72,8 @@ keys = [
     Key([logo, "shift"], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
     # Toggle between different layouts as defined below
-    Key([logo], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([logo, "control"], "l", lazy.next_layout(), desc="Toggle between layouts"),
+
     Key([logo], "Delete", lazy.window.kill(), desc="Kill focused window"),
 
     Key([logo, "control"], "r", lazy.reload_config(), desc="Reload the config"),
@@ -81,8 +81,8 @@ keys = [
     # Key([logo], "r", lazy.spawncmd(),
     #     desc="Spawn a command using a prompt widget"),
 
-    Key([logo, "control"], "f", lazy.window.toggle_floating()),
-    Key([logo, "control", "shift"], "f", lazy.window.toggle_fullscreen()),
+    Key([logo, "control"], "f", lazy.window.toggle_floating(), desc="Toggle floating"),
+    Key([logo, "control", "shift"], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
 
     Key([alt, "control"], "F1", lazy.core.change_vt(1), desc="Go to virtual console 1"),
     Key([alt, "control"], "F2", lazy.core.change_vt(2), desc="Go to virtual console 2"),
@@ -104,12 +104,10 @@ for g in groups:
     # print(f"DEBUG g={g}, shortcut_key={shortcut_key}")
     keys.extend([
         # mod1 + letter of group = switch to group
-        Key([logo], shortcut_key, lazy.group[g.name].toscreen(),
-            desc="Switch to group {}".format(g.name)),
+        Key([logo], shortcut_key, lazy.group[g.name].toscreen(), desc="Switch to group {}".format(g.name)),
 
         # mod1 + shift + letter of group = move focused window to group
-        Key([logo, "shift"], shortcut_key, lazy.window.togroup(g.name),
-            desc="move focused window to group {}".format(g.name)),
+        Key([logo, "shift"], shortcut_key, lazy.window.togroup(g.name), desc="move focused window to group {}".format(g.name)),
     ])
 
 layouts = [
@@ -122,7 +120,9 @@ layouts = [
 	# Border width.
         border_width=6,
         # New clients are inserted in the shortest branch.
-	#fair=True,
+	#fair=True,      jupyterlab      jupyterlab
+
+
         # Amount by which to grow a window/column.
 	#grow_amount=10,
         # New client occupies lower or right subspace.
