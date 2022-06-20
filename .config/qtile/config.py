@@ -8,7 +8,7 @@ import sys
 import os
 
 config_dir = os.path.dirname(__file__)
-print("The config dir is : " + config_dir)
+print("Amy's debug: The config dir is : " + config_dir)
 from colour import Colour
 
 logo = "mod4"
@@ -16,7 +16,9 @@ alt="mod1"
 
 terminal = guess_terminal()
 launcher = "amys-launcher"
-keyHelp = "key-help ~/dotWombat/.config/qtile"
+keyHelp = "key-help " + config_dir
+
+print("Amy's debug: keyHelp=" + keyHelp)
 
 keys = [
     # A list of available commands that can be bound to keys can be found

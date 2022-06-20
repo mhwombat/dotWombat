@@ -12,6 +12,8 @@
 .config/onedrive/config
 .config/qtile/config.py
 .config/qtile/colour.py
+.config/qtile/Makefile
+.config/qtile/keyhelp
 .config/river/init
 .config/river/colours
 .config/starship.toml

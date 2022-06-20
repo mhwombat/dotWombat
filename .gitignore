@@ -20,6 +20,9 @@ __pycache__
 # Generated sway stuff
 .config/sway/keys.txt
 
+# Generated qtile stuff
+.config/qtile/keys.txt
+
 # Files with secrets
 wombat11k.nix
 
