@@ -47,29 +47,16 @@ input type:keyboard {
 #
 # Basics:
 #
-    # Display key map
-    bindsym $logo+Shift+Slash exec /home/amy/bin/keyhelp
+    bindsym $logo+Shift+Slash exec /home/amy/bin/keyhelp # Show key help
+    bindsym Pause exec swaylock                          # Lock screen
+    bindsym Ctrl+$logo+r reload
+    bindsym Ctrl+$logo+q exec swaynag -t warning -m 'Do you really want to exit sway?' -b 'Yes' 'swaymsg exit' # Exit sway and log out
 
-    # Start a terminal
-    bindsym $logo+Shift+Return exec $term
+    bindsym $logo+Return exec $menu       # Show launch menu
+    bindsym $logo+Shift+Return exec $term # Launch terminal
+    bindsym $logo+Delete kill             # Kill focused window
 
-    # Start the launcher
-    bindsym $logo+Return exec $menu
-
-    # Window menu
-    bindsym $logo+Ctrl+Return exec /home/amy/bin/sway-tree-switcher
-
-    # Reload the configuration file
-    bindsym $logo+Ctrl+r reload
-
-    # Lock the screen
-    bindsym Pause exec swaylock
-
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $logo+Ctrl+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-
-    # Kill focused window
-    bindsym $logo+Delete kill
+    bindsym Ctrl+$logo+Return exec /home/amy/bin/sway-tree-switcher # Window menu
 
     # Drag floating windows by holding down $logo and left mouse button.
     # Resize them with right mouse button + $logo.
@@ -81,27 +68,20 @@ input type:keyboard {
 #
 # Moving around:
 #
-    # Move your focus around
-    # bindsym $logo+$left focus left
-    # bindsym $logo+$down focus down
-    # bindsym $logo+$up focus up
-    # bindsym $logo+$right focus right
-    # # Or use $logo+[up|down|left|right]
-    bindsym $logo+Left focus left
-    bindsym $logo+Down focus down
-    bindsym $logo+Up focus up
-    bindsym $logo+Right focus right
+    bindsym $logo+Left focus left   # Move focus left
+    bindsym $logo+Right focus right # Move focus right
+    bindsym $logo+Up focus up       # Move focus up
+    bindsym $logo+Down focus down   # Move focus down
 
-    # Move the focused window with the same, but add Shift
+    # Weirdly, adding a comment to these lines breaks the key mapping
     bindsym $logo+Shift+Left move left
-    bindsym $logo+Shift+Down move down
-    bindsym $logo+Shift+Up move up
     bindsym $logo+Shift+Right move right
+    bindsym $logo+Shift+Up move up
+    bindsym $logo+Shift+Down move down
 
 #
 # Workspaces:
 #
-    # Switch to workspace
     bindsym $logo+1 workspace number 1
     bindsym $logo+2 workspace number 2
     bindsym $logo+3 workspace number 3
@@ -114,7 +94,7 @@ input type:keyboard {
     bindsym $logo+p workspace "play"
     bindsym $logo+s workspace "sway"
     bindsym $logo+v workspace "vmware"
-    # Move focused container to workspace
+
     bindsym $logo+Shift+1 move container to workspace number 1
     bindsym $logo+Shift+2 move container to workspace number 2
     bindsym $logo+Shift+3 move container to workspace number 3
@@ -143,7 +123,7 @@ input type:keyboard {
     # bindsym $logo+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $logo+Ctrl+Shift+f fullscreen toggle
+    bindsym Ctrl+$logo+Shift+f fullscreen toggle
 
     
 #
@@ -161,14 +141,15 @@ input type:keyboard {
 #
 # Resizing containers:
 #
-    bindsym $logo+Ctrl+Right resize grow width 10px
-    bindsym $logo+Ctrl+Left  resize shrink width 10px
-    bindsym $logo+Ctrl+Up    resize grow height 10px
-    bindsym $logo+Ctrl+Down  resize shrink height 10px
+    # Weirdly, adding a comment to these lines breaks the key mapping
+    bindsym Ctrl+$logo+Left  resize shrink width 50px
+    bindsym Ctrl+$logo+Right resize grow width 50px
+    bindsym Ctrl+$logo+Up    resize grow height 50px
+    bindsym Ctrl+$logo+Down  resize shrink height 50px
 
     # # Return to default mode
-    # bindsym $logo+Ctrl+Return mode "default"
-    # bindsym $logo+Ctrl+Escape mode "default"
+    # bindsym Ctrl+$logo+Return mode "default"
+    # bindsym Ctrl+$logo+Escape mode "default"
 
 #
 # Status Bar:
@@ -189,7 +170,7 @@ client.unfocused $base04 $base04 $base05 $base04 $base04
 for_window [shell=".*"] title_format "%title :: %shell"
 
 assign [title=".*INBOX.*"] workspace number 2
-assign [class="Signal"] workspace number 2
+# assign [class="Signal"] workspace number 2
 assign [title=".*NixOS.*"] workspace "nixos"
 assign [title=".*VMware.*"] workspace "vmware"
 

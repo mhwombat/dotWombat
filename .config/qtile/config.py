@@ -25,6 +25,7 @@ keys = [
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
 
     Key([logo], "menu", lazy.spawn(keyHelp), desc="Show key help"),
+    Key([], "pause", lazy.spawn(swaylock), desc="Lock screen"),
 
     # Switch between windows
     Key([logo], "Left", lazy.layout.left(), desc="Move focus to left"),
@@ -59,6 +60,7 @@ keys = [
     Key([logo, alt], "Right", lazy.layout.flip_right(), desc="Move window to the right"),
     Key([logo, alt], "Down", lazy.layout.flip_down(), desc="Move window down"),
     Key([logo, alt], "Up", lazy.layout.flip_up(), desc="Move window up"),
+
 
     # Key([logo, "control"], 'Return', lazy.run_extension(extension.WindowList(
     #     dmenu_prompt=">"

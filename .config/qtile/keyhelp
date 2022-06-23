@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 sed -n 's/^ *Key(//p' | \
-sed '
+    sed '
+s/\[\], *//
 s/\[//
 s/\]//
 s/lazy.*, desc/desc/
-s/logo, /Super+/
+s/logo, /Tux+/
 s/alt, /Alt+/
 s/"control", /Ctrl+/
 s/"shift", /Shift+/
