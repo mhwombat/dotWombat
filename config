@@ -19,6 +19,7 @@
 .config/starship.toml
 .config/stack/config.yaml
 .config/sway
+.config/VSCodium/User/keybindings.json
 .config/waybar/config
 .config/waybar/style.css
 .config/xonsh
