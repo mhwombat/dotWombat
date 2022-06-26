@@ -20,6 +20,7 @@
 .config/stack/config.yaml
 .config/sway
 .config/VSCodium/User/keybindings.json
+.config/VSCodium/User/settings.json
 .config/waybar/config
 .config/waybar/style.css
 .config/xonsh
