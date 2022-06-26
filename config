@@ -18,6 +18,8 @@
 .config/river/colours
 .config/starship.toml
 .config/stack/config.yaml
+.config/textadept/init.lua
+.config/textadept/themes/base16-amy.lua
 .config/sway
 .config/VSCodium/User/keybindings.json
 .config/VSCodium/User/settings.json

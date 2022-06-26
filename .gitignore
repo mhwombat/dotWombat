@@ -13,6 +13,7 @@ themes/previews
 .config/waybar/style.css
 .config/zsh/configure-spaceship
 .config/starship.toml
+.config/textadept/themes/base16-amy.lua
 
 # Generated Python stuff
 __pycache__
