@@ -87,31 +87,31 @@ local edit_hydra = {
   { key='p', help='paste', action=buffer.paste },
   { key='r', help='paste reindent', action=textadept.editing.paste_reindent },
   { key='2', help='duplicate', action=buffer.selection_duplicate },
-  --{ key='shift+del', help='delete', action=buffer.clear }, -- TEST
-  --{ key='#', help='toggle block comment', action=textadept.editing.toggle_comment }, -- TEST
-  --{ key='t', help='transpose characters', action=textadept.editing.transpose_chars }, -- TEST
-  --{ key='j', help='join lines', action=textadept.editing.join_lines }, -- TEST
+  { key='shift+del', help='delete', action=buffer.clear },
+  { key='#', help='toggle block comment', action=textadept.editing.toggle_comment },
+  --{ key='t', help='transpose characters', action=textadept.editing.transpose_chars }, -- FIXME
+  { key='j', help='join lines', action=textadept.editing.join_lines },
   --{ key='|', 
   --  help='pipe to bash', 
   --  action=function()
   --           ui.command_entry.run(textadept.editing.filter_through, 'bash')
-  --         end }, -- TEST
-  --{ key='C', help='case...', action=case_hydra }, -- TEST
-  --{ key='e', help='enclose...', action=enclose_hydra }, -- TEST
-  --{ key='h', help='history...', action=history_hydra }, -- TEST
-  --{ key='up', help='move selected lines up', action=buffer.move_selected_lines_up }, -- TEST
-  --{ key='down', help='move selected lines down', action=buffer.move_selected_lines_down }, -- TEST
-  --{ key='?', help='preferences', action=function() io.open_file(_userhome .. '/init.lua') end }, --TEST
+  --         end }, -- FIXME
+  --{ key='C', help='case...', action=case_hydra }, -- FIXME
+  --{ key='e', help='enclose...', action=enclose_hydra }, -- FIXME
+  --{ key='h', help='history...', action=history_hydra }, -- FIXME
+  --{ key='up', help='move selected lines up', action=buffer.move_selected_lines_up }, -- FIXME
+  --{ key='down', help='move selected lines down', action=buffer.move_selected_lines_down }, -- FIXME
+  --{ key='P', help='preferences', action=function() io.open_file(_userhome .. '/init.lua') end }, -- FIXME
 }
 
 local select_hydra = {
-  { key='*', help='all', action=buffer.select_all }, -- TEST
-  { key='[', help='between delimiters', action=sel_enc }, -- TEST
-  { key='<', help='between XML Tags', action=function() sel_enc('>', '<') end }, -- TEST
-  { key=' ', help='in XML Tag', action=function() sel_enc('<', '>') end }, -- TEST
-  { key='w', help='word', action=textadept.editing.select_word }, -- TEST
-  { key='l', help='line', action=textadept.editing.select_line }, -- TEST
-  { key='p', help='paragraph', action=textadept.editing.select_paragraph }, -- TEST
+  { key='*', help='all', action=buffer.select_all },
+  { key='[', help='between delimiters', action=sel_enc }, -- FIXME
+  { key='<', help='between XML Tags', action=function() sel_enc('>', '<') end }, -- FIXME
+  { key=' ', help='in XML Tag', action=function() sel_enc('<', '>') end }, -- FIXME
+  { key='w', help='word', action=textadept.editing.select_word },
+  { key='l', help='line', action=textadept.editing.select_line },
+  { key='p', help='paragraph', action=textadept.editing.select_paragraph },
 }
 
 local search_hydra = {
@@ -151,16 +151,16 @@ local encoding_hydra = {
 }
 
 local buffer_hydra = {
-  { key='right', help='next buffer', action=function() view:goto_buffer(1) end, persistent=true }, -- TEST
-  { key='left', help='previous buffer', action=function() view:goto_buffer(-1) end, persistent=true }, -- TEST
-  { key='g', help='go to buffer...', action=ui.switch_buffer }, -- TEST
-  { key='t', help='tab...', action=tab_hydra }, -- TEST
-  { key='e', help='encoding...', action=encoding_hydra }, -- TEST
-  { key='C', help='crlf', action=function() set_eol_mode(buffer.eol_crlf) end }, -- TEST
-  { key='L', help='lf', action=function() set_eol_mode(buffer.eol_lf) end }, -- TEST
-  --{ key='w', help='toggle wrap mode', action=FINISH }, --TEST
+  { key='right', help='next buffer', action=function() view:goto_buffer(1) end, persistent=true },
+  { key='left', help='previous buffer', action=function() view:goto_buffer(-1) end, persistent=true },
+  { key='g', help='go to buffer...', action=ui.switch_buffer },
+  { key='t', help='tab...', action=tab_hydra },
+  { key='e', help='encoding...', action=encoding_hydra },
+  { key='C', help='crlf', action=function() set_eol_mode(buffer.eol_crlf) end }, -- FIXME
+  { key='L', help='lf', action=function() set_eol_mode(buffer.eol_lf) end }, -- FIXME
+  --{ key='w', help='toggle wrap mode', action=FINISH }, -- TEST
   --{ key=' ', help='toggle view whitespace', action=FINISH }, --TEST
-  { key='l', help='select lexer...', action=textadept.file_types.select_lexer }, -- TEST
+  { key='l', help='select lexer...', action=textadept.file_types.select_lexer },
 }
 
 local view_hydra = {
@@ -170,8 +170,8 @@ local view_hydra = {
   { key='|', help='split view vertical', action=function() view:split(true) end },
   { key='u', help='unsplit view', action=function() view:unsplit() end }, -- TEST
   --{ key='U', help='unsplit all views', action=function() while view:unsplit() do end end }, -- FIXME
-  --{ key='?', help='grow view', action=FINISH }, --TEST
-  --{ key='?', help='shrink view', action=FINISH }, --TEST
+  --{ key='g', help='grow view', action=FINISH }, --TEST
+  --{ key='s', help='shrink view', action=FINISH }, --TEST
   --{ key='?', help='toggle current fold', action=FINISH }, --TEST
   --{ key='?', help='toggle show indent guides', action=FINISH }, --TEST
   --{ key='?', help='toggle virtual space', action=FINISH }, --TEST
@@ -183,19 +183,19 @@ local view_hydra = {
 local lsp_hydra = {
   --{ key='?', help='command entry', action=ui.command_entry.run }, --TEST
   --{ key='?', help='select command', action=function() m.select_command() end }, --TEST
-  --{ key='?', help='run', action=textadept.run.run }, --TEST
-  --{ key='?', help='compile', action=textadept.run.compile }, --TEST
-  --{ key='?', help='set arguments...', action=textadept.run.set_arguments }, --TEST
-  --{ key='?', help='build', action=textadept.run.build }, --TEST
-  --{ key='?', help='run tests', action=textadept.run.test }, --TEST
+  { key='r', help='run', action=textadept.run.run },
+  { key='c', help='compile', action=textadept.run.compile },
+  { key='R', help='set arguments...', action=textadept.run.set_arguments },
+  { key='b', help='build', action=textadept.run.build },
+  { key='t', help='run tests', action=textadept.run.test },
   --{ key='?', help='stop', action=textadept.run.stop }, --TEST
-  --{ key='?', help='next error', action=function() textadept.run.goto_error(true) end }, --TEST
-  --{ key='?', help='previous error', action=function() textadept.run.goto_error(false) end }, --TEST
-  --{ key='?', help='toggle bookmark', action=textadept.bookmarks.toggle }, --TEST
-  --{ key='?', help='clear bookmarks', action=textadept.bookmarks.clear }, --TEST
-  --{ key='?', help='next bookmark', action=function() textadept.bookmarks.goto_mark(true) end }, --TEST
-  --{ key='?', help='previous bookmark', action=function() textadept.bookmarks.goto_mark(false) end }, --TEST
-  --{ key='?', help='goto bookmark...', action=textadept.bookmarks.goto_mark }, --TEST
+  { key='right', help='next error', action=function() textadept.run.goto_error(true) end }, --TEST
+  { key='left', help='previous error', action=function() textadept.run.goto_error(false) end }, --TEST
+  --{ key='B', help='toggle bookmark', action=textadept.bookmarks.toggle }, --TEST
+  --{ key='C', help='clear bookmarks', action=textadept.bookmarks.clear }, --TEST
+  --{ key='shift+right', help='next bookmark', action=function() textadept.bookmarks.goto_mark(true) end }, --TEST
+  --{ key='shift+left', help='previous bookmark', action=function() textadept.bookmarks.goto_mark(false) end }, --TEST
+  --{ key='g', help='goto bookmark...', action=textadept.bookmarks.goto_mark }, --TEST
   --{ key='?', help='start/stop recording', action=textadept.macros.record }, --TEST
   --{ key='?', help='play', action=textadept.macros.play }, --TEST
   --{ key='?', help='save...', action=textadept.macros.save }, --TEST
