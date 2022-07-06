@@ -222,13 +222,13 @@ local lsp_hydra = {
   { key='b', help='build', action=textadept.run.build },
   { key='t', help='run tests', action=textadept.run.test },
   --{ key='?', help='stop', action=textadept.run.stop }, --TEST
-  { key='right', help='next error', action=function() textadept.run.goto_error(true) end }, --TEST
-  { key='left', help='previous error', action=function() textadept.run.goto_error(false) end }, --TEST
-  { key='S', help='server...', action=FINISH }, -- TEST
-  { key='B', help='bookmarks...', action=bookmark_hydra }, -- TEST
-  { key='m', help='macros...', action=macro_hydra }, -- TEST
-  { key='q', help='snippets...', action=quick_open_hydra }, -- TEST
-  { key='s', help='snippets...', action=snippet_hydra }, -- TEST
+  --{ key='right', help='next error', action=function() textadept.run.goto_error(true) end }, --TEST
+  --{ key='left', help='previous error', action=function() textadept.run.goto_error(false) end }, --TEST
+  --{ key='S', help='server...', action=FINISH }, -- TEST
+  { key='B', help='bookmarks...', action=bookmark_hydra },
+  { key='m', help='macros...', action=macro_hydra },
+  { key='q', help='quick open...', action=quick_open_hydra },
+  { key='s', help='snippets...', action=snippet_hydra },
   --{ key='?', help='complete trigger word', action=function() textadept.editing.autocomplete('snippets') end }
   --{ key='?', help='complete symbol', action=function() textadept.editing.autocomplete(buffer:get_lexer(true)) end }, --TEST
   --{ key='?', help='show documentation', action=textadept.editing.show_documentation }, --TEST
@@ -236,8 +236,8 @@ local lsp_hydra = {
 }
 
 local help_hydra = {
-  { key='m', help='show manual', action=function() open_page(_home .. '/docs/manual.html') end }, -- TEST
-  { key='l', help='show luadoc', action=function() open_page(_home .. '/docs/api.html') end }, -- TEST
+  --{ key='m', help='show manual', action=function() open_page(_home .. '/docs/manual.html') end }, -- FIXME
+  --{ key='l', help='show luadoc', action=function() open_page(_home .. '/docs/api.html') end }, -- FIXME
   { key='a', help='about', action=function()
       ui.dialogs.msgbox{
         title = 'Textadept', text = _RELEASE, informative_text = _COPYRIGHT,
@@ -257,7 +257,7 @@ local main_hydra = {
   { key='h', help='help...', action=help_hydra },
   { key=' ', help='complete word', action=function() textadept.editing.autocomplete('word') end },
   { key='?', help='debug hydra', action=hydra.print_keys },
-  { key='x', help='test hydra', action=case_hydra },
+  { key='x', help='test hydra', action=snippet_hydra },
 }
 
 hydra.keys = {
