@@ -58,8 +58,8 @@ local file_hydra = {
 }
 
 local case_hydra = {
-  { key='up', help='upper case selection', action=buffer.upper_case }, -- TEST
-  { key='down', help='lower case selection', action=buffer.lower_case }, -- TEST
+  { key='up', help='upper case selection', action=buffer.upper_case },
+  { key='down', help='lower case selection', action=buffer.lower_case },
 }
 
 local enclose_hydra = {
@@ -180,6 +180,39 @@ local view_hydra = {
   { key='1', help='reset zoom', action=function() view.zoom = 0 end },
 }
 
+local bookmark_hydra = {
+  { key='x', help='just testing', action=hydra.print_keys },
+  --{ key='B', help='toggle bookmark', action=textadept.bookmarks.toggle }, --TEST
+  --{ key='C', help='clear bookmarks', action=textadept.bookmarks.clear }, --TEST
+  --{ key='shift+right', help='next bookmark', action=function() textadept.bookmarks.goto_mark(true) end }, --TEST
+  --{ key='shift+left', help='previous bookmark', action=function() textadept.bookmarks.goto_mark(false) end }, --TEST
+  --{ key='g', help='goto bookmark...', action=textadept.bookmarks.goto_mark }, --TEST
+}
+
+local macro_hydra = {
+  { key='x', help='just testing', action=hydra.print_keys },
+  --{ key='?', help='start/stop recording', action=textadept.macros.record }, --TEST
+  --{ key='?', help='play', action=textadept.macros.play }, --TEST
+  --{ key='?', help='save...', action=textadept.macros.save }, --TEST
+  --{ key='?', help='load...', action=textadept.macros.load }, --TEST
+}
+
+local quick_open_hydra = {
+  { key='x', help='just testing', action=hydra.print_keys },
+  --{ key='?', help='quickly open user home', action=function() io.quick_open(_userhome) end }, --TEST
+  --{ key='?', help='quickly open textadept home', action=function() io.quick_open(_home) end }, --TEST
+  --{ key='?', help='quickly open current directory', action=FINISH }, --TEST
+  --{ key='?', help='quickly open current project', action=io.quick_open }, --TEST
+}
+
+local snippet_hydra = {
+  { key='x', help='just testing', action=hydra.print_keys },
+  --{ key='?', help='insert snippet...', action=textadept.snippets.select }, --TEST
+  --{ key='?', help='expand snippet/next placeholder', action=textadept.snippets.insert }, --TEST
+  --{ key='?', help='previous snippet placeholder', action=textadept.snippets.previous }, --TEST
+  --{ key='?', help='cancel snippet', action=textadept.snippets.cancel_current }, --TEST
+}
+
 local lsp_hydra = {
   --{ key='?', help='command entry', action=ui.command_entry.run }, --TEST
   --{ key='?', help='select command', action=function() m.select_command() end }, --TEST
@@ -191,23 +224,11 @@ local lsp_hydra = {
   --{ key='?', help='stop', action=textadept.run.stop }, --TEST
   { key='right', help='next error', action=function() textadept.run.goto_error(true) end }, --TEST
   { key='left', help='previous error', action=function() textadept.run.goto_error(false) end }, --TEST
-  --{ key='B', help='toggle bookmark', action=textadept.bookmarks.toggle }, --TEST
-  --{ key='C', help='clear bookmarks', action=textadept.bookmarks.clear }, --TEST
-  --{ key='shift+right', help='next bookmark', action=function() textadept.bookmarks.goto_mark(true) end }, --TEST
-  --{ key='shift+left', help='previous bookmark', action=function() textadept.bookmarks.goto_mark(false) end }, --TEST
-  --{ key='g', help='goto bookmark...', action=textadept.bookmarks.goto_mark }, --TEST
-  --{ key='?', help='start/stop recording', action=textadept.macros.record }, --TEST
-  --{ key='?', help='play', action=textadept.macros.play }, --TEST
-  --{ key='?', help='save...', action=textadept.macros.save }, --TEST
-  --{ key='?', help='load...', action=textadept.macros.load }, --TEST
-  --{ key='?', help='quickly open user home', action=function() io.quick_open(_userhome) end }, --TEST
-  --{ key='?', help='quickly open textadept home', action=function() io.quick_open(_home) end }, --TEST
-  --{ key='?', help='quickly open current directory', action=FINISH }, --TEST
-  --{ key='?', help='quickly open current project', action=io.quick_open }, --TEST
-  --{ key='?', help='insert snippet...', action=textadept.snippets.select }, --TEST
-  --{ key='?', help='expand snippet/next placeholder', action=textadept.snippets.insert }, --TEST
-  --{ key='?', help='previous snippet placeholder', action=textadept.snippets.previous }, --TEST
-  --{ key='?', help='cancel snippet', action=textadept.snippets.cancel_current }, --TEST
+  { key='S', help='server...', action=FINISH }, -- TEST
+  { key='B', help='bookmarks...', action=bookmark_hydra }, -- TEST
+  { key='m', help='macros...', action=macro_hydra }, -- TEST
+  { key='q', help='snippets...', action=quick_open_hydra }, -- TEST
+  { key='s', help='snippets...', action=snippet_hydra }, -- TEST
   --{ key='?', help='complete trigger word', action=function() textadept.editing.autocomplete('snippets') end }
   --{ key='?', help='complete symbol', action=function() textadept.editing.autocomplete(buffer:get_lexer(true)) end }, --TEST
   --{ key='?', help='show documentation', action=textadept.editing.show_documentation }, --TEST
@@ -236,6 +257,7 @@ local main_hydra = {
   { key='h', help='help...', action=help_hydra },
   { key=' ', help='complete word', action=function() textadept.editing.autocomplete('word') end },
   { key='?', help='debug hydra', action=hydra.print_keys },
+  { key='x', help='test hydra', action=case_hydra },
 }
 
 hydra.keys = {
