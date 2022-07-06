@@ -80,27 +80,27 @@ local history_hydra = {
 }
 
 local edit_hydra = {
-  { key='u', help='undo', action=buffer.undo }, -- TEST
-  { key='r', help='redo', action=buffer.redo }, -- TEST
-  { key='del', help='cut', action=buffer.cut }, -- TEST
-  { key='c', help='copy', action=buffer.copy }, -- TEST
-  { key='p', help='paste', action=buffer.paste }, -- TEST
-  { key='r', help='paste reindent', action=textadept.editing.paste_reindent }, -- TEST
-  { key='2', help='duplicate', action=buffer.selection_duplicate }, -- TEST
-  { key='x', help='delete', action=buffer.clear }, -- TEST
-  { key='#', help='toggle block comment', action=textadept.editing.toggle_comment }, -- TEST
-  { key='t', help='transpose characters', action=textadept.editing.transpose_chars }, -- TEST
-  { key='j', help='join lines', action=textadept.editing.join_lines }, -- TEST
-  { key='|', 
-    help='pipe to bash', 
-    action=function()
-             ui.command_entry.run(textadept.editing.filter_through, 'bash')
-           end }, -- TEST
-  { key='C', help='case...', action=case_hydra }, -- TEST
-  { key='e', help='enclose...', action=enclose_hydra }, -- TEST
-  { key='h', help='history...', action=history_hydra }, -- TEST
-  { key='up', help='move selected lines up', action=buffer.move_selected_lines_up }, -- TEST
-  { key='down', help='move selected lines down', action=buffer.move_selected_lines_down }, -- TEST
+  { key='u', help='undo', action=buffer.undo },
+  { key='r', help='redo', action=buffer.redo },
+  { key='del', help='cut', action=buffer.cut },
+  { key='c', help='copy', action=buffer.copy },
+  { key='p', help='paste', action=buffer.paste },
+  { key='r', help='paste reindent', action=textadept.editing.paste_reindent },
+  { key='2', help='duplicate', action=buffer.selection_duplicate },
+  --{ key='shift+del', help='delete', action=buffer.clear }, -- TEST
+  --{ key='#', help='toggle block comment', action=textadept.editing.toggle_comment }, -- TEST
+  --{ key='t', help='transpose characters', action=textadept.editing.transpose_chars }, -- TEST
+  --{ key='j', help='join lines', action=textadept.editing.join_lines }, -- TEST
+  --{ key='|', 
+  --  help='pipe to bash', 
+  --  action=function()
+  --           ui.command_entry.run(textadept.editing.filter_through, 'bash')
+  --         end }, -- TEST
+  --{ key='C', help='case...', action=case_hydra }, -- TEST
+  --{ key='e', help='enclose...', action=enclose_hydra }, -- TEST
+  --{ key='h', help='history...', action=history_hydra }, -- TEST
+  --{ key='up', help='move selected lines up', action=buffer.move_selected_lines_up }, -- TEST
+  --{ key='down', help='move selected lines down', action=buffer.move_selected_lines_down }, -- TEST
   --{ key='?', help='preferences', action=function() io.open_file(_userhome .. '/init.lua') end }, --TEST
 }
 
@@ -164,20 +164,20 @@ local buffer_hydra = {
 }
 
 local view_hydra = {
-  { key='right', help='next view', action=function() ui.goto_view(1) end }, -- TEST
-  { key='left', help='previous view', action=function() ui.goto_view(-1) end }, -- TEST
-  { key='-', help='split view horizontal', action=function() view:split() end }, -- TEST
-  { key='|', help='split view vertical', action=function() view:split(true) end }, -- TEST
+  { key='right', help='next view', action=function() ui.goto_view(1) end },
+  { key='left', help='previous view', action=function() ui.goto_view(-1) end },
+  { key='_', help='split view horizontal', action=function() view:split() end },
+  { key='|', help='split view vertical', action=function() view:split(true) end },
   { key='u', help='unsplit view', action=function() view:unsplit() end }, -- TEST
-  { key='U', help='unsplit all views', action=function() while view:unsplit() do end end }, -- TEST
+  --{ key='U', help='unsplit all views', action=function() while view:unsplit() do end end }, -- FIXME
   --{ key='?', help='grow view', action=FINISH }, --TEST
   --{ key='?', help='shrink view', action=FINISH }, --TEST
   --{ key='?', help='toggle current fold', action=FINISH }, --TEST
   --{ key='?', help='toggle show indent guides', action=FINISH }, --TEST
   --{ key='?', help='toggle virtual space', action=FINISH }, --TEST
-  { key='+', help='zoom in', action=view.zoom_in }, -- TEST
-  { key='-', help='zoom out', action=view.zoom_out }, -- TEST
-  { key='1', help='reset zoom', action=function() view.zoom = 0 end }, -- TEST
+  { key='+', help='zoom in', action=view.zoom_in },
+  { key='-', help='zoom out', action=view.zoom_out },
+  { key='1', help='reset zoom', action=function() view.zoom = 0 end },
 }
 
 local lsp_hydra = {
@@ -228,9 +228,9 @@ local help_hydra = {
 local main_hydra = {
   { key='f', help='file...', action=file_hydra },
   { key='b', help='buffer...', action=buffer_hydra },
-  { key='v', help='view...', action=view_hydra }, -- FIXME
+  { key='v', help='view...', action=view_hydra },
   { key='w', help='word...', action=word_hydra },
-  { key='e', help='edit...', action=edit_hydra }, -- FIXME
+  { key='e', help='edit...', action=edit_hydra },
   { key='s', help='select...', action=select_hydra },
   { key='l', help='LSP...', action=lsp_hydra },
   { key='h', help='help...', action=help_hydra },
