@@ -28,9 +28,9 @@ PATH=~/github/wain-tools:${PATH}
 
 # alias wls='wombat ls'
 # alias ls='colorls'
-alias doom='~/.emacs.d/bin/doom'
-alias emacs='~/.emacs.d/bin/doom run'
-alias tad='textadept -u $XDG_CONFIG_HOME/textadept'
+# alias doom='~/.emacs.d/bin/doom'
+# alias emacs='~/.emacs.d/bin/doom run'
+alias tad='~/textadept/textadept -u $XDG_CONFIG_HOME/textadept'
 alias longestLine='awk '\''{ if (length($0) > max) {max = length($0); maxline = $0} } END { print maxline }'\'''
 alias psgrep='ps -ef | grep'
 alias hgrep='history | grep'
@@ -63,12 +63,15 @@ alias lsexe='find . -maxdepth 1 -type f -executable'
 # functions
 #
 
+function fex() { find ${1:-.} -executable -type f ;}
 function fmd() { find ${1:-.} -name '*.md' | sort ;}
-function searchmd { fmd $2 | xargs grep "$1" ;}
+function smd { fmd $2 | xargs grep "$1" ;}
 function fipynb() { find ${1:-.} -name '*.ipynb' | grep -v ipynb_checkpoints | sort ;}
-function searchipynb { fipynb $2 | xargs grep "$1" ;}
+function sipynb { fipynb $2 | xargs grep "$1" ;}
 function fhs() { find ${1:-.} -name dist-newstyle -prune -o -name '*.hs' -print | sort ;}
-function searchhs { fhs $2 | xargs grep "$1" ;}
+function shs { fhs $2 | xargs grep "$1" ;}
+function flua() { find ${1:-.} -name '*.lua' -print | sort ;}
+function slua { flua $2 | xargs grep "$1" ;}
 function idea() { jot -d=${HOME}/github/ideas -t="$*" ;}
 function ideas() { jot -d=${HOME}/github/ideas -p ;}
 function note() { jot -d=${HOME}/github/notes -t="$*" ;}

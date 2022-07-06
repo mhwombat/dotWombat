@@ -21,5 +21,15 @@
     {
         "key": "ctrl+space g",
         "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+f1",
+        "command": "whichkey.show",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+space",
+        "command": "whichkey.show",
+        "when": "editorTextFocus"
     }
 ]

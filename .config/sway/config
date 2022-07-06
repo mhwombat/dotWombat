@@ -9,8 +9,8 @@ set $logo Mod4
 include colours
 
 # Your preferred terminal emulator
-# set $term foot
-set $term alacritty
+set $term foot
+# set $term alacritty
 
 # Your preferred application launcher
 set $menu bemenu-run --bottom --prompt "" --tb "$base00" --tf "$base05" --nb "$base00" --nf "$base05" --hb "$base0D" --hf "$base00" --ff "$base0A"

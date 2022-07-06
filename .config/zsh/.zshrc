@@ -5,18 +5,8 @@
 ### Prompt options
 ###
 
+export STARSHIP_CONFIG=~/example/non/default/path/starship.toml
 eval "$(starship init zsh)"
-
-#PS1='%~$ '
-# source ${XDG_CONFIG_HOME}/zsh/configure-spaceship
-
-# # Before each prompt...
-# precmd () {
-#     # Set window title to current directory and last command
-#     lastcmd=$(history | tail -n 1 | cut -c7-999)
-#     windowtitle="${PWD/#$HOME/~} : ${lastcmd}"
-#     print -Pn "\e]0;${windowtitle}\a"
-# }
 
 ###
 ### direnv
@@ -52,7 +42,7 @@ setopt HIST_REDUCE_BLANKS
 ###
 
 # If the "command" isn't valid, assume it's a directory and try to cd to it.
-setopt AUTO_CD
+unsetopt AUTO_CD
 
 # Suggest spelling corrections for commands.
 setopt CORRECT

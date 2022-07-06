@@ -16,7 +16,7 @@
 .config/qtile/keyhelp
 .config/river/init
 .config/river/colours
-.config/starship.toml
+.config/starship
 .config/stack/config.yaml
 .config/textadept/init.lua
 .config/textadept/themes/base16-amy.lua
