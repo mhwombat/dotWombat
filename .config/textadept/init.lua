@@ -1,24 +1,10 @@
---require('textredux').hijack()
-
+--textredux = require 'textredux'
 local lsp = require('lsp')
 
 -- require 'theme'
 view:set_theme(not CURSES and 'base16-amy' or 'term')
 
---[[
-
-Hydra key bindings
-
-I try to replace key combinations with key sequences.
-Everything starts with the context menu key, which launches the main hydra.
-From there, the desired action is selected from sub-hydras and sub-sub-hydras.
-
-I can still access the default context menu by pressing Shift+F10.
---]]
-
-local hydra = require('hydra')
-hydra.sep = "\n" -- line return after each key hint
-
+-- >>> IGNORE THIS STUFF; I'M EXPERIMENTING
 local function raw(o)
    if type(o) == 'table' then
       local s = '{ '
@@ -42,6 +28,20 @@ local function enclose_xml_tags()
   print("DEBUG " .. raw(m_sel[_L['Enclose as XML Tags']]))
   print("DEBUG " .. raw(m_sel[_L['Enclose as XML Tags']][2]))
 end
+-- <<< END IGNORE
+
+--[[
+
+Hydra key bindings
+
+I try to replace key combinations with key sequences.
+Everything starts with the context menu key, which launches the main hydra.
+From there, the desired action is selected from sub-hydras and sub-sub-hydras.
+
+I can still access the default context menu by pressing Shift+F10.
+--]]
+
+local hydra = require('hydra')
 
 -- file hydras
 
@@ -288,3 +288,8 @@ local main_hydra = {
 hydra.keys = {
   { key='menu', help='main', action=main_hydra }
 }
+
+keys['ctrl+w'] = function () hydra.run() end
+
+-- We don't need the menu bar; everything is available in a hydra
+if not OSX then events.connect(events.INITIALIZED, function() textadept.menu.menubar = nil end) end
