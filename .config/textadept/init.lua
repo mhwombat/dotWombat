@@ -30,6 +30,12 @@ local function enclose_xml_tags()
 end
 -- <<< END IGNORE
 
+local function open_page(url)
+  local cmd = (WIN32 and 'start ""') or (OSX and 'open') or 'xdg-open'
+  print('DEBUG open_page calling: ' .. string.format('%s "%s"', cmd, not OSX and url or 'file://' .. url))
+  os.spawn(string.format('%s "%s"', cmd, not OSX and url or 'file://' .. url))
+end
+
 --[[
 
 Hydra key bindings
@@ -48,6 +54,7 @@ local hydra = require('hydra')
 local file_hydra = {
   { key='n', help='new', action=buffer.new },
   { key='o', help='open', action=io.open_file },
+  --{ key='o', help='open', action=textredux.fs.open_file },
   { key='r', help='open recent', action=io.open_recent_file },
   { key='s', help='save', action=buffer.save },
   { key='a', help='save as', action=buffer.save_as },
@@ -117,11 +124,11 @@ local word_hydra = {
 }
 
 local bookmark_hydra = {
-  { key='B', help='toggle bookmark', action=textadept.bookmarks.toggle }, --TEST
-  { key='C', help='clear bookmarks', action=textadept.bookmarks.clear }, --TEST
-  { key='right', help='next bookmark', action=function() textadept.bookmarks.goto_mark(true) end }, --TEST
-  { key='left', help='previous bookmark', action=function() textadept.bookmarks.goto_mark(false) end }, --TEST
-  { key='g', help='goto bookmark', action=textadept.bookmarks.goto_mark }, --TEST
+  { key='b', help='toggle bookmark', action=textadept.bookmarks.toggle },
+  { key='c', help='clear bookmarks', action=textadept.bookmarks.clear },
+  { key='right', help='next bookmark', action=function() textadept.bookmarks.goto_mark(true) end, persistent=true },
+  { key='left', help='previous bookmark', action=function() textadept.bookmarks.goto_mark(false) end, persistent=true },
+  { key='g', help='goto bookmark', action=textadept.bookmarks.goto_mark },
 }
 
 local navigation_hydra = {
@@ -205,12 +212,12 @@ local edit_hydra = {
   { key='#', help='toggle block comment', action=textadept.editing.toggle_comment },
   { key='t', help='transpose characters', action=textadept.editing.transpose_chars },
   { key='j', help='join lines', action=textadept.editing.join_lines },
-  --{ key='|', 
-  --  help='pipe to bash', 
-  --  action=function()
-  --           ui.command_entry.run(textadept.editing.filter_through, 'bash')
-  --         end },
-  --{ key='C', C='case', action=case_hydra },
+  { key='|', 
+    help='pipe to bash', 
+    action=function()
+             ui.command_entry.run(textadept.editing.filter_through, 'bash')
+           end },
+  { key='C', help='case', action=case_hydra },
   { key='e', help='enclose', action=enclose_hydra },
   { key='up', help='move selected lines up', action=buffer.move_selected_lines_up, persistent=true },
   { key='down', help='move selected lines down', action=buffer.move_selected_lines_down, persistent=true },
@@ -236,8 +243,8 @@ local history_hydra = {
 -- LSP hydras
 
 local lsp_hydra = {
-  --{ key='?', help='command entry', action=ui.command_entry.run }, --TEST
-  --{ key='?', help='select command', action=function() m.select_command() end }, --TEST
+  { key='\n', help='command entry', action=ui.command_entry.run },
+  { key='s', help='select command', action=function() m.select_command() end },
   { key='r', help='run', action=textadept.run.run },
   { key='c', help='compile', action=textadept.run.compile },
   { key='R', help='set arguments', action=textadept.run.set_arguments },
@@ -252,8 +259,8 @@ local lsp_hydra = {
 -- help hydras
 
 local help_hydra = {
-  --{ key='m', help='show manual', action=function() open_page(_home .. '/docs/manual.html') end }, -- FIXME
-  --{ key='l', help='show luadoc', action=function() open_page(_home .. '/docs/api.html') end }, -- FIXME
+  { key='m', help='show manual', action=function() open_page(_HOME .. '/docs/manual.html') end }, -- FIXME
+  { key='l', help='show luadoc', action=function() open_page(_HOME .. '/docs/api.html') end }, -- FIXME
   { key='a', help='about', action=function()
       ui.dialogs.msgbox{
         title = 'Textadept', text = _RELEASE, informative_text = _COPYRIGHT,
