@@ -17,9 +17,9 @@
 # path
 #
 
-PATH=~/.cabal/bin:${PATH}
-PATH=~/.local/bin:${PATH}
-PATH=~/bin:${PATH}
+PATH=~/github/bin:${PATH}
+# PATH=~/.cabal/bin:${PATH}
+# PATH=~/.local/bin:${PATH}
 PATH=~/github/wain-tools:${PATH}
 
 #
