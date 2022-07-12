@@ -5,18 +5,6 @@ local lsp = require('lsp')
 view:set_theme(not CURSES and 'base16-amy' or 'term')
 
 -- >>> IGNORE THIS STUFF; I'M EXPERIMENTING
-local function raw(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. raw(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
-end
 
 -- Use these synonyms to access functions that are defined in the menus but
 -- not provided by the API.
@@ -44,6 +32,7 @@ local function dump(leader, t)
   end
   ui.print('wombat')
 end
+
 -- <<< END IGNORE
 
 local function open_page(url)
@@ -320,6 +309,39 @@ local session_hydra = hydra.create({
   { key="s", help="save Session", action=textadept.session.save },
 })
 
+-- hydras I'm experimenting with
+
+local chameleon1_hydra = hydra.create({
+  { key='a', help='red', action=buffer.word_left, persistent=true },
+  { key='b', help='orange', action=buffer.word_right, persistent=true },
+})
+
+local chameleon2_hydra = hydra.create({
+  { key='c', help='green', action=buffer.word_left, persistent=true },
+  { key='d', help='blue', action=buffer.word_right, persistent=true },
+--  { key='s', help='change colours', action=function() ui.print(hydra.show_table(experiment_hydra)) end, persistent=true },
+})
+
+local experiment_hydra = hydra.create({
+  { key='c', help='chameleon', action=chameleon1_hydra, persistent=true },
+})
+
+events.connect(events.BUFFER_NEW, function(name)
+  if not new_hydra then
+    new_hydra = chameleon2_hydra
+  end
+  
+  hydra.bind(experiment_hydra, { key='c', help='chameleon', action=new_hydra, persistent=true })
+  
+  if new_hydra == chameleon2_hydra then
+    new_hydra = chameleon1_hydra
+  else
+    new_hydra = chameleon2_hydra
+  end
+end)
+
+-- top-level hydras
+
 local main_hydra = hydra.create({
   { key='f', help='file', action=file_hydra },
   { key='b', help='buffer', action=buffer_hydra },
@@ -333,12 +355,30 @@ local main_hydra = hydra.create({
   { key='?', help='help', action=help_hydra },
   { key=' ', help='complete word', action=function() textadept.editing.autocomplete('word') end },
   { key='S', help='session', action=session_hydra },
+  { key='x', help='experiments', action=experiment_hydra },
   { key="q", help="quit", action=quit },
 })
 
 hydra.keys = hydra.create({
-  { key='menu', help='main', action=main_hydra },
+  { key='ctrl+ ', help='main', action=main_hydra },
 })
 
 -- We don't need the menu bar; everything is available in a hydra
 if not OSX then events.connect(events.INITIALIZED, function() textadept.menu.menubar = nil end) end
+
+session_filename = '.textadept_session'
+
+local function file_exists(name)
+   local f = io.open(name, "r")
+   return f ~= nil and io.close(f)
+end
+
+events.connect(events.INITIALIZED, function()
+  if file_exists(session_filename) then
+    textadept.session.load(session_filename)
+  end
+end)
+
+events.connect(events.QUIT, function()
+  textadept.session.save(session_filename)
+end, 1)
