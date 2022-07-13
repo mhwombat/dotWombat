@@ -1,7 +1,19 @@
 --textredux = require 'textredux'
+
+-- Set up LSP
 local lsp = require('lsp')
 
--- require 'theme'
+lsp.server_commands.lua = 'lua-lsp'
+lsp.server_commands.haskell = 'haskell-language-server --lsp'
+lsp.server_commands.python = 'python-language-server'
+lsp.server_commands.cpp = function()
+  return 'cquery', {
+    cacheDirectory = '/tmp/cquery-cache',
+    compilationDatabaseDirectory = io.get_project_root(),
+    progressReportFrequencyMs = -1
+  }
+end
+
 view:set_theme(not CURSES and 'base16-amy' or 'term')
 
 -- >>> IGNORE THIS STUFF; I'M EXPERIMENTING
@@ -158,6 +170,12 @@ local search_hydra = hydra.create({
 
 -- editing hydras
 
+--local multicursor_hydra = hydra.create({
+--  { key='a', help='add cursor', action=m_multiedit.add_position, persistent=true },
+--  { key='m', help='add multiple cursors at column', action=m_multiedit.add_multiple, persistent=true },
+--  { key='a', help='select all occurrences of word', action=m_multiedit.select_all, persistent=true },
+--})
+
 local select_hydra = hydra.create({
   { key='*', help='all', action=buffer.select_all },
   { key='[', help='between delimiters', action=textadept.editing.select_enclosed }, -- FIXME
@@ -264,8 +282,16 @@ local tool_hydra = hydra.create({
 -- LSP hydras
 
 local lsp_goto_hydra = hydra.create({
-  { key='w', help='go to workspace symbol', action=function() ui.print('not implemented') end }, --FIXME
-  { key='s', help='go to document symbol', action=lsp.goto_symbol }, -- TEST
+  { key='w', help='go to workspace symbol', action=function()
+          local server = servers[buffer:get_lexer()]
+          if not server then return end
+          local button, query = ui.dialogs.inputbox{
+            title = _L['Query Symbol...'], informative_text = _L['Symbol name or name part:'],
+            button1 = _L['OK'], button2 = _L['Cancel']
+          }
+          if button == 1 and query ~= '' then lsp.goto_symbol(query) end
+        end }, --TEST
+  { key='s', help='go to document symbol', action=lsp.goto_symbol },
   { key='c', help='go to declaration', action=lsp.goto_declaration }, -- TEST
   { key='f', help='go to definition', action=lsp.goto_definition }, -- TEST
   { key='t', help='go to type definition', action=lsp.goto_type_definition }, -- TEST
@@ -273,8 +299,8 @@ local lsp_goto_hydra = hydra.create({
 })
 
 local lsp_server_hydra = hydra.create({
-  { key='s', help='start server', action=function() ui.print('not implemented') end }, -- FIXME
-  { key='x', help='stop server', action=function() ui.print('not implemented') end }, -- FIXME
+  { key='s', help='start server', action=lsp.start }, -- FIXME
+  { key='x', help='stop server', action=lsp.stop }, -- FIXME
 })
 
 local lsp_hydra = hydra.create({
@@ -285,7 +311,12 @@ local lsp_hydra = hydra.create({
   { key='s', help='show signature help', action=lsp.signature_help }, -- TEST
   { key='r', help='find references', action=lsp.find_references }, -- TEST
   { key='a', help='select all symbol', action=lsp.select_all_symbol }, -- TEST
-  { key='d', help='toggle show diagnostics', action=function() ui.print('not implemented') end }, -- TEST
+  { key='d', help='toggle show diagnostics', action=function()
+          lsp.show_diagnostics = not lsp.show_diagnostics
+          if not lsp.show_diagnostics then buffer:annotation_clear_all() end
+          ui.statusbar_text = lsp.show_diagnostics and _L['Showing diagnostics'] or
+            _L['Hiding diagnostics']
+        end }, -- TEST
 })
 
 -- help hydras
@@ -326,6 +357,8 @@ local experiment_hydra = hydra.create({
   { key='c', help='chameleon', action=chameleon1_hydra, persistent=true },
 })
 
+-- Every time a new buffer opens, the chameleon key in the experiment_hydra is mapped to the other "colour".
+-- This demostrates how to modify hydra bindings on the fly.
 events.connect(events.BUFFER_NEW, function(name)
   if not new_hydra then
     new_hydra = chameleon2_hydra
@@ -364,8 +397,9 @@ hydra.keys = hydra.create({
 })
 
 -- We don't need the menu bar; everything is available in a hydra
-if not OSX then events.connect(events.INITIALIZED, function() textadept.menu.menubar = nil end) end
+--if not OSX then events.connect(events.INITIALIZED, function() textadept.menu.menubar = nil end) end
 
+-- Each directory can have its own session file.
 session_filename = '.textadept_session'
 
 local function file_exists(name)
@@ -374,11 +408,17 @@ local function file_exists(name)
 end
 
 events.connect(events.INITIALIZED, function()
-  if file_exists(session_filename) then
-    textadept.session.load(session_filename)
+  -- If there aren't any open files (i.e., if the user didn't specify files to
+  -- open on the command line), and there's a session file in the current
+  -- directory, then load the session.
+  if #_BUFFERS < 2 then
+    if file_exists(session_filename) then
+      textadept.session.load(session_filename)
+    end
   end
 end)
 
 events.connect(events.QUIT, function()
+  -- Save the session file in the current directory.
   textadept.session.save(session_filename)
 end, 1)
