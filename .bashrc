@@ -70,13 +70,10 @@ HISTCONTROL="erasedups:ignoreboth"
 # %T equivalent to %H:%M:%S (24-hours format)
 HISTTIMEFORMAT='%F %T '
 
-# Separate history file for each terminal
+# Separate history file for each process
 HISTDIR=$XDG_DATA_HOME/bash-history
 mkdir -p $HISTDIR
-# Convert /dev/nnn/X or /dev/nnnX to "nnnX"
-HISTTTY=`tty | sed 's/\///g;s/^dev//g'`
-# History file is now .bash_history_pts0
-HISTFILE="$HISTDIR/$HISTTTY"
+HISTFILE="$HISTDIR/$BASHPID"
 
 
 # Enable incremental history search with up/down arrows (also Readline goodness)
