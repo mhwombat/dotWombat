@@ -16,17 +16,6 @@ set -o noclobber
 shopt -s checkwinsize
 
 ###
-### prompt
-###
-
-export STARSHIP_CONFIG=~/example/non/default/path/starship.toml
-
-eval "$(starship init bash)"
-
-# # Automatically trim long paths in the prompt (requires Bash 4.x)
-# PROMPT_DIRTRIM=2
-
-###
 ### tab completion (readline bindings)
 ###
 
@@ -82,6 +71,17 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 bind '"\e[C": forward-char'
 bind '"\e[D": backward-char'
+
+###
+### prompt
+###
+
+export STARSHIP_CONFIG=~/example/non/default/path/starship.toml
+
+eval "$(starship init bash)"
+
+# # Automatically trim long paths in the prompt (requires Bash 4.x)
+# PROMPT_DIRTRIM=2
 
 ###
 ### direnv
