@@ -3,16 +3,16 @@
 -- Set up LSP
 local lsp = require('lsp')
 
-lsp.server_commands.lua = 'lua-lsp'
-lsp.server_commands.haskell = 'haskell-language-server --lsp'
-lsp.server_commands.python = 'python-language-server'
-lsp.server_commands.cpp = function()
-  return 'cquery', {
-    cacheDirectory = '/tmp/cquery-cache',
-    compilationDatabaseDirectory = io.get_project_root(),
-    progressReportFrequencyMs = -1
-  }
-end
+--lsp.server_commands.lua = 'lua-lsp'
+--lsp.server_commands.haskell = 'haskell-language-server --lsp'
+--lsp.server_commands.python = 'python-language-server'
+--lsp.server_commands.cpp = function()
+--  return 'cquery', {
+--    cacheDirectory = '/tmp/cquery-cache',
+--    compilationDatabaseDirectory = io.get_project_root(),
+--    progressReportFrequencyMs = -1
+--  }
+--end
 
 view:set_theme(not CURSES and 'base16-amy' or 'term')
 
@@ -394,10 +394,11 @@ local main_hydra = hydra.create({
 
 hydra.keys = hydra.create({
   { key='ctrl+ ', help='main', action=main_hydra },
+  { key='menu', help='main', action=main_hydra },
 })
 
 -- We don't need the menu bar; everything is available in a hydra
---if not OSX then events.connect(events.INITIALIZED, function() textadept.menu.menubar = nil end) end
+if not OSX then events.connect(events.INITIALIZED, function() textadept.menu.menubar = nil end) end
 
 -- Each directory can have its own session file.
 session_filename = '.textadept_session'
@@ -411,7 +412,8 @@ events.connect(events.INITIALIZED, function()
   -- If there aren't any open files (i.e., if the user didn't specify files to
   -- open on the command line), and there's a session file in the current
   -- directory, then load the session.
-  if #_BUFFERS < 2 then
+  -- print ('DEBUG #_BUFFERS',#_BUFFERS)
+  if #_BUFFERS < 1 then
     if file_exists(session_filename) then
       textadept.session.load(session_filename)
     end
