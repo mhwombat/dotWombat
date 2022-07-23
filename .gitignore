@@ -1,6 +1,9 @@
 # Backup files
 *~
 
+# Generated textadept stuff
+.textadept_session
+
 # Generated emacs stuff
 .config/emacs/elpa/
 .config/emacs/url/
