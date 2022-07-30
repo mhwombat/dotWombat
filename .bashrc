@@ -64,6 +64,8 @@ HISTDIR=$XDG_DATA_HOME/bash-history
 mkdir -p $HISTDIR
 HISTFILE="$HISTDIR/$BASHPID"
 
+# Remove old history files
+find $XDG_DATA_HOME/bash-history -type f -mtime +180 -exec rm -rf {} \;
 
 # Enable incremental history search with up/down arrows (also Readline goodness)
 # Learn more about this here: http://codeinthehole.com/writing/the-most-important-command-line-tip-incremental-history-searching-with-inputrc/
