@@ -66,7 +66,7 @@ alias lsexe='find . -maxdepth 1 -type f -executable'
 # functions
 #
 
-function gacic() { git add $*; git commit -m 'initial commit' $* ;}
+function gic() { git add $*; git commit -m 'initial commit' $* ;}
 function fex() { find ${1:-.} -executable -type f ;}
 function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function smd { fmd $2 | xargs grep "$1" ;}
