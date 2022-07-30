@@ -1,5 +1,10 @@
 --textredux = require 'textredux'
 
+keys['ctrl+alt+r'] = textadept.macros.record
+keys['ctrl+alt+p'] = textadept.macros.play
+keys['ctrl+alt+s'] = textadept.macros.save
+keys['ctrl+alt+l'] = textadept.macros.load
+
 -- Set up LSP
 local lsp = require('lsp')
 
@@ -16,41 +21,93 @@ local lsp = require('lsp')
 
 view:set_theme(not CURSES and 'base16-amy' or 'term')
 
--- >>> IGNORE THIS STUFF; I'M EXPERIMENTING
-
--- Use these synonyms to access functions that are defined in the menus but
--- not provided by the API.
-local m_edit = textadept.menu.menubar[_L['Edit']]
-local m_sel = m_edit[_L['Select']]
-
-local function enclose_xml_tags()
-  print("DEBUG " .. raw(m_sel))
-  print("DEBUG " .. raw(m_sel[_L['Enclose as XML Tags']]))
-  print("DEBUG " .. raw(m_sel[_L['Enclose as XML Tags']][2]))
+local function quick_open_dir()
+  if buffer.filename then io.quick_open(buffer.filename:match('^(.+)[/\\]')) end
 end
 
-local function dump(leader, t)
-  ui.print(t)
-  ui.print(raw(t))
-  for k,v in pairs(t) do
-    ui.print(k)
-    s = leader .. k .. ': '
-    if type(v) == 'table' then
-      ui.print(s)
-      dump(leader .. '  ', v)
-    else
-      ui.print(s .. tostring(v))
-    end
+local function enclose_as_xml_tags()
+  buffer:begin_undo_action()
+  textadept.editing.enclose('<', '>')
+  for i = 1, buffer.selections do
+    local s, e = buffer.selection_n_start[i], buffer.selection_n_end[i]
+    while buffer.char_at[s - 1] ~= 60 do s = s - 1 end -- '<'
+    buffer:set_target_range(e, e)
+    buffer:replace_target('</' .. buffer:text_range(s, e))
+    buffer.selection_n_start[i], buffer.selection_n_end[i] = e, e
   end
-  ui.print('wombat')
+  buffer:end_undo_action()
 end
 
--- <<< END IGNORE
+local function set_indentation(i)
+  -- print('Setting tab width to', i)
+  buffer.tab_width = i
+  events.emit(events.UPDATE_UI, 1) -- for updating statusbar
+end
+
+
+local function toggle_use_tabs()
+  buffer.use_tabs = not buffer.use_tabs
+  events.emit(events.UPDATE_UI, 1) -- for updating statusbar
+end
+      
+local function set_eol_mode(mode)
+  buffer.eol_mode = mode
+  buffer:convert_eols(mode)
+  events.emit(events.UPDATE_UI, 1) -- for updating statusbar
+end
+
+local function set_encoding(encoding)
+  buffer:set_encoding(encoding)
+  events.emit(events.UPDATE_UI, 1) -- for updating statusbar
+end
+
+local function toggle_word_wrap()
+  local first_visible_line = view.first_visible_line
+  local display_line = view:visible_from_doc_line(first_visible_line)
+  view.wrap_mode = view.wrap_mode == 0 and view.WRAP_WHITESPACE or 0
+  view:line_scroll(0, first_visible_line - display_line)
+end
+    
+local function toggle_view_whitespace()
+  view.view_ws = view.view_ws == 0 and view.WS_VISIBLEALWAYS or 0
+end
 
 local function open_page(url)
   local cmd = (WIN32 and 'start ""') or (OSX and 'open') or 'xdg-open'
   print('DEBUG open_page calling: ' .. string.format('%s "%s"', cmd, not OSX and url or 'file://' .. url))
   os.spawn(string.format('%s "%s"', cmd, not OSX and url or 'file://' .. url))
+end
+
+local function grow_view()
+  if view.size then view.size = view.size + view:text_height(1) end
+end
+
+local function shrink_view()
+  if view.size then view.size = view.size - view:text_height(1) end
+end
+
+local function toggle_current_fold()
+  local line = buffer:line_from_position(buffer.current_pos)
+  view:toggle_fold(math.max(buffer.fold_parent[line], line))
+end
+
+local function toggle_show_indent_guides()
+  view.indentation_guides = view.indentation_guides == 0 and view.IV_LOOKBOTH or 0
+end
+
+local function toggle_virtual_space()
+  buffer.virtual_space_options = buffer.virtual_space_options == 0 and
+    buffer.VS_USERACCESSIBLE or 0
+end
+
+local function go_to_workspace_symbol()
+  local server = servers[buffer:get_lexer()]
+  if not server then return end
+  local button, query = ui.dialogs.inputbox{
+    title = _L['Query Symbol...'], informative_text = _L['Symbol name or name part:'],
+    button1 = _L['OK'], button2 = _L['Cancel']
+  }
+  if button == 1 and query ~= '' then lsp.goto_symbol(query) end
 end
 
 --[[
@@ -68,35 +125,43 @@ local hydra = require('hydra')
 
 -- file hydras
 
+local quick_open_hydra = hydra.create({
+  { key='c', help='quickly open user config dir', action=function() io.quick_open(_USERHOME) end },
+  { key='t', help='quickly open textadept home', action=function() io.quick_open(_HOME) end },
+  { key='d', help='quickly open current directory', action=quick_open_dir },
+  { key='p', help='quickly open current project', action=io.quick_open }, -- TEST
+})
+
 local file_hydra = hydra.create({
   { key='n', help='new', action=buffer.new },
   { key='o', help='open', action=io.open_file },
   --{ key='o', help='open', action=textredux.fs.open_file },
   { key='r', help='open recent', action=io.open_recent_file },
+  { key='q', help='quick open', action=quick_open_hydra },
   { key='s', help='save', action=buffer.save },
   { key='a', help='save as', action=buffer.save_as },
   { key='c', help='close', action=buffer.close },
   { key='R', help='reload', action=buffer.reload },
-  { key="S", help="save All", action=io.save_all_files }, -- FIXME
+  { key="S", help="save All", action=io.save_all_files },
   { key="C", help="close All", action=io.close_all_buffers },
 })
 
 -- buffer hydras
 
 local tab_hydra = hydra.create({
-  { key='2', help='tab width: 2', action=function() set_indentation(2) end }, -- FIXME
-  { key='3', help='tab width: 3', action=function() set_indentation(3) end }, -- FIXME
-  { key='4', help='tab width: 4', action=function() set_indentation(4) end }, -- FIXME
-  { key='8', help='tab width: 8', action=function() set_indentation(8) end }, -- FIXME
-  --{ key='u', help='toggle use tabs', action=??? }, -- FIXME
-  { key='c', help='convert indentation', action=textadept.editing.convert_indentation }, -- FIXME
+  { key='2', help='tab width: 2', action=function() set_indentation(2) end },
+  { key='3', help='tab width: 3', action=function() set_indentation(3) end },
+  { key='4', help='tab width: 4', action=function() set_indentation(4) end },
+  { key='8', help='tab width: 8', action=function() set_indentation(8) end },
+  { key='u', help='toggle use tabs', action=toggle_use_tabs },
+  { key='c', help='convert indentation', action=textadept.editing.convert_indentation },
 })
 
 local encoding_hydra = hydra.create({
-  { key='8', help='utf-8 encoding', action=function() set_encoding('utf-8') end }, -- FIXME
-  { key='A', help='ascii encoding', action=function() set_encoding('ascii') end }, -- FIXME
-  { key='1', help='cp-1252 encoding', action=function() set_encoding('cp1252') end }, -- FIXME
-  { key='u', help='utf-16 encoding', action=function() set_encoding('utf-16le') end }, -- FIXME
+  { key='8', help='utf-8 encoding', action=function() set_encoding('utf-8') end },
+  { key='a', help='ascii encoding', action=function() set_encoding('ascii') end },
+  { key='1', help='cp-1252 encoding', action=function() set_encoding('cp1252') end },
+  { key='u', help='utf-16 encoding', action=function() set_encoding('utf-16le') end },
 })
 
 local buffer_hydra = hydra.create({
@@ -105,10 +170,10 @@ local buffer_hydra = hydra.create({
   { key='g', help='go to buffer', action=ui.switch_buffer },
   { key='t', help='tab', action=tab_hydra },
   { key='e', help='encoding', action=encoding_hydra },
-  { key='C', help='crlf', action=function() set_eol_mode(buffer.eol_crlf) end }, -- FIXME
-  { key='L', help='lf', action=function() set_eol_mode(buffer.eol_lf) end }, -- FIXME
-  --{ key='w', help='toggle wrap mode', action=FINISH }, -- FIXME
-  --{ key=' ', help='toggle view whitespace', action=FINISH }, --FIXME
+  { key='\n', help='crlf', action=function() set_eol_mode(buffer.eol_crlf) end }, -- FIXME
+  { key='down', help='lf', action=function() set_eol_mode(buffer.eol_lf) end }, -- FIXME
+  { key='w', help='toggle wrap mode', action=toggle_word_wrap },
+  { key=' ', help='toggle view whitespace', action=toggle_view_whitespace },
   { key='l', help='select lexer', action=textadept.file_types.select_lexer },
 })
 
@@ -119,13 +184,13 @@ local view_hydra = hydra.create({
   { key='left', help='previous view', action=function() ui.goto_view(-1) end, persistent=true },
   { key='_', help='split view horizontal', action=function() view:split() end },
   { key='|', help='split view vertical', action=function() view:split(true) end },
-  { key='u', help='unsplit view', action=function() view:unsplit() end }, -- TEST
-  --{ key='U', help='unsplit all views', action=function() while view:unsplit() do end end }, -- FIXME
-  --{ key='g', help='grow view', action=FINISH }, -- TEST
-  --{ key='s', help='shrink view', action=FINISH }, -- TEST
-  --{ key='?', help='toggle current fold', action=FINISH }, -- TEST
-  --{ key='?', help='toggle show indent guides', action=FINISH }, -- TEST
-  --{ key='?', help='toggle virtual space', action=FINISH }, -- TEST
+  { key='u', help='unsplit view', action=function() view:unsplit() end },
+  { key='U', help='unsplit all views', action=function() while view:unsplit() do end end },
+  { key='g', help='grow view', action=grow_view },
+  { key='s', help='shrink view', action=shrink_view },
+  { key='f', help='toggle current fold', action=toggle_current_fold },
+  { key='i', help='toggle show indent guides', action=toggle_show_indent_guides }, 
+  { key='v', help='toggle virtual space', action=toggle_virtual_space },
   { key='+', help='zoom in', action=view.zoom_in, persistent=true },
   { key='-', help='zoom out', action=view.zoom_out, persistent=true },
   { key='1', help='reset zoom', action=function() view.zoom = 0 end },
@@ -178,9 +243,9 @@ local search_hydra = hydra.create({
 
 local select_hydra = hydra.create({
   { key='*', help='all', action=buffer.select_all },
-  { key='[', help='between delimiters', action=textadept.editing.select_enclosed }, -- FIXME
-  { key='<', help='between XML Tags', action=function() textadept.editing.select_enclosed('>', '<') end }, -- FIXME
-  { key=' ', help='in XML Tag', action=function() textadept.editing.select_enclosed('<', '>') end }, -- FIXME
+  { key='[', help='between delimiters', action=textadept.editing.select_enclosed },
+  { key='<', help='between XML Tags', action=function() textadept.editing.select_enclosed('>', '<') end },
+  { key=' ', help='in XML Tag', action=function() textadept.editing.select_enclosed('<', '>') end },
   { key='w', help='word', action=textadept.editing.select_word, persistent=true },
   { key='l', help='line', action=textadept.editing.select_line, persistent=true },
   { key='p', help='paragraph', action=textadept.editing.select_paragraph, persistent=true },
@@ -192,28 +257,21 @@ local case_hydra = hydra.create({
 })
 
 local enclose_hydra = hydra.create({
-  { key='X', help='enclose as xml tags', action=enclose_xml_tags }, -- FIXME
-  { key='x', help='enclose as single xml tag', action=function() enc('<', ' />') end }, -- FIXME
-  { key="'", help='enclose in single quotes', action=function() enc("'", "'") end }, -- FIXME
-  { key='"', help='enclose in double quotes', action=function() enc('"', '"') end }, -- FIXME
-  { key='(', help='enclose in parentheses', action=function() enc('(', ')') end }, -- FIXME
-  { key='[', help='enclose in brackets', action=function() enc('[', ']') end }, -- FIXME
-  { key='{', help='enclose in braces', action=function() enc('{', ' }') end}, -- FIXME
+  { key='X', help='enclose as xml tags', action=enclose_as_xml_tags },
+  { key='x', help='enclose as single xml tag', action=function() textadept.editing.enclose('<', ' />') end },
+  { key="'", help='enclose in single quotes', action=function() textadept.editing.enclose("'", "'") end },
+  { key='"', help='enclose in double quotes', action=function() textadept.editing.enclose('"', '"') end },
+  { key='(', help='enclose in parentheses', action=function() textadept.editing.enclose('(', ')') end },
+  { key='[', help='enclose in brackets', action=function() textadept.editing.enclose('[', ']') end },
+  { key='{', help='enclose in braces', action=function() textadept.editing.enclose('{', ' }') end},
 })
 
-local macro_hydra = hydra.create({
-  { key='r', help='start/stop recording', action=textadept.macros.record }, -- TEST
-  { key='p', help='play', action=textadept.macros.play }, -- TEST
-  { key='s', help='save', action=textadept.macros.save }, -- TEST
-  { key='l', help='load', action=textadept.macros.load }, -- TEST
-})
-
-local quick_open_hydra = hydra.create({
-  { key='h', help='quickly open user home', action=function() io.quick_open(_userhome) end }, -- TEST
-  { key='t', help='quickly open textadept home', action=function() io.quick_open(_home) end }, -- TEST
-  --{ key='d', help='quickly open current directory', action=FINISH }, --FIXME
-  { key='p', help='quickly open current project', action=io.quick_open }, -- TEST
-})
+--local macro_hydra = hydra.create({
+--  { key='r', help='start/stop recording', action=textadept.macros.record },
+--  { key='p', help='play', action=textadept.macros.play },
+--  { key='s', help='save', action=textadept.macros.save },
+--  { key='l', help='load', action=textadept.macros.load },
+--})
 
 local snippet_hydra = hydra.create({
   { key='i', help='insert snippet', action=textadept.snippets.select }, -- TEST
@@ -245,8 +303,7 @@ local edit_hydra = hydra.create({
   { key='up', help='move selected lines up', action=buffer.move_selected_lines_up, persistent=true },
   { key='down', help='move selected lines down', action=buffer.move_selected_lines_down, persistent=true },
   --{ key='P', help='preferences', action=function() io.open_file(_userhome .. '/init.lua') end }, -- FIXME
-  { key='m', help='macros', action=macro_hydra },
-  { key='q', help='quick open', action=quick_open_hydra },
+  --{ key='m', help='macros', action=macro_hydra },
   { key='S', help='snippets', action=snippet_hydra },
   --{ key='?', help='complete trigger word', action=function() textadept.editing.autocomplete('snippets') end } -- TEST
   --{ key='?', help='complete symbol', action=function() textadept.editing.autocomplete(buffer:get_lexer(true)) end }, -- TEST
@@ -276,21 +333,12 @@ local tool_hydra = hydra.create({
   { key='x', help='stop', action=textadept.run.stop, persistent=true }, -- TEST
   { key='right', help='next error', action=function() textadept.run.goto_error(true) end, persistent=true }, -- TEST
   { key='left', help='previous error', action=function() textadept.run.goto_error(false) end, persistent=true }, -- TEST
-  --{ key='S', help='server', action=FINISH }, -- TEST
 })
 
 -- LSP hydras
 
 local lsp_goto_hydra = hydra.create({
-  { key='w', help='go to workspace symbol', action=function()
-          local server = servers[buffer:get_lexer()]
-          if not server then return end
-          local button, query = ui.dialogs.inputbox{
-            title = _L['Query Symbol...'], informative_text = _L['Symbol name or name part:'],
-            button1 = _L['OK'], button2 = _L['Cancel']
-          }
-          if button == 1 and query ~= '' then lsp.goto_symbol(query) end
-        end }, --TEST
+  { key='w', help='go to workspace symbol', action=go_to_workspace_symbol }, --TEST
   { key='s', help='go to document symbol', action=lsp.goto_symbol },
   { key='c', help='go to declaration', action=lsp.goto_declaration }, -- TEST
   { key='f', help='go to definition', action=lsp.goto_definition }, -- TEST
@@ -400,6 +448,14 @@ hydra.keys = hydra.create({
 -- We don't need the menu bar; everything is available in a hydra
 if not OSX then events.connect(events.INITIALIZED, function() textadept.menu.menubar = nil end) end
 
+--[[
+
+Session handling.
+
+I'm not using textadept's built-in session handling; I do my own thing.
+
+--]]
+
 -- Each directory can have its own session file.
 session_filename = '.textadept_session'
 
@@ -408,19 +464,21 @@ local function file_exists(name)
    return f ~= nil and io.close(f)
 end
 
+-- When textadept finishes initialising, decide whether or not to load a session.
+-- If the user didn't specify files to open on the command line, and there's a
+-- session file in the current directory, then load the session.
 events.connect(events.INITIALIZED, function()
-  -- If there aren't any open files (i.e., if the user didn't specify files to
-  -- open on the command line), and there's a session file in the current
-  -- directory, then load the session.
   -- print ('DEBUG #_BUFFERS',#_BUFFERS)
-  if #_BUFFERS < 1 then
+  if #_BUFFERS < 2 then
+    -- There's only one open buffer (the default empty one), so we know that
+    -- the user didn't specify files to open on the command line.
     if file_exists(session_filename) then
       textadept.session.load(session_filename)
     end
   end
 end)
 
+-- When textadept closes, save the session file in the current directory.
 events.connect(events.QUIT, function()
-  -- Save the session file in the current directory.
   textadept.session.save(session_filename)
 end, 1)
