@@ -30,6 +30,7 @@ PATH=~/github/wain-tools:${PATH}
 # alias ls='colorls'
 # alias doom='~/.emacs.d/bin/doom'
 # alias emacs='~/.emacs.d/bin/doom run'
+alias passgen='/home/amy/github/criptithe/encrypted/passgen'
 alias snap='grim -g "$(slurp)"'
 alias tad='textadept --force --nosession --userhome $XDG_CONFIG_HOME/textadept'
 alias longestLine='awk '\''{ if (length($0) > max) {max = length($0); maxline = $0} } END { print maxline }'\'''
@@ -65,6 +66,7 @@ alias lsexe='find . -maxdepth 1 -type f -executable'
 # functions
 #
 
+function gacic() { git add $*; git commit -m 'initial commit' $* ;}
 function fex() { find ${1:-.} -executable -type f ;}
 function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function smd { fmd $2 | xargs grep "$1" ;}
