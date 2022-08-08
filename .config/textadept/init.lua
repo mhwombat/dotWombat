@@ -1,5 +1,7 @@
 --textredux = require 'textredux'
 
+textadept.editing.strip_trailing_spaces = true
+
 keys['ctrl+alt+r'] = textadept.macros.record
 keys['ctrl+alt+p'] = textadept.macros.play
 keys['ctrl+alt+s'] = textadept.macros.save
@@ -49,7 +51,7 @@ local function toggle_use_tabs()
   buffer.use_tabs = not buffer.use_tabs
   events.emit(events.UPDATE_UI, 1) -- for updating statusbar
 end
-      
+
 local function set_eol_mode(mode)
   buffer.eol_mode = mode
   buffer:convert_eols(mode)
@@ -67,7 +69,7 @@ local function toggle_word_wrap()
   view.wrap_mode = view.wrap_mode == 0 and view.WRAP_WHITESPACE or 0
   view:line_scroll(0, first_visible_line - display_line)
 end
-    
+
 local function toggle_view_whitespace()
   view.view_ws = view.view_ws == 0 and view.WS_VISIBLEALWAYS or 0
 end
@@ -189,7 +191,7 @@ local view_hydra = hydra.create({
   { key='g', help='grow view', action=grow_view },
   { key='s', help='shrink view', action=shrink_view },
   { key='f', help='toggle current fold', action=toggle_current_fold },
-  { key='i', help='toggle show indent guides', action=toggle_show_indent_guides }, 
+  { key='i', help='toggle show indent guides', action=toggle_show_indent_guides },
   { key='v', help='toggle virtual space', action=toggle_virtual_space },
   { key='+', help='zoom in', action=view.zoom_in, persistent=true },
   { key='-', help='zoom out', action=view.zoom_out, persistent=true },
@@ -293,8 +295,8 @@ local edit_hydra = hydra.create({
   { key='#', help='toggle block comment', action=textadept.editing.toggle_comment, persistent=true },
   { key='t', help='transpose characters', action=textadept.editing.transpose_chars, persistent=true },
   { key='j', help='join lines', action=textadept.editing.join_lines },
-  { key='|', 
-    help='pipe to bash', 
+  { key='|',
+    help='pipe to bash',
     action=function()
              ui.command_entry.run(textadept.editing.filter_through, 'bash')
            end },
@@ -411,9 +413,9 @@ events.connect(events.BUFFER_NEW, function(name)
   if not new_hydra then
     new_hydra = chameleon2_hydra
   end
-  
+
   hydra.bind(experiment_hydra, { key='c', help='chameleon', action=new_hydra, persistent=true })
-  
+
   if new_hydra == chameleon2_hydra then
     new_hydra = chameleon1_hydra
   else
@@ -468,11 +470,19 @@ end
 -- If the user didn't specify files to open on the command line, and there's a
 -- session file in the current directory, then load the session.
 events.connect(events.INITIALIZED, function()
-  -- print ('DEBUG #_BUFFERS',#_BUFFERS)
-  if #_BUFFERS < 2 then
+--  print ('DEBUG #_BUFFERS',#_BUFFERS)
+--  for n=0,#_BUFFERS,1 do
+--    buffer=_BUFFERS[n]
+--    print('DEBUG ',n,buffer.tab_label,buffer.filename)
+--    for k,v in pairs(buffer) do
+--      print("...",k,v,type(v))
+--    end
+--  end
+  if (#_BUFFERS < 1) or (_BUFFERS[1].filename == nil) then
     -- There's only one open buffer (the default empty one), so we know that
     -- the user didn't specify files to open on the command line.
     if file_exists(session_filename) then
+      -- print ('DEBUG loading session')
       textadept.session.load(session_filename)
     end
   end
@@ -482,3 +492,99 @@ end)
 events.connect(events.QUIT, function()
   textadept.session.save(session_filename)
 end, 1)
+
+
+  --ui.statusbar_text = "code=" .. tostring(code) .. " shift=" .. tostring(shift)
+  --                      .. " control=" .. tostring(control) .. " alt=" .. tostring(alt)
+  --                      .. " cmd=" .. tostring(cmd) .. " caps=" .. tostring(caps)
+
+--[[
+TEMPORARY INVESTIGATION STUFF
+events.connect(events.KEYPRESS, function(code, shift, control, alt, cmd, caps)
+  ui.print(code, keys.KEYSYMS[code], shift, control, alt, cmd, caps)
+  return
+end, 1)
+--]]
+
+local function debugKeypress(code, shift, control, alt, cmd, caps)
+  print("DEBUG 1", code, keys.KEYSYMS[code], shift, control, alt, cmd, caps)
+
+  if caps and (shift or control or alt or cmd) and code < 256 then
+    code = string[shift and 'upper' or 'lower'](string.char(code)):byte()
+  end
+  print("DEBUG 2", code)
+
+  local key = code >= 32 and code < 256 and string.char(code) or keys.KEYSYMS[code]
+  print("DEBUG 3", key)
+  if not key then
+    return
+  end
+
+  -- Since printable characters are uppercased, disable shift.
+  if shift and code >= 32 and code < 256 then
+    shift = false
+  end
+  print("DEBUG 4", shift)
+
+  -- For composed keys on macOS, ignore alt.
+  if OSX and alt and code < 256 then
+    alt = false
+  end
+  print("DEBUG 5", alt)
+
+  local key_seq = (control and CTRL or '')
+    .. (alt and ALT or '')
+    .. (cmd and OSX and CMD or '')
+    .. (shift and SHIFT or '')
+    .. key
+  print("DEBUG 6", key_seq)
+
+  return
+end
+
+--debugKeypress(92, false, false, false, false, false)
+--
+--events.connect(events.KEYPRESS, function(code, shift, control, alt, cmd, caps)
+--  print("-----")
+--  debugKeypress(code, keys.KEYSYMS[code], shift, control, alt, cmd, caps)
+--  return
+--end, 1)
+
+--[[
+TEMPORARY INVESTIGATION STUFF
+events.connect(events.KEYPRESS, function(code, shift, control, alt, cmd, caps)
+  ui.print("DEBUG 1", code, keys.KEYSYMS[code], shift, control, alt, cmd, caps)
+
+  if caps and (shift or control or alt or cmd) and code < 256 then
+    code = string[shift and 'upper' or 'lower'](string.char(code)):byte()
+  end
+  ui.print("DEBUG 2", code)
+
+  local key = code >= 32 and code < 256 and string.char(code) or keys.KEYSYMS[code]
+  ui.print("DEBUG 3", key)
+  if not key then
+    return
+  end
+
+  -- Since printable characters are uppercased, disable shift.
+  if shift and code >= 32 and code < 256 then
+    shift = false
+  end
+  ui.print("DEBUG 4", shift)
+
+  -- For composed keys on macOS, ignore alt.
+  if OSX and alt and code < 256 then
+    alt = false
+  end
+  ui.print("DEBUG 5", alt)
+
+  local key_seq = (control and CTRL or '')
+    .. (alt and ALT or '')
+    .. (cmd and OSX and CMD or '')
+    .. (shift and SHIFT or '')
+    .. key
+  ui.print("DEBUG 6", key_seq)
+
+  return
+end, 1)
+--]]
