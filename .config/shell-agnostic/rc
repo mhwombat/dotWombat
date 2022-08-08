@@ -30,6 +30,7 @@ PATH=~/github/wain-tools:${PATH}
 # alias ls='colorls'
 # alias doom='~/.emacs.d/bin/doom'
 # alias emacs='~/.emacs.d/bin/doom run'
+alias wdf="wdiff -n -w $'\033[30;41m' -x $'\033[0m' -y $'\033[30;42m' -z $'\033[0m'"
 alias passgen='/home/amy/github/criptithe/encrypted/passgen'
 alias snap='grim -g "$(slurp)"'
 alias tad='textadept --force --nosession --userhome $XDG_CONFIG_HOME/textadept'
