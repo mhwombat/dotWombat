@@ -75,6 +75,7 @@ function fipynb() { find ${1:-.} -name '*.ipynb' | grep -v ipynb_checkpoints | s
 function sipynb { fipynb $2 | xargs grep "$1" ;}
 function fhs() { find ${1:-.} -name dist-newstyle -prune -o -name '*.hs' -print | sort ;}
 function shs { fhs $2 | xargs grep "$1" ;}
+function stylish { stylish-haskell --inplace --recursive ${1:-.} ;}
 function flua() { find ${1:-.} -name '*.lua' -print | sort ;}
 function slua { flua $2 | xargs grep "$1" ;}
 function idea() { jot -d=${HOME}/github/ideas -t="$*" ;}
