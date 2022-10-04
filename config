@@ -6,6 +6,7 @@
 .config/emacs/amy
 .config/foot/foot.ini
 .config/git/config
+.config/git/gitignore
 .config/hikari/hikari.conf
 .config/kitty/kitty.conf
 .config/offlineimap/config

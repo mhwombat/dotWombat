@@ -12,3 +12,5 @@
 	defaultBranch = master
 [pull]
 	rebase = true
+[core]
+	excludesFile = /home/amy/.config/git/gitignore
