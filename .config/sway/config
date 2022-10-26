@@ -87,6 +87,10 @@ input type:keyboard {
     bindsym $logo+3 workspace number 3
     bindsym $logo+4 workspace number 4
     bindsym $logo+5 workspace number 5
+    bindsym $logo+6 workspace number 6
+    bindsym $logo+7 workspace number 7
+    bindsym $logo+8 workspace number 8
+    bindsym $logo+9 workspace number 9
     bindsym $logo+e workspace "emacs"
     bindsym $logo+h workspace "haskell"
     bindsym $logo+m workspace "maths"
@@ -100,6 +104,10 @@ input type:keyboard {
     bindsym $logo+Shift+3 move container to workspace number 3
     bindsym $logo+Shift+4 move container to workspace number 4
     bindsym $logo+Shift+5 move container to workspace number 5
+    bindsym $logo+Shift+6 move container to workspace number 6
+    bindsym $logo+Shift+7 move container to workspace number 7
+    bindsym $logo+Shift+8 move container to workspace number 8
+    bindsym $logo+Shift+9 move container to workspace number 9
     bindsym $logo+Shift+e move container to workspace "emacs"
     bindsym $logo+Shift+h move container to workspace "haskell"
     bindsym $logo+Shift+m move container to workspace "maths"
@@ -125,7 +133,7 @@ input type:keyboard {
     # Make the current focus fullscreen
     bindsym Ctrl+$logo+Shift+f fullscreen toggle
 
-    
+
 #
 # Scratchpad:
 #
