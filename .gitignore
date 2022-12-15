@@ -17,6 +17,7 @@ themes/previews
 .config/zsh/configure-spaceship
 .config/starship/starship.toml
 .config/textadept/themes/base16-amy.lua
+.config/foot/foot.ini
 
 # Generated Python stuff
 __pycache__
