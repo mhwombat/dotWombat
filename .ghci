@@ -1,6 +1,7 @@
 :set prompt "λ> "
 :set -XUnicodeSyntax
 :set -XScopedTypeVariables
+:set -XImportQualifiedPost
 :set -isrc:test
 -- :set -package=QuickCheck
 -- :set -package=test-framework-quickcheck2
