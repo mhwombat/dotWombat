@@ -47,7 +47,7 @@ input type:keyboard {
 #
 # Basics:
 #
-    bindsym $logo+Shift+Slash exec /home/amy/bin/keyhelp # Show key help
+    bindsym $logo+Shift+Slash exec /home/amy/github/bin/keyhelp # Show key help
     bindsym Pause exec swaylock                          # Lock screen
     bindsym Ctrl+$logo+r reload
     bindsym Ctrl+$logo+q exec swaynag -t warning -m 'Do you really want to exit sway?' -b 'Yes' 'swaymsg exit' # Exit sway and log out
@@ -56,7 +56,7 @@ input type:keyboard {
     bindsym $logo+Shift+Return exec $term # Launch terminal
     bindsym $logo+Delete kill             # Kill focused window
 
-    bindsym Ctrl+$logo+Return exec /home/amy/bin/sway-tree-switcher # Window menu
+    bindsym Ctrl+$logo+Return exec /home/amy/github/bin/sway-tree-switcher # Window menu
 
     # Drag floating windows by holding down $logo and left mouse button.
     # Resize them with right mouse button + $logo.
