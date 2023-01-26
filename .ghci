@@ -2,7 +2,7 @@
 :set -XUnicodeSyntax
 :set -XScopedTypeVariables
 :set -XImportQualifiedPost
-:set -isrc:test
+:set -isrc:test:app
 -- :set -package=QuickCheck
 -- :set -package=test-framework-quickcheck2
 -- :set -package=test-framework
