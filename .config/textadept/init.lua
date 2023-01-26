@@ -10,8 +10,11 @@ keys['ctrl+alt+l'] = textadept.macros.load
 -- Set up LSP
 local lsp = require('lsp')
 
---lsp.server_commands.lua = 'lua-lsp'
---lsp.server_commands.haskell = 'haskell-language-server --lsp'
+-- For debugging, inspect the LSP messages sent back and forth
+--lsp.log_rpc = true
+
+-- lsp.server_commands.lua = 'lua-lsp'
+-- lsp.server_commands.haskell = 'haskell-language-server --lsp'
 --lsp.server_commands.python = 'python-language-server'
 --lsp.server_commands.cpp = function()
 --  return 'cquery', {
@@ -176,7 +179,7 @@ local buffer_hydra = hydra.create({
   { key='down', help='lf', action=function() set_eol_mode(buffer.eol_lf) end }, -- FIXME
   { key='w', help='toggle wrap mode', action=toggle_word_wrap },
   { key=' ', help='toggle view whitespace', action=toggle_view_whitespace },
-  { key='l', help='select lexer', action=textadept.file_types.select_lexer },
+  -- FIXME { key='l', help='select lexer', action=textadept.file_types.select_lexer },
 })
 
 -- view hydras
@@ -329,7 +332,7 @@ local tool_hydra = hydra.create({
   { key='s', help='select command', action=function() m.select_command() end, persistent=true },
   { key='r', help='run', action=textadept.run.run, persistent=true },
   { key='c', help='compile', action=textadept.run.compile, persistent=true },
-  { key='R', help='set arguments', action=textadept.run.set_arguments, persistent=true },
+  -- FIXME { key='R', help='set arguments', action=textadept.run.set_arguments, persistent=true },
   { key='b', help='build', action=textadept.run.build, persistent=true },
   { key='t', help='run tests', action=textadept.run.test, persistent=true },
   { key='x', help='stop', action=textadept.run.stop, persistent=true }, -- TEST
@@ -448,7 +451,7 @@ hydra.keys = hydra.create({
 })
 
 -- We don't need the menu bar; everything is available in a hydra
-if not OSX then events.connect(events.INITIALIZED, function() textadept.menu.menubar = nil end) end
+--if not OSX then events.connect(events.INITIALIZED, function() textadept.menu.menubar = nil end) end
 
 --[[
 
