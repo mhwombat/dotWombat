@@ -40,6 +40,7 @@ alias hgrep='history | grep'
 alias ahgrep='all-history | grep'
 alias zgrep='cat ${XDG_CACHE_HOME}/zsh/history | grep'
 alias ngrep='notes | grep -i'
+alias cabal-init="nix-shell --packages ghc cabal-install  --run 'cabal init --interactive'"
 alias cb='cabal build --ghc-options=-Werror'
 alias cbt='cabal build --ghc-options=-Werror && cabal test'
 alias cbti='cabal build --ghc-options=-Werror && cabal test && cabal install --installdir=.'
@@ -47,7 +48,7 @@ alias cfresh='cabal check ; cabal outdated ; cabal --disable-nix gen-bounds'
 alias cgb='cabal --disable-nix gen-bounds | sed -n "s/\(.* >= .*\),/    , \1/p" | sort'
 alias ffzy='find ~ -type f | fzy'
 alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
-alias eod="git-summary ~ ; git-summary ~/github"
+alias eod="git-summary ~ ; git-summary ~/github ; git-summary ~/codeberg"
 alias roll="format-zpl | lpr -P Zebra -o raw"
 alias pick-colour='grim -g "$(slurp -p)" -t ppm - | convert - -format "%[pixel:p{0,0}]" txt:-'
 # alias snrsu='cd ~/github/nixos-config && sudo nix flake update && sudo nixos-rebuild switch --upgrade'
@@ -62,6 +63,7 @@ alias ff='firefox --new-window'
 alias nfi='nix flake init -t github:serokell/templates#haskell-cabal2nix'
 alias ods='onedrive --synchronize'
 alias lsexe='find . -maxdepth 1 -type f -executable'
+alias gfu='git commit flake.lock -m "flake update"'
 
 #
 # functions
