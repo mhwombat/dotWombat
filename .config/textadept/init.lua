@@ -282,7 +282,7 @@ local snippet_hydra = hydra.create({
   { key='i', help='insert snippet', action=textadept.snippets.select }, -- TEST
   { key='x', help='expand snippet/next placeholder', action=textadept.snippets.insert }, -- TEST
   { key='left', help='previous snippet placeholder', action=textadept.snippets.previous }, -- TEST
-  { key='z', help='cancel snippet', action=textadept.snippets.cancel_current }, -- TEST
+--  { key='z', help='cancel snippet', action=textadept.snippets.cancel_current }, -- TODO Fix
 })
 
 local edit_hydra = hydra.create({
@@ -296,7 +296,7 @@ local edit_hydra = hydra.create({
   { key='2', help='duplicate', action=buffer.selection_duplicate, persistent=true },
   { key='shift+del', help='delete', action=buffer.clear, persistent=true },
   { key='#', help='toggle block comment', action=textadept.editing.toggle_comment, persistent=true },
-  { key='t', help='transpose characters', action=textadept.editing.transpose_chars, persistent=true },
+--  { key='t', help='transpose characters', action=textadept.editing.transpose_chars, persistent=true }, -- TODO Fix
   { key='j', help='join lines', action=textadept.editing.join_lines },
   { key='|',
     help='pipe to bash',
