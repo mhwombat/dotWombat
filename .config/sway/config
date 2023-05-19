@@ -48,15 +48,18 @@ input type:keyboard {
 # Basics:
 #
     bindsym $logo+Shift+Slash exec /home/amy/github/bin/keyhelp # Show key help
-    bindsym Pause exec swaylock                          # Lock screen
-    bindsym Ctrl+$logo+r reload
-    bindsym Ctrl+$logo+q exec swaynag -t warning -m 'Do you really want to exit sway?' -b 'Yes' 'swaymsg exit' # Exit sway and log out
+    bindsym $logo+Help        exec /home/amy/github/bin/keyhelp # Show key help
+    bindsym Pause exec        swaylock                          # Lock screen
+    bindsym Ctrl+$logo+r      reload
+    bindsym Ctrl+$logo+Return reload
+    bindsym Ctrl+$logo+q      exec swaynag -t warning -m 'Do you really want to exit sway?' -b 'Yes' 'swaymsg exit' # Exit sway and log out
+#    bindsym $logo+Esc         exec swaynag -t warning -m 'Do you really want to exit sway?' -b 'Yes' 'swaymsg exit' # Exit sway and log out
 
     bindsym $logo+Return exec $menu       # Show launch menu
     bindsym $logo+Shift+Return exec $term # Launch terminal
-    bindsym $logo+Delete kill             # Kill focused window
+    bindsym Shift+Delete kill             # Kill focused window
 
-    bindsym Ctrl+$logo+Return exec /home/amy/github/bin/sway-tree-switcher # Window menu
+#    bindsym Ctrl+$logo+Return exec /home/amy/github/bin/sway-tree-switcher # Window menu
 
     # Drag floating windows by holding down $logo and left mouse button.
     # Resize them with right mouse button + $logo.
@@ -82,39 +85,31 @@ input type:keyboard {
 #
 # Workspaces:
 #
-    bindsym $logo+1 workspace number 1
-    bindsym $logo+2 workspace number 2
-    bindsym $logo+3 workspace number 3
-    bindsym $logo+4 workspace number 4
-    bindsym $logo+5 workspace number 5
-    bindsym $logo+6 workspace number 6
-    bindsym $logo+7 workspace number 7
-    bindsym $logo+8 workspace number 8
-    bindsym $logo+9 workspace number 9
-    bindsym $logo+e workspace "emacs"
-    bindsym $logo+h workspace "haskell"
-    bindsym $logo+m workspace "maths"
-    bindsym $logo+n workspace "nixos"
-    bindsym $logo+p workspace "play"
-    bindsym $logo+s workspace "sway"
-    bindsym $logo+v workspace "vmware"
+    bindsym $logo+f1 workspace "WS_1"
+    bindsym $logo+f2 workspace "WS_2"
+    bindsym $logo+f3 workspace "WS_3"
+    bindsym $logo+f4 workspace "WS_4"
+    bindsym $logo+f5 workspace "WS_5"
+    bindsym $logo+f6 workspace "WS_6"
+    bindsym $logo+f7 workspace "WS_7"
+    bindsym $logo+f8 workspace "WS_8"
+    bindsym $logo+f9 workspace "WS_9"
+    bindsym $logo+f10 workspace "WS_10"
+    bindsym $logo+f11 workspace "WS_11"
+    bindsym $logo+f12 workspace "WS_12"
 
-    bindsym $logo+Shift+1 move container to workspace number 1
-    bindsym $logo+Shift+2 move container to workspace number 2
-    bindsym $logo+Shift+3 move container to workspace number 3
-    bindsym $logo+Shift+4 move container to workspace number 4
-    bindsym $logo+Shift+5 move container to workspace number 5
-    bindsym $logo+Shift+6 move container to workspace number 6
-    bindsym $logo+Shift+7 move container to workspace number 7
-    bindsym $logo+Shift+8 move container to workspace number 8
-    bindsym $logo+Shift+9 move container to workspace number 9
-    bindsym $logo+Shift+e move container to workspace "emacs"
-    bindsym $logo+Shift+h move container to workspace "haskell"
-    bindsym $logo+Shift+m move container to workspace "maths"
-    bindsym $logo+Shift+n move container to workspace "nixos"
-    bindsym $logo+Shift+p move container to workspace "play"
-    bindsym $logo+Shift+s move container to workspace "sway"
-    bindsym $logo+Shift+v move container to workspace "vmware"
+    bindsym $logo+Shift+f1 move container to workspace "WS_1"
+    bindsym $logo+Shift+f2 move container to workspace "WS_2"
+    bindsym $logo+Shift+f3 move container to workspace "WS_3"
+    bindsym $logo+Shift+f4 move container to workspace "WS_4"
+    bindsym $logo+Shift+f5 move container to workspace "WS_5"
+    bindsym $logo+Shift+f6 move container to workspace "WS_6"
+    bindsym $logo+Shift+f7 move container to workspace "WS_7"
+    bindsym $logo+Shift+f8 move container to workspace "WS_8"
+    bindsym $logo+Shift+f9 move container to workspace "WS_9"
+    bindsym $logo+Shift+f10 move container to workspace "WS_10"
+    bindsym $logo+Shift+f11 move container to workspace "WS_11"
+    bindsym $logo+Shift+f12 move container to workspace "WS_12"
 
 #
 # Layout stuff:
