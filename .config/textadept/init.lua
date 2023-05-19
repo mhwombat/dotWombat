@@ -11,10 +11,10 @@ keys['ctrl+alt+l'] = textadept.macros.load
 local lsp = require('lsp')
 
 -- For debugging, inspect the LSP messages sent back and forth
---lsp.log_rpc = true
+lsp.log_rpc = true
 
--- lsp.server_commands.lua = 'lua-lsp'
--- lsp.server_commands.haskell = 'haskell-language-server --lsp'
+--lsp.server_commands.lua = 'lua-lsp'
+--lsp.server_commands.haskell = 'haskell-language-server --lsp'
 --lsp.server_commands.python = 'python-language-server'
 --lsp.server_commands.cpp = function()
 --  return 'cquery', {
