@@ -46,6 +46,9 @@ alias cbt='cabal build --ghc-options=-Werror && cabal test'
 alias cbti='cabal build --ghc-options=-Werror && cabal test && cabal install --installdir=.'
 alias cfresh='cabal check ; cabal outdated ; cabal --disable-nix gen-bounds'
 alias cgb='cabal --disable-nix gen-bounds | sed -n "s/\(.* >= .*\),/    , \1/p" | sort'
+alias chd='cabal haddock --haddock-for-hackage'
+alias cu='cabal upload -u AmyDeBuitleir -p'
+alias cud='cabal upload --documentation -u AmyDeBuitleir -p'
 alias ffzy='find ~ -type f | fzy'
 alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
 alias eod="git-summary ~ ; git-summary ~/github ; git-summary ~/codeberg"
