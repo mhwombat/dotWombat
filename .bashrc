@@ -4,8 +4,8 @@
 
 # bash version check
 if ((BASH_VERSINFO[0] < 4))
-then 
-  echo "You need at least bash-4.0 or some options will not work correctly." 
+then
+  echo "You need at least bash-4.0 or some options will not work correctly."
 fi
 
 # Prevent file overwrite on stdout redirection
@@ -78,8 +78,7 @@ bind '"\e[D": backward-char'
 ### prompt
 ###
 
-export STARSHIP_CONFIG=~/example/non/default/path/starship.toml
-
+# export STARSHIP_CONFIG=$XDG_CONFIG_HOME/starship/starship.toml
 eval "$(starship init bash)"
 
 # # Automatically trim long paths in the prompt (requires Bash 4.x)
