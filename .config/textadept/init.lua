@@ -7,23 +7,6 @@ keys['ctrl+alt+p'] = textadept.macros.play
 keys['ctrl+alt+s'] = textadept.macros.save
 keys['ctrl+alt+l'] = textadept.macros.load
 
--- Set up LSP
-local lsp = require('lsp')
-
--- For debugging, inspect the LSP messages sent back and forth
-lsp.log_rpc = true
-
---lsp.server_commands.lua = 'lua-lsp'
---lsp.server_commands.haskell = 'haskell-language-server --lsp'
---lsp.server_commands.python = 'python-language-server'
---lsp.server_commands.cpp = function()
---  return 'cquery', {
---    cacheDirectory = '/tmp/cquery-cache',
---    compilationDatabaseDirectory = io.get_project_root(),
---    progressReportFrequencyMs = -1
---  }
---end
-
 view:set_theme(not CURSES and 'base16-amy' or 'term')
 
 local function quick_open_dir()
@@ -103,16 +86,6 @@ end
 local function toggle_virtual_space()
   buffer.virtual_space_options = buffer.virtual_space_options == 0 and
     buffer.VS_USERACCESSIBLE or 0
-end
-
-local function go_to_workspace_symbol()
-  local server = servers[buffer:get_lexer()]
-  if not server then return end
-  local button, query = ui.dialogs.inputbox{
-    title = _L['Query Symbol...'], informative_text = _L['Symbol name or name part:'],
-    button1 = _L['OK'], button2 = _L['Cancel']
-  }
-  if button == 1 and query ~= '' then lsp.goto_symbol(query) end
 end
 
 --[[
@@ -340,38 +313,6 @@ local tool_hydra = hydra.create({
   { key='left', help='previous error', action=function() textadept.run.goto_error(false) end, persistent=true }, -- TEST
 })
 
--- LSP hydras
-
-local lsp_goto_hydra = hydra.create({
-  { key='w', help='go to workspace symbol', action=go_to_workspace_symbol }, --TEST
-  { key='s', help='go to document symbol', action=lsp.goto_symbol },
-  { key='c', help='go to declaration', action=lsp.goto_declaration }, -- TEST
-  { key='f', help='go to definition', action=lsp.goto_definition }, -- TEST
-  { key='t', help='go to type definition', action=lsp.goto_type_definition }, -- TEST
-  { key='i', help='go to implementation', action=lsp.goto_implementation }, -- TEST
-})
-
-local lsp_server_hydra = hydra.create({
-  { key='s', help='start server', action=lsp.start }, -- FIXME
-  { key='x', help='stop server', action=lsp.stop }, -- FIXME
-})
-
-local lsp_hydra = hydra.create({
-  { key='S', help='server', action=lsp_server_hydra },
-  { key='g', help='go to', action=lsp_goto_hydra },
-  { key='\n', help='autocomplete', action=function() textadept.editing.autocomplete('lsp') end }, -- TEST
-  { key='h', help='show hover info', action=lsp.hover }, -- TEST
-  { key='s', help='show signature help', action=lsp.signature_help }, -- TEST
-  { key='r', help='find references', action=lsp.find_references }, -- TEST
-  { key='a', help='select all symbol', action=lsp.select_all_symbol }, -- TEST
-  { key='d', help='toggle show diagnostics', action=function()
-          lsp.show_diagnostics = not lsp.show_diagnostics
-          if not lsp.show_diagnostics then buffer:annotation_clear_all() end
-          ui.statusbar_text = lsp.show_diagnostics and _L['Showing diagnostics'] or
-            _L['Hiding diagnostics']
-        end }, -- TEST
-})
-
 -- help hydras
 
 local help_hydra = hydra.create({
@@ -437,7 +378,6 @@ local main_hydra = hydra.create({
   { key='e', help='edit', action=edit_hydra },
   { key='h', help='history', action=history_hydra },
   { key='t', help='tools', action=tool_hydra },
-  { key='l', help='LSP', action=lsp_hydra },
   { key='?', help='help', action=help_hydra },
   { key=' ', help='complete word', action=function() textadept.editing.autocomplete('word') end },
   { key='S', help='session', action=session_hydra },
@@ -495,99 +435,3 @@ end)
 events.connect(events.QUIT, function()
   textadept.session.save(session_filename)
 end, 1)
-
-
-  --ui.statusbar_text = "code=" .. tostring(code) .. " shift=" .. tostring(shift)
-  --                      .. " control=" .. tostring(control) .. " alt=" .. tostring(alt)
-  --                      .. " cmd=" .. tostring(cmd) .. " caps=" .. tostring(caps)
-
---[[
-TEMPORARY INVESTIGATION STUFF
-events.connect(events.KEYPRESS, function(code, shift, control, alt, cmd, caps)
-  ui.print(code, keys.KEYSYMS[code], shift, control, alt, cmd, caps)
-  return
-end, 1)
---]]
-
-local function debugKeypress(code, shift, control, alt, cmd, caps)
-  print("DEBUG 1", code, keys.KEYSYMS[code], shift, control, alt, cmd, caps)
-
-  if caps and (shift or control or alt or cmd) and code < 256 then
-    code = string[shift and 'upper' or 'lower'](string.char(code)):byte()
-  end
-  print("DEBUG 2", code)
-
-  local key = code >= 32 and code < 256 and string.char(code) or keys.KEYSYMS[code]
-  print("DEBUG 3", key)
-  if not key then
-    return
-  end
-
-  -- Since printable characters are uppercased, disable shift.
-  if shift and code >= 32 and code < 256 then
-    shift = false
-  end
-  print("DEBUG 4", shift)
-
-  -- For composed keys on macOS, ignore alt.
-  if OSX and alt and code < 256 then
-    alt = false
-  end
-  print("DEBUG 5", alt)
-
-  local key_seq = (control and CTRL or '')
-    .. (alt and ALT or '')
-    .. (cmd and OSX and CMD or '')
-    .. (shift and SHIFT or '')
-    .. key
-  print("DEBUG 6", key_seq)
-
-  return
-end
-
---debugKeypress(92, false, false, false, false, false)
---
---events.connect(events.KEYPRESS, function(code, shift, control, alt, cmd, caps)
---  print("-----")
---  debugKeypress(code, keys.KEYSYMS[code], shift, control, alt, cmd, caps)
---  return
---end, 1)
-
---[[
-TEMPORARY INVESTIGATION STUFF
-events.connect(events.KEYPRESS, function(code, shift, control, alt, cmd, caps)
-  ui.print("DEBUG 1", code, keys.KEYSYMS[code], shift, control, alt, cmd, caps)
-
-  if caps and (shift or control or alt or cmd) and code < 256 then
-    code = string[shift and 'upper' or 'lower'](string.char(code)):byte()
-  end
-  ui.print("DEBUG 2", code)
-
-  local key = code >= 32 and code < 256 and string.char(code) or keys.KEYSYMS[code]
-  ui.print("DEBUG 3", key)
-  if not key then
-    return
-  end
-
-  -- Since printable characters are uppercased, disable shift.
-  if shift and code >= 32 and code < 256 then
-    shift = false
-  end
-  ui.print("DEBUG 4", shift)
-
-  -- For composed keys on macOS, ignore alt.
-  if OSX and alt and code < 256 then
-    alt = false
-  end
-  ui.print("DEBUG 5", alt)
-
-  local key_seq = (control and CTRL or '')
-    .. (alt and ALT or '')
-    .. (cmd and OSX and CMD or '')
-    .. (shift and SHIFT or '')
-    .. key
-  ui.print("DEBUG 6", key_seq)
-
-  return
-end, 1)
---]]
