@@ -1,4 +1,5 @@
 .bashrc
+.bash_profile
 .cabal/config
 .config/alacritty/alacritty.yml
 .config/shell-agnostic
