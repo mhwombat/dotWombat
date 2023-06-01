@@ -1,0 +1,298 @@
+{
+  "keydefs": [
+    {
+      "Description": "Show key help",
+      "Key": "Tux+Shift+Slash",
+      "SwayAction": "exec /home/amy/github/bin/keyhelp",
+      "QtileAction": "lazy.spawn(keyHelp)"
+    },
+    {
+      "Description": "Show key help",
+      "Key": "Tux+Help",
+      "SwayAction": "exec /home/amy/github/bin/keyhelp",
+      "QtileAction": "lazy.spawn(keyHelp)"
+    },
+    {
+      "Description": "Lock screen",
+      "Key": "Pause",
+      "SwayAction": "exec swaylock",
+      "QtileAction": "lazy.spawn(swaylock)"
+    },
+    {
+      "Description": "Reload window manager",
+      "Key": "Ctrl+Tux+r",
+      "SwayAction": "reload",
+      "QtileAction": "lazy.reload_config()"
+    },
+    {
+      "Description": "Reload window manager",
+      "Key": "Ctrl+Tux+Return",
+      "SwayAction": "reload",
+      "QtileAction": "lazy.reload_config()"
+    },
+    {
+      "Description": "Exit window manager",
+      "Key": "Ctrl+Tux+q",
+      "SwayAction": "exec swaynag -t warning -m 'Do you really want to exit sway?' -b 'Yes' 'swaymsg exit'",
+      "QtileAction": "lazy.shutdown()"
+    },
+    {
+      "Description": "Show launch menu",
+      "Key": "Tux+Return",
+      "SwayAction": "exec $menu",
+      "QtileAction": "lazy.spawn(launcher)"
+    },
+    {
+      "Description": "Launch terminal",
+      "Key": "Tux+Shift+Return",
+      "SwayAction": "exec $term",
+      "QtileAction": "lazy.spawn(terminal)"
+    },
+    {
+      "Description": "Kill focused window",
+      "Key": "Tux+Delete",
+      "SwayAction": "kill",
+      "QtileAction": "lazy.window.kill()"
+    },
+    {
+      "Description": "Move focus left",
+      "Key": "Tux+Left",
+      "SwayAction": "focus left",
+      "QtileAction": "lazy.layout.left()"
+    },
+    {
+      "Description": "Move focus right",
+      "Key": "Tux+Right",
+      "SwayAction": "focus right",
+      "QtileAction": "lazy.layout.right()"
+    },
+    {
+      "Description": "Move focus up",
+      "Key": "Tux+Up",
+      "SwayAction": "focus up",
+      "QtileAction": "lazy.layout.up()"
+    },
+    {
+      "Description": "Move focus down",
+      "Key": "Tux+Down",
+      "SwayAction": "focus down",
+      "QtileAction": "lazy.layout.down()"
+    },
+    {
+      "Description": "Move window left",
+      "Key": "Tux+Shift+Left",
+      "SwayAction": "move left",
+      "QtileAction": "lazy.layout.shuffle_left()"
+    },
+    {
+      "Description": "Move window right",
+      "Key": "Tux+Shift+Right",
+      "SwayAction": "move right",
+      "QtileAction": "lazy.layout.shuffle_right()"
+    },
+    {
+      "Description": "Move window up",
+      "Key": "Tux+Shift+Up",
+      "SwayAction": "move up",
+      "QtileAction": " lazy.layout.shuffle_up()"
+    },
+    {
+      "Description": "Move window down",
+      "Key": "Tux+Shift+Down",
+      "SwayAction": "move down",
+      "QtileAction": "lazy.layout.shuffle_down()"
+    },
+    {
+      "Description": "Go to workspace 1",
+      "Key": "Tux+f1",
+      "SwayAction": "workspace 'WS_1'",
+      "QtileAction": "lazy.group['1'].toscreen()"
+    },
+    {
+      "Description": "Go to workspace 2",
+      "Key": "Tux+f2",
+      "SwayAction": "workspace 'WS_2'",
+      "QtileAction": "lazy.group['2'].toscreen()"
+    },
+    {
+      "Description": "Go to workspace 3",
+      "Key": "Tux+f3",
+      "SwayAction": "workspace 'WS_3'",
+      "QtileAction": "lazy.group['3'].toscreen()"
+    },
+    {
+      "Description": "Go to workspace 4",
+      "Key": "Tux+f4",
+      "SwayAction": "workspace 'WS_4'",
+      "QtileAction": "lazy.group['4'].toscreen()"
+    },
+    {
+      "Description": "Go to workspace 5",
+      "Key": "Tux+f5",
+      "SwayAction": "workspace 'WS_5'",
+      "QtileAction": "lazy.group['5'].toscreen()"
+    },
+    {
+      "Description": "Go to workspace 6",
+      "Key": "Tux+f6",
+      "SwayAction": "workspace 'WS_6'",
+      "QtileAction": "lazy.group['6'].toscreen()"
+    },
+    {
+      "Description": "Go to workspace 7",
+      "Key": "Tux+f7",
+      "SwayAction": "workspace 'WS_7'",
+      "QtileAction": "lazy.group['7'].toscreen()"
+    },
+    {
+      "Description": "Go to workspace 8",
+      "Key": "Tux+f8",
+      "SwayAction": "workspace 'WS_8'",
+      "QtileAction": "lazy.group['8'].toscreen()"
+    },
+    {
+      "Description": "Go to workspace 9",
+      "Key": "Tux+f9",
+      "SwayAction": "workspace 'WS_9'",
+      "QtileAction": "lazy.group['9'].toscreen()"
+    },
+    {
+      "Description": "Go to workspace 10",
+      "Key": "Tux+f10",
+      "SwayAction": "workspace 'WS_10'",
+      "QtileAction": "lazy.group['10'].toscreen()"
+    },
+    {
+      "Description": "Go to workspace 11",
+      "Key": "Tux+f11",
+      "SwayAction": "workspace 'WS_11'",
+      "QtileAction": "lazy.group['11'].toscreen()"
+    },
+    {
+      "Description": "Go to workspace 12",
+      "Key": "Tux+f12",
+      "SwayAction": "workspace 'WS_12'",
+      "QtileAction": "lazy.group['12'].toscreen()"
+    },
+    {
+      "Description": "Move window to workspace 1",
+      "Key": "Tux+Shift+f1",
+      "SwayAction": "move container to workspace 'WS_1'",
+      "QtileAction": "lazy.window.togroup('1')"
+    },
+    {
+      "Description": "Move window to workspace 2",
+      "Key": "Tux+Shift+f2",
+      "SwayAction": "move container to workspace 'WS_2'",
+      "QtileAction": "lazy.window.togroup('2')"
+    },
+    {
+      "Description": "Move window to workspace 3",
+      "Key": "Tux+Shift+f3",
+      "SwayAction": "move container to workspace 'WS_3'",
+      "QtileAction": "lazy.window.togroup('3')"
+    },
+    {
+      "Description": "Move window to workspace 4",
+      "Key": "Tux+Shift+f4",
+      "SwayAction": "move container to workspace 'WS_4'",
+      "QtileAction": "lazy.window.togroup('4')"
+    },
+    {
+      "Description": "Move window to workspace 5",
+      "Key": "Tux+Shift+f5",
+      "SwayAction": "move container to workspace 'WS_5'",
+      "QtileAction": "lazy.window.togroup('5')"
+    },
+    {
+      "Description": "Move window to workspace 6",
+      "Key": "Tux+Shift+f6",
+      "SwayAction": "move container to workspace 'WS_6'",
+      "QtileAction": "lazy.window.togroup('6')"
+    },
+    {
+      "Description": "Move window to workspace 7",
+      "Key": "Tux+Shift+f7",
+      "SwayAction": "move container to workspace 'WS_7'",
+      "QtileAction": "lazy.window.togroup('7')"
+    },
+    {
+      "Description": "Move window to workspace 8",
+      "Key": "Tux+Shift+f8",
+      "SwayAction": "move container to workspace 'WS_8'",
+      "QtileAction": "lazy.window.togroup('8')"
+    },
+    {
+      "Description": "Move window to workspace 9",
+      "Key": "Tux+Shift+f9",
+      "SwayAction": "move container to workspace 'WS_9'",
+      "QtileAction": "lazy.window.togroup('9')"
+    },
+    {
+      "Description": "Move window to workspace 10",
+      "Key": "Tux+Shift+f10",
+      "SwayAction": "move container to workspace 'WS_10'",
+      "QtileAction": "lazy.window.togroup('10')"
+    },
+    {
+      "Description": "Move window to workspace 11",
+      "Key": "Tux+Shift+f11",
+      "SwayAction": "move container to workspace 'WS_11'",
+      "QtileAction": "lazy.window.togroup('11')"
+    },
+    {
+      "Description": "Move window to workspace 12",
+      "Key": "Tux+Shift+f12",
+      "SwayAction": "move container to workspace 'WS_12'",
+      "QtileAction": "lazy.window.togroup('12')"
+    },
+    {
+      "Description": "Toggle fullscreen for currently focused window",
+      "Key": "Ctrl+Tux+Shift+f",
+      "SwayAction": "fullscreen toggle",
+      "QtileAction": "lazy.window.toggle_fullscreen()"
+    },
+    {
+      "Description": "Move currently focused window to scratchpad",
+      "Key": "Tux+Shift+minus",
+      "SwayAction": "move scratchpad",
+      "QtileAction": false
+    },
+    {
+      "Description": "Show/hide next scratchpad window",
+      "Key": "Tux+minus",
+      "SwayAction": "scratchpad show",
+      "QtileAction": false
+    },
+    {
+      "Description": "Make window narrower",
+      "Key": "Ctrl+Tux+Left",
+      "SwayAction": "resize shrink width 50px",
+      "QtileAction": "lazy.layout.grow_right()"
+    },
+    {
+      "Description": "Make window wider",
+      "Key": "Ctrl+Tux+Right",
+      "SwayAction": "resize grow width 50px",
+      "QtileAction": "lazy.layout.grow_right()"
+    },
+    {
+      "Description": "Make window taller",
+      "Key": "Ctrl+Tux+Up",
+      "SwayAction": "resize grow height 50px",
+      "QtileAction": "lazy.layout.grow_up()"
+    },
+    {
+      "Description": "Make window shorter",
+      "Key": "Ctrl+Tux+Down",
+      "SwayAction": "resize shrink height 50px",
+      "QtileAction": "lazy.layout.grow_down()"
+    },
+    {
+      "Description": "Reset window sizes",
+      "Key": "Tux+n",
+      "SwayAction": false,
+      "QtileAction": "lazy.layout.normalize()"
+    }
+  ]
+}
