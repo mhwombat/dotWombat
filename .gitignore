@@ -18,6 +18,13 @@ themes/previews
 .config/starship/starship.toml
 .config/textadept/themes/base16-amy.lua
 .config/foot/foot.ini
+./config/alacritty/alacritty.yml
+.config/sway/colours
+.config/river/colours
+.config/qtile/colour.py
+.config/sway/keymap
+.config/river/keymap
+.config/qtile/keymap.py
 
 # Generated Python stuff
 __pycache__
