@@ -51,7 +51,7 @@ alias cu='cabal upload -u AmyDeBuitleir -p'
 alias cud='cabal upload --documentation -u AmyDeBuitleir -p'
 alias ffzy='find ~ -type f | fzy'
 alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
-alias eod="git-summary ~ ; git-summary ~/github ; git-summary ~/codeberg"
+alias eod="git-summary ~/github ; git-summary ~/codeberg"
 alias roll="format-zpl | lpr -P Zebra -o raw"
 alias pick-colour='grim -g "$(slurp -p)" -t ppm - | convert - -format "%[pixel:p{0,0}]" txt:-'
 # alias snrsu='cd ~/github/nixos-config && sudo nix flake update && sudo nixos-rebuild switch --upgrade'
@@ -81,6 +81,10 @@ function fipynb() { find ${1:-.} -name '*.ipynb' | grep -v ipynb_checkpoints | s
 function sipynb { fipynb $2 | xargs grep "$1" ;}
 function fhs() { find ${1:-.} -name dist-newstyle -prune -o -name '*.hs' -print | sort ;}
 function shs { fhs $2 | xargs grep "$1" ;}
+function fadoc() { find ${1:-.} -name '*.adoc' -print | sort ;}
+function sadoc { fadoc $2 | xargs grep "$1" ;}
+function fadoc0() { find ${1:-.} -name '*.adoc0' -print | sort ;}
+function sadoc0 { fadoc0 $2 | xargs grep "$1" ;}
 function stylish { stylish-haskell --inplace --recursive ${1:-.} ;}
 function flua() { find ${1:-.} -name '*.lua' -print | sort ;}
 function slua { flua $2 | xargs grep "$1" ;}
