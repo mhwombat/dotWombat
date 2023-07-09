@@ -16,6 +16,8 @@
 .config/qtile/colour.py
 .config/qtile/Makefile
 .config/qtile/keyhelp
+.config/remind/reminders
+.config/remind/IrishHolidays
 .config/river/init
 .config/river/colours
 .config/starship
