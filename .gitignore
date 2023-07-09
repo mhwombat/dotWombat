@@ -37,6 +37,7 @@ __pycache__
 
 # Files with secrets
 wombat11k.nix
+.config/remind/reminders
 
 # local relevance only
 .gitconfig
