@@ -6,32 +6,32 @@
 ;
 
 ; fixed dates
-REM 31 December MSG New Year's Eve (Oíche Chinn Bliana) Public Holiday
-REM 1 January MSG New Year's Day (Lá Caille, Lá Bliana Nua) Public Holiday
-REM 17 March MSG Saint Patrick's Day (Lá Fhéile Pádraig) Public Holiday
-REM 24 December MSG Christmas Eve (Oíche Nollag) Public Holiday
-REM 25 December MSG Christmas Day (Lá Nollag) Public Holiday
-REM 26 December MSG Saint Stephen's Day, Wren Day (Lá Fhéile Stiofáin, Lá an Dreoilín) Public Holiday
+OMIT 31 December MSG New Year's Eve (Oíche Chinn Bliana) Public Holiday
+OMIT 1 January MSG New Year's Day (Lá Caille, Lá Bliana Nua) Public Holiday
+OMIT 17 March MSG Saint Patrick's Day (Lá Fhéile Pádraig) Public Holiday
+OMIT 24 December MSG Christmas Eve (Oíche Nollag) Public Holiday
+OMIT 25 December MSG Christmas Day (Lá Nollag) Public Holiday
+OMIT 26 December MSG Saint Stephen's Day, Wren Day (Lá Fhéile Stiofáin, Lá an Dreoilín) Public Holiday
 
 ; moving dates
 
 ; First Monday in May
-REM Monday 1 May MSG May Day (Lá Bealtaine) Public Holiday
+REM Monday 1 May ADDOMIT MSG May Day (Lá Bealtaine) Public Holiday
 
 ; First Monday in June
-REM Monday 1 June MSG June Public Holiday
+REM Monday 1 June ADDOMIT MSG June Public Holiday
 
 ; First Monday in August
-REM Monday 1 August MSG August Public Holiday
+REM Monday 1 August ADDOMIT MSG August Public Holiday
 
 ; Last Monday in October
-REM Monday 1 -7 November MSG October Public Holiday
+REM Monday 1 -7 November ADDOMIT MSG October Public Holiday
 
 ; Easter
 SET easter easterdate(today())
 REM [TRIGGER(easter-2)] MSG Good Friday (Aoine an Chéasta)
 REM [TRIGGER(easter)] MSG Easter Sunday (Domhnach Cásca)
-REM [TRIGGER(easter+1)] MSG Easter Monday (Luan Cásca) Public Holiday
+OMIT [TRIGGER(easter+1)] MSG Easter Monday (Luan Cásca) Public Holiday
 
 ; St. Brigid's Day
 REM 1 February MSG Saint Brigid's Day (Lá Fhéile Bríde or Imbolc)
@@ -39,4 +39,4 @@ REM 1 February MSG Saint Brigid's Day (Lá Fhéile Bríde or Imbolc)
 FSET isFridayTheFirst(d) day(d) == 1 && wkdaynum(d) == 5
 FSET isFirstMonday(d) day(d) < 8 && wkdaynum(d) == 1
 FSET threeDaysAgoWasNotTheFirst(d) day(d - 3) != 1
-REM February SATISFY [isFridayTheFirst(trigdate()) || (isFirstMonday(trigdate()) && threeDaysAgoWasNotTheFirst(trigdate()))] MSG Public Holiday
+OMIT February SATISFY [isFridayTheFirst(trigdate()) || (isFirstMonday(trigdate()) && threeDaysAgoWasNotTheFirst(trigdate()))] MSG Public Holiday
