@@ -44,7 +44,6 @@ alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
 alias hgrep='history | grep'
 alias longestLine='awk '\''{ if (length($0) > max) {max = length($0); maxline = $0} } END { print maxline }'\'''
 alias lsexe='find . -maxdepth 1 -type f -executable'
-alias next='remind -n ~/.config/remind | sort'
 alias nfi='nix flake init -t github:serokell/templates#haskell-cabal2nix'
 alias ngrep='notes | grep -i'
 alias ods='onedrive --synchronize'
@@ -79,6 +78,7 @@ function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function gic() { git add $*; git commit -m 'initial commit' $* ;}
 function idea() { jot -d=${HOME}/github/ideas -t="$*" ;}
 function ideas() { jot -d=${HOME}/github/ideas -p ;}
+function next() { remind -n ~/.config/remind $1 | sort; }
 function nghci() { nix-shell -p "haskellPackages.ghcWithPackages (p: [$*])" --run ghci ;}
 function note() { jot -d=${HOME}/github/notes -t="$*" ;}
 function notes() { jot -d=${HOME}/github/notes -p ;}
