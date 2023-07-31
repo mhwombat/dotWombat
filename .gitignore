@@ -4,13 +4,6 @@
 # Generated textadept stuff
 .textadept_session
 
-# Generated emacs stuff
-.config/emacs/elpa/
-.config/emacs/url/
-.config/emacs/recentf
-ac-comphist.dat
-.lsp-session-v1
-
 # Generated theme stuff
 themes/previews
 .config/waybar/style.css
@@ -38,6 +31,3 @@ __pycache__
 # Files with secrets
 wombat11k.nix
 private.rem
-
-# local relevance only
-.gitconfig
