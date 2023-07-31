@@ -16,16 +16,16 @@ OMIT 26 December MSG Saint Stephen's Day, Wren Day (Lá Fhéile Stiofáin, Lá a
 ; moving dates
 
 ; First Monday in May
-REM Monday 1 May ADDOMIT MSG May Day (Lá Bealtaine) Public Holiday
+REM Monday 1 May SCANFROM -7 ADDOMIT MSG May Day (Lá Bealtaine) Public Holiday
 
 ; First Monday in June
-REM Monday 1 June ADDOMIT MSG June Public Holiday
+REM Monday 1 June SCANFROM -7 ADDOMIT MSG June Public Holiday
 
 ; First Monday in August
-REM Monday 1 August ADDOMIT MSG August Public Holiday
+REM Monday 1 August SCANFROM -7 ADDOMIT MSG August Public Holiday
 
 ; Last Monday in October
-REM Monday 1 -7 November ADDOMIT MSG October Public Holiday
+REM Monday 1 -7 November SCANFROM -7 ADDOMIT MSG October Public Holiday
 
 ; Easter
 SET easter easterdate(today())
@@ -36,7 +36,4 @@ OMIT [TRIGGER(easter+1)] MSG Easter Monday (Luan Cásca) Public Holiday
 ; St. Brigid's Day
 REM 1 February MSG Saint Brigid's Day (Lá Fhéile Bríde or Imbolc)
 ; The public holiday is the first Monday in February, or 1 February if the date falls on a Friday
-FSET isFridayTheFirst(d) day(d) == 1 && wkdaynum(d) == 5
-FSET isFirstMonday(d) day(d) < 8 && wkdaynum(d) == 1
-FSET threeDaysAgoWasNotTheFirst(d) day(d - 3) != 1
-OMIT February SATISFY [isFridayTheFirst(trigdate()) || (isFirstMonday(trigdate()) && threeDaysAgoWasNotTheFirst(trigdate()))] MSG Public Holiday
+REM February SCANFROM -7 ADDOMIT SATISFY [($Td==1 && $Tw==5) || ($Td<8 && $Tw==1 && $Td!=4)] MSG Public Holiday
