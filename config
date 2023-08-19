@@ -3,13 +3,12 @@
 .cabal/config
 .config/alacritty/alacritty.yml
 .config/shell-agnostic
-.config/emacs/init.el
-.config/emacs/amy
 .config/foot/foot.ini
 .config/git/config
 .config/git/gitignore
 .config/hikari/hikari.conf
 .config/kitty/kitty.conf
+.config/notmuch/default/config
 .config/offlineimap/config
 .config/onedrive/config
 .config/qtile/config.py
