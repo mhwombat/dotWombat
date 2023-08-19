@@ -15,6 +15,7 @@ type = IMAP
 remotehost = imap.kolabnow.com
 remoteuser = amy@nualeargais.ie
 remoteport = 993
+remotepassfile = /etc/nixos/secrets/msmtp
 ssl = yes
 folderfilter = lambda folder: folder not in ['Spam', 'Trash']
 # Tip: To get the fingerprint, put a dummy value here.
