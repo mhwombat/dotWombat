@@ -47,9 +47,11 @@ alias lsexe='find . -maxdepth 1 -type f -executable'
 alias nfi='nix flake init -t github:serokell/templates#haskell-cabal2nix'
 alias ngrep='notes | grep -i'
 alias ods='onedrive --synchronize'
-alias passgen='/home/amy/github/criptithe/encrypted/passgen'
+alias hackage-up='/home/amy/github/criptithe/encrypted/bin/hackage-up'
+alias passgen='/home/amy/github/criptithe/encrypted/bin/passgen'
 alias pick-colour='grim -g "$(slurp -p)" -t ppm - | convert - -format "%[pixel:p{0,0}]" txt:-'
 alias psgrep='ps -ef | grep'
+alias remedit='nano ~/.config/remind/private.rem'
 alias roll="format-zpl | lpr -P Zebra -o raw"
 alias run-dwl='dwl > dwl.log 2>&1'
 alias run-hikari='hikari > hikari.log 2>&1'
@@ -90,3 +92,7 @@ function sipynb { fipynb $2 | xargs grep "$1" ;}
 function slua { flua $2 | xargs grep "$1" ;}
 function smd { fmd $2 | xargs grep "$1" ;}
 function stylish { stylish-haskell --inplace --recursive ${1:-.} ;}
+
+# cat-until PATTERN FILE
+#     Prints FILE up to the first line that matches PATTERN
+function cat-until { sed -n "1,/$1/ p" "$2" ;}
