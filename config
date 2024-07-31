@@ -15,6 +15,7 @@
 .config/qtile/colour.py
 .config/qtile/Makefile
 .config/qtile/keyhelp
+.config/recoll/recoll.conf
 .config/remind
 .config/river/init
 .config/river/colours
