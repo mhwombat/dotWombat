@@ -12,7 +12,7 @@
 .config/sway/colours
 .config/sway/keymap
 .config/foot/colours.ini
-.config/themes/preciews/*.html
+themes/previews/
 
 # Generated Python stuff
 __pycache__
