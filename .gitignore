@@ -1,5 +1,7 @@
 # Backup files
 *~
+*.BAK
+*.ORIG
 
 # Generated textadept stuff
 .textadept_session
@@ -10,6 +12,7 @@
 .config/sway/colours
 .config/sway/keymap
 .config/foot/colours.ini
+.config/themes/preciews/*.html
 
 # Generated Python stuff
 __pycache__
