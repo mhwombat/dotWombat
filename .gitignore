@@ -5,28 +5,17 @@
 .textadept_session
 
 # Generated theme stuff
-themes/previews
 .config/waybar/style.css
-.config/zsh/configure-spaceship
 .config/starship/starship.toml
-.config/textadept/themes/base16-amy.lua
-.config/foot/foot.ini
-./config/alacritty/alacritty.yml
 .config/sway/colours
-.config/river/colours
-.config/qtile/colour.py
 .config/sway/keymap
-.config/river/keymap
-.config/qtile/keymap.py
+.config/foot/colours.ini
 
 # Generated Python stuff
 __pycache__
 
 # Generated sway stuff
 .config/sway/keys.txt
-
-# Generated qtile stuff
-.config/qtile/keys.txt
 
 # Files with secrets
 wombat11k.nix

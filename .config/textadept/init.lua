@@ -7,7 +7,8 @@ keys['ctrl+alt+p'] = textadept.macros.play
 keys['ctrl+alt+s'] = textadept.macros.save
 keys['ctrl+alt+l'] = textadept.macros.load
 
-view:set_theme(not CURSES and 'base16-amy' or 'term')
+--view:set_theme(not CURSES and 'tinted' or 'term')
+view:set_theme(not CURSES and 'dark' or 'term')
 
 local function quick_open_dir()
   if buffer.filename then io.quick_open(buffer.filename:match('^(.+)[/\\]')) end

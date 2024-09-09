@@ -1,9 +1,9 @@
 .bashrc
 .bash_profile
 .cabal/config
-.config/alacritty/alacritty.yml
 .config/shell-agnostic
 .config/foot/foot.ini
+.config/foot/colours.ini
 .config/git/config
 .config/git/gitignore
 .config/hikari/hikari.conf
@@ -16,13 +16,14 @@
 .config/qtile/Makefile
 .config/qtile/keyhelp
 .config/recoll/recoll.conf
+.config/recoll/mimemap
 .config/remind
 .config/river/init
 .config/river/colours
 .config/starship
 .config/stack/config.yaml
 .config/textadept/init.lua
-.config/textadept/themes/base16-amy.lua
+.config/textadept/themes/tinted.lua
 .config/sway
 .config/VSCodium/User/keybindings.json
 .config/VSCodium/User/settings.json

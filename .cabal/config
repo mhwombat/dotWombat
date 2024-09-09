@@ -9,8 +9,8 @@
 --
 -- This config file was generated using the following versions
 -- of Cabal and cabal-install:
--- Cabal library version: 3.8.1.0
--- cabal-install version: 3.8.1.0
+-- Cabal library version: 3.10.1.0
+-- cabal-install version: 3.10.1.0
 
 
 repository hackage.haskell.org
@@ -21,7 +21,7 @@ repository hackage.haskell.org
 
 -- ignore-expiry: False
 -- http-transport:
---nix: True
+nix: disable
 -- store-dir:
 -- active-repositories:
 -- local-no-index-repo:
@@ -33,8 +33,8 @@ remote-repo-cache: /home/amy/.cabal/packages
 -- cabal-file:
 -- with-compiler:
 -- with-hc-pkg:
--- program-prefix:
--- program-suffix:
+-- program-prefix: 
+-- program-suffix: 
 -- library-vanilla: True
 -- library-profiling:
 -- shared:
@@ -92,6 +92,7 @@ extra-prog-path: /home/amy/.cabal/bin
 -- fine-grained-conflicts: True
 -- minimize-conflict-set: False
 -- independent-goals: False
+-- prefer-oldest: False
 -- shadow-installed-packages: False
 -- strong-flags: False
 -- allow-boot-library-installs: False
@@ -138,6 +139,9 @@ haddock
   -- quickjump: False
   -- hscolour-css:
   -- contents-location:
+  -- index-location:
+  -- base-url:
+  -- lib:
 
 init
   -- interactive: False
