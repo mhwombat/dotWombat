@@ -45,7 +45,6 @@ alias hgrep='history | grep'
 alias longestLine='awk '\''{ if (length($0) > max) {max = length($0); maxline = $0} } END { print maxline }'\'''
 alias lsexe='find . -maxdepth 1 -type f -executable'
 alias nfi='nix flake init -t github:serokell/templates#haskell-cabal2nix'
-alias ngrep='notes | grep -i'
 alias ods='onedrive --synchronize'
 alias hackage-up='/home/amy/github/criptithe/encrypted/bin/hackage-up'
 alias passgen='/home/amy/github/criptithe/encrypted/bin/passgen'
@@ -82,8 +81,7 @@ function idea() { jot -d=${HOME}/github/ideas -t="$*" ;}
 function ideas() { jot -d=${HOME}/github/ideas -p ;}
 function next() { remind -n ~/.config/remind $1 | sort; }
 function nghci() { nix-shell -p "haskellPackages.ghcWithPackages (p: [$*])" --run ghci ;}
-function note() { jot -d=${HOME}/github/notes -t="$*" ;}
-function notes() { jot -d=${HOME}/github/notes -p ;}
+function ngrep() { grep -i $* ${HOME}/github/notes/* ;}
 function qc() { grep prop_ $* | grep '∷' | sed 's/ ∷.*//; s/\(.*\)/    testProperty "\1"\n      \1,/' ;}
 function sadoc0 { fadoc0 $2 | xargs grep "$1" ;}
 function sadoc { fadoc $2 | xargs grep "$1" ;}
