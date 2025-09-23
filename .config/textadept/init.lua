@@ -1,3 +1,8 @@
+local lsp = require('lsp')
+
+lsp.server_commands.haskell = 'haskell-language-server --lsp'
+lsp.server_commands.markdown = 'markdown-oxide'
+
 --textredux = require 'textredux'
 
 textadept.editing.strip_trailing_spaces = true
@@ -8,7 +13,12 @@ keys['ctrl+alt+s'] = textadept.macros.save
 keys['ctrl+alt+l'] = textadept.macros.load
 
 --view:set_theme(not CURSES and 'tinted' or 'term')
-view:set_theme(not CURSES and 'dark' or 'term')
+--view:set_theme(not CURSES and 'dark' or 'term')
+if not CURSES then
+--	view:set_theme('dark')
+--	view:set_theme('dark-amy')
+	view:set_theme('base16-amy')
+end
 
 local function quick_open_dir()
   if buffer.filename then io.quick_open(buffer.filename:match('^(.+)[/\\]')) end
