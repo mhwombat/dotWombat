@@ -12,11 +12,8 @@ keys['ctrl+alt+p'] = textadept.macros.play
 keys['ctrl+alt+s'] = textadept.macros.save
 keys['ctrl+alt+l'] = textadept.macros.load
 
---view:set_theme(not CURSES and 'tinted' or 'term')
---view:set_theme(not CURSES and 'dark' or 'term')
 if not CURSES then
 --	view:set_theme('dark')
---	view:set_theme('dark-amy')
 	view:set_theme('base16-amy')
 end
 

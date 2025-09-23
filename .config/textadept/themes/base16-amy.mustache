@@ -2,22 +2,22 @@
 
 local view, colors, styles = view, view.colors, view.styles
 
-colors.base00 = 0x111111
-colors.base01 = 0x333333
-colors.base02 = 0x555555
-colors.base03 = 0x777777
-colors.base04 = 0x999999
-colors.base05 = 0xBBBBBB
-colors.base06 = 0xDDDDDD
-colors.base07 = 0xFFFFFF
-colors.base08 = 0xFF4136
-colors.base09 = 0xFF851B
-colors.base0A = 0xFFDC00 -- unused
-colors.base0B = 0x2ECC40
-colors.baseOC = 0x7FDBFF
-colors.base0D = 0x0074D9
-colors.base0E = 0xB10DC9
-colors.base0F = 0x85144B -- unused
+colors.base00 = 0x{{palette.base00}}
+colors.base01 = 0x{{palette.base01}}
+colors.base02 = 0x{{palette.base02}}
+colors.base03 = 0x{{palette.base03}}
+colors.base04 = 0x{{palette.base04}}
+colors.base05 = 0x{{palette.base05}}
+colors.base06 = 0x{{palette.base06}}
+colors.base07 = 0x{{palette.base07}}
+colors.base08 = 0x{{palette.base08}}
+colors.base09 = 0x{{palette.base09}}
+colors.base0A = 0x{{palette.base0A}} -- unused
+colors.base0B = 0x{{palette.base0B}}
+colors.baseOC = 0x{{palette.base0C}}
+colors.base0D = 0x{{palette.base0D}}
+colors.base0E = 0x{{palette.base0E}}
+colors.base0F = 0x{{palette.base0F}} -- unused
 
 -- Default font.
 if not font then font = WIN32 and 'Consolas' or OSX and 'Monaco' or 'Monospace' end
