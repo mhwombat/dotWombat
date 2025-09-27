@@ -1,10 +1,8 @@
 .bash_profile
 .bashrc
 .cabal/config
-.config/foot/colours.ini
-.config/foot/foot.ini
-.config/git/config
-.config/git/gitignore
+.config/foot
+.config/git
 .config/offlineimap/config
 .config/recoll/mimemap
 .config/recoll/recoll.conf
@@ -13,7 +11,6 @@
 .config/starship
 .config/sway
 .config/textadept/init.lua
-.config/textadept/themes/base16-amy.lua
-.config/waybar/config
-.config/waybar/style.css
+.config/textadept/themes
+.config/waybar
 .ghci
