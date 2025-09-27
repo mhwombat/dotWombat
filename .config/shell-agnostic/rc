@@ -1,74 +1,12 @@
 #
-# input devices
-#
-
-#setxkbmap ie CloGaelach
-#xinput set-button-map "Logitech USB Trackball" 1 8 3 4 5 6 7 2 9
-
-#
-# Prompt
-#
-
-# source /run/current-system/sw/bin/liquidprompt
-# source /home/amy/.config/liquidprompt/themes/powerline.theme
-# lp_theme powerline
-
-#
 # path
 #
 
 PATH=~/github/bin:${PATH}
-# PATH=~/.cabal/bin:${PATH}
-# PATH=~/.local/bin:${PATH}
-PATH=~/github/wain-tools:${PATH}
-
-#
-# aliases
-#
-
-alias ahgrep='all-history | grep'
-alias cabal-init="nix-shell --packages ghc cabal-install  --run 'cabal init --interactive'"
-alias cb='cabal build --ghc-options=-Werror'
-alias cbt='cabal build --ghc-options=-Werror && cabal test'
-alias cbti='cabal build --ghc-options=-Werror && cabal test && cabal install --installdir=.'
-alias cfresh='cabal check ; cabal outdated ; cabal --disable-nix gen-bounds'
-alias cgb='cabal --disable-nix gen-bounds | sed -n "s/\(.* >= .*\),/    , \1/p" | sort'
-alias chd='cabal haddock --haddock-for-hackage'
-alias cu='cabal upload -u AmyDeBuitleir -p'
-alias cud='cabal upload --documentation -u AmyDeBuitleir -p'
-alias eod="git-summary ~/github ; git-summary ~/codeberg"
-alias ff='firefox --new-window'
-alias ffzy='find ~ -type f | fzy'
-alias gfu='git commit flake.lock -m "flake update"'
-alias grep-non-ascii="grep --color='auto' -P -n '[\x80-\xFF]'"
-alias hgrep='history | grep'
-alias longestLine='awk '\''{ if (length($0) > max) {max = length($0); maxline = $0} } END { print maxline }'\'''
-alias lsexe='find . -maxdepth 1 -type f -executable'
-alias nfi='nix flake init -t github:serokell/templates#haskell-cabal2nix'
-alias ods='onedrive --synchronize'
-alias hackage-up='/home/amy/github/criptithe/encrypted/bin/hackage-up'
-alias passgen='/home/amy/github/criptithe/encrypted/bin/passgen'
-alias pick-colour='grim -g "$(slurp -p)" -t ppm - | convert - -format "%[pixel:p{0,0}]" txt:-'
-alias psgrep='ps -ef | grep'
-alias remedit='nano ~/.config/remind/private.rem'
-alias roll="format-zpl | lpr -P Zebra -o raw"
-alias run-dwl='dwl > dwl.log 2>&1'
-alias run-hikari='hikari > hikari.log 2>&1'
-alias run-qtile='qtile start -b wayland > qtile.log 2>&1'
-alias run-river='river > river.log 2>&1'
-alias run-sway='rm -f sway.log.backup ; mv sway.log sway.log.backup 2>/dev/null ; sway > sway.log 2>&1'
-alias snap='grim -g "$(slurp)"'
-alias sncg='sudo nix-collect-garbage --delete-older-than 20d'
-alias snrsui='sudo nixos-rebuild switch --upgrade -I nixpkgs=/home/amy/github/nixpkgs'
-alias snrsu='sudo nixos-rebuild switch --upgrade'
-alias tad='textadept --force --nosession --userhome $XDG_CONFIG_HOME/textadept'
-alias wdf="wdiff -n -w $'\033[30;41m' -x $'\033[0m' -y $'\033[30;42m' -z $'\033[0m'"
-alias zgrep='cat ${XDG_CACHE_HOME}/zsh/history | grep'
 
 #
 # functions
 #
-
 function fadoc0() { find ${1:-.} -name '*.adoc0' -print | sort ;}
 function fadoc() { find ${1:-.} -name '*.adoc' -print | sort ;}
 function fex() { find ${1:-.} -executable -type f ;}
