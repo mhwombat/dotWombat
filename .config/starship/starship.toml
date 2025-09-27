@@ -1,0 +1,46 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$python\
+$character"""
+
+[directory]
+style = "#FF9470"
+
+[character]
+success_symbol = "[❯](#6BB8FF)"
+error_symbol = "[❯](#FF0000)"
+vicmd_symbol = "[❮](green)"
+
+[git_branch]
+format = "[$branch](#8AF5FF)"
+style = "bright-black"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#8AF5FF) ($ahead_behind$stashed)](8AF5FF)"
+style = "8AF5FF"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "#C8C8C8"
+
+[python]
+format = "[$virtualenv]($style) "
+style = "bright-black"

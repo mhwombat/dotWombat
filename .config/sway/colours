@@ -1,0 +1,18 @@
+# Scheme name: base16 / Da One Black
+# Scheme author: NNB (https://github.com/NNBnh)
+set $base00 #000000
+set $base01 #282828
+set $base02 #585858
+set $base03 #888888
+set $base04 #C8C8C8
+set $base05 #FFFFFF
+set $base06 #FFFFFF
+set $base07 #FFFFFF
+set $base08 #FA7883
+set $base09 #FFC387
+set $base0A #FF9470
+set $base0B #98C379
+set $base0C #8AF5FF
+set $base0D #6BB8FF
+set $base0E #E799FF
+set $base0F #B3684F
