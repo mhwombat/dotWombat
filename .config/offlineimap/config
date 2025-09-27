@@ -40,4 +40,4 @@ ssl = yes
 folderfilter = lambda folder: folder not in ['INBOX.spam', 'INBOX.Trash']
 # Tip: To get the fingerprint, put a dummy value here.
 # The error message will tell you the correct fingerprint.
-cert_fingerprint = 5e28308a57e426bb7c0287e2703f20cc06d1a8f8925a4f8ec1a7432d7bf68c9c4d8af5bdd0fd79aba6770695948365867a687bfeefa78a54089e32e0831c2061
+cert_fingerprint = 8a6c9a739d8f636f998fe44d025fb23cb641c6757a4f5c14a8205c0494a324c47e065ac2521583e0d41cf687cd446b836c3ef49b0c85af1ada81c782652e8174
