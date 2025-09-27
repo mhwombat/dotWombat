@@ -7,11 +7,6 @@
 .textadept_session
 
 # Generated theme stuff
-.config/waybar/style.css
-.config/starship/starship.toml
-.config/sway/colours
-.config/sway/keymap
-.config/foot/colours.ini
 themes/previews/
 
 # Generated Python stuff
