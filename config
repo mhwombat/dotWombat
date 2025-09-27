@@ -3,6 +3,7 @@
 .cabal/config
 .config/foot
 .config/git
+.config/niri
 .config/offlineimap/config
 .config/recoll/mimemap
 .config/recoll/recoll.conf
