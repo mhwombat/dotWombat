@@ -2,6 +2,7 @@
 .bashrc
 .cabal/config
 .config/foot
+.config/fuzzel
 .config/git
 .config/niri
 .config/offlineimap/config

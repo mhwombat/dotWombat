@@ -139,9 +139,9 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    // default-column-width { proportion 0.5; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
-    // default-column-width {}
+    default-column-width {}
 
     // By default focus ring and border are rendered as a solid background rectangle
     // behind windows. That is, they will show up through semitransparent windows.
@@ -393,6 +393,7 @@ binds {
     // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
 
+    Mod+Delete repeat=false { close-window; }
     Mod+Q repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
