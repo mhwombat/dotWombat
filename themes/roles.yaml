@@ -1,0 +1,217 @@
+color:
+  text:
+    default:
+      foreground: ${palette.base05}
+      background: ${hue.black}
+    cursor:
+      foreground: ${color.text.default.foreground}
+      background: ${color.text.default.background}
+    brace:
+      default: ${color.text.default}
+      paired:
+        foreground: ${palette.base0E}
+        background: ${color.text.default.background}
+      unpaired:
+        foreground: ${hue.red}
+        background: ${color.text.default.background}
+    indent-guide:
+      foreground: ${palette.base02}
+      background: ${color.text.default.background}
+    calltip:
+      foreground: ${palette.base05}
+      background: ${palette.base02}
+    folded:
+      foreground: ${hue.grey}
+      background: ${palette.base02}
+    added:
+      foreground: ${hue.green}
+      background: ${color.text.default.background}
+    deleted:
+      foreground: ${hue.red}
+      background: ${color.text.default.background}
+    changed:
+      foreground: ${palette.base0E}
+      background: ${color.text.default.background}
+    current-line:
+      foreground: ${color.text.default.foreground}
+      background: ${color.text.default.background}
+    lexeme:
+      annotation:
+        foreground: ${palette.base0D}
+        background: ${color.text.default.background}
+      attribute:
+        foreground: ${palette.base09}
+        background: ${color.text.default.background}
+      class:
+        foreground: ${palette.base0A}
+        background: ${color.text.default.background}
+      code:
+        foreground: ${palette.base03}
+        background: ${color.text.default.background}
+      constant:
+        default:
+          foreground: ${color.text.default.foreground}
+          background: ${color.text.default.background}
+        builtin:
+          foreground: ${palette.base0E}
+          background: ${color.text.default.background}
+      embedded:
+        foreground: ${palette.base01}
+        background: ${palette.base06}
+      error:
+        foreground: ${hue.red}
+        background: ${color.text.default.background}
+      function:
+        default:
+          foreground: ${color.text.default.foreground}
+          background: ${color.text.default.background}
+        builtin:
+          foreground: ${palette.base0E}
+          background: ${color.text.default.background}
+      heading:
+        foreground: ${palette.base0D}
+        background: ${color.text.default.background}
+      keyword:
+        foreground: ${palette.base0E}
+        background: ${color.text.default.background}
+      label:
+        foreground: ${palette.base0D}
+        background: ${color.text.default.background}
+      list:
+        foreground: ${palette.base09}
+        background: ${color.text.default.background}
+      number:
+        foreground: ${palette.base09}
+        background: ${color.text.default.background}
+      operator:
+        foreground: ${palette.base05}
+        background: ${color.text.default.background}
+      preprocessor:
+        foreground: ${palette.base0D}
+        background: ${color.text.default.background}
+      regex:
+        foreground: ${palette.base0C}
+        background: ${color.text.default.background}
+      string:
+        foreground: ${palette.base0B}
+        background: ${color.text.default.background}
+      tag:
+        foreground: ${palette.base0E}
+        background: ${color.text.default.background}
+      type:
+        foreground: ${palette.base0A}
+        background: ${color.text.default.background}
+      variable:
+        default:
+          foreground: ${color.text.default.foreground}
+          background: ${color.text.default.background}
+        builtin:
+          foreground: ${palette.base0E}
+          background: ${color.text.default.background}
+    link:
+      default:
+        foreground: ${color.text.default.foreground}
+        background: ${color.text.default.foreground}
+      visited:
+        foreground: ${color.text.link.default.foreground}
+        background: ${color.text.link.default.foreground}
+    margin:
+      default:
+        background: ${palette.base01}
+      linenumber:
+        foreground: ${palette.base03}
+        background: ${color.text.margin.default.background}
+      foldmarker:
+        foreground: ${color.text.default.foreground}
+        background: ${color.text.margin.default.background}
+    selected:
+      foreground: ${palette.base05}
+      background: ${color.text.default.background}
+    matching:
+      foreground: ${palette.base06}
+      background: ${color.text.default.background}
+    inactive:
+      foreground: ${hue.grey}
+      background: ${color.text.default.background}
+    info:
+      foreground: ${color.text.default.foreground}
+      background: ${color.text.default.background}
+    warning:
+      foreground: ${hue.yellow}
+      background: ${color.text.default.background}
+    alert:
+      foreground: ${hue.red}
+      background: ${color.text.default.background}
+  client:
+    default:
+      foreground: ${hue.white}
+      background: ${hue.black}
+      border: ${hue.black}
+    focused:
+      foreground: ${hue.white}
+      background: ${preference[0]}
+      border: ${preference[0]}
+    urgent:
+      foreground: ${hue.white}
+      background: ${hue.red}
+      border: ${hue.red}
+    inactive:
+      foreground: ${hue.white}
+      background: ${hue.grey}
+      border: ${hue.grey}
+  workspace:
+    default:
+      foreground: ${color.client.default.foreground}
+      background: ${color.client.default.background}
+      border: ${color.client.default.border}
+    focused:
+      foreground: ${color.client.focused.foreground}
+      background: ${color.client.focused.background}
+      border: ${color.client.focused.border}
+    urgent:
+      foreground: ${color.client.urgent.foreground}
+      background: ${color.client.urgent.background}
+      border: ${color.client.urgent.border}
+    inactive:
+      foreground: ${color.client.inactive.foreground}
+      background: ${color.client.inactive.background}
+      border: ${color.client.inactive.border}
+  monitor:
+    default:
+      border: ${color.workspace.default.border}
+    focused:
+      border: ${color.workspace.focused.border}
+    urgent:
+      border: ${color.workspace.urgent.border}
+    inactive:
+      border: ${color.workspace.inactive.border}
+  button:
+    default:
+      foreground: ${color.workspace.default.foreground}
+      background: ${color.workspace.default.background}
+    hover:
+      foreground: ${color.workspace.focused.foreground}
+      background: ${color.workspace.focused.background}
+    urgent:
+      foreground: ${color.workspace.urgent.foreground}
+      background: ${color.workspace.urgent.background}
+    inactive:
+      foreground: ${color.workspace.inactive.foreground}
+      background: ${color.workspace.inactive.background}
+  menu:
+    option:
+      default:
+        foreground: ${color.text.default.foreground}
+        background: ${color.text.default.background}
+      selected:
+        foreground: ${color.text.selected.foreground}
+        background: ${color.text.selected.background}
+      matching:
+        foreground: ${color.text.matching.foreground}
+        background: ${color.text.matching.background}
+      selected-matching:
+        foreground: ${color.text.matching.foreground}
+        background: ${color.text.matching.background}
+      inactive:
+        foreground: ${color.text.inactive.foreground}
+        background: ${color.text.inactive.background}

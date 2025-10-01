@@ -1,0 +1,17 @@
+preference:
+  # List EXACTLY 12 of your favourite hues in order of preference.
+  # The first hue will be most dominant, followed by the second hue, and so on.
+  # You may want to avoid black, white, bright black and bright white;
+  # they have special uses.
+  - '${hue.magenta}'
+  - '${hue.blue}'
+  - '${hue.green}'
+  - '${hue.cyan}'
+  - '${hue.red}'
+  - '${hue.yellow}'
+  - '${hue.bright-red}'
+  - '${hue.bright-green}'
+  - '${hue.bright-yellow}'
+  - '${hue.bright-blue}'
+  - '${hue.bright-magenta}'
+  - '${hue.bright-cyan}'

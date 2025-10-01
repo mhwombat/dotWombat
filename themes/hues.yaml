@@ -1,0 +1,21 @@
+hue:
+  black: ${palette.base00}
+  red: ${palette.base08}
+  orange: ${palette.base09}
+  yellow: ${palette.base0A}
+  green: ${palette.base0B}
+  blue: ${palette.base0D}
+  cyan: ${palette.base0C}
+  magenta: ${palette.base0E}
+  white: ${palette.base06}
+  bright-black: ${palette.base02}
+  bright-red: ${palette.base12}
+  bright-yellow: ${palette.base13}
+  bright-green: ${palette.base14}
+  bright-blue: ${palette.base16}
+  bright-cyan: ${palette.base15}
+  bright-magenta: ${palette.base17}
+  bright-white: ${palette.base07}
+  brown: ${palette.base0F}
+  grey: ${palette.base03}
+  light-grey: ${palette.base04}
