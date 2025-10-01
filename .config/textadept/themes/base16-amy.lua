@@ -1,25 +1,25 @@
 -- Base16 theme for Textadept, based on Mitchell's dark theme.
--- Currently using base16 Da One Black
+-- Currently using base24 Dracula
 
 local view, colors, styles = view, view.colors, view.styles
 
 -- Colors must be in BBGGRR order!
-colors.base00 = 0x000000
-colors.base01 = 0x282828
-colors.base02 = 0x585858
-colors.base03 = 0x888888
-colors.base04 = 0xc8c8c8
-colors.base05 = 0xffffff
-colors.base06 = 0xffffff
+colors.base00 = 0x362a28
+colors.base01 = 0x473436
+colors.base02 = 0x5a4744
+colors.base03 = 0xa47262
+colors.base04 = 0xc7a89e
+colors.base05 = 0xf2f8f8
+colors.base06 = 0xf4f1f0
 colors.base07 = 0xffffff
-colors.base08 = 0x8378fa
-colors.base09 = 0x87c3ff
-colors.base0A = 0x7094ff
-colors.base0B = 0x79c398
-colors.base0C = 0xfff58a
-colors.base0D = 0xffb86b
-colors.base0E = 0xff99e7
-colors.base0F = 0x4f68b3
+colors.base08 = 0x5555ff
+colors.base09 = 0x6cb8ff
+colors.base0A = 0x8cfaf1
+colors.base0B = 0x7bfa50
+colors.base0C = 0xfde98b
+colors.base0D = 0xffbf80
+colors.base0E = 0xc679ff
+colors.base0F = 0xf993bd
 
 -- Default font.
 if not font then font = WIN32 and 'Consolas' or OSX and 'Monaco' or 'Monospace' end

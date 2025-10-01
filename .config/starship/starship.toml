@@ -11,20 +11,20 @@ $python\
 $character"""
 
 [directory]
-style = "#FF9470"
+style = "#F1FA8C"
 
 [character]
-success_symbol = "[❯](#6BB8FF)"
+success_symbol = "[❯](#80BFFF)"
 error_symbol = "[❯](#FF0000)"
 vicmd_symbol = "[❮](green)"
 
 [git_branch]
-format = "[$branch](#8AF5FF)"
+format = "[$branch](#8BE9FD)"
 style = "bright-black"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#8AF5FF) ($ahead_behind$stashed)](8AF5FF)"
-style = "8AF5FF"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#8BE9FD) ($ahead_behind$stashed)](8BE9FD)"
+style = "8BE9FD"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -39,7 +39,7 @@ style = "bright-black"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "#C8C8C8"
+style = "#9EA8C7"
 
 [python]
 format = "[$virtualenv]($style) "

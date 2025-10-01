@@ -8,9 +8,9 @@
 }
 
 window#waybar {
-    background-color: #000000;
-    border-bottom: 3px solid #6BB8FF;
-    color: #FFFFFF;
+    background-color: #282A36;
+    border-bottom: 3px solid #80BFFF;
+    color: #F8F8F2;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -22,17 +22,17 @@ window#waybar.hidden {
 /* River stuff */
 #tags button {
     padding: 0 5px;
-    color: #FFFFFF;
+    color: #F8F8F2;
 }
 
 #tags button.occupied {
-    color: #000000;
-    background-color: #FFC387;
+    color: #282A36;
+    background-color: #FFB86C;
 }
 
 #tags button.focused {
-    color: #000000;
-    background-color: #6BB8FF;
+    color: #282A36;
+    background-color: #80BFFF;
 }
 
 #tags button.urgent {
@@ -43,18 +43,18 @@ window#waybar.hidden {
 
 #workspaces button {
     padding: 0 5px;
-    color: #FFFFFF;
+    color: #F8F8F2;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-    color: #000000;
-    background-color: #FFC387;
+    color: #282A36;
+    background-color: #FFB86C;
 }
 
 #workspaces button.focused {
-    color: #000000;
-    background-color: #6BB8FF;
+    color: #282A36;
+    background-color: #80BFFF;
 }
 
 #workspaces button.urgent {
@@ -62,8 +62,8 @@ window#waybar.hidden {
 }
 
 #mode {
-    background-color: #98C379;
-    border-bottom: 3px solid #FFFFFF;
+    background-color: #50FA7B;
+    border-bottom: 3px solid #F8F8F2;
 }
 
 #clock,
@@ -81,7 +81,7 @@ window#waybar.hidden {
 #idle_inhibitor,
 #mpd {
     padding: 0 10px;
-    color: #FFFFFF;
+    color: #F8F8F2;
 }
 
 #window,
@@ -100,8 +100,8 @@ window#waybar.hidden {
 }
 
 #clock {
-    color: #000000;
-    background-color: #6BB8FF;
+    color: #282A36;
+    background-color: #80BFFF;
 }
 
 #battery.charging, #battery.plugged {
