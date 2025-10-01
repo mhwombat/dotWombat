@@ -7,32 +7,32 @@
 [colors]
 # alpha=1.0
 # alpha-mode=default # Can be `default`, `matching` or `all`
-background={{palette.base00}}
-foreground={{palette.base05}}
+foreground={{color.text.default.foreground}}
+background={{color.text.default.background}}
 # flash=7f7f00
 # flash-alpha=0.5
 
 # cursor=<inverse foreground/background>
 
 ## Normal/regular colors (color palette 0-7)
-regular0={{palette.base00}} # black
-regular1={{palette.base08}} # red
-regular2={{palette.base0B}} # green
-regular3={{palette.base0A}} # yellow
-regular4={{palette.base0D}} # blue
-regular5={{palette.base0E}} # magenta
-regular6={{palette.base0C}} # cyan
-regular7={{palette.base06}} # white
+regular0={{hue.black}} # black
+regular1={{hue.red}} # red
+regular2={{hue.green}} # green
+regular3={{hue.yellow}} # yellow
+regular4={{hue.blue}} # blue
+regular5={{hue.magenta}} # magenta
+regular6={{hue.cyan}} # cyan
+regular7={{hue.white}} # white
 
 ## Bright colors (color palette 8-15)
-bright0={{palette.base02}} # bright black
-bright1={{palette.base12}} # bright red
-bright2={{palette.base14}} # bright green
-bright3={{palette.base13}} # bright yellow
-bright4={{palette.base16}} # bright blue
-bright5={{palette.base17}} # bright magenta
-bright6={{palette.base15}} # bright cyan
-bright7={{palette.base07}} # bright white
+bright0={{hue.bright-black}} # bright black
+bright1={{hue.bright-red}} # bright red
+bright2={{hue.bright-green}} # bright green
+bright3={{hue.bright-yellow}} # bright yellow
+bright4={{hue.bright-blue}} # bright blue
+bright5={{hue.bright-magenta}} # bright magenta
+bright6={{hue.bright-cyan}} # bright cyan
+bright7={{hue.bright-white}} # bright white
 
 ## dimmed colors (see foot.ini(5) man page)
 # dim0=<not set>
@@ -69,4 +69,4 @@ bright7={{palette.base07}} # bright white
 # scrollback-indicator=<regular0> <bright4>  # black-on-bright-blue
 # search-box-no-match=<regular0> <regular1>  # black-on-red
 # search-box-match=<regular0> <regular3>     # black-on-yellow
-urls={{palette.base09}}                      # <regular3>
+urls={{color.text.link.default.foreground}}  # <regular3>
