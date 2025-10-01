@@ -1,7 +1,7 @@
 color:
   text:
     default:
-      foreground: ${palette.base05}
+      foreground: ${hue.white}
       background: ${hue.black}
     cursor:
       foreground: ${color.text.default.foreground}
@@ -9,20 +9,20 @@ color:
     brace:
       default: ${color.text.default}
       paired:
-        foreground: ${palette.base0E}
+        foreground: ${preference[11]}
         background: ${color.text.default.background}
       unpaired:
         foreground: ${hue.red}
         background: ${color.text.default.background}
     indent-guide:
-      foreground: ${palette.base02}
+      foreground: ${hue.gray}
       background: ${color.text.default.background}
     calltip:
-      foreground: ${palette.base05}
-      background: ${palette.base02}
+      foreground: ${color.text.info.foreground}}
+      background: ${color.text.default.background}
     folded:
-      foreground: ${hue.grey}
-      background: ${palette.base02}
+      foreground: ${hue.gray}
+      background: ${color.text.default.background}
     added:
       foreground: ${hue.green}
       background: ${color.text.default.background}
@@ -30,83 +30,83 @@ color:
       foreground: ${hue.red}
       background: ${color.text.default.background}
     changed:
-      foreground: ${palette.base0E}
+      foreground: ${hue.yellow}
       background: ${color.text.default.background}
     current-line:
       foreground: ${color.text.default.foreground}
-      background: ${color.text.default.background}
+      background: ${hue.bright-black}
     lexeme:
       annotation:
-        foreground: ${palette.base0D}
+        foreground: ${preference[2]}
         background: ${color.text.default.background}
       attribute:
-        foreground: ${palette.base09}
+        foreground: ${preference[1]}
         background: ${color.text.default.background}
       class:
-        foreground: ${palette.base0A}
+        foreground: ${preference[3]}
         background: ${color.text.default.background}
       code:
-        foreground: ${palette.base03}
+        foreground: ${preference[3]}
         background: ${color.text.default.background}
       constant:
         default:
-          foreground: ${color.text.default.foreground}
+          foreground: ${preference[1]}
           background: ${color.text.default.background}
         builtin:
-          foreground: ${palette.base0E}
+          foreground: ${preference[6]}
           background: ${color.text.default.background}
       embedded:
-        foreground: ${palette.base01}
-        background: ${palette.base06}
+        foreground: ${preference[4]}
+        background: ${color.text.default.background}
       error:
         foreground: ${hue.red}
         background: ${color.text.default.background}
       function:
         default:
-          foreground: ${color.text.default.foreground}
+          foreground: ${preference[2]}
           background: ${color.text.default.background}
         builtin:
-          foreground: ${palette.base0E}
+          foreground: ${preference[7]}
           background: ${color.text.default.background}
       heading:
-        foreground: ${palette.base0D}
+        foreground: ${preference[5]}
         background: ${color.text.default.background}
       keyword:
-        foreground: ${palette.base0E}
+        foreground: ${preference[9]}
         background: ${color.text.default.background}
       label:
-        foreground: ${palette.base0D}
+        foreground: ${preference[6]}
         background: ${color.text.default.background}
       list:
-        foreground: ${palette.base09}
+        foreground: ${preference[7]}
         background: ${color.text.default.background}
       number:
-        foreground: ${palette.base09}
+        foreground: ${preference[10]}
         background: ${color.text.default.background}
       operator:
-        foreground: ${palette.base05}
+        foreground: ${preference[8]}
         background: ${color.text.default.background}
       preprocessor:
-        foreground: ${palette.base0D}
+        foreground: ${preference[8]}
         background: ${color.text.default.background}
       regex:
-        foreground: ${palette.base0C}
+        foreground: ${preference[9]}
         background: ${color.text.default.background}
       string:
-        foreground: ${palette.base0B}
+        foreground: ${preference[11]}
         background: ${color.text.default.background}
       tag:
-        foreground: ${palette.base0E}
+        foreground: ${preference[0]}
         background: ${color.text.default.background}
       type:
-        foreground: ${palette.base0A}
+        foreground: ${preference[4]}
         background: ${color.text.default.background}
       variable:
         default:
-          foreground: ${color.text.default.foreground}
+          foreground: ${preference[0]}
           background: ${color.text.default.background}
         builtin:
-          foreground: ${palette.base0E}
+          foreground: ${preference[5]}
           background: ${color.text.default.background}
     link:
       default:
@@ -117,21 +117,27 @@ color:
         background: ${color.text.link.default.foreground}
     margin:
       default:
-        background: ${palette.base01}
+        background: ${hue.bright-black}
       linenumber:
-        foreground: ${palette.base03}
+        foreground: ${hue.light-gray}
         background: ${color.text.margin.default.background}
       foldmarker:
         foreground: ${color.text.default.foreground}
         background: ${color.text.margin.default.background}
     selected:
-      foreground: ${palette.base05}
+      foreground: ${hue.gray}
       background: ${color.text.default.background}
     matching:
-      foreground: ${palette.base06}
+      foreground: ${preference[1]}
       background: ${color.text.default.background}
     inactive:
-      foreground: ${hue.grey}
+      foreground: ${hue.gray}
+      background: ${color.text.default.background}
+    prompt:
+      foreground: ${preference[1]}
+      background: ${color.text.default.background}
+    typing:
+      foreground: ${hue.green}
       background: ${color.text.default.background}
     info:
       foreground: ${color.text.default.foreground}
@@ -157,8 +163,8 @@ color:
       border: ${hue.red}
     inactive:
       foreground: ${hue.white}
-      background: ${hue.grey}
-      border: ${hue.grey}
+      background: ${hue.gray}
+      border: ${hue.gray}
   workspace:
     default:
       foreground: ${color.client.default.foreground}
@@ -204,8 +210,8 @@ color:
         foreground: ${color.text.default.foreground}
         background: ${color.text.default.background}
       selected:
-        foreground: ${color.text.selected.foreground}
-        background: ${color.text.selected.background}
+        foreground: ${color.text.current-line.foreground}
+        background: ${color.text.current-line.background}
       matching:
         foreground: ${color.text.matching.foreground}
         background: ${color.text.matching.background}

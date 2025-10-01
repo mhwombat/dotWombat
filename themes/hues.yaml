@@ -17,5 +17,5 @@ hue:
   bright-magenta: ${palette.base17}
   bright-white: ${palette.base07}
   brown: ${palette.base0F}
-  grey: ${palette.base03}
-  light-grey: ${palette.base04}
+  gray: ${palette.base03}
+  light-gray: ${palette.base04}
