@@ -150,20 +150,20 @@ color:
       background: ${color.text.default.background}
   client:
     default:
-      foreground: ${hue.white}
-      background: ${hue.black}
-      border: ${hue.black}
+      foreground: ${color.text.default.foreground}
+      background: ${color.text.default.background}
+      border: ${preference[1]}
     focused:
-      foreground: ${hue.white}
-      background: ${preference[0]}
+      foreground: ${color.text.default.foreground}
+      background: ${color.text.default.background}
       border: ${preference[0]}
     urgent:
-      foreground: ${hue.white}
-      background: ${hue.red}
+      foreground: ${color.text.default.foreground}
+      background: ${color.text.default.background}
       border: ${hue.red}
     inactive:
-      foreground: ${hue.white}
-      background: ${hue.gray}
+      foreground: ${color.text.default.foreground}
+      background: ${color.text.default.background}
       border: ${hue.gray}
   workspace:
     default:

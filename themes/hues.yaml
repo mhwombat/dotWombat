@@ -16,6 +16,6 @@ hue:
   bright-cyan: ${palette.base15}
   bright-magenta: ${palette.base17}
   bright-white: ${palette.base07}
-  brown: ${palette.base0F}
+  purple: ${palette.base0F}
   gray: ${palette.base03}
   light-gray: ${palette.base04}
