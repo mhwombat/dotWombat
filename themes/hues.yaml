@@ -1,5 +1,17 @@
 hue:
-  black: ${palette.base00}
+  grayscale:
+  - ${palette.base11} # 0 darkest black
+  - ${palette.base10} # 1 darker black
+  - ${palette.base00} # 2 default background
+  - ${palette.base01} # 3 (darkest gray)
+  - ${palette.base02} # 4 bright black
+  - ${palette.base03} # 5 gray
+  - ${palette.base04} # 6 light gray
+  - ${palette.base05} # 7 default foreground
+  - ${palette.base06} # 8 white
+  - ${palette.base07} # 9 bright white
+  black: ${hue.grayscale[0]}
+  white: ${hue.grayscale[9]}
   red: ${palette.base08}
   orange: ${palette.base09}
   yellow: ${palette.base0A}
@@ -7,15 +19,10 @@ hue:
   blue: ${palette.base0D}
   cyan: ${palette.base0C}
   magenta: ${palette.base0E}
-  white: ${palette.base06}
-  bright-black: ${palette.base02}
+  purple: ${palette.base0F}
   bright-red: ${palette.base12}
   bright-yellow: ${palette.base13}
   bright-green: ${palette.base14}
   bright-blue: ${palette.base16}
   bright-cyan: ${palette.base15}
   bright-magenta: ${palette.base17}
-  bright-white: ${palette.base07}
-  purple: ${palette.base0F}
-  gray: ${palette.base03}
-  light-gray: ${palette.base04}

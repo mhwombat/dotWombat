@@ -14,13 +14,13 @@ $character"""
 style = "#F1FA8C"
 
 [character]
-success_symbol = "[❯](#80BFFF)"
-error_symbol = "[❯](#FF0000)"
-vicmd_symbol = "[❮](green)"
+success_symbol = "[❯](#50FA7B)"
+error_symbol = "[❯](#FF5555)"
+vicmd_symbol = "[❮](#50FA7B)"
 
 [git_branch]
 format = "[$branch](#8BE9FD)"
-style = "bright-black"
+style = "F8F8F2"
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#8BE9FD) ($ahead_behind$stashed)](8BE9FD)"
@@ -35,12 +35,12 @@ stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+style = "F8F8F2"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "#9EA8C7"
+style = "#F8F8F2"
 
 [python]
 format = "[$virtualenv]($style) "
-style = "bright-black"
+style = "F8F8F2"

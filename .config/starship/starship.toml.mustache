@@ -11,20 +11,20 @@ $python\
 $character"""
 
 [directory]
-style = "#{{palette.base0A}}"
+style = "#{{hue.yellow}}"
 
 [character]
-success_symbol = "[❯](#{{palette.base0D}})"
-error_symbol = "[❯](#FF0000)"
-vicmd_symbol = "[❮](green)"
+success_symbol = "[❯](#{{hue.green}})"
+error_symbol = "[❯](#{{hue.red}})"
+vicmd_symbol = "[❮](#{{hue.green}})"
 
 [git_branch]
-format = "[$branch](#{{palette.base0C}})"
-style = "bright-black"
+format = "[$branch](#{{hue.cyan}})"
+style = "{{color.text.default.foreground}}"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#{{palette.base0C}}) ($ahead_behind$stashed)]({{palette.base0C}})"
-style = "{{palette.base0C}}"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#{{hue.cyan}}) ($ahead_behind$stashed)]({{hue.cyan}})"
+style = "{{hue.cyan}}"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -35,12 +35,12 @@ stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "bright-black"
+style = "{{color.text.default.foreground}}"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "#{{palette.base04}}"
+style = "#{{color.text.default.foreground}}"
 
 [python]
 format = "[$virtualenv]($style) "
-style = "bright-black"
+style = "{{color.text.default.foreground}}"

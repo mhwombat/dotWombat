@@ -14,7 +14,7 @@ keys['ctrl+alt+l'] = textadept.macros.load
 
 if not CURSES then
 --	view:set_theme('dark')
-	view:set_theme('base16-amy')
+	view:set_theme('base24')
 end
 
 local function quick_open_dir()

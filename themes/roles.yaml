@@ -1,27 +1,27 @@
 color:
   text:
     default:
-      foreground: ${hue.white}
-      background: ${hue.black}
+      foreground: ${hue.grayscale[7]}
+      background: ${hue.grayscale[2]}
     cursor:
       foreground: ${color.text.default.foreground}
       background: ${color.text.default.background}
     brace:
       default: ${color.text.default}
       paired:
-        foreground: ${preference[11]}
+        foreground: ${preference[7]}
         background: ${color.text.default.background}
       unpaired:
         foreground: ${hue.red}
         background: ${color.text.default.background}
     indent-guide:
-      foreground: ${hue.gray}
+      foreground: ${hue.grayscale[5]}
       background: ${color.text.default.background}
     calltip:
-      foreground: ${color.text.info.foreground}}
+      foreground: ${color.text.info.foreground}
       background: ${color.text.default.background}
     folded:
-      foreground: ${hue.gray}
+      foreground: ${hue.grayscale[5]}
       background: ${color.text.default.background}
     added:
       foreground: ${hue.green}
@@ -34,7 +34,7 @@ color:
       background: ${color.text.default.background}
     current-line:
       foreground: ${color.text.default.foreground}
-      background: ${hue.bright-black}
+      background: ${hue.grayscale[4]}
     lexeme:
       annotation:
         foreground: ${preference[2]}
@@ -57,6 +57,9 @@ color:
           background: ${color.text.default.background}
       embedded:
         foreground: ${preference[4]}
+        background: ${color.text.default.background}
+      comment:
+        foreground: ${hue.grayscale[6]}
         background: ${color.text.default.background}
       error:
         foreground: ${hue.red}
@@ -117,21 +120,21 @@ color:
         background: ${color.text.link.default.foreground}
     margin:
       default:
-        background: ${hue.bright-black}
-      linenumber:
-        foreground: ${hue.light-gray}
+        background: ${hue.grayscale[4]}
+      line-number:
+        foreground: ${hue.grayscale[6]}
         background: ${color.text.margin.default.background}
-      foldmarker:
+      fold-marker:
         foreground: ${color.text.default.foreground}
         background: ${color.text.margin.default.background}
     selected:
-      foreground: ${hue.gray}
+      foreground: ${hue.grayscale[5]}
       background: ${color.text.default.background}
     matching:
       foreground: ${preference[1]}
       background: ${color.text.default.background}
     inactive:
-      foreground: ${hue.gray}
+      foreground: ${hue.grayscale[5]}
       background: ${color.text.default.background}
     prompt:
       foreground: ${preference[1]}
@@ -148,6 +151,25 @@ color:
     alert:
       foreground: ${hue.red}
       background: ${color.text.default.background}
+  terminal:
+    ## Normal/regular colors (color palette 0-7)
+    regular0: ${hue.black} # black
+    regular1: ${hue.red} # red
+    regular2: ${hue.green} # green
+    regular3: ${hue.yellow} # yellow
+    regular4: ${hue.blue} # blue
+    regular5: ${hue.magenta} # magenta
+    regular6: ${hue.cyan} # cyan
+    regular7: ${hue.grayscale[8]} # white
+    ## Bright colors (color palette 8-15)
+    bright0: ${hue.grayscale[4]} # bright black
+    bright1: ${hue.bright-red} # bright red
+    bright2: ${hue.bright-green} # bright green
+    bright3: ${hue.bright-yellow} # bright yellow
+    bright4: ${hue.bright-blue} # bright blue
+    bright5: ${hue.bright-magenta} # bright magenta
+    bright6: ${hue.bright-cyan} # bright cyan
+    bright7: ${hue.white} # bright white
   client:
     default:
       foreground: ${color.text.default.foreground}
@@ -164,7 +186,7 @@ color:
     inactive:
       foreground: ${color.text.default.foreground}
       background: ${color.text.default.background}
-      border: ${hue.gray}
+      border: ${hue.grayscale[5]}
   workspace:
     default:
       foreground: ${color.client.default.foreground}
