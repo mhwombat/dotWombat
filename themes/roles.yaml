@@ -148,7 +148,7 @@ color:
     warning:
       foreground: ${hue.yellow}
       background: ${color.text.default.background}
-    alert:
+    urgent:
       foreground: ${hue.red}
       background: ${color.text.default.background}
   terminal:
@@ -179,6 +179,10 @@ color:
       foreground: ${color.text.default.foreground}
       background: ${color.text.default.background}
       border: ${preference[0]}
+    warning:
+      foreground: ${color.text.default.foreground}
+      background: ${color.text.default.background}
+      border: ${hue.yellow}
     urgent:
       foreground: ${color.text.default.foreground}
       background: ${color.text.default.background}
@@ -196,6 +200,10 @@ color:
       foreground: ${color.client.focused.foreground}
       background: ${color.client.focused.background}
       border: ${color.client.focused.border}
+    warning:
+      foreground: ${color.client.warning.foreground}
+      background: ${color.client.warning.background}
+      border: ${color.client.warning.border}
     urgent:
       foreground: ${color.client.urgent.foreground}
       background: ${color.client.urgent.background}
@@ -209,23 +217,37 @@ color:
       border: ${color.workspace.default.border}
     focused:
       border: ${color.workspace.focused.border}
+    warning:
+      border: ${color.workspace.warning.border}
     urgent:
       border: ${color.workspace.urgent.border}
     inactive:
       border: ${color.workspace.inactive.border}
   button:
     default:
-      foreground: ${color.workspace.default.foreground}
-      background: ${color.workspace.default.background}
+      foreground: ${color.client.default.foreground}
+      background: ${color.client.default.background}
+      border: ${color.client.default.border}
+    focused:
+      foreground: ${color.client.focused.foreground}
+      background: ${color.client.focused.background}
+      border: ${color.client.focused.border}
     hover:
-      foreground: ${color.workspace.focused.foreground}
-      background: ${color.workspace.focused.background}
+      foreground: ${color.client.focused.foreground}
+      background: ${color.client.focused.background}
+      border: ${color.client.focused.border}
+    warning:
+      foreground: ${color.client.warning.foreground}
+      background: ${color.client.warning.background}
+      border: ${color.client.warning.border}
     urgent:
-      foreground: ${color.workspace.urgent.foreground}
-      background: ${color.workspace.urgent.background}
+      foreground: ${color.client.urgent.foreground}
+      background: ${color.client.urgent.background}
+      border: ${color.client.urgent.border}
     inactive:
-      foreground: ${color.workspace.inactive.foreground}
-      background: ${color.workspace.inactive.background}
+      foreground: ${color.client.inactive.foreground}
+      background: ${color.client.inactive.background}
+      border: ${color.client.inactive.border}
   menu:
     option:
       default:
@@ -243,3 +265,16 @@ color:
       inactive:
         foreground: ${color.text.inactive.foreground}
         background: ${color.text.inactive.background}
+  by-preference:
+    n00: ${preference[0]}
+    n01: ${preference[1]}
+    n02: ${preference[2]}
+    n03: ${preference[3]}
+    n04: ${preference[4]}
+    n05: ${preference[5]}
+    n06: ${preference[6]}
+    n07: ${preference[7]}
+    n08: ${preference[8]}
+    n09: ${preference[9]}
+    n10: ${preference[10]}
+    n11: ${preference[11]}
