@@ -1,0 +1,173 @@
+-- Base16 theme for Textadept, based on Mitchell's dark theme.
+-- Currently using {{system}} {{name}}
+
+local view, colors, styles = view, view.colors, view.styles
+
+-- Default font.
+if not font then font = WIN32 and 'Consolas' or OSX and 'Monaco' or 'Monospace' end
+if not size then size = not OSX and 10 or 12 end
+
+-- Predefined styles.
+styles[view.STYLE_DEFAULT] = {
+	font = font, size = size, fore = 0x{{color.text.default.foreground}}, back = 0x{{color.text.default.background}}
+}
+styles[view.STYLE_LINENUMBER] = {fore = 0x{{color.text.margin.line-number.foreground}}, back = 0x{{color.text.margin.line-number.background}}} -- line number margin
+styles[view.STYLE_BRACELIGHT] = {fore = 0x{{color.text.brace.paired.foreground}}, bold = true} -- highlighted brace characters
+styles[view.STYLE_BRACEBAD] = {fore = 0x{{color.text.brace.unpaired.foreground}}} -- brace character with no match
+-- styles[view.STYLE_CONTROLCHAR] = {} -- control character blocks
+
+
+styles[view.STYLE_INDENTGUIDE] = {fore = 0x{{color.text.indent-guide.foreground}}} -- indentation guides
+styles[view.STYLE_CALLTIP] = {fore = 0x{{color.text.calltip.foreground}}, back = 0x{{color.text.calltip.foreground}}} -- call tip text
+styles[view.STYLE_FOLDDISPLAYTEXT] = {fore = 0x{{color.text.folded.foreground}}, back = 0x{{color.text.folded.background}}} -- text displayed next to folded lines
+
+-- Tag styles. These are language-specific.
+styles[lexer.ANNOTATION] = {fore = 0x{{color.text.lexeme.annotation.foreground}}}
+styles[lexer.ATTRIBUTE] = {fore = 0x{{color.text.lexeme.attribute.foreground}}}
+styles[lexer.BOLD] = {bold = true}
+styles[lexer.CLASS] = {fore = 0x{{color.text.lexeme.class.foreground}}}
+styles[lexer.CODE] = {fore = 0x{{color.text.lexeme.code.foreground}}, eol_filled = true}
+styles[lexer.COMMENT] = {fore = 0x{{color.text.lexeme.comment.foreground}}}
+ styles[lexer.CONSTANT] = {fore = 0x{{color.text.lexeme.constant.default.foreground}}}
+styles[lexer.CONSTANT_BUILTIN] = {fore = 0x{{color.text.lexeme.constant.builtin.foreground}}}
+styles[lexer.EMBEDDED] = {fore = 0x{{color.text.lexeme.embedded.foreground}}, back = 0x{{color.text.lexeme.embedded.foreground}}}
+styles[lexer.ERROR] = {fore = 0x{{color.text.lexeme.error.foreground}}}
+-- styles[lexer.FUNCTION] = {}
+styles[lexer.FUNCTION_BUILTIN] = {fore = 0x{{color.text.lexeme.function.builtin.foreground}}}
+-- styles[lexer.FUNCTION_METHOD] = {}
+styles[lexer.HEADING] = {bold = true, fore = 0x{{color.text.lexeme.heading.foreground}}}
+-- styles[lexer.IDENTIFIER] = {}
+styles[lexer.ITALIC] = {italic = true}
+styles[lexer.KEYWORD] = {fore = 0x{{color.text.lexeme.keyword.foreground}}}
+styles[lexer.LABEL] = {fore = 0x{{color.text.lexeme.label.foreground}}}
+styles[lexer.LINK] = {underline = true}
+styles[lexer.LIST] = {fore = 0x{{color.text.lexeme.list.foreground}}}
+styles[lexer.NUMBER] = {fore = 0x{{color.text.lexeme.number.foreground}}}
+styles[lexer.OPERATOR] = {fore = 0x{{color.text.lexeme.operator.foreground}}}
+styles[lexer.PREPROCESSOR] = {fore = 0x{{color.text.lexeme.preprocessor.foreground}}}
+styles[lexer.REFERENCE] = {underline = true}
+styles[lexer.REGEX] = {fore = 0x{{color.text.lexeme.regex.foreground}}}
+styles[lexer.STRING] = {fore = 0x{{color.text.lexeme.string.foreground}}}
+styles[lexer.TAG] = {fore = 0x{{color.text.lexeme.tag.foreground}}}
+styles[lexer.TYPE] = {fore = 0x{{color.text.lexeme.type.foreground}}}
+styles[lexer.UNDERLINE] = {underline = true}
+-- styles[lexer.VARIABLE] = {}
+styles[lexer.VARIABLE_BUILTIN] = {fore = 0x{{color.text.lexeme.variable.builtin.foreground}}}
+-- styles[lexer.WHITESPACE] = {}
+
+-- CSS.
+styles.property = styles[lexer.ATTRIBUTE]
+-- styles.pseudoclass = {}
+-- styles.pseudoelement = {}
+
+-- Diff.
+styles.addition = {fore = 0x{{color.text.added.foreground}}}
+styles.deletion = {fore = 0x{{color.text.deleted.foreground}}}
+styles.change = {fore = 0x{{color.text.changed.foreground}}}
+
+-- HTML.
+styles.tag_unknown = styles.tag .. {italic = true}
+styles.attribute_unknown = styles.attribute .. {italic = true}
+
+-- Latex, TeX, and Texinfo.
+styles.command = styles[lexer.KEYWORD]
+styles.command_section = styles[lexer.HEADING]
+styles.environment = styles[lexer.TYPE]
+styles.environment_math = styles[lexer.NUMBER]
+
+-- Makefile.
+-- styles.target = {}
+
+-- Markdown.
+-- styles.hr = {}
+
+-- Output.
+styles.csi = {visible = false}
+local csi_colors = {
+	black = 0x{{hue.black}}, red = 0x{{hue.red}}, green = 0x{{hue.green}}, yellow = 0x{{hue.yellow}},
+	blue = 0x{{hue.blue}}, magenta = 0x{{hue.magenta}}, cyan = 0x{{hue.cyan}}, white = 0x{{hue.white}}
+}
+for k, v in pairs(csi_colors) do styles['csi_' .. k] = {fore = v} end
+for k, v in pairs(csi_colors) do styles['csi_' .. k .. '_bright'] = {fore = v, bold = true} end
+
+-- Python.
+styles.keyword_soft = {}
+
+-- XML.
+-- styles.cdata = {}
+
+-- YAML.
+styles.error_indent = {back = 0x{{hue.red}}}
+
+-- Element colors.
+-- view.element_color[view.ELEMENT_SELECTION_TEXT] = 0x{{color.text.selected.foreground}}
+view.element_color[view.ELEMENT_SELECTION_BACK] = 0x{{color.text.selected.foreground}}
+-- view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_TEXT] = 0x{{color.text.selected.foreground}}
+view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_BACK] = 0x{{color.text.selected.foreground}}
+-- view.element_color[view.ELEMENT_SELECTION_SECONDARY_TEXT] = 0x{{color.text.default.foreground}}
+view.element_color[view.ELEMENT_SELECTION_SECONDARY_BACK] = 0x{{color.text.selected.background}}
+-- view.element_color[view.ELEMENT_SELECTION_INACTIVE_TEXT] = 0x{{color.text.default.foreground}}
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_BACK] = 0x{{color.text.selected.background}}
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_TEXT] = 0x{{color.text.selected.background}}
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_BACK] = 0x{{color.text.selected.background}}
+view.element_color[view.ELEMENT_CARET] = 0x{{color.text.default.foreground}}
+-- view.element_color[view.ELEMENT_CARET_ADDITIONAL] =
+if view ~= ui.command_entry then
+	view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x{{color.text.selected.background}} | 0x80000000
+end
+view.caret_line_layer = view.LAYER_UNDER_TEXT
+
+-- Fold Margin.
+view:set_fold_margin_color(true, 0x{{color.text.margin.default.background}}) -- default
+view:set_fold_margin_hi_color(true, 0x{{color.text.margin.default.background}}) -- highlight
+
+-- Markers.
+--   view.marker_fore  Map of marker numbers to their foreground colors
+--   view.marker_back  Map of marker numbers to their background colors
+-- view.marker_fore[textadept.bookmarks.MARK_BOOKMARK] = 0x{{color.text.default.background}}
+view.marker_back[textadept.bookmarks.MARK_BOOKMARK] = 0x{{hue.magenta}}
+-- view.marker_fore[textadept.run.MARK_WARNING] = 0x{{color.text.default.background}}
+view.marker_back[textadept.run.MARK_WARNING] = 0x{{hue.white}}
+-- view.marker_fore[textadept.run.MARK_ERROR] = 0x{{color.text.default.background}}
+view.marker_back[textadept.run.MARK_ERROR] = 0x{{color.text.urgent.foreground}}
+view.marker_fore[view.MARKNUM_HISTORY_MODIFIED] = 0x{{hue.white}}
+view.marker_back[view.MARKNUM_HISTORY_MODIFIED] = 0x{{hue.white}}
+view.marker_fore[view.MARKNUM_HISTORY_SAVED] = 0x{{hue.green}}
+view.marker_back[view.MARKNUM_HISTORY_SAVED] = 0x{{hue.green}}
+view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x{{hue.white}}
+view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x{{hue.white}}
+view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x{{hue.white}}
+view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x{{hue.white}}
+for i = view.MARKNUM_FOLDEREND, view.MARKNUM_FOLDEROPEN do -- fold margin
+	view.marker_fore[i] = 0x{{color.text.default.background}}
+	view.marker_back[i] = 0x{{color.text.default.background}}
+	view.marker_back_selected[i] = 0x{{color.text.default.foreground}}
+end
+
+-- Indicators.
+--   view.indic_fore   Map of indicator numbers to their foreground colors
+--   view.indic_alpha  Map of indicator numbers to their fill color alpha values
+view.indic_fore[ui.find.INDIC_FIND] = 0x{{hue.white}}
+view.indic_alpha[ui.find.INDIC_FIND] = 0x80
+view.indic_fore[textadept.editing.INDIC_HIGHLIGHT] = 0x{{color.text.default.background}}
+view.indic_alpha[textadept.editing.INDIC_HIGHLIGHT] = 0x80
+view.indic_fore[textadept.snippets.INDIC_PLACEHOLDER] = 0x{{color.text.default.foreground}}
+view.indic_fore[textadept.run.INDIC_WARNING] = 0x{{hue.white}}
+view.indic_fore[textadept.run.INDIC_ERROR] = 0x{{color.text.urgent.foreground}}
+view.indic_fore[view.INDICATOR_HISTORY_MODIFIED_INSERTION] = 0x{{hue.green}}
+view.indic_fore[view.INDICATOR_HISTORY_MODIFIED_DELETION] = 0x{{hue.red}}
+view.indic_fore[view.INDICATOR_HISTORY_SAVED_INSERTION] = 0x{{hue.green}}
+view.indic_fore[view.INDICATOR_HISTORY_SAVED_DELETION] = 0x{{hue.red}}
+view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_MODIFIED_INSERTION] = 0x{{hue.green}}
+view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_MODIFIED_DELETION] = 0x{{hue.red}}
+view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_ORIGIN_INSERTION] = 0x{{hue.green}}
+view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_ORIGIN_DELETION] = 0x{{hue.red}}
+
+-- Call tips.
+view.call_tip_fore_hlt = 0x{{hue.magenta}} -- call tip’s highlighted text foreground color
+
+-- Long Lines.
+view.edge_color = 0x{{color.text.selected.background}}
+
+-- Find & replace pane entries.
+ui.find.entry_font = font .. ' ' .. size

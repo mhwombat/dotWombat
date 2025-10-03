@@ -1,0 +1,173 @@
+-- Base16 theme for Textadept, based on Mitchell's dark theme.
+-- Currently using base24 Dracula
+
+local view, colors, styles = view, view.colors, view.styles
+
+-- Default font.
+if not font then font = WIN32 and 'Consolas' or OSX and 'Monaco' or 'Monospace' end
+if not size then size = not OSX and 10 or 12 end
+
+-- Predefined styles.
+styles[view.STYLE_DEFAULT] = {
+	font = font, size = size, fore = 0xf2f8f8, back = 0x362a28
+}
+styles[view.STYLE_LINENUMBER] = {fore = 0xc7a89e, back = 0x5a4744} -- line number margin
+styles[view.STYLE_BRACELIGHT] = {fore = 0xb8f5a3, bold = true} -- highlighted brace characters
+styles[view.STYLE_BRACEBAD] = {fore = 0x5555ff} -- brace character with no match
+-- styles[view.STYLE_CONTROLCHAR] = {} -- control character blocks
+
+
+styles[view.STYLE_INDENTGUIDE] = {fore = 0xa47262} -- indentation guides
+styles[view.STYLE_CALLTIP] = {fore = 0xf2f8f8, back = 0xf2f8f8} -- call tip text
+styles[view.STYLE_FOLDDISPLAYTEXT] = {fore = 0xa47262, back = 0x362a28} -- text displayed next to folded lines
+
+-- Tag styles. These are language-specific.
+styles[lexer.ANNOTATION] = {fore = 0xd2a3f5}
+styles[lexer.ATTRIBUTE] = {fore = 0xffbf80}
+styles[lexer.BOLD] = {bold = true}
+styles[lexer.CLASS] = {fore = 0xfde98b}
+styles[lexer.CODE] = {fore = 0xfde98b, eol_filled = true}
+styles[lexer.COMMENT] = {fore = 0xc7a89e}
+ styles[lexer.CONSTANT] = {fore = 0xffbf80}
+styles[lexer.CONSTANT_BUILTIN] = {fore = 0xf7edba}
+styles[lexer.EMBEDDED] = {fore = 0xf5cca3, back = 0xf5cca3}
+styles[lexer.ERROR] = {fore = 0x5555ff}
+-- styles[lexer.FUNCTION] = {}
+styles[lexer.FUNCTION_BUILTIN] = {fore = 0xb8f5a3}
+-- styles[lexer.FUNCTION_METHOD] = {}
+styles[lexer.HEADING] = {bold = true, fore = 0xc679ff}
+-- styles[lexer.IDENTIFIER] = {}
+styles[lexer.ITALIC] = {italic = true}
+styles[lexer.KEYWORD] = {fore = 0x8c8cf2}
+styles[lexer.LABEL] = {fore = 0xf7edba}
+styles[lexer.LINK] = {underline = true}
+styles[lexer.LIST] = {fore = 0xb8f5a3}
+styles[lexer.NUMBER] = {fore = 0x7bfa50}
+styles[lexer.OPERATOR] = {fore = 0xa3f5ee}
+styles[lexer.PREPROCESSOR] = {fore = 0xa3f5ee}
+styles[lexer.REFERENCE] = {underline = true}
+styles[lexer.REGEX] = {fore = 0x8c8cf2}
+styles[lexer.STRING] = {fore = 0x8cfaf1}
+styles[lexer.TAG] = {fore = 0xf993bd}
+styles[lexer.TYPE] = {fore = 0xf5cca3}
+styles[lexer.UNDERLINE] = {underline = true}
+-- styles[lexer.VARIABLE] = {}
+styles[lexer.VARIABLE_BUILTIN] = {fore = 0xc679ff}
+-- styles[lexer.WHITESPACE] = {}
+
+-- CSS.
+styles.property = styles[lexer.ATTRIBUTE]
+-- styles.pseudoclass = {}
+-- styles.pseudoelement = {}
+
+-- Diff.
+styles.addition = {fore = 0x7bfa50}
+styles.deletion = {fore = 0x5555ff}
+styles.change = {fore = 0x8cfaf1}
+
+-- HTML.
+styles.tag_unknown = styles.tag .. {italic = true}
+styles.attribute_unknown = styles.attribute .. {italic = true}
+
+-- Latex, TeX, and Texinfo.
+styles.command = styles[lexer.KEYWORD]
+styles.command_section = styles[lexer.HEADING]
+styles.environment = styles[lexer.TYPE]
+styles.environment_math = styles[lexer.NUMBER]
+
+-- Makefile.
+-- styles.target = {}
+
+-- Markdown.
+-- styles.hr = {}
+
+-- Output.
+styles.csi = {visible = false}
+local csi_colors = {
+	black = 0x1d1716, red = 0x5555ff, green = 0x7bfa50, yellow = 0x8cfaf1,
+	blue = 0xffbf80, magenta = 0xc679ff, cyan = 0xfde98b, white = 0xffffff
+}
+for k, v in pairs(csi_colors) do styles['csi_' .. k] = {fore = v} end
+for k, v in pairs(csi_colors) do styles['csi_' .. k .. '_bright'] = {fore = v, bold = true} end
+
+-- Python.
+styles.keyword_soft = {}
+
+-- XML.
+-- styles.cdata = {}
+
+-- YAML.
+styles.error_indent = {back = 0x5555ff}
+
+-- Element colors.
+-- view.element_color[view.ELEMENT_SELECTION_TEXT] = 0xa47262
+view.element_color[view.ELEMENT_SELECTION_BACK] = 0xa47262
+-- view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_TEXT] = 0xa47262
+view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_BACK] = 0xa47262
+-- view.element_color[view.ELEMENT_SELECTION_SECONDARY_TEXT] = 0xf2f8f8
+view.element_color[view.ELEMENT_SELECTION_SECONDARY_BACK] = 0x362a28
+-- view.element_color[view.ELEMENT_SELECTION_INACTIVE_TEXT] = 0xf2f8f8
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_BACK] = 0x362a28
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_TEXT] = 0x362a28
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_BACK] = 0x362a28
+view.element_color[view.ELEMENT_CARET] = 0xf2f8f8
+-- view.element_color[view.ELEMENT_CARET_ADDITIONAL] =
+if view ~= ui.command_entry then
+	view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x362a28 | 0x80000000
+end
+view.caret_line_layer = view.LAYER_UNDER_TEXT
+
+-- Fold Margin.
+view:set_fold_margin_color(true, 0x5a4744) -- default
+view:set_fold_margin_hi_color(true, 0x5a4744) -- highlight
+
+-- Markers.
+--   view.marker_fore  Map of marker numbers to their foreground colors
+--   view.marker_back  Map of marker numbers to their background colors
+-- view.marker_fore[textadept.bookmarks.MARK_BOOKMARK] = 0x362a28
+view.marker_back[textadept.bookmarks.MARK_BOOKMARK] = 0xc679ff
+-- view.marker_fore[textadept.run.MARK_WARNING] = 0x362a28
+view.marker_back[textadept.run.MARK_WARNING] = 0xffffff
+-- view.marker_fore[textadept.run.MARK_ERROR] = 0x362a28
+view.marker_back[textadept.run.MARK_ERROR] = 0x5555ff
+view.marker_fore[view.MARKNUM_HISTORY_MODIFIED] = 0xffffff
+view.marker_back[view.MARKNUM_HISTORY_MODIFIED] = 0xffffff
+view.marker_fore[view.MARKNUM_HISTORY_SAVED] = 0x7bfa50
+view.marker_back[view.MARKNUM_HISTORY_SAVED] = 0x7bfa50
+view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0xffffff
+view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0xffffff
+view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0xffffff
+view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0xffffff
+for i = view.MARKNUM_FOLDEREND, view.MARKNUM_FOLDEROPEN do -- fold margin
+	view.marker_fore[i] = 0x362a28
+	view.marker_back[i] = 0x362a28
+	view.marker_back_selected[i] = 0xf2f8f8
+end
+
+-- Indicators.
+--   view.indic_fore   Map of indicator numbers to their foreground colors
+--   view.indic_alpha  Map of indicator numbers to their fill color alpha values
+view.indic_fore[ui.find.INDIC_FIND] = 0xffffff
+view.indic_alpha[ui.find.INDIC_FIND] = 0x80
+view.indic_fore[textadept.editing.INDIC_HIGHLIGHT] = 0x362a28
+view.indic_alpha[textadept.editing.INDIC_HIGHLIGHT] = 0x80
+view.indic_fore[textadept.snippets.INDIC_PLACEHOLDER] = 0xf2f8f8
+view.indic_fore[textadept.run.INDIC_WARNING] = 0xffffff
+view.indic_fore[textadept.run.INDIC_ERROR] = 0x5555ff
+view.indic_fore[view.INDICATOR_HISTORY_MODIFIED_INSERTION] = 0x7bfa50
+view.indic_fore[view.INDICATOR_HISTORY_MODIFIED_DELETION] = 0x5555ff
+view.indic_fore[view.INDICATOR_HISTORY_SAVED_INSERTION] = 0x7bfa50
+view.indic_fore[view.INDICATOR_HISTORY_SAVED_DELETION] = 0x5555ff
+view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_MODIFIED_INSERTION] = 0x7bfa50
+view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_MODIFIED_DELETION] = 0x5555ff
+view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_ORIGIN_INSERTION] = 0x7bfa50
+view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_ORIGIN_DELETION] = 0x5555ff
+
+-- Call tips.
+view.call_tip_fore_hlt = 0xc679ff -- call tip’s highlighted text foreground color
+
+-- Long Lines.
+view.edge_color = 0x362a28
+
+-- Find & replace pane entries.
+ui.find.entry_font = font .. ' ' .. size
