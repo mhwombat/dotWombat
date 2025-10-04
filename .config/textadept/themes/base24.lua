@@ -7,19 +7,35 @@ local view, colors, styles = view, view.colors, view.styles
 if not font then font = WIN32 and 'Consolas' or OSX and 'Monaco' or 'Monospace' end
 if not size then size = not OSX and 10 or 12 end
 
+--
 -- Predefined styles.
+--
+
+-- everything (all elements inherit from this one)
 styles[view.STYLE_DEFAULT] = {
 	font = font, size = size, fore = 0xf2f8f8, back = 0x362a28
 }
-styles[view.STYLE_LINENUMBER] = {fore = 0xc7a89e, back = 0x5a4744} -- line number margin
-styles[view.STYLE_BRACELIGHT] = {fore = 0xb8f5a3, bold = true} -- highlighted brace characters
-styles[view.STYLE_BRACEBAD] = {fore = 0x5555ff} -- brace character with no match
+
+-- the line number margin
+styles[view.STYLE_LINENUMBER] = {fore = 0xc7a89e, back = 0x5a4744}
+
+-- highlighted brace characters
+styles[view.STYLE_BRACELIGHT] = {fore = 0xb8f5a3, bold = true}
+
+-- a brace character with no match
+styles[view.STYLE_BRACEBAD] = {fore = 0x5555ff}
+
+-- control character blocks
 -- styles[view.STYLE_CONTROLCHAR] = {} -- control character blocks
 
+-- indentation guidees
+styles[view.STYLE_INDENTGUIDE] = {fore = 0xa47262}
 
-styles[view.STYLE_INDENTGUIDE] = {fore = 0xa47262} -- indentation guides
-styles[view.STYLE_CALLTIP] = {fore = 0xf2f8f8, back = 0xf2f8f8} -- call tip text
-styles[view.STYLE_FOLDDISPLAYTEXT] = {fore = 0xa47262, back = 0x362a28} -- text displayed next to folded lines
+-- call tip text
+styles[view.STYLE_CALLTIP] = {fore = 0xf2f8f8, back = 0xf2f8f8}
+
+ -- text displayed next to folded lines
+styles[view.STYLE_FOLDDISPLAYTEXT] = {fore = 0xa47262, back = 0x362a28}
 
 -- Tag styles. These are language-specific.
 styles[lexer.ANNOTATION] = {fore = 0xd2a3f5}
@@ -28,13 +44,13 @@ styles[lexer.BOLD] = {bold = true}
 styles[lexer.CLASS] = {fore = 0xfde98b}
 styles[lexer.CODE] = {fore = 0xfde98b, eol_filled = true}
 styles[lexer.COMMENT] = {fore = 0xc7a89e}
- styles[lexer.CONSTANT] = {fore = 0xffbf80}
+styles[lexer.CONSTANT] = {fore = 0xffbf80}
 styles[lexer.CONSTANT_BUILTIN] = {fore = 0xf7edba}
 styles[lexer.EMBEDDED] = {fore = 0xf5cca3, back = 0xf5cca3}
 styles[lexer.ERROR] = {fore = 0x5555ff}
--- styles[lexer.FUNCTION] = {}
+styles[lexer.FUNCTION] = {fore = 0xd2a3f5}
 styles[lexer.FUNCTION_BUILTIN] = {fore = 0xb8f5a3}
--- styles[lexer.FUNCTION_METHOD] = {}
+styles[lexer.FUNCTION_METHOD] = {fore = 0xd2a3f5}
 styles[lexer.HEADING] = {bold = true, fore = 0xc679ff}
 -- styles[lexer.IDENTIFIER] = {}
 styles[lexer.ITALIC] = {italic = true}
@@ -51,9 +67,9 @@ styles[lexer.STRING] = {fore = 0x8cfaf1}
 styles[lexer.TAG] = {fore = 0xf993bd}
 styles[lexer.TYPE] = {fore = 0xf5cca3}
 styles[lexer.UNDERLINE] = {underline = true}
--- styles[lexer.VARIABLE] = {}
+styles[lexer.VARIABLE] = {fore = 0xf993bd}
 styles[lexer.VARIABLE_BUILTIN] = {fore = 0xc679ff}
--- styles[lexer.WHITESPACE] = {}
+styles[lexer.WHITESPACE] = {fore = 0x8cfaf1}
 
 -- CSS.
 styles.property = styles[lexer.ATTRIBUTE]
@@ -99,74 +115,179 @@ styles.keyword_soft = {}
 -- YAML.
 styles.error_indent = {back = 0x5555ff}
 
+--
 -- Element colors.
+--
+
+-- main selection text color
 -- view.element_color[view.ELEMENT_SELECTION_TEXT] = 0xa47262
+
+-- main selection background color
 view.element_color[view.ELEMENT_SELECTION_BACK] = 0xa47262
+
+-- additional selection text color
 -- view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_TEXT] = 0xa47262
+
+-- additional selection background color
 view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_BACK] = 0xa47262
--- view.element_color[view.ELEMENT_SELECTION_SECONDARY_TEXT] = 0xf2f8f8
+-- view.element_color[view.ELEMENT_SELECTION_SECONDARY_TEXT] = 0xf2f8f8 --secondary selection text color
+
+-- secondary selection background color
 view.element_color[view.ELEMENT_SELECTION_SECONDARY_BACK] = 0x362a28
+
+-- selection text color when another window has focus
 -- view.element_color[view.ELEMENT_SELECTION_INACTIVE_TEXT] = 0xf2f8f8
+
+-- selection background color when another window has focus
 view.element_color[view.ELEMENT_SELECTION_INACTIVE_BACK] = 0x362a28
+
+-- inactive additional selection text color
 view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_TEXT] = 0x362a28
+
+-- inactive additional selection background color
 view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_BACK] = 0x362a28
+
+-- main selection caret color
 view.element_color[view.ELEMENT_CARET] = 0xf2f8f8
+
+-- additional selection caret color
 -- view.element_color[view.ELEMENT_CARET_ADDITIONAL] =
-if view ~= ui.command_entry then
-	view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x362a28 | 0x80000000
-end
+
+-- background color of the line that contains the caret
+view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x5a4744
+
+-- visible white space color
+view.element_color[view.ELEMENT_WHITE_SPACE] = 0x8cfaf1
+
+-- visible white space background color
+view.element_color[view.ELEMENT_WHITE_SPACE_BACK] = 0x362a28
+
+-- fold line color
+view.element_color[view.ELEMENT_FOLD_LINE] = 0xa47262
+
+-- color of lines shown in place of hidden lines
+view.element_color[view.ELEMENT_HIDDEN_LINE] = 0xa47262
+
+-- How the caret is drawn
+--
+-- view.LAYER_BASE: Draw the caret line opaquely on the background.
+-- view.LAYER_UNDER_TEXT: Draw the caret line translucently under text.
+-- view.LAYER_OVER_TEXT: Draw the caret line translucently over text.
+--
 view.caret_line_layer = view.LAYER_UNDER_TEXT
 
 -- Fold Margin.
+-- set these the same if you don't want that tiny checkerboard effect
 view:set_fold_margin_color(true, 0x5a4744) -- default
 view:set_fold_margin_hi_color(true, 0x5a4744) -- highlight
 
+--
 -- Markers.
---   view.marker_fore  Map of marker numbers to their foreground colors
---   view.marker_back  Map of marker numbers to their background colors
+--
+--   view.marker_fore             Map of marker numbers to their foreground colors in "0xBBGGRR" format
+--   view.marker_back             Map of marker numbers to their background colors in "0xBBGGRR" format
+--   view.marker_back_translucent Map of marker numbers to their background colors in "0xAABBGGRR" format
+--
+
+-- bookmark mark number
 -- view.marker_fore[textadept.bookmarks.MARK_BOOKMARK] = 0x362a28
 view.marker_back[textadept.bookmarks.MARK_BOOKMARK] = 0xc679ff
+
+-- run or compile warning marker number
 -- view.marker_fore[textadept.run.MARK_WARNING] = 0x362a28
 view.marker_back[textadept.run.MARK_WARNING] = 0xffffff
+
+-- run or compile error marker number
 -- view.marker_fore[textadept.run.MARK_ERROR] = 0x362a28
 view.marker_back[textadept.run.MARK_ERROR] = 0x5555ff
+
+-- Line was changed and has not yet been saved
 view.marker_fore[view.MARKNUM_HISTORY_MODIFIED] = 0xffffff
 view.marker_back[view.MARKNUM_HISTORY_MODIFIED] = 0xffffff
+
+-- Line was changed and saved
 view.marker_fore[view.MARKNUM_HISTORY_SAVED] = 0x7bfa50
 view.marker_back[view.MARKNUM_HISTORY_SAVED] = 0x7bfa50
+
+-- Line was changed, saved, then partially reverted
 view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0xffffff
 view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0xffffff
+
+-- Line was changed, saved, then fully reverted
 view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0xffffff
 view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0xffffff
+
+-- Pre-defined marker numbers used for code folding marker symbols
+--
+-- view.MARKNUM_FOLDEROPEN  The first line of an expanded fold
+-- view.MARKNUM_FOLDERSUB  A line within an expanded fold
+-- view.MARKNUM_FOLDERTAIL  The last line of an expanded fold
+-- view.MARKNUM_FOLDER  The first line of a collapsed fold
+-- view.MARKNUM_FOLDEROPENMID  The first line of an expanded fold within an expanded fold
+-- view.MARKNUM_FOLDERMIDTAIL  The last line of an expanded fold within an expanded fold
+-- view.MARKNUM_FOLDEREND  The first line of a collapsed fold within an expanded fold
+--
 for i = view.MARKNUM_FOLDEREND, view.MARKNUM_FOLDEROPEN do -- fold margin
-	view.marker_fore[i] = 0x362a28
+	view.marker_fore[i] = 0xa47262
 	view.marker_back[i] = 0x362a28
-	view.marker_back_selected[i] = 0xf2f8f8
+	view.marker_back_selected[i] = 0x362a28
 end
 
+--
 -- Indicators.
+--
 --   view.indic_fore   Map of indicator numbers to their foreground colors
 --   view.indic_alpha  Map of indicator numbers to their fill color alpha values
+--
+
+-- The find results highlight indicator number.
 view.indic_fore[ui.find.INDIC_FIND] = 0xffffff
 view.indic_alpha[ui.find.INDIC_FIND] = 0x80
+
+-- The word highlight indicator number.
 view.indic_fore[textadept.editing.INDIC_HIGHLIGHT] = 0x362a28
 view.indic_alpha[textadept.editing.INDIC_HIGHLIGHT] = 0x80
+
+-- The snippet placeholder indicator number.
 view.indic_fore[textadept.snippets.INDIC_PLACEHOLDER] = 0xf2f8f8
+
+-- The run or compile warning indicator number.
 view.indic_fore[textadept.run.INDIC_WARNING] = 0xffffff
+
+-- The run or compile error marker number.
 view.indic_fore[textadept.run.INDIC_ERROR] = 0x5555ff
+
+-- Text was inserted and has not yet been saved
 view.indic_fore[view.INDICATOR_HISTORY_MODIFIED_INSERTION] = 0x7bfa50
+
+-- Text was deleted but not yet saved
 view.indic_fore[view.INDICATOR_HISTORY_MODIFIED_DELETION] = 0x5555ff
+
+-- Text was inserted and saved
 view.indic_fore[view.INDICATOR_HISTORY_SAVED_INSERTION] = 0x7bfa50
+
+-- Text was deleted and saved
 view.indic_fore[view.INDICATOR_HISTORY_SAVED_DELETION] = 0x5555ff
+
+-- Text was inserted, saved, and semi-reverted
 view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_MODIFIED_INSERTION] = 0x7bfa50
+
+-- Text was deleted, saved, and semi-reverted
 view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_MODIFIED_DELETION] = 0x5555ff
+
+-- Text was inserted, saved, and fully reverted
 view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_ORIGIN_INSERTION] = 0x7bfa50
+
+-- Text was deleted, saved, and fully reverted
 view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_ORIGIN_DELETION] = 0x5555ff
 
 -- Call tips.
-view.call_tip_fore_hlt = 0xc679ff -- call tip’s highlighted text foreground color
+-- call tip’s highlighted text foreground color
+view.call_tip_fore_hlt = 0xc679ff
 
 -- Long Lines.
+-- If a vertical line is displayed at view.edge_colum, it will be this color.
+-- Any characters displayed after view.edge_column will be this colour.
 view.edge_color = 0x362a28
 
 -- Find & replace pane entries.

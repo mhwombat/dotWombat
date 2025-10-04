@@ -142,6 +142,9 @@ color:
     typing:
       foreground: ${hue.green}
       background: ${color.text.default.background}
+    whitespace:
+      foreground: ${color.text.warning.foreground}
+      background: ${color.text.default.background}
     info:
       foreground: ${color.text.default.foreground}
       background: ${color.text.default.background}

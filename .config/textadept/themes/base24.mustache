@@ -7,19 +7,35 @@ local view, colors, styles = view, view.colors, view.styles
 if not font then font = WIN32 and 'Consolas' or OSX and 'Monaco' or 'Monospace' end
 if not size then size = not OSX and 10 or 12 end
 
+--
 -- Predefined styles.
+--
+
+-- everything (all elements inherit from this one)
 styles[view.STYLE_DEFAULT] = {
 	font = font, size = size, fore = 0x{{color.text.default.foreground}}, back = 0x{{color.text.default.background}}
 }
-styles[view.STYLE_LINENUMBER] = {fore = 0x{{color.text.margin.line-number.foreground}}, back = 0x{{color.text.margin.line-number.background}}} -- line number margin
-styles[view.STYLE_BRACELIGHT] = {fore = 0x{{color.text.brace.paired.foreground}}, bold = true} -- highlighted brace characters
-styles[view.STYLE_BRACEBAD] = {fore = 0x{{color.text.brace.unpaired.foreground}}} -- brace character with no match
+
+-- the line number margin
+styles[view.STYLE_LINENUMBER] = {fore = 0x{{color.text.margin.line-number.foreground}}, back = 0x{{color.text.margin.line-number.background}}}
+
+-- highlighted brace characters
+styles[view.STYLE_BRACELIGHT] = {fore = 0x{{color.text.brace.paired.foreground}}, bold = true}
+
+-- a brace character with no match
+styles[view.STYLE_BRACEBAD] = {fore = 0x{{color.text.brace.unpaired.foreground}}}
+
+-- control character blocks
 -- styles[view.STYLE_CONTROLCHAR] = {} -- control character blocks
 
+-- indentation guidees
+styles[view.STYLE_INDENTGUIDE] = {fore = 0x{{color.text.indent-guide.foreground}}}
 
-styles[view.STYLE_INDENTGUIDE] = {fore = 0x{{color.text.indent-guide.foreground}}} -- indentation guides
-styles[view.STYLE_CALLTIP] = {fore = 0x{{color.text.calltip.foreground}}, back = 0x{{color.text.calltip.foreground}}} -- call tip text
-styles[view.STYLE_FOLDDISPLAYTEXT] = {fore = 0x{{color.text.folded.foreground}}, back = 0x{{color.text.folded.background}}} -- text displayed next to folded lines
+-- call tip text
+styles[view.STYLE_CALLTIP] = {fore = 0x{{color.text.calltip.foreground}}, back = 0x{{color.text.calltip.foreground}}}
+
+ -- text displayed next to folded lines
+styles[view.STYLE_FOLDDISPLAYTEXT] = {fore = 0x{{color.text.folded.foreground}}, back = 0x{{color.text.folded.background}}}
 
 -- Tag styles. These are language-specific.
 styles[lexer.ANNOTATION] = {fore = 0x{{color.text.lexeme.annotation.foreground}}}
@@ -28,13 +44,13 @@ styles[lexer.BOLD] = {bold = true}
 styles[lexer.CLASS] = {fore = 0x{{color.text.lexeme.class.foreground}}}
 styles[lexer.CODE] = {fore = 0x{{color.text.lexeme.code.foreground}}, eol_filled = true}
 styles[lexer.COMMENT] = {fore = 0x{{color.text.lexeme.comment.foreground}}}
- styles[lexer.CONSTANT] = {fore = 0x{{color.text.lexeme.constant.default.foreground}}}
+styles[lexer.CONSTANT] = {fore = 0x{{color.text.lexeme.constant.default.foreground}}}
 styles[lexer.CONSTANT_BUILTIN] = {fore = 0x{{color.text.lexeme.constant.builtin.foreground}}}
 styles[lexer.EMBEDDED] = {fore = 0x{{color.text.lexeme.embedded.foreground}}, back = 0x{{color.text.lexeme.embedded.foreground}}}
 styles[lexer.ERROR] = {fore = 0x{{color.text.lexeme.error.foreground}}}
--- styles[lexer.FUNCTION] = {}
+styles[lexer.FUNCTION] = {fore = 0x{{color.text.lexeme.function.default.foreground}}}
 styles[lexer.FUNCTION_BUILTIN] = {fore = 0x{{color.text.lexeme.function.builtin.foreground}}}
--- styles[lexer.FUNCTION_METHOD] = {}
+styles[lexer.FUNCTION_METHOD] = {fore = 0x{{color.text.lexeme.function.default.foreground}}}
 styles[lexer.HEADING] = {bold = true, fore = 0x{{color.text.lexeme.heading.foreground}}}
 -- styles[lexer.IDENTIFIER] = {}
 styles[lexer.ITALIC] = {italic = true}
@@ -51,9 +67,9 @@ styles[lexer.STRING] = {fore = 0x{{color.text.lexeme.string.foreground}}}
 styles[lexer.TAG] = {fore = 0x{{color.text.lexeme.tag.foreground}}}
 styles[lexer.TYPE] = {fore = 0x{{color.text.lexeme.type.foreground}}}
 styles[lexer.UNDERLINE] = {underline = true}
--- styles[lexer.VARIABLE] = {}
+styles[lexer.VARIABLE] = {fore = 0x{{color.text.lexeme.variable.default.foreground}}}
 styles[lexer.VARIABLE_BUILTIN] = {fore = 0x{{color.text.lexeme.variable.builtin.foreground}}}
--- styles[lexer.WHITESPACE] = {}
+styles[lexer.WHITESPACE] = {fore = 0x{{color.text.whitespace.foreground}}}
 
 -- CSS.
 styles.property = styles[lexer.ATTRIBUTE]
@@ -99,74 +115,179 @@ styles.keyword_soft = {}
 -- YAML.
 styles.error_indent = {back = 0x{{hue.red}}}
 
+--
 -- Element colors.
+--
+
+-- main selection text color
 -- view.element_color[view.ELEMENT_SELECTION_TEXT] = 0x{{color.text.selected.foreground}}
+
+-- main selection background color
 view.element_color[view.ELEMENT_SELECTION_BACK] = 0x{{color.text.selected.foreground}}
+
+-- additional selection text color
 -- view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_TEXT] = 0x{{color.text.selected.foreground}}
+
+-- additional selection background color
 view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_BACK] = 0x{{color.text.selected.foreground}}
--- view.element_color[view.ELEMENT_SELECTION_SECONDARY_TEXT] = 0x{{color.text.default.foreground}}
+-- view.element_color[view.ELEMENT_SELECTION_SECONDARY_TEXT] = 0x{{color.text.default.foreground}} --secondary selection text color
+
+-- secondary selection background color
 view.element_color[view.ELEMENT_SELECTION_SECONDARY_BACK] = 0x{{color.text.selected.background}}
+
+-- selection text color when another window has focus
 -- view.element_color[view.ELEMENT_SELECTION_INACTIVE_TEXT] = 0x{{color.text.default.foreground}}
+
+-- selection background color when another window has focus
 view.element_color[view.ELEMENT_SELECTION_INACTIVE_BACK] = 0x{{color.text.selected.background}}
+
+-- inactive additional selection text color
 view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_TEXT] = 0x{{color.text.selected.background}}
+
+-- inactive additional selection background color
 view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_BACK] = 0x{{color.text.selected.background}}
+
+-- main selection caret color
 view.element_color[view.ELEMENT_CARET] = 0x{{color.text.default.foreground}}
+
+-- additional selection caret color
 -- view.element_color[view.ELEMENT_CARET_ADDITIONAL] =
-if view ~= ui.command_entry then
-	view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x{{color.text.selected.background}} | 0x80000000
-end
+
+-- background color of the line that contains the caret
+view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x{{color.text.current-line.background}}
+
+-- visible white space color
+view.element_color[view.ELEMENT_WHITE_SPACE] = 0x{{color.text.whitespace.foreground}}
+
+-- visible white space background color
+view.element_color[view.ELEMENT_WHITE_SPACE_BACK] = 0x{{color.text.whitespace.background}}
+
+-- fold line color
+view.element_color[view.ELEMENT_FOLD_LINE] = 0x{{color.text.folded.foreground}}
+
+-- color of lines shown in place of hidden lines
+view.element_color[view.ELEMENT_HIDDEN_LINE] = 0x{{color.text.inactive.foreground}}
+
+-- How the caret is drawn
+--
+-- view.LAYER_BASE: Draw the caret line opaquely on the background.
+-- view.LAYER_UNDER_TEXT: Draw the caret line translucently under text.
+-- view.LAYER_OVER_TEXT: Draw the caret line translucently over text.
+--
 view.caret_line_layer = view.LAYER_UNDER_TEXT
 
 -- Fold Margin.
-view:set_fold_margin_color(true, 0x{{color.text.margin.default.background}}) -- default
-view:set_fold_margin_hi_color(true, 0x{{color.text.margin.default.background}}) -- highlight
+-- set these the same if you don't want that tiny checkerboard effect
+view:set_fold_margin_color(true, 0x{{color.text.margin.fold-marker.background}}) -- default
+view:set_fold_margin_hi_color(true, 0x{{color.text.margin.fold-marker.background}}) -- highlight
 
+--
 -- Markers.
---   view.marker_fore  Map of marker numbers to their foreground colors
---   view.marker_back  Map of marker numbers to their background colors
+--
+--   view.marker_fore             Map of marker numbers to their foreground colors in "0xBBGGRR" format
+--   view.marker_back             Map of marker numbers to their background colors in "0xBBGGRR" format
+--   view.marker_back_translucent Map of marker numbers to their background colors in "0xAABBGGRR" format
+--
+
+-- bookmark mark number
 -- view.marker_fore[textadept.bookmarks.MARK_BOOKMARK] = 0x{{color.text.default.background}}
 view.marker_back[textadept.bookmarks.MARK_BOOKMARK] = 0x{{hue.magenta}}
+
+-- run or compile warning marker number
 -- view.marker_fore[textadept.run.MARK_WARNING] = 0x{{color.text.default.background}}
 view.marker_back[textadept.run.MARK_WARNING] = 0x{{hue.white}}
+
+-- run or compile error marker number
 -- view.marker_fore[textadept.run.MARK_ERROR] = 0x{{color.text.default.background}}
 view.marker_back[textadept.run.MARK_ERROR] = 0x{{color.text.urgent.foreground}}
+
+-- Line was changed and has not yet been saved
 view.marker_fore[view.MARKNUM_HISTORY_MODIFIED] = 0x{{hue.white}}
 view.marker_back[view.MARKNUM_HISTORY_MODIFIED] = 0x{{hue.white}}
+
+-- Line was changed and saved
 view.marker_fore[view.MARKNUM_HISTORY_SAVED] = 0x{{hue.green}}
 view.marker_back[view.MARKNUM_HISTORY_SAVED] = 0x{{hue.green}}
+
+-- Line was changed, saved, then partially reverted
 view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x{{hue.white}}
 view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x{{hue.white}}
+
+-- Line was changed, saved, then fully reverted
 view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x{{hue.white}}
 view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x{{hue.white}}
+
+-- Pre-defined marker numbers used for code folding marker symbols
+--
+-- view.MARKNUM_FOLDEROPEN  The first line of an expanded fold
+-- view.MARKNUM_FOLDERSUB  A line within an expanded fold
+-- view.MARKNUM_FOLDERTAIL  The last line of an expanded fold
+-- view.MARKNUM_FOLDER  The first line of a collapsed fold
+-- view.MARKNUM_FOLDEROPENMID  The first line of an expanded fold within an expanded fold
+-- view.MARKNUM_FOLDERMIDTAIL  The last line of an expanded fold within an expanded fold
+-- view.MARKNUM_FOLDEREND  The first line of a collapsed fold within an expanded fold
+--
 for i = view.MARKNUM_FOLDEREND, view.MARKNUM_FOLDEROPEN do -- fold margin
-	view.marker_fore[i] = 0x{{color.text.default.background}}
-	view.marker_back[i] = 0x{{color.text.default.background}}
-	view.marker_back_selected[i] = 0x{{color.text.default.foreground}}
+	view.marker_fore[i] = 0x{{color.text.folded.foreground}}
+	view.marker_back[i] = 0x{{color.text.folded.background}}
+	view.marker_back_selected[i] = 0x{{color.text.folded.background}}
 end
 
+--
 -- Indicators.
+--
 --   view.indic_fore   Map of indicator numbers to their foreground colors
 --   view.indic_alpha  Map of indicator numbers to their fill color alpha values
+--
+
+-- The find results highlight indicator number.
 view.indic_fore[ui.find.INDIC_FIND] = 0x{{hue.white}}
 view.indic_alpha[ui.find.INDIC_FIND] = 0x80
+
+-- The word highlight indicator number.
 view.indic_fore[textadept.editing.INDIC_HIGHLIGHT] = 0x{{color.text.default.background}}
 view.indic_alpha[textadept.editing.INDIC_HIGHLIGHT] = 0x80
+
+-- The snippet placeholder indicator number.
 view.indic_fore[textadept.snippets.INDIC_PLACEHOLDER] = 0x{{color.text.default.foreground}}
+
+-- The run or compile warning indicator number.
 view.indic_fore[textadept.run.INDIC_WARNING] = 0x{{hue.white}}
+
+-- The run or compile error marker number.
 view.indic_fore[textadept.run.INDIC_ERROR] = 0x{{color.text.urgent.foreground}}
+
+-- Text was inserted and has not yet been saved
 view.indic_fore[view.INDICATOR_HISTORY_MODIFIED_INSERTION] = 0x{{hue.green}}
+
+-- Text was deleted but not yet saved
 view.indic_fore[view.INDICATOR_HISTORY_MODIFIED_DELETION] = 0x{{hue.red}}
+
+-- Text was inserted and saved
 view.indic_fore[view.INDICATOR_HISTORY_SAVED_INSERTION] = 0x{{hue.green}}
+
+-- Text was deleted and saved
 view.indic_fore[view.INDICATOR_HISTORY_SAVED_DELETION] = 0x{{hue.red}}
+
+-- Text was inserted, saved, and semi-reverted
 view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_MODIFIED_INSERTION] = 0x{{hue.green}}
+
+-- Text was deleted, saved, and semi-reverted
 view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_MODIFIED_DELETION] = 0x{{hue.red}}
+
+-- Text was inserted, saved, and fully reverted
 view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_ORIGIN_INSERTION] = 0x{{hue.green}}
+
+-- Text was deleted, saved, and fully reverted
 view.indic_fore[view.INDICATOR_HISTORY_REVERTED_TO_ORIGIN_DELETION] = 0x{{hue.red}}
 
 -- Call tips.
-view.call_tip_fore_hlt = 0x{{hue.magenta}} -- call tip’s highlighted text foreground color
+-- call tip’s highlighted text foreground color
+view.call_tip_fore_hlt = 0x{{hue.magenta}}
 
 -- Long Lines.
+-- If a vertical line is displayed at view.edge_colum, it will be this color.
+-- Any characters displayed after view.edge_column will be this colour.
 view.edge_color = 0x{{color.text.selected.background}}
 
 -- Find & replace pane entries.

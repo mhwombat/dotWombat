@@ -6,7 +6,7 @@
 
 window#waybar {
     background-color: #282A36;
-    border-bottom: 3px solid #80BFFF;
+    border-bottom: 3px solid #BD93F9;
     color: #F8F8F2;
     transition-property: background-color;
     transition-duration: .5s;
@@ -14,24 +14,6 @@ window#waybar {
 
 window#waybar.hidden {
     opacity: 0.2;
-}
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
 }
 
 button {
@@ -42,17 +24,6 @@ button {
     border-radius: 0;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-/* you can set a style on hover for any module like this */
-#pulseaudio:hover {
-    background-color: #a37800;
-}
-
 #workspaces button {
     padding: 0 5px;
     color: #F8F8F2;
@@ -60,7 +31,7 @@ button:hover {
 }
 
 #workspaces button:hover {
-    background: #282A36;
+    background-color: #282A36;
 }
 
 #workspaces button.focused {
@@ -77,25 +48,10 @@ button:hover {
     box-shadow: inset 0 -3px #ffffff;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#mpd {
+.module {
     padding: 0 10px;
     color: #F8F8F2;
+    background-color: transparent;
 }
 
 #window,
@@ -113,10 +69,111 @@ button:hover {
     margin-right: 0;
 }
 
-#clock {
-    color: #F8F8F2;
-    background-color: #BD93F9;
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
 }
+
+
+label:focus {
+    background-color: #282A36;
+}
+
+
+/*
+ * niri/workspaces
+ */
+
+/*
+ * niri/window
+ */
+
+/*
+ * pulseaudio
+ */
+
+#pulseaudio {
+    color: #FF79C6;
+}
+
+#pulseaudio.muted {
+    color: #F8F8F2;
+    background-color: #282A36;
+}
+
+/*
+ * cpu
+ */
+
+#cpu {
+    color: #A3CCF5;
+}
+
+/*
+ * memory
+ */
+
+#memory {
+    color: #8BE9FD;
+}
+
+
+/*
+ * disk
+ */
+
+#disk {
+    color: #8BE9FD;
+}
+
+/*
+ * temperature
+ */
+
+#temperature {
+    color: #F5A3D2;
+}
+
+#temperature.critical {
+    color: #F8F8F2;
+    background-color: #282A36;
+}
+
+/*
+ * keyboard-state
+ */
+
+#keyboard-state {
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+    color: #8BE9FD;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*
+ * niri/language
+ */
+
+#language {
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+    color: #8BE9FD;
+}
+
+/*
+ * battery
+ */
 
 #battery {
     color: #F8F8F2;
@@ -126,13 +183,6 @@ button:hover {
 #battery.charging, #battery.plugged {
     color: #F8F8F2;
     background-color: #282A36;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
@@ -146,51 +196,12 @@ button:hover {
     animation-direction: alternate;
 }
 
-#power-profiles-daemon {
-    padding-right: 15px;
-}
-
-#power-profiles-daemon.performance {
-    background-color: #f53c3c;
-    color: #ffffff;
-}
-
-#power-profiles-daemon.balanced {
-    background-color: #2980b9;
-    color: #ffffff;
-}
-
-#power-profiles-daemon.power-saver {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
-label:focus {
-    background-color: #282A36;
-}
-
-#cpu {
-    color: #F8F8F2;
-    background-color: #A3CCF5;
-}
-
-#memory {
-    color: #F8F8F2;
-    background-color: #8BE9FD;
-}
-
-#disk {
-    color: #F8F8F2;
-    background-color: #8BE9FD;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
+/*
+ * network
+ */
 
 #network {
-    color: #F8F8F2;
-    background-color: #80BFFF;
+    color: #80BFFF;
 }
 
 #network.disconnected {
@@ -198,139 +209,10 @@ label:focus {
     background-color: #282A36;
 }
 
-#pulseaudio {
-    color: #F8F8F2;
-    background-color: #FF79C6;
-}
+/*
+ * clock
+ */
 
-#pulseaudio.muted {
-    color: #F8F8F2;
-    background-color: #282A36;
-}
-
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
-}
-
-#wireplumber.muted {
-    background-color: #f53c3c;
-}
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    color: #F8F8F2;
-    background-color: #F5A3D2;
-}
-
-#temperature.critical {
-    color: #F8F8F2;
-    background-color: #282A36;
-}
-
-#tray {
-    background-color: #2980b9;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-    color: #F8F8F2;
-    background-color: #282A36;
-}
-
-#idle_inhibitor.activated {
-    color: #F8F8F2;
-    background-color: #BAEDF7;
-}
-
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #90b1b1;
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-}
-
-#language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad.empty {
-	background-color: transparent;
-}
-
-#privacy {
-    padding: 0;
-    color: #F8F8F2;
-    background-color: #BAEDF7;
-}
-
-#privacy-item {
-    padding: 0 5px;
-}
-
-#privacy-item.screenshare {
-    background-color: #cf5700;
-}
-
-#privacy-item.audio-in {
-    background-color: #1ca000;
-}
-
-#privacy-item.audio-out {
-    background-color: #0069d4;
+#clock {
+    color: #BD93F9;
 }
