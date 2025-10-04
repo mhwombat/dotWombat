@@ -82,94 +82,13 @@ label:focus {
 }
 
 
-/*
- * niri/workspaces
- */
-
-/*
- * niri/window
- */
-
-/*
- * pulseaudio
- */
-
-#pulseaudio {
-    color: #{{color.by-preference.n05}};
-}
-
-#pulseaudio.muted {
-    color: #{{color.button.inactive.foreground}};
-    background-color: #{{color.button.inactive.background}};
-}
-
-/*
- * cpu
- */
-
-#cpu {
-    color: #{{color.by-preference.n04}};
-}
-
-/*
- * memory
- */
-
-#memory {
-    color: #{{color.by-preference.n03}};
-}
+/****
+ ****
+ **** Module styles, in alphabetical order
+ ****
+ ****/
 
 
-/*
- * disk
- */
-
-#disk {
-    color: #{{color.by-preference.n03}};
-}
-
-/*
- * temperature
- */
-
-#temperature {
-    color: #{{color.by-preference.n02}};
-}
-
-#temperature.critical {
-    color: #{{color.button.urgent.foreground}};
-    background-color: #{{color.button.urgent.background}};
-}
-
-/*
- * keyboard-state
- */
-
-#keyboard-state {
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-    color: #{{color.by-preference.n03}};
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-/*
- * niri/language
- */
-
-#language {
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-    color: #{{color.by-preference.n03}};
-}
 
 /*
  * battery
@@ -197,6 +116,58 @@ label:focus {
 }
 
 /*
+ * clock
+ */
+
+#clock {
+    color: #{{color.by-preference.n00}};
+}
+
+/*
+ * cpu
+ */
+
+#cpu {
+    color: #{{color.by-preference.n04}};
+}
+
+
+/*
+ * disk
+ */
+
+#disk {
+    color: #{{color.by-preference.n03}};
+}
+
+/*
+ * keyboard-state
+ */
+
+#keyboard-state {
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+    color: #{{color.by-preference.n03}};
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*
+ * memory
+ */
+
+#memory {
+    color: #{{color.by-preference.n03}};
+}
+
+/*
  * network
  */
 
@@ -210,9 +181,49 @@ label:focus {
 }
 
 /*
- * clock
+ * niri/language
  */
 
-#clock {
-    color: #{{color.by-preference.n00}};
+#language {
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+    color: #{{color.by-preference.n03}};
+}
+
+/*
+ * niri/window
+ */
+#window {
+    color: #{{color.by-preference.n01}};
+}
+
+/*
+ * niri/workspaces
+ */
+
+/*
+ * pulseaudio
+ */
+
+#pulseaudio {
+    color: #{{color.by-preference.n05}};
+}
+
+#pulseaudio.muted {
+    color: #{{color.button.inactive.foreground}};
+    background-color: #{{color.button.inactive.background}};
+}
+
+/*
+ * temperature
+ */
+
+#temperature {
+    color: #{{color.by-preference.n02}};
+}
+
+#temperature.critical {
+    color: #{{color.button.urgent.foreground}};
+    background-color: #{{color.button.urgent.background}};
 }

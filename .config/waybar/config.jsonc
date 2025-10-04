@@ -24,82 +24,9 @@
         "clock"
     ],
 
-    "niri/workspaces": {
-      "format": "{icon}",
-      "format-icons": {
-          // Named workspaces
-          // (you need to configure them in niri)
-//           "browser": "",
-//           "discord": "",
-//           "chat": "<b></b>",
-          // Icons by state
-          "active": "",
-          "default": ""
-      }
-    },
-
-    "niri/window": {
-      "format": "{}",
-//       "rewrite": {
-//         "(.*) - Mozilla Firefox": "🌎 $1",
-//         "(.*) - zsh": "> [$1]"
-//       }
-    },
-
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-
-    "clock": {
-        // "timezone": "America/New_York",
-        "format": "{:%A, %d %B %Y %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    },
-
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": true
-    },
-
-    "disk": {
-        "interval": 30,
-        "format": "Only {percentage_free}% remaining on {path}",
-        "path": "/"
-    },
-
-    "memory": {
-        "format": "{}% ",
-        "tooltip": true,
-        "tooltip-format": "{used:0.1f} / {total:0.0f}GiB"
-    },
-
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""],
-        "tooltip": true,
-        "tooltip-format": "temp reported by probe"
-    },
+    //
+    // Module configurations, in alphabetical order
+    //
 
     "battery": {
         "states": {
@@ -117,6 +44,40 @@
         "format-icons": ["", "", "", "", ""]
     },
 
+    "clock": {
+        // "timezone": "America/New_York",
+        "format": "{:%A, %d %B %Y %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": "{percentage_free}% on {path}",
+        "path": "/"
+    },
+
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+
+    "memory": {
+        "format": "{}% ",
+        "tooltip": true,
+        "tooltip-format": "{used:0.1f} / {total:0.0f}GiB"
+    },
+
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
@@ -127,6 +88,28 @@
         "tooltip": true,
         "tooltip-format": "{ifname} via {gwaddr} ",
         "tooltip-format-wifi": "{ifname} {ipaddr} ↑{bandwidthUpBits} ↓{bandwidthDownBits}"
+    },
+
+    "niri/window": {
+      "format": "{}",
+//       "rewrite": {
+//         "(.*) - Mozilla Firefox": "🌎 $1",
+//         "(.*) - zsh": "> [$1]"
+//       }
+    },
+
+    "niri/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+          // Named workspaces
+          // (you need to configure them in niri)
+//           "browser": "",
+//           "discord": "",
+//           "chat": "<b></b>",
+          // Icons by state
+          "active": "",
+          "default": ""
+      }
     },
 
     "pulseaudio": {
@@ -147,5 +130,16 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "tooltip": true,
+        "tooltip-format": "temp reported by probe"
     }
 }

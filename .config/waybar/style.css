@@ -82,94 +82,13 @@ label:focus {
 }
 
 
-/*
- * niri/workspaces
- */
-
-/*
- * niri/window
- */
-
-/*
- * pulseaudio
- */
-
-#pulseaudio {
-    color: #FF79C6;
-}
-
-#pulseaudio.muted {
-    color: #F8F8F2;
-    background-color: #282A36;
-}
-
-/*
- * cpu
- */
-
-#cpu {
-    color: #A3CCF5;
-}
-
-/*
- * memory
- */
-
-#memory {
-    color: #8BE9FD;
-}
+/****
+ ****
+ **** Module styles, in alphabetical order
+ ****
+ ****/
 
 
-/*
- * disk
- */
-
-#disk {
-    color: #8BE9FD;
-}
-
-/*
- * temperature
- */
-
-#temperature {
-    color: #F5A3D2;
-}
-
-#temperature.critical {
-    color: #F8F8F2;
-    background-color: #282A36;
-}
-
-/*
- * keyboard-state
- */
-
-#keyboard-state {
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-    color: #8BE9FD;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-/*
- * niri/language
- */
-
-#language {
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-    color: #8BE9FD;
-}
 
 /*
  * battery
@@ -197,6 +116,58 @@ label:focus {
 }
 
 /*
+ * clock
+ */
+
+#clock {
+    color: #BD93F9;
+}
+
+/*
+ * cpu
+ */
+
+#cpu {
+    color: #A3CCF5;
+}
+
+
+/*
+ * disk
+ */
+
+#disk {
+    color: #8BE9FD;
+}
+
+/*
+ * keyboard-state
+ */
+
+#keyboard-state {
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+    color: #8BE9FD;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*
+ * memory
+ */
+
+#memory {
+    color: #8BE9FD;
+}
+
+/*
  * network
  */
 
@@ -210,9 +181,49 @@ label:focus {
 }
 
 /*
- * clock
+ * niri/language
  */
 
-#clock {
-    color: #BD93F9;
+#language {
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+    color: #8BE9FD;
+}
+
+/*
+ * niri/window
+ */
+#window {
+    color: #80BFFF;
+}
+
+/*
+ * niri/workspaces
+ */
+
+/*
+ * pulseaudio
+ */
+
+#pulseaudio {
+    color: #FF79C6;
+}
+
+#pulseaudio.muted {
+    color: #F8F8F2;
+    background-color: #282A36;
+}
+
+/*
+ * temperature
+ */
+
+#temperature {
+    color: #F5A3D2;
+}
+
+#temperature.critical {
+    color: #F8F8F2;
+    background-color: #282A36;
 }
