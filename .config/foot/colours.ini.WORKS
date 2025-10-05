@@ -1,38 +1,38 @@
 # base16-foot
-# Scheme name: base16 / Atelier Seaside
-# Scheme author: Bram de Haan (http://atelierbramdehaan.nl)
+# Scheme name: base24 / Dracula
+# Scheme author: FredHappyface (https://github.com/fredHappyface)
 # include in foot.ini like so:
 # include=~/.config/foot/colours.ini
 # must be included under [main], or untitled section at beginning of file
 [colors]
 # alpha=1.0
 # alpha-mode=default # Can be `default`, `matching` or `all`
-background=131513
-foreground=8CA68C
+foreground=F8F8F2
+background=282A36
 # flash=7f7f00
 # flash-alpha=0.5
 
 # cursor=<inverse foreground/background>
 
 ## Normal/regular colors (color palette 0-7)
-regular0=131513 # black
-regular1=E6193C # red
-regular2=29A329 # green
-regular3=98981B # yellow
-regular4=3D62F5 # blue
-regular5=AD2BEE # magenta
-regular6=1999B3 # cyan
-regular7=8CA68C # white
+regular0=16171D # black
+regular1=FF5555 # red
+regular2=50FA7B # green
+regular3=F1FA8C # yellow
+regular4=80BFFF # blue
+regular5=FF79C6 # magenta
+regular6=8BE9FD # cyan
+regular7=F0F1F4 # white
 
 ## Bright colors (color palette 8-15)
-bright0=687D68 # bright black
-bright1=E6193C # bright red
-bright2=29A329 # bright green
-bright3=98981B # bright yellow
-bright4=3D62F5 # bright blue
-bright5=AD2BEE # bright magenta
-bright6=1999B3 # bright cyan
-bright7=F4FBF4 # bright white
+bright0=44475A # bright black
+bright1=F28C8C # bright red
+bright2=A3F5B8 # bright green
+bright3=EEF5A3 # bright yellow
+bright4=A3CCF5 # bright blue
+bright5=F5A3D2 # bright magenta
+bright6=BAEDF7 # bright cyan
+bright7=FFFFFF # bright white
 
 ## dimmed colors (see foot.ini(5) man page)
 # dim0=<not set>
@@ -69,4 +69,4 @@ bright7=F4FBF4 # bright white
 # scrollback-indicator=<regular0> <bright4>  # black-on-bright-blue
 # search-box-no-match=<regular0> <regular1>  # black-on-red
 # search-box-match=<regular0> <regular3>     # black-on-yellow
-urls=87711D                      # <regular3>
+urls=F8F8F2  # <regular3>
