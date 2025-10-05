@@ -2,6 +2,7 @@
 *~
 *.BAK
 *.ORIG
+*.backup
 
 # Generated textadept stuff
 .textadept_session
