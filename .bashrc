@@ -69,10 +69,13 @@ find $XDG_DATA_HOME/bash-history -type f -mtime +180 -exec rm -rf {} \;
 
 # Enable incremental history search with up/down arrows (also Readline goodness)
 # Learn more about this here: http://codeinthehole.com/writing/the-most-important-command-line-tip-incremental-history-searching-with-inputrc/
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-bind '"\e[C": forward-char'
-bind '"\e[D": backward-char'
+if [[ $- = *i* ]]
+then
+  bind '"\e[A": history-search-backward'
+  bind '"\e[B": history-search-forward'
+  bind '"\e[C": forward-char'
+  bind '"\e[D": backward-char'
+fi
 
 ###
 ### prompt
