@@ -1,4 +1,4 @@
--- Base16 theme for Textadept, based on Mitchell's dark theme.
+-- Base24 theme for Textadept, based on Mitchell's dark theme.
 -- Currently using base24 Dracula
 
 local view, colors, styles = view, view.colors, view.styles
