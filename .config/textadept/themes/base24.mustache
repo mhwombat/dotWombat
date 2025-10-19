@@ -3,6 +3,28 @@
 
 local view, colors, styles = view, view.colors, view.styles
 
+-- Greyscale colors.
+-- Only used for experiments.
+colors.black = 0x000000
+colors.light_black = 0x333333
+colors.dark_grey = 0x666666
+colors.grey = 0x999999
+colors.light_grey = 0xCCCCCC
+colors.white = 0xFFFFFF
+
+-- Normal colors.
+-- Only used for experiments.
+colors.red = 0x0000FF
+colors.orange = 0x0066CC
+colors.yellow = 0x009999
+colors.lime = 0x00CC99
+colors.green = 0x00FF00
+colors.teal = 0x999900
+colors.blue = 0xFF0000
+colors.violet = 0xCC0066
+colors.purple = 0x990099
+colors.magenta = 0x6600CC
+
 -- Default font.
 if not font then font = WIN32 and 'Consolas' or OSX and 'Monaco' or 'Monospace' end
 if not size then size = not OSX and 10 or 12 end
@@ -28,7 +50,7 @@ styles[view.STYLE_BRACEBAD] = {fore = 0x{{color.text.brace.unpaired.foreground}}
 -- control character blocks
 -- styles[view.STYLE_CONTROLCHAR] = {} -- control character blocks
 
--- indentation guidees
+-- indentation guides
 styles[view.STYLE_INDENTGUIDE] = {fore = 0x{{color.text.indent-guide.foreground}}}
 
 -- call tip text
@@ -119,53 +141,43 @@ styles.error_indent = {back = 0x{{hue.red}}}
 -- Element colors.
 --
 
--- main selection text color
--- view.element_color[view.ELEMENT_SELECTION_TEXT] = 0x{{color.text.selected.foreground}}
+-- main selection text and background colors
+view.element_color[view.ELEMENT_SELECTION_TEXT] = 0x{{color.text.selected.foreground}}
+view.element_color[view.ELEMENT_SELECTION_BACK] = 0x{{color.text.selected.background}}
 
--- main selection background color
-view.element_color[view.ELEMENT_SELECTION_BACK] = 0x{{color.text.selected.foreground}}
+-- additional selection text and background color
+view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_TEXT] = 0x{{color.text.selected.foreground}}
+view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_BACK] = 0x{{color.text.selected.background}}
 
--- additional selection text color
--- view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_TEXT] = 0x{{color.text.selected.foreground}}
-
--- additional selection background color
-view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_BACK] = 0x{{color.text.selected.foreground}}
--- view.element_color[view.ELEMENT_SELECTION_SECONDARY_TEXT] = 0x{{color.text.default.foreground}} --secondary selection text color
-
--- secondary selection background color
+-- secondary selection text and background color
+view.element_color[view.ELEMENT_SELECTION_SECONDARY_TEXT] = 0x{{color.text.selected.foreground}}
 view.element_color[view.ELEMENT_SELECTION_SECONDARY_BACK] = 0x{{color.text.selected.background}}
 
--- selection text color when another window has focus
--- view.element_color[view.ELEMENT_SELECTION_INACTIVE_TEXT] = 0x{{color.text.default.foreground}}
-
--- selection background color when another window has focus
+-- selection text and background color when another window has focus
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_TEXT] = 0x{{color.text.selected.foreground}}
 view.element_color[view.ELEMENT_SELECTION_INACTIVE_BACK] = 0x{{color.text.selected.background}}
 
--- inactive additional selection text color
-view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_TEXT] = 0x{{color.text.selected.background}}
-
--- inactive additional selection background color
+-- inactive additional selection text and background color
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_TEXT] = 0x{{color.text.selected.foreground}}
 view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_BACK] = 0x{{color.text.selected.background}}
 
 -- main selection caret color
-view.element_color[view.ELEMENT_CARET] = 0x{{color.text.default.foreground}}
+view.element_color[view.ELEMENT_CARET] = 0x{{color.text.cursor.foreground}}
 
 -- additional selection caret color
--- view.element_color[view.ELEMENT_CARET_ADDITIONAL] =
+view.element_color[view.ELEMENT_CARET_ADDITIONAL] = 0x{{color.text.cursor.foreground}}
 
--- background color of the line that contains the caret
-view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x{{color.text.current-line.background}}
+-- background color of the line that contains the caret. MUST BE TRANSLUCENT
+view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x{{color.text.current-line.background}} | 0x60000000
 
--- visible white space color
+-- visible white space text and background color NOT USED?
 view.element_color[view.ELEMENT_WHITE_SPACE] = 0x{{color.text.whitespace.foreground}}
-
--- visible white space background color
 view.element_color[view.ELEMENT_WHITE_SPACE_BACK] = 0x{{color.text.whitespace.background}}
 
--- fold line color
+-- fold line color NOT USED?
 view.element_color[view.ELEMENT_FOLD_LINE] = 0x{{color.text.folded.foreground}}
 
--- color of lines shown in place of hidden lines
+-- color of lines shown in place of hidden lines NOT USED?
 view.element_color[view.ELEMENT_HIDDEN_LINE] = 0x{{color.text.inactive.foreground}}
 
 -- How the caret is drawn
@@ -190,32 +202,32 @@ view:set_fold_margin_hi_color(true, 0x{{color.text.margin.fold-marker.background
 --
 
 -- bookmark mark number
--- view.marker_fore[textadept.bookmarks.MARK_BOOKMARK] = 0x{{color.text.default.background}}
-view.marker_back[textadept.bookmarks.MARK_BOOKMARK] = 0x{{hue.magenta}}
+view.marker_fore[textadept.bookmarks.MARK_BOOKMARK] = 0x{{color.category_00}}
+view.marker_back[textadept.bookmarks.MARK_BOOKMARK] = 0x{{color.text.default.background}}
 
 -- run or compile warning marker number
--- view.marker_fore[textadept.run.MARK_WARNING] = 0x{{color.text.default.background}}
-view.marker_back[textadept.run.MARK_WARNING] = 0x{{hue.white}}
+view.marker_fore[textadept.run.MARK_WARNING] = 0x{{color.text.warning.foreground}}
+view.marker_back[textadept.run.MARK_WARNING] = 0x{{color.text.warning.background}}
 
 -- run or compile error marker number
--- view.marker_fore[textadept.run.MARK_ERROR] = 0x{{color.text.default.background}}
-view.marker_back[textadept.run.MARK_ERROR] = 0x{{color.text.urgent.foreground}}
+view.marker_fore[textadept.run.MARK_ERROR] = 0x{{color.text.urgent.foreground}}
+view.marker_back[textadept.run.MARK_ERROR] = 0x{{color.text.urgent.background}}
 
 -- Line was changed and has not yet been saved
-view.marker_fore[view.MARKNUM_HISTORY_MODIFIED] = 0x{{hue.white}}
-view.marker_back[view.MARKNUM_HISTORY_MODIFIED] = 0x{{hue.white}}
+view.marker_fore[view.MARKNUM_HISTORY_MODIFIED] = 0x{{color.text.changed.foreground}}
+view.marker_back[view.MARKNUM_HISTORY_MODIFIED] = 0x{{color.text.changed.background}}
 
 -- Line was changed and saved
-view.marker_fore[view.MARKNUM_HISTORY_SAVED] = 0x{{hue.green}}
-view.marker_back[view.MARKNUM_HISTORY_SAVED] = 0x{{hue.green}}
+view.marker_fore[view.MARKNUM_HISTORY_SAVED] = 0x{{color.text.default.foreground}}
+view.marker_back[view.MARKNUM_HISTORY_SAVED] = 0x{{color.text.default.background}}
 
 -- Line was changed, saved, then partially reverted
-view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x{{hue.white}}
-view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x{{hue.white}}
+view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x{{color.text.changed.foreground}}
+view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x{{color.text.changed.background}}
 
 -- Line was changed, saved, then fully reverted
-view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x{{hue.white}}
-view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x{{hue.white}}
+view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x{{color.text.default.foreground}}
+view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x{{color.text.default.background}}
 
 -- Pre-defined marker numbers used for code folding marker symbols
 --

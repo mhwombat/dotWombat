@@ -6,7 +6,7 @@
 
 window#waybar {
     background-color: #{{color.client.default.background}};
-    border-bottom: 3px solid #{{color.by-preference.n00}};
+    border-bottom: 3px solid #{{color.client.focused.border}};
     color: #{{color.button.default.foreground}};
     transition-property: background-color;
     transition-duration: .5s;
@@ -120,7 +120,7 @@ label:focus {
  */
 
 #clock {
-    color: #{{color.by-preference.n00}};
+    color: #{{color.category_00}};
 }
 
 /*
@@ -128,7 +128,7 @@ label:focus {
  */
 
 #cpu {
-    color: #{{color.by-preference.n04}};
+    color: #{{color.category_04}};
 }
 
 
@@ -137,7 +137,7 @@ label:focus {
  */
 
 #disk {
-    color: #{{color.by-preference.n03}};
+    color: #{{color.category_03}};
 }
 
 /*
@@ -148,7 +148,7 @@ label:focus {
     padding: 0 0px;
     margin: 0 5px;
     min-width: 16px;
-    color: #{{color.by-preference.n03}};
+    color: #{{color.category_03}};
 }
 
 #keyboard-state > label {
@@ -164,7 +164,7 @@ label:focus {
  */
 
 #memory {
-    color: #{{color.by-preference.n03}};
+    color: #{{color.category_03}};
 }
 
 /*
@@ -172,7 +172,7 @@ label:focus {
  */
 
 #network {
-    color: #{{color.by-preference.n01}};
+    color: #{{color.category_01}};
 }
 
 #network.disconnected {
@@ -188,14 +188,14 @@ label:focus {
     padding: 0 5px;
     margin: 0 5px;
     min-width: 16px;
-    color: #{{color.by-preference.n03}};
+    color: #{{color.category_03}};
 }
 
 /*
  * niri/window
  */
 #window {
-    color: #{{color.by-preference.n01}};
+    color: #{{color.category_01}};
 }
 
 /*
@@ -207,7 +207,7 @@ label:focus {
  */
 
 #pulseaudio {
-    color: #{{color.by-preference.n05}};
+    color: #{{color.category_05}};
 }
 
 #pulseaudio.muted {
@@ -220,7 +220,7 @@ label:focus {
  */
 
 #temperature {
-    color: #{{color.by-preference.n02}};
+    color: #{{color.category_02}};
 }
 
 #temperature.critical {

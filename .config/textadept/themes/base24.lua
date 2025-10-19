@@ -3,6 +3,28 @@
 
 local view, colors, styles = view, view.colors, view.styles
 
+-- Greyscale colors.
+-- Only used for experiments.
+colors.black = 0x000000
+colors.light_black = 0x333333
+colors.dark_grey = 0x666666
+colors.grey = 0x999999
+colors.light_grey = 0xCCCCCC
+colors.white = 0xFFFFFF
+
+-- Normal colors.
+-- Only used for experiments.
+colors.red = 0x0000FF
+colors.orange = 0x0066CC
+colors.yellow = 0x009999
+colors.lime = 0x00CC99
+colors.green = 0x00FF00
+colors.teal = 0x999900
+colors.blue = 0xFF0000
+colors.violet = 0xCC0066
+colors.purple = 0x990099
+colors.magenta = 0x6600CC
+
 -- Default font.
 if not font then font = WIN32 and 'Consolas' or OSX and 'Monaco' or 'Monospace' end
 if not size then size = not OSX and 10 or 12 end
@@ -28,7 +50,7 @@ styles[view.STYLE_BRACEBAD] = {fore = 0x5555ff}
 -- control character blocks
 -- styles[view.STYLE_CONTROLCHAR] = {} -- control character blocks
 
--- indentation guidees
+-- indentation guides
 styles[view.STYLE_INDENTGUIDE] = {fore = 0xa47262}
 
 -- call tip text
@@ -119,53 +141,43 @@ styles.error_indent = {back = 0x5555ff}
 -- Element colors.
 --
 
--- main selection text color
--- view.element_color[view.ELEMENT_SELECTION_TEXT] = 0xa47262
+-- main selection text and background colors
+view.element_color[view.ELEMENT_SELECTION_TEXT] = 0xffffff
+view.element_color[view.ELEMENT_SELECTION_BACK] = 0xc7a89e
 
--- main selection background color
-view.element_color[view.ELEMENT_SELECTION_BACK] = 0xa47262
+-- additional selection text and background color
+view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_TEXT] = 0xffffff
+view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_BACK] = 0xc7a89e
 
--- additional selection text color
--- view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_TEXT] = 0xa47262
+-- secondary selection text and background color
+view.element_color[view.ELEMENT_SELECTION_SECONDARY_TEXT] = 0xffffff
+view.element_color[view.ELEMENT_SELECTION_SECONDARY_BACK] = 0xc7a89e
 
--- additional selection background color
-view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_BACK] = 0xa47262
--- view.element_color[view.ELEMENT_SELECTION_SECONDARY_TEXT] = 0xf2f8f8 --secondary selection text color
+-- selection text and background color when another window has focus
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_TEXT] = 0xffffff
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_BACK] = 0xc7a89e
 
--- secondary selection background color
-view.element_color[view.ELEMENT_SELECTION_SECONDARY_BACK] = 0x362a28
-
--- selection text color when another window has focus
--- view.element_color[view.ELEMENT_SELECTION_INACTIVE_TEXT] = 0xf2f8f8
-
--- selection background color when another window has focus
-view.element_color[view.ELEMENT_SELECTION_INACTIVE_BACK] = 0x362a28
-
--- inactive additional selection text color
-view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_TEXT] = 0x362a28
-
--- inactive additional selection background color
-view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_BACK] = 0x362a28
+-- inactive additional selection text and background color
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_TEXT] = 0xffffff
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_BACK] = 0xc7a89e
 
 -- main selection caret color
 view.element_color[view.ELEMENT_CARET] = 0xf2f8f8
 
 -- additional selection caret color
--- view.element_color[view.ELEMENT_CARET_ADDITIONAL] =
+view.element_color[view.ELEMENT_CARET_ADDITIONAL] = 0xf2f8f8
 
--- background color of the line that contains the caret
-view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x5a4744
+-- background color of the line that contains the caret. MUST BE TRANSLUCENT
+view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x5a4744 | 0x60000000
 
--- visible white space color
+-- visible white space text and background color NOT USED?
 view.element_color[view.ELEMENT_WHITE_SPACE] = 0x8cfaf1
-
--- visible white space background color
 view.element_color[view.ELEMENT_WHITE_SPACE_BACK] = 0x362a28
 
--- fold line color
+-- fold line color NOT USED?
 view.element_color[view.ELEMENT_FOLD_LINE] = 0xa47262
 
--- color of lines shown in place of hidden lines
+-- color of lines shown in place of hidden lines NOT USED?
 view.element_color[view.ELEMENT_HIDDEN_LINE] = 0xa47262
 
 -- How the caret is drawn
@@ -190,32 +202,32 @@ view:set_fold_margin_hi_color(true, 0x5a4744) -- highlight
 --
 
 -- bookmark mark number
--- view.marker_fore[textadept.bookmarks.MARK_BOOKMARK] = 0x362a28
-view.marker_back[textadept.bookmarks.MARK_BOOKMARK] = 0xc679ff
+view.marker_fore[textadept.bookmarks.MARK_BOOKMARK] = 0xf993bd
+view.marker_back[textadept.bookmarks.MARK_BOOKMARK] = 0x362a28
 
 -- run or compile warning marker number
--- view.marker_fore[textadept.run.MARK_WARNING] = 0x362a28
-view.marker_back[textadept.run.MARK_WARNING] = 0xffffff
+view.marker_fore[textadept.run.MARK_WARNING] = 0x8cfaf1
+view.marker_back[textadept.run.MARK_WARNING] = 0x362a28
 
 -- run or compile error marker number
--- view.marker_fore[textadept.run.MARK_ERROR] = 0x362a28
-view.marker_back[textadept.run.MARK_ERROR] = 0x5555ff
+view.marker_fore[textadept.run.MARK_ERROR] = 0x5555ff
+view.marker_back[textadept.run.MARK_ERROR] = 0x362a28
 
 -- Line was changed and has not yet been saved
-view.marker_fore[view.MARKNUM_HISTORY_MODIFIED] = 0xffffff
-view.marker_back[view.MARKNUM_HISTORY_MODIFIED] = 0xffffff
+view.marker_fore[view.MARKNUM_HISTORY_MODIFIED] = 0x8cfaf1
+view.marker_back[view.MARKNUM_HISTORY_MODIFIED] = 0x362a28
 
 -- Line was changed and saved
-view.marker_fore[view.MARKNUM_HISTORY_SAVED] = 0x7bfa50
-view.marker_back[view.MARKNUM_HISTORY_SAVED] = 0x7bfa50
+view.marker_fore[view.MARKNUM_HISTORY_SAVED] = 0xf2f8f8
+view.marker_back[view.MARKNUM_HISTORY_SAVED] = 0x362a28
 
 -- Line was changed, saved, then partially reverted
-view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0xffffff
-view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0xffffff
+view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x8cfaf1
+view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x362a28
 
 -- Line was changed, saved, then fully reverted
-view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0xffffff
-view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0xffffff
+view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0xf2f8f8
+view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x362a28
 
 -- Pre-defined marker numbers used for code folding marker symbols
 --
@@ -288,7 +300,7 @@ view.call_tip_fore_hlt = 0xc679ff
 -- Long Lines.
 -- If a vertical line is displayed at view.edge_colum, it will be this color.
 -- Any characters displayed after view.edge_column will be this colour.
-view.edge_color = 0x362a28
+view.edge_color = 0xc7a89e
 
 -- Find & replace pane entries.
 ui.find.entry_font = font .. ' ' .. size
