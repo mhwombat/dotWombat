@@ -11,20 +11,20 @@ $python\
 $character"""
 
 [directory]
-style = "#F1FA8C"
+style = "#f9ef92"
 
 [character]
-success_symbol = "[❯](#50FA7B)"
-error_symbol = "[❯](#FF5555)"
-vicmd_symbol = "[❮](#50FA7B)"
+success_symbol = "[❯](#9cf992)"
+error_symbol = "[❯](#f9929b)"
+vicmd_symbol = "[❮](#9cf992)"
 
 [git_branch]
-format = "[$branch](#8BE9FD)"
-style = "F8F8F2"
+format = "[$branch](#92f9f0)"
+style = "c6c9c3"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#8BE9FD) ($ahead_behind$stashed)](8BE9FD)"
-style = "8BE9FD"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#92f9f0) ($ahead_behind$stashed)](92f9f0)"
+style = "92f9f0"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -35,12 +35,12 @@ stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "F8F8F2"
+style = "c6c9c3"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "#F8F8F2"
+style = "#c6c9c3"
 
 [python]
 format = "[$virtualenv]($style) "
-style = "F8F8F2"
+style = "c6c9c3"

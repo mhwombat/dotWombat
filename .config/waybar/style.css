@@ -5,9 +5,9 @@
 }
 
 window#waybar {
-    background-color: #282A36;
-    border-bottom: 3px solid #BD93F9;
-    color: #F8F8F2;
+    background-color: #393b35;
+    border-bottom: 3px solid #bc92f9;
+    color: #c6c9c3;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -26,31 +26,31 @@ button {
 
 #workspaces button {
     padding: 0 5px;
-    color: #F8F8F2;
+    color: #c6c9c3;
     background-color: transparent;
 }
 
 #workspaces button:hover {
-    background-color: #282A36;
+    background-color: #393b35;
 }
 
 #workspaces button.focused {
-    background-color: #282A36;
+    background-color: #393b35;
     box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
-    background-color: #282A36;
+    background-color: #393b35;
 }
 
 #mode {
-    background-color: #282A36;
+    background-color: #393b35;
     box-shadow: inset 0 -3px #ffffff;
 }
 
 .module {
     padding: 0 10px;
-    color: #F8F8F2;
+    color: #c6c9c3;
     background-color: transparent;
 }
 
@@ -78,7 +78,7 @@ button {
 
 
 label:focus {
-    background-color: #282A36;
+    background-color: #393b35;
 }
 
 
@@ -95,19 +95,19 @@ label:focus {
  */
 
 #battery {
-    color: #F8F8F2;
-    background-color: #282A36;
+    color: #c6c9c3;
+    background-color: #393b35;
 }
 
 #battery.charging, #battery.plugged {
-    color: #F8F8F2;
-    background-color: #282A36;
+    color: #c6c9c3;
+    background-color: #393b35;
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    color: #F8F8F2;
-    background-color: #282A36;
+    color: #c6c9c3;
+    background-color: #393b35;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -115,87 +115,12 @@ label:focus {
     animation-direction: alternate;
 }
 
-/*
- * clock
- */
-
-#clock {
-    color: #BD93F9;
-}
-
-/*
- * cpu
- */
-
-#cpu {
-    color: #A3CCF5;
-}
-
-
-/*
- * disk
- */
-
-#disk {
-    color: #8BE9FD;
-}
-
-/*
- * keyboard-state
- */
-
-#keyboard-state {
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-    color: #8BE9FD;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-/*
- * memory
- */
-
-#memory {
-    color: #8BE9FD;
-}
-
-/*
- * network
- */
-
-#network {
-    color: #80BFFF;
-}
-
-#network.disconnected {
-    color: #F8F8F2;
-    background-color: #282A36;
-}
-
-/*
- * niri/language
- */
-
-#language {
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-    color: #8BE9FD;
-}
 
 /*
  * niri/window
  */
 #window {
-    color: #80BFFF;
+    color: #bc92f9;
 }
 
 /*
@@ -207,12 +132,36 @@ label:focus {
  */
 
 #pulseaudio {
-    color: #FF79C6;
+    color: #9cf992;
 }
 
 #pulseaudio.muted {
-    color: #F8F8F2;
-    background-color: #282A36;
+    color: #c6c9c3;
+    background-color: #393b35;
+}
+
+/*
+ * cpu
+ */
+
+#cpu {
+    color: #92f9f0;
+}
+
+/*
+ * memory
+ */
+
+#memory {
+    color: #929cf9;
+}
+
+/*
+ * disk
+ */
+
+#disk {
+    color: #f992ce;
 }
 
 /*
@@ -220,10 +169,62 @@ label:focus {
  */
 
 #temperature {
-    color: #F5A3D2;
+    color: #cef992;
 }
 
 #temperature.critical {
-    color: #F8F8F2;
-    background-color: #282A36;
+    color: #c6c9c3;
+    background-color: #393b35;
 }
+
+/*
+ * keyboard-state
+ */
+
+#keyboard-state {
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+    color: #cef992;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/*
+ * niri/language
+ */
+
+#language {
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+    color: #92f9bc;
+}
+
+/*
+ * network
+ */
+
+#network {
+    color: #92cef9;
+}
+
+#network.disconnected {
+    color: #c6c9c3;
+    background-color: #393b35;
+}
+
+/*
+ * clock
+ */
+
+#clock {
+    color: #bc92f9;
+}
+
