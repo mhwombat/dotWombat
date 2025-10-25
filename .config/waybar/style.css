@@ -5,9 +5,9 @@
 }
 
 window#waybar {
-    background-color: #393b35;
-    border-bottom: 3px solid #bc92f9;
-    color: #c6c9c3;
+    background-color: #19161c;
+    border-bottom: 3px solid #bd93f9;
+    color: #cbc6d1;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -26,31 +26,31 @@ button {
 
 #workspaces button {
     padding: 0 5px;
-    color: #c6c9c3;
+    color: #cbc6d1;
     background-color: transparent;
 }
 
 #workspaces button:hover {
-    background-color: #393b35;
+    background-color: #19161c;
 }
 
 #workspaces button.focused {
-    background-color: #393b35;
+    background-color: #19161c;
     box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
-    background-color: #393b35;
+    background-color: #19161c;
 }
 
 #mode {
-    background-color: #393b35;
+    background-color: #19161c;
     box-shadow: inset 0 -3px #ffffff;
 }
 
 .module {
     padding: 0 10px;
-    color: #c6c9c3;
+    color: #cbc6d1;
     background-color: transparent;
 }
 
@@ -78,7 +78,7 @@ button {
 
 
 label:focus {
-    background-color: #393b35;
+    background-color: #19161c;
 }
 
 
@@ -95,19 +95,19 @@ label:focus {
  */
 
 #battery {
-    color: #c6c9c3;
-    background-color: #393b35;
+    color: #cbc6d1;
+    background-color: #19161c;
 }
 
 #battery.charging, #battery.plugged {
-    color: #c6c9c3;
-    background-color: #393b35;
+    color: #cbc6d1;
+    background-color: #19161c;
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    color: #c6c9c3;
-    background-color: #393b35;
+    color: #cbc6d1;
+    background-color: #19161c;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -120,7 +120,7 @@ label:focus {
  * niri/window
  */
 #window {
-    color: #bc92f9;
+    color: #bd93f9;
 }
 
 /*
@@ -132,12 +132,12 @@ label:focus {
  */
 
 #pulseaudio {
-    color: #9cf992;
+    color: #92cef9;
 }
 
 #pulseaudio.muted {
-    color: #c6c9c3;
-    background-color: #393b35;
+    color: #cbc6d1;
+    background-color: #19161c;
 }
 
 /*
@@ -145,7 +145,7 @@ label:focus {
  */
 
 #cpu {
-    color: #92f9f0;
+    color: #cef992;
 }
 
 /*
@@ -153,7 +153,7 @@ label:focus {
  */
 
 #memory {
-    color: #929cf9;
+    color: #f992ce;
 }
 
 /*
@@ -161,7 +161,7 @@ label:focus {
  */
 
 #disk {
-    color: #f992ce;
+    color: #92f9f0;
 }
 
 /*
@@ -169,12 +169,12 @@ label:focus {
  */
 
 #temperature {
-    color: #cef992;
+    color: #f9ef92;
 }
 
 #temperature.critical {
-    color: #c6c9c3;
-    background-color: #393b35;
+    color: #cbc6d1;
+    background-color: #19161c;
 }
 
 /*
@@ -185,7 +185,7 @@ label:focus {
     padding: 0 0px;
     margin: 0 5px;
     min-width: 16px;
-    color: #cef992;
+    color: #f092f9;
 }
 
 #keyboard-state > label {
@@ -212,12 +212,12 @@ label:focus {
  */
 
 #network {
-    color: #92cef9;
+    color: #f9bc92;
 }
 
 #network.disconnected {
-    color: #c6c9c3;
-    background-color: #393b35;
+    color: #cbc6d1;
+    background-color: #19161c;
 }
 
 /*
@@ -225,6 +225,6 @@ label:focus {
  */
 
 #clock {
-    color: #bc92f9;
+    color: #bd93f9;
 }
 

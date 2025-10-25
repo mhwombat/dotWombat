@@ -20,7 +20,7 @@ vicmd_symbol = "[❮](#9cf992)"
 
 [git_branch]
 format = "[$branch](#92f9f0)"
-style = "c6c9c3"
+style = "cbc6d1"
 
 [git_status]
 format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](#92f9f0) ($ahead_behind$stashed)](92f9f0)"
@@ -35,12 +35,12 @@ stashed = "≡"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
-style = "c6c9c3"
+style = "cbc6d1"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "#c6c9c3"
+style = "#cbc6d1"
 
 [python]
 format = "[$virtualenv]($style) "
-style = "c6c9c3"
+style = "cbc6d1"

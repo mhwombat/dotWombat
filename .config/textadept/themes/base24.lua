@@ -1,5 +1,5 @@
 -- Base24 theme for Textadept, based on Mitchell's dark theme.
--- Currently using atmbwo lerppu-2
+-- Currently using atmbwo lerppu-3
 
 local view, colors, styles = view, view.colors, view.styles
 
@@ -35,14 +35,14 @@ if not size then size = not OSX and 10 or 12 end
 
 -- everything (all elements inherit from this one)
 styles[view.STYLE_DEFAULT] = {
-	font = font, size = size, fore = 0xc3c9c6, back = 0x353b39
+	font = font, size = size, fore = 0xd1c6cb, back = 0x1c1619
 }
 
 -- the line number margin
-styles[view.STYLE_LINENUMBER] = {fore = 0xa5aeaa, back = 0x6b7772}
+styles[view.STYLE_LINENUMBER] = {fore = 0xbaaab1, back = 0x8c727d}
 
 -- highlighted brace characters
-styles[view.STYLE_BRACELIGHT] = {fore = 0x9b92f9, bold = true}
+styles[view.STYLE_BRACELIGHT] = {fore = 0x92f9ce, bold = true}
 
 -- a brace character with no match
 styles[view.STYLE_BRACEBAD] = {fore = 0x9b92f9}
@@ -51,46 +51,46 @@ styles[view.STYLE_BRACEBAD] = {fore = 0x9b92f9}
 -- styles[view.STYLE_CONTROLCHAR] = {} -- control character blocks
 
 -- indentation guides
-styles[view.STYLE_INDENTGUIDE] = {fore = 0x88938e}
+styles[view.STYLE_INDENTGUIDE] = {fore = 0xa38e97}
 
 -- call tip text
-styles[view.STYLE_CALLTIP] = {fore = 0xc3c9c6, back = 0xc3c9c6}
+styles[view.STYLE_CALLTIP] = {fore = 0xd1c6cb, back = 0xd1c6cb}
 
  -- text displayed next to folded lines
-styles[view.STYLE_FOLDDISPLAYTEXT] = {fore = 0x88938e, back = 0x353b39}
+styles[view.STYLE_FOLDDISPLAYTEXT] = {fore = 0xa38e97, back = 0x1c1619}
 
 -- Tag styles. These are language-specific.
-styles[lexer.ANNOTATION] = {fore = 0x92bcf9}
-styles[lexer.ATTRIBUTE] = {fore = 0xce92f9}
+styles[lexer.ANNOTATION] = {fore = 0xbcf992}
+styles[lexer.ATTRIBUTE] = {fore = 0x92bcf9}
 styles[lexer.BOLD] = {bold = true}
-styles[lexer.CLASS] = {fore = 0x92f9ce}
-styles[lexer.CODE] = {fore = 0x92f9ce, eol_filled = true}
-styles[lexer.COMMENT] = {fore = 0xa5aeaa}
-styles[lexer.CONSTANT] = {fore = 0xce92f9}
-styles[lexer.CONSTANT_BUILTIN] = {fore = 0xf992f0}
-styles[lexer.EMBEDDED] = {fore = 0xbcf992, back = 0xbcf992}
+styles[lexer.CLASS] = {fore = 0xf992f0}
+styles[lexer.CODE] = {fore = 0xf992f0, eol_filled = true}
+styles[lexer.COMMENT] = {fore = 0xbaaab1}
+styles[lexer.CONSTANT] = {fore = 0x92bcf9}
+styles[lexer.CONSTANT_BUILTIN] = {fore = 0xce92f9}
+styles[lexer.EMBEDDED] = {fore = 0x92eff9, back = 0x92eff9}
 styles[lexer.ERROR] = {fore = 0x9b92f9}
-styles[lexer.FUNCTION] = {fore = 0x92bcf9}
-styles[lexer.FUNCTION_BUILTIN] = {fore = 0x9b92f9}
-styles[lexer.FUNCTION_METHOD] = {fore = 0x92bcf9}
-styles[lexer.HEADING] = {bold = true, fore = 0xf9ce92}
+styles[lexer.FUNCTION] = {fore = 0xbcf992}
+styles[lexer.FUNCTION_BUILTIN] = {fore = 0x92f9ce}
+styles[lexer.FUNCTION_METHOD] = {fore = 0xbcf992}
+styles[lexer.HEADING] = {bold = true, fore = 0xf0f992}
 -- styles[lexer.IDENTIFIER] = {}
 styles[lexer.ITALIC] = {italic = true}
-styles[lexer.KEYWORD] = {fore = 0x92f99c}
-styles[lexer.LABEL] = {fore = 0xf992f0}
+styles[lexer.KEYWORD] = {fore = 0x9b92f9}
+styles[lexer.LABEL] = {fore = 0xce92f9}
 styles[lexer.LINK] = {underline = true}
-styles[lexer.LIST] = {fore = 0x9b92f9}
-styles[lexer.NUMBER] = {fore = 0xf0f992}
-styles[lexer.OPERATOR] = {fore = 0x92eff9}
-styles[lexer.PREPROCESSOR] = {fore = 0x92eff9}
+styles[lexer.LIST] = {fore = 0x92f9ce}
+styles[lexer.NUMBER] = {fore = 0x92f99c}
+styles[lexer.OPERATOR] = {fore = 0xf9ce92}
+styles[lexer.PREPROCESSOR] = {fore = 0xf9ce92}
 styles[lexer.REFERENCE] = {underline = true}
-styles[lexer.REGEX] = {fore = 0x92f99c}
+styles[lexer.REGEX] = {fore = 0x9b92f9}
 styles[lexer.STRING] = {fore = 0xf99c92}
-styles[lexer.TAG] = {fore = 0xf992bc}
-styles[lexer.TYPE] = {fore = 0xbcf992}
+styles[lexer.TAG] = {fore = 0xf993bd}
+styles[lexer.TYPE] = {fore = 0x92eff9}
 styles[lexer.UNDERLINE] = {underline = true}
-styles[lexer.VARIABLE] = {fore = 0xf992bc}
-styles[lexer.VARIABLE_BUILTIN] = {fore = 0xf9ce92}
+styles[lexer.VARIABLE] = {fore = 0xf993bd}
+styles[lexer.VARIABLE_BUILTIN] = {fore = 0xf0f992}
 styles[lexer.WHITESPACE] = {fore = 0x92eff9}
 
 -- CSS.
@@ -122,7 +122,7 @@ styles.environment_math = styles[lexer.NUMBER]
 -- Output.
 styles.csi = {visible = false}
 local csi_colors = {
-	black = 0x000000, red = 0x9b92f9, green = 0x92f99c, yellow = 0x92eff9,
+	black = 0x1c1619, red = 0x9b92f9, green = 0x92f99c, yellow = 0x92eff9,
 	blue = 0xf99c92, magenta = 0xf992f0, cyan = 0xf0f992, white = 0xffffff
 }
 for k, v in pairs(csi_colors) do styles['csi_' .. k] = {fore = v} end
@@ -143,42 +143,42 @@ styles.error_indent = {back = 0x9b92f9}
 
 -- main selection text and background colors
 view.element_color[view.ELEMENT_SELECTION_TEXT] = 0xffffff
-view.element_color[view.ELEMENT_SELECTION_BACK] = 0xa5aeaa
+view.element_color[view.ELEMENT_SELECTION_BACK] = 0xbaaab1
 
 -- additional selection text and background color
 view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_TEXT] = 0xffffff
-view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_BACK] = 0xa5aeaa
+view.element_color[view.ELEMENT_SELECTION_ADDITIONAL_BACK] = 0xbaaab1
 
 -- secondary selection text and background color
 view.element_color[view.ELEMENT_SELECTION_SECONDARY_TEXT] = 0xffffff
-view.element_color[view.ELEMENT_SELECTION_SECONDARY_BACK] = 0xa5aeaa
+view.element_color[view.ELEMENT_SELECTION_SECONDARY_BACK] = 0xbaaab1
 
 -- selection text and background color when another window has focus
 view.element_color[view.ELEMENT_SELECTION_INACTIVE_TEXT] = 0xffffff
-view.element_color[view.ELEMENT_SELECTION_INACTIVE_BACK] = 0xa5aeaa
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_BACK] = 0xbaaab1
 
 -- inactive additional selection text and background color
 view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_TEXT] = 0xffffff
-view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_BACK] = 0xa5aeaa
+view.element_color[view.ELEMENT_SELECTION_INACTIVE_ADDITIONAL_BACK] = 0xbaaab1
 
 -- main selection caret color
-view.element_color[view.ELEMENT_CARET] = 0xf992bc
+view.element_color[view.ELEMENT_CARET] = 0xf993bd
 
 -- additional selection caret color
-view.element_color[view.ELEMENT_CARET_ADDITIONAL] = 0xf992bc
+view.element_color[view.ELEMENT_CARET_ADDITIONAL] = 0xf993bd
 
 -- background color of the line that contains the caret. MUST BE TRANSLUCENT
-view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x6b7772 | 0x60000000
+view.element_color[view.ELEMENT_CARET_LINE_BACK] = 0x54444b | 0x60000000
 
 -- visible white space text and background color NOT USED?
 view.element_color[view.ELEMENT_WHITE_SPACE] = 0x92eff9
-view.element_color[view.ELEMENT_WHITE_SPACE_BACK] = 0x353b39
+view.element_color[view.ELEMENT_WHITE_SPACE_BACK] = 0x1c1619
 
 -- fold line color NOT USED?
-view.element_color[view.ELEMENT_FOLD_LINE] = 0x88938e
+view.element_color[view.ELEMENT_FOLD_LINE] = 0xa38e97
 
 -- color of lines shown in place of hidden lines NOT USED?
-view.element_color[view.ELEMENT_HIDDEN_LINE] = 0x88938e
+view.element_color[view.ELEMENT_HIDDEN_LINE] = 0xa38e97
 
 -- How the caret is drawn
 --
@@ -190,8 +190,8 @@ view.caret_line_layer = view.LAYER_UNDER_TEXT
 
 -- Fold Margin.
 -- set these the same if you don't want that tiny checkerboard effect
-view:set_fold_margin_color(true, 0x6b7772) -- default
-view:set_fold_margin_hi_color(true, 0x6b7772) -- highlight
+view:set_fold_margin_color(true, 0x8c727d) -- default
+view:set_fold_margin_hi_color(true, 0x8c727d) -- highlight
 
 --
 -- Markers.
@@ -202,32 +202,32 @@ view:set_fold_margin_hi_color(true, 0x6b7772) -- highlight
 --
 
 -- bookmark mark number
-view.marker_fore[textadept.bookmarks.MARK_BOOKMARK] = 0xf992bc
-view.marker_back[textadept.bookmarks.MARK_BOOKMARK] = 0x353b39
+view.marker_fore[textadept.bookmarks.MARK_BOOKMARK] = 0xf993bd
+view.marker_back[textadept.bookmarks.MARK_BOOKMARK] = 0x1c1619
 
 -- run or compile warning marker number
 view.marker_fore[textadept.run.MARK_WARNING] = 0x92eff9
-view.marker_back[textadept.run.MARK_WARNING] = 0x353b39
+view.marker_back[textadept.run.MARK_WARNING] = 0x1c1619
 
 -- run or compile error marker number
 view.marker_fore[textadept.run.MARK_ERROR] = 0x9b92f9
-view.marker_back[textadept.run.MARK_ERROR] = 0x353b39
+view.marker_back[textadept.run.MARK_ERROR] = 0x1c1619
 
 -- Line was changed and has not yet been saved
 view.marker_fore[view.MARKNUM_HISTORY_MODIFIED] = 0x92eff9
-view.marker_back[view.MARKNUM_HISTORY_MODIFIED] = 0x353b39
+view.marker_back[view.MARKNUM_HISTORY_MODIFIED] = 0x1c1619
 
 -- Line was changed and saved
-view.marker_fore[view.MARKNUM_HISTORY_SAVED] = 0xc3c9c6
-view.marker_back[view.MARKNUM_HISTORY_SAVED] = 0x353b39
+view.marker_fore[view.MARKNUM_HISTORY_SAVED] = 0xd1c6cb
+view.marker_back[view.MARKNUM_HISTORY_SAVED] = 0x1c1619
 
 -- Line was changed, saved, then partially reverted
 view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x92eff9
-view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x353b39
+view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_MODIFIED] = 0x1c1619
 
 -- Line was changed, saved, then fully reverted
-view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0xc3c9c6
-view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x353b39
+view.marker_fore[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0xd1c6cb
+view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x1c1619
 
 -- Pre-defined marker numbers used for code folding marker symbols
 --
@@ -240,9 +240,9 @@ view.marker_back[view.MARKNUM_HISTORY_REVERTED_TO_ORIGIN] = 0x353b39
 -- view.MARKNUM_FOLDEREND  The first line of a collapsed fold within an expanded fold
 --
 for i = view.MARKNUM_FOLDEREND, view.MARKNUM_FOLDEROPEN do -- fold margin
-	view.marker_fore[i] = 0x88938e
-	view.marker_back[i] = 0x353b39
-	view.marker_back_selected[i] = 0x353b39
+	view.marker_fore[i] = 0xa38e97
+	view.marker_back[i] = 0x1c1619
+	view.marker_back_selected[i] = 0x1c1619
 end
 
 --
@@ -257,11 +257,11 @@ view.indic_fore[ui.find.INDIC_FIND] = 0xffffff
 view.indic_alpha[ui.find.INDIC_FIND] = 0x80
 
 -- The word highlight indicator number.
-view.indic_fore[textadept.editing.INDIC_HIGHLIGHT] = 0x353b39
+view.indic_fore[textadept.editing.INDIC_HIGHLIGHT] = 0x1c1619
 view.indic_alpha[textadept.editing.INDIC_HIGHLIGHT] = 0x80
 
 -- The snippet placeholder indicator number.
-view.indic_fore[textadept.snippets.INDIC_PLACEHOLDER] = 0xc3c9c6
+view.indic_fore[textadept.snippets.INDIC_PLACEHOLDER] = 0xd1c6cb
 
 -- The run or compile warning indicator number.
 view.indic_fore[textadept.run.INDIC_WARNING] = 0xffffff
@@ -300,7 +300,7 @@ view.call_tip_fore_hlt = 0xf992f0
 -- Long Lines.
 -- If a vertical line is displayed at view.edge_colum, it will be this color.
 -- Any characters displayed after view.edge_column will be this colour.
-view.edge_color = 0xa5aeaa
+view.edge_color = 0xbaaab1
 
 -- Find & replace pane entries.
 ui.find.entry_font = font .. ' ' .. size
