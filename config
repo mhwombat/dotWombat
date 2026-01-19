@@ -9,6 +9,7 @@
 .config/recoll/mimemap
 .config/recoll/recoll.conf
 .config/remind
+.config/sunsetr
 .config/shell-agnostic
 .config/starship
 .config/textadept/init.lua
