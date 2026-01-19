@@ -91,7 +91,7 @@ eval "$(starship init bash)"
 ### direnv
 ###
 
-# eval "$(direnv hook bash)"
+eval "$(direnv hook bash)"
 
 ###
 ### Non-shell-specific stuff
