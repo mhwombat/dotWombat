@@ -1,7 +1,7 @@
-local lsp = require('lsp')
+-- local lsp = require('lsp')
 
-lsp.server_commands.haskell = 'haskell-language-server --lsp'
-lsp.server_commands.markdown = 'markdown-oxide'
+-- lsp.server_commands.haskell = 'haskell-language-server --lsp'
+-- lsp.server_commands.markdown = 'markdown-oxide'
 
 --textredux = require 'textredux'
 
