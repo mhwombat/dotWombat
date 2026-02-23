@@ -15,4 +15,5 @@
 .config/textadept/init.lua
 .config/textadept/themes
 .config/waybar
+.config/wezterm
 .ghci
