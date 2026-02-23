@@ -122,7 +122,7 @@ styles.environment_math = styles[lexer.NUMBER]
 -- Output.
 styles.csi = {visible = false}
 local csi_colors = {
-	black = 0x1c1619, red = 0x9b92f9, green = 0x92f99c, yellow = 0x92eff9,
+	black = 0x000000, red = 0x9b92f9, green = 0x92f99c, yellow = 0x92eff9,
 	blue = 0xf99c92, magenta = 0xf992f0, cyan = 0xf0f992, white = 0xffffff
 }
 for k, v in pairs(csi_colors) do styles['csi_' .. k] = {fore = v} end

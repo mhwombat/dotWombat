@@ -3,6 +3,8 @@
 // "/-" comments out the following node.
 
 layout {
+    background-color "#000000"
+
     // You can change how the focus ring looks.
     focus-ring {
         // Colors can be set in a variety of ways:
