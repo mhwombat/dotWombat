@@ -20,7 +20,7 @@ ssl = yes
 folderfilter = lambda folder: folder not in ['Spam', 'Trash']
 # Tip: To get the fingerprint, put a dummy value here.
 # The error message will tell you the correct fingerprint.
-cert_fingerprint = 2532fb67900b1375a25254265bcd7df5272dbd0a0ae302a6742a70b47e3a6fe2be69ae19292e7652b36f71d87cb24cb69e460b24898a3c139e6789ab05a6067f
+cert_fingerprint = 0dac883860589e52cab834a511a863d47879c7fe77a5b0b80edf4dd360cc9160c2d13c05db86aed6face0f3153955d8ae848bbcf5d69d7689bbb1270cae007cc
 
 [Account amydebuitleir.eu]
 localrepository = amydebuitleir.eu.local
@@ -40,4 +40,4 @@ ssl = yes
 folderfilter = lambda folder: folder not in ['INBOX.spam', 'INBOX.Trash']
 # Tip: To get the fingerprint, put a dummy value here.
 # The error message will tell you the correct fingerprint.
-cert_fingerprint = 8a6c9a739d8f636f998fe44d025fb23cb641c6757a4f5c14a8205c0494a324c47e065ac2521583e0d41cf687cd446b836c3ef49b0c85af1ada81c782652e8174
+cert_fingerprint = 967de73a628ed63a519b717658f634e8b93fbaa45ce5d1b53eae20167ea1b233d91194d7fc48eb7c6c8a0872ee63b35b0d435a131bb8cddbfb11c9533451bc40
