@@ -1,0 +1,90 @@
+# Author: Amy de Buitléir
+# Name: wombat / purple-3
+
+[colors]
+# The default background color
+background = "#19161c"
+
+# The default text color
+foreground = "#cbc6d1"
+
+# Overrides the cell background color when the current cell is occupied by the
+# cursor and the cursor style is set to Block
+cursor_bg = "#cbc6d1"
+
+# Overrides the text color when the current cell is occupied by the cursor
+cursor_fg = "#bd93f9"
+
+# Specifies the border color of the cursor when the cursor style is set to Block,
+# or the color of the vertical or horizontal bar when the cursor style is set to
+# Bar or Underline.
+cursor_border = "#cbc6d1"
+
+# the background color of selected text
+selection_bg = "#b1aaba"
+
+# the foreground color of selected text
+selection_fg = "#ffffff"
+
+# The color of the scrollbar "thumb"; the portion that represents the current viewport
+scrollbar_thumb = '#cbc6d1'
+
+# The color of the split lines between panes
+split = '#19161c'
+
+ansi = [
+    "#000000", # 0 Xterm black, ANSI black
+    "#f9929b", # 1 Xterm maroon, ANSI red, archive
+    "#9cf992", # 2 Xterm green, ANSI green, executable file
+    "#f9ef92", # 3 Xterm olive, ANSI yellow, device
+    "#929cf9", # 4 Xterm navy, ANSI blue, directory
+    "#f092f9", # 5 Xterm purple, ANSI magenta, graphic file
+    "#92f9f0", # 6 Xterm teal, ANSI cyan, symbolic link
+    "#e5e2e8", # 7 Xterm silver, ANSI white
+]
+brights = [
+    "#7d728c", #  8 Xterm grey, ANSI bright black
+    "#ff0000", #  9 Xterm red, ANSI bright red
+    "#00ff00", # 10 Xterm lime, ANSI bright green
+    "#ffff00", # 11 Xterm yellow, ANSI bright yellow
+    "#0000ff", # 12 Xterm blue, ANSI bright blue
+    "#ff00ff", # 13 Xterm fuchsia, ANSI bright magenta
+    "#00ffff", # 14 Xterm aqua, ANSI bright cyan
+    "#ffffff", # 15 Xterm white, ANSI bright white
+]
+
+# When the IME, a dead key or a leader key are being processed and are effectively
+# holding input pending the result of input composition, change the cursor
+# to this color to give a visual cue about the compose state.
+compose_cursor = "#bd93f9"
+
+# Colors for copy_mode and quick_select
+# In copy_mode, the color of the active text is:
+# 1. copy_mode_active_highlight_* if additional text was selected using the mouse
+# 2. selection_* otherwise
+copy_mode_active_highlight_bg = { Color = "#b1aaba" }
+copy_mode_active_highlight_fg = { Color = "#ffffff" }
+copy_mode_inactive_highlight_bg = { Color = "#19161c" }
+copy_mode_inactive_highlight_fg = { Color = "#978ea3" }
+
+quick_select_label_bg = { Color = "#4b4454" }
+quick_select_label_fg = { Color = "#cbc6d1" }
+quick_select_match_bg = { Color = "#b1aaba" }
+quick_select_match_fg = { Color = "#f9bc92" }
+
+input_selector_label_bg = { Color = "#19161c" }
+input_selector_label_fg = { Color = "#cbc6d1" }
+
+launcher_label_bg = { Color = "#19161c" }
+launcher_label_fg = { Color = "#cbc6d1" }
+
+# Arbitrary colors of the palette in the range from 16 to 255
+# [colors.indexed]
+# 16 = "#e8bbd0"
+# 17 = "#cdab53"
+# 18 = "#3a3432"
+# 19 = "#4a4543"
+# 20 = "#807d7c"
+# 21 = "#d6d5d4"
+
+
