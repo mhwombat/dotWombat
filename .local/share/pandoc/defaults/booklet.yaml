@@ -1,0 +1,18 @@
+template: booklet
+variables:
+  classoption:
+  - twocolumn
+  geometry:
+  - top=2cm
+  - left=1cm
+  - right=1cm
+  - bottom=0.5cm
+  post-header-includes: |
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhead[L,C]{}
+    \fancyhead[R]{{\LARGE \textbf{\savedtitle}}}
+    \fancyfoot[L,C,R]{}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \usepackage{pgfpages}
+    \pgfpagesuselayout{2 on 1}[a4paper,landscape,border shrink=5mm]
