@@ -16,4 +16,5 @@
 .config/textadept/themes
 .config/waybar
 .config/wezterm
+.local/share/pandoc
 .ghci
