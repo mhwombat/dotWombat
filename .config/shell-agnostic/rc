@@ -17,6 +17,7 @@ function fmd() { find ${1:-.} -name '*.md' | sort ;}
 function gic() { git add $*; git commit -m 'initial commit' $* ;}
 function idea() { jot -d=${HOME}/github/ideas -t="$*" ;}
 function ideas() { jot -d=${HOME}/github/ideas -p ;}
+function make-booklet() { pandoc $1.md -o $1.pdf --defaults=booklet; }
 function next() { remind -n ~/.config/remind $1 | sort; }
 function nghci() { nix-shell -p "haskellPackages.ghcWithPackages (p: [$*])" --run ghci ;}
 function ngrep() { grep -i $* ${HOME}/github/notes/* ;}
